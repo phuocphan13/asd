@@ -1,0 +1,6 @@
+<div class="online-movies-container">
+  {{data}}
+  <div *ngFor="let item of listMovie">
+    <app-movie-view [data]="item"></app-movie-view>
+  </div>
+</div>

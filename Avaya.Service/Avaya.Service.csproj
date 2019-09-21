@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Avaya.Model\Avaya.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MovieService\" />
+  </ItemGroup>
+
 </Project>

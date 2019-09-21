@@ -1,0 +1,24 @@
+<div>
+  <div class="dropdown" style="float:left;">
+    <button class="dropbtn">Phim chiếu rạp</button>
+    <div class="dropdown-content" style="left:0;">
+      <a href="#" *ngFor="let item of listHeaderChildrens">{{item.name}}</a>
+    </div>
+  </div>
+  <div class="dropdown" style="float:left;">
+    <button class="dropbtn">Xem phim</button>
+    <div class="dropdown-content">
+      <a href="#" *ngFor="let item of listMenus">{{item.name}}</a>
+    </div>
+  </div>
+</div>
+<div class="topnav">
+  <a class="active" href="#home">moveɘk</a>
+  <div class="search-container">
+    <input type="text" placeholder="Search.." [(ngModel)]="searchText" name="search-value">
+    <button type="submit" (click)="onSearch()">
+      <i class="fa fa-search"></i>
+    </button>
+    <i class="fas fa-user log-in-circle log-in-button" title="Log In Pls"></i>
+  </div>
+</div>

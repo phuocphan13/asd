@@ -1,0 +1,53 @@
+.side-article-halfsize{
+    width: 310px;
+    min-width: 310px;
+    float:right;
+}
+
+.section-title-custom:after, .section-title:after {
+    overflow: hidden;
+    width: 100%;
+    height: 2px;
+    background: #dba433;
+    content: " ";
+    vertical-align: middle;
+    margin-left: .75em;
+    display: inline-block;
+}
+
+.section-title, .section-title-custom {
+    display: inline-block;
+    position: relative;
+    font-family: Khand,Arial Narrow,arial,sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2e2c2b;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: .75em;
+    width: 100%!important;
+    padding: 1rem 0;
+    margin-bottom: .5rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.browse-clip{
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 15px;
+    flex-direction: row;
+    display: flex;
+    
+}
+
+.clip-info{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Khand,Arial Narrow,arial,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding-right: 0;
+    padding-left: 3%;
+}

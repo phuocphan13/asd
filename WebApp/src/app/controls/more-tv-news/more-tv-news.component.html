@@ -1,0 +1,35 @@
+<div class="news-section">
+  <div class="news-more-title"> MORE IN TV NEWS </div>
+  <div class="news-line"></div>
+</div>
+
+<div class="more-tv-news-container">
+  <div class="more-tv-news-detail-container">
+    <div class="desc" *ngFor="let item of listRightNews">
+      <a target="_blank" [href]=item.link>
+        <img [src]="item.imgUrl">
+      </a>
+      <a target="_blank" [href]=item.titleUrl>
+        <div class="title">{{item.title}}</div>
+      </a>
+      <a target="_blank" [href]=item.authorUrl>
+        <div class="author">{{item.author}}</div>
+      </a>
+
+    </div>
+
+  </div>
+  <div class="more-tv-news-detail-container">
+    <div class="desc" *ngFor="let item of listLeftNews">
+      <a target="_blank" [href]=item.link>
+        <img [src]="item.imgUrl">
+      </a>
+      <a target="_blank" [href]=item.titleUrl>
+        <div class="title">{{item.title}}</div>
+      </a>
+      <a target="_blank" [href]=item.authorUrl>
+        <div class="author">{{item.author}}</div>
+      </a>
+    </div>
+  </div>
+</div>

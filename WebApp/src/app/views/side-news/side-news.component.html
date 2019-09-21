@@ -1,0 +1,16 @@
+<div class="side-article">
+  <div class="sidebar-brandlink">
+    ON POTATO.COM
+  </div>
+  <div class="section-title">
+    TRENDING
+  </div>
+  <div *ngFor="let item of listclip"> 
+      <div class="browse-clip">
+          <a class="image" href="#"> <img src={{item.img}}> </a>
+          <div class="clip-info">
+            <h3> {{item.headertitle}} </h3>
+          </div>
+      </div>     
+    </div>
+  

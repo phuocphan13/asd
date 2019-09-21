@@ -9,7 +9,7 @@ namespace Avaya.Service
         public ServiceMapperProfile()
         {
             var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<ProductDetails, ProductDetailModel>();
+                //cfg.CreateMap<ProductDetails, ProductDetailModel>();
             });
         }
     }

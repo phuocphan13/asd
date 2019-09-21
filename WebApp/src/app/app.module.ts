@@ -20,9 +20,25 @@ import { ModalModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { AlertModule } from 'ngx-alerts';
-import { PlanbarComponent } from './plan-bar/plan-bar.component';
-import { MainViewComponent } from './main-view/main-view.component';
-import { NewsViewComponent } from './news-view/news-view.component';
+import { MainViewComponent } from './views/main-view/main-view.component';
+import { NewsViewComponent } from './views/news-view/news-view.component';
+import { MoreTvNewsComponent } from './controls/more-tv-news/more-tv-news.component';
+import { ArticleComponent } from './article/article.component';
+import { NewsSectionComponent } from './controls/main-news/main-news.component';
+import { SidenewsSectionComponent } from './views/side-news/side-news.component';
+import { SidenewsHalfsizeComponent } from './controls/side-news-half-size/side-news-half-size.component';
+import { BookingTicketComponent } from './controls/booking-ticket/booking-ticket.component';
+import { MovieViewComponent } from './views/movie-view/movie-view.component';
+import { TimeMovieCinemaComponent } from './controls/time-movie-cinema/time-movie-cinema.component';
+import { PaymentSectionComponent } from './controls/payment-section/payment-section.component';
+import { OnlineMoviesCenterViewComponent } from './views/online-movies-center-view/online-movies-center-view.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SharedModule } from './shared/shared.module';
+import { ViewModule } from './views/view.module';
+import { ControlModule } from './controls/control.module';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { PaymentViewComponent } from './views/payment-view/payment-view.component';
 
 const appRoutes: Routes = [
   {
@@ -43,11 +59,16 @@ export const environment = {
 @NgModule({
   declarations: [
     AppComponent,
-    PlanbarComponent,
     MainViewComponent,
-    NewsViewComponent,
+    NewsSectionComponent,
+    SidenewsHalfsizeComponent,
+    ArticleComponent,
+    PaymentViewComponent,
   ],
   imports: [
+    ControlModule,
+    ViewModule,
+    SharedModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -67,7 +88,8 @@ export const environment = {
       enableTracing: environment.production === false,
       useHash: true
     }),
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'})
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'}),
+    BsDatepickerModule.forRoot()
   ],
   entryComponents: [
   ],
@@ -77,6 +99,7 @@ export const environment = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     }
   ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

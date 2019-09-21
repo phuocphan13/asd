@@ -1,0 +1,29 @@
+<div class="payment-container">
+  <div class="movie-image">
+    <img src={{img}}>
+  </div>
+  <div class="movie-info-container">
+    <h2>
+      {{moviename}}
+    </h2>
+    <div class="ticket-info">
+      <p>
+        <b>Rạp: </b>{{theater}}
+      </p>
+      <p>
+        <b>Suất Chiếu: </b>{{showtime}}
+      </p>
+      <p>
+        <b>Ghế: </b>{{seatnumber}}
+      </p>
+      <h2>
+        TỔNG: {{completePrice | currency}} vnđ
+      </h2>
+    </div>
+    <div class="booking-proceed">
+      <a href="" class="proceed-button">
+        THANH TOÁN
+      </a>
+    </div>
+  </div>
+</div>

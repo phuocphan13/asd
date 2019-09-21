@@ -16,19 +16,19 @@ namespace Avaya.Domain
     {
         public static void ConfigureDomain(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<SmartPhoneStoreContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("SmartPhoneStore")));
+            services.AddDbContext<MovieTheaterContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("MovieTheater")));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IRepository<Brands>, Repository<Brands>>();
-            services.AddScoped<IRepository<CartDetails>, Repository<CartDetails>>();
-            services.AddScoped<IRepository<Cart>, Repository<Cart>>();
-            services.AddScoped<IRepository<ProductDetails>, Repository<ProductDetails>>();
-            services.AddScoped<IRepository<Roles>, Repository<Roles>>();
-            services.AddScoped<IRepository<UserRoles>, Repository<UserRoles>>();
-            services.AddScoped<IRepository<SellHistory>, Repository<SellHistory>>();
-            services.AddScoped<IRepository<Users>, Repository<Users>>();
-            services.AddScoped<IRepository<Menu>, Repository<Menu>>();
+            services.AddScoped<IRepository<BookingDetail>, Repository<BookingDetail>>();
+            services.AddScoped<IRepository<Cinema>, Repository<Cinema>>();
+            services.AddScoped<IRepository<Movie>, Repository<Movie>>();
+            services.AddScoped<IRepository<MovieTheaterContext>, Repository<MovieTheaterContext>>();
+            services.AddScoped<IRepository<ReservedSeat>, Repository<ReservedSeat>>();
+            services.AddScoped<IRepository<Room>, Repository<Room>>();
+            services.AddScoped<IRepository<RoomDetail>, Repository<RoomDetail>>();
+            services.AddScoped<IRepository<SeatType>, Repository<SeatType>>();
+            services.AddScoped<IRepository<ShowTime>, Repository<ShowTime>>();
         }
     }
 }

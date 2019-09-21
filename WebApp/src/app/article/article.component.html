@@ -1,0 +1,49 @@
+<div>
+    <div class="news-section">
+        <div class="news-latest-title">Latest News</div>
+        <div class="news-line"></div>
+    </div>
+    <div class="main-news">
+        <a [href]="mainNews.link" class="main-news-core">
+            <img class="main-news-image" [src]="mainNews.imgUrl">
+        </a>
+
+        <div class="main-news-title-core">
+            <a [href]="mainNews.link">
+                <div class="main-news-title">{{mainNews.title}}</div>
+            </a>
+            <div class="row">
+                <a [href]="mainNews.authorlink">
+                    <div class="news-author">{{mainNews.author}}</div>
+                </a>
+                <a [href]="mainNews.datelink">
+                    <div class="news-author"> {{mainNews.date}}</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <div class="row news-core" *ngFor="let item of listNews">
+            <div class="article-container">
+                <a [href]="item.link">
+                    <img class="news-image" [src]="item.imgUrl">
+                </a>
+            </div>
+            <div class="article-news-container news-info">
+                <a [href]="item.link">
+                    <div class="news-title">{{item.title}}</div>
+                </a>
+                <div class="news-description">{{item.infor}}</div>
+                <div class="row">
+                    <a [href]="item.authorlink">
+                        <div class="news-author">{{item.author}}</div>
+                    </a>
+                    <a [href]="item.datelink">
+                        <div class="news-author">{{item.date}}</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

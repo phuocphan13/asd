@@ -1,0 +1,163 @@
+/****** Object:  Table [dbo].[Booking_Detail]    Script Date: 9/8/2019 9:25:17 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Booking_Detail](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Movie] [int] NOT NULL,
+	[Id_Cinema] [int] NOT NULL,
+	[Date] [datetime] NOT NULL,
+ CONSTRAINT [PK_Booking_Detail] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Cinema]    Script Date: 9/8/2019 9:25:18 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cinema](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[Address] [nvarchar](max) NOT NULL,
+	[Logo] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Cinema] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Movie]    Script Date: 9/8/2019 9:25:18 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Movie](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Picture] [nvarchar](max) NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[Description] [nvarchar](max) NULL,
+	[Duration] [int] NOT NULL,
+ CONSTRAINT [PK_Movie] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Reserved_Seat]    Script Date: 9/8/2019 9:25:18 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reserved_Seat](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_ShowTime] [int] NOT NULL,
+	[Seat] [int] NULL,
+ CONSTRAINT [PK_Reserved_Seat] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Room]    Script Date: 9/8/2019 9:25:18 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Room](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_ShowTime] [int] NOT NULL,
+	[Amount] [int] NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Room] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Room_Detail]    Script Date: 9/8/2019 9:25:18 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Room_Detail](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Room] [int] NOT NULL,
+	[Id_Seat_Type] [int] NOT NULL,
+	[Row] [nvarchar](max) NOT NULL,
+	[Column] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Room_Detail] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Seat_Type]    Script Date: 9/8/2019 9:25:18 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Seat_Type](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Type] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Seat_Type] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Show_Time]    Script Date: 9/8/2019 9:25:18 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Show_Time](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_BookingDetail] [int] NOT NULL,
+	[Time_Start] [time](7) NOT NULL,
+	[Time_End] [time](7) NOT NULL,
+	[Seat] [int] NOT NULL,
+ CONSTRAINT [PK_Show_Time] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Booking_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Detail_Cinema] FOREIGN KEY([Id_Cinema])
+REFERENCES [dbo].[Cinema] ([Id])
+GO
+ALTER TABLE [dbo].[Booking_Detail] CHECK CONSTRAINT [FK_Booking_Detail_Cinema]
+GO
+ALTER TABLE [dbo].[Booking_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Detail_Movie] FOREIGN KEY([Id_Movie])
+REFERENCES [dbo].[Movie] ([Id])
+GO
+ALTER TABLE [dbo].[Booking_Detail] CHECK CONSTRAINT [FK_Booking_Detail_Movie]
+GO
+ALTER TABLE [dbo].[Reserved_Seat]  WITH CHECK ADD  CONSTRAINT [FK_Reserved_Seat_Show_Time] FOREIGN KEY([Id_ShowTime])
+REFERENCES [dbo].[Show_Time] ([Id])
+GO
+ALTER TABLE [dbo].[Reserved_Seat] CHECK CONSTRAINT [FK_Reserved_Seat_Show_Time]
+GO
+ALTER TABLE [dbo].[Room]  WITH CHECK ADD  CONSTRAINT [FK_Room_Show_Time] FOREIGN KEY([Id_ShowTime])
+REFERENCES [dbo].[Show_Time] ([Id])
+GO
+ALTER TABLE [dbo].[Room] CHECK CONSTRAINT [FK_Room_Show_Time]
+GO
+ALTER TABLE [dbo].[Room_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Room_Detail_Room] FOREIGN KEY([Id_Room])
+REFERENCES [dbo].[Room] ([Id])
+GO
+ALTER TABLE [dbo].[Room_Detail] CHECK CONSTRAINT [FK_Room_Detail_Room]
+GO
+ALTER TABLE [dbo].[Room_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Room_Detail_Seat_Type] FOREIGN KEY([Id_Seat_Type])
+REFERENCES [dbo].[Seat_Type] ([Id])
+GO
+ALTER TABLE [dbo].[Room_Detail] CHECK CONSTRAINT [FK_Room_Detail_Seat_Type]
+GO
+ALTER TABLE [dbo].[Show_Time]  WITH CHECK ADD  CONSTRAINT [FK_Show_Time_Booking_Detail] FOREIGN KEY([Id_BookingDetail])
+REFERENCES [dbo].[Booking_Detail] ([Id])
+GO
+ALTER TABLE [dbo].[Show_Time] CHECK CONSTRAINT [FK_Show_Time_Booking_Detail]
+GO

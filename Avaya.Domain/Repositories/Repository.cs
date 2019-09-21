@@ -6,10 +6,10 @@ using System.Text;
 
 namespace Avaya.Domain.Repositories
 {
-    public class Repository<TEntity> : RepositoryBase<TEntity, SmartPhoneStoreContext>
+    public class Repository<TEntity> : RepositoryBase<TEntity, MovieTheaterContext>
         where TEntity : class
     {
-        public Repository(SmartPhoneStoreContext context) : base(context)
+        public Repository(MovieTheaterContext context) : base(context)
         {
         }
     }

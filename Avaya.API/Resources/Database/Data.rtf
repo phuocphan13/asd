@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset163 Calibri;}{\f2\fnil\fcharset238 Calibri;}}
+{\*\generator Riched20 10.0.17763}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 SET IDENTITY_INSERT [dbo].[Booking_Detail] ON \par
+\par
+INSERT [dbo].[Booking_Detail] ([Id], [Id_Movie], [Id_Cinema], [Date]) VALUES (10, 1, 1, CAST(N'2019-01-09T00:00:00.000' AS DateTime))\par
+INSERT [dbo].[Booking_Detail] ([Id], [Id_Movie], [Id_Cinema], [Date]) VALUES (11, 2, 2, CAST(N'2019-02-09T00:00:00.000' AS DateTime))\par
+INSERT [dbo].[Booking_Detail] ([Id], [Id_Movie], [Id_Cinema], [Date]) VALUES (12, 3, 3, CAST(N'2019-03-09T00:00:00.000' AS DateTime))\par
+INSERT [dbo].[Booking_Detail] ([Id], [Id_Movie], [Id_Cinema], [Date]) VALUES (13, 4, 4, CAST(N'2019-04-09T00:00:00.000' AS DateTime))\par
+SET IDENTITY_INSERT [dbo].[Booking_Detail] OFF\par
+SET IDENTITY_INSERT [dbo].[Cinema] ON \par
+\par
+INSERT [dbo].[Cinema] ([Id], [Name], [Address], [Logo]) VALUES (1, N'BHD Star Bitexco', N'L3-Bitexco Icon 68, 2 H\f1\lang1066\u7843?i Tri\u7873?u, Q.1', N'1')\par
+INSERT [dbo].[Cinema] ([Id], [Name], [Address], [Logo]) VALUES (2, N'BHD Star Vincom Th\u7843?o \f2\'d0i\f1\u7873?n', N'L5-Megamall, 159 XL H\f0\lang1033\'e0 N\f1\lang1066\u7897?i, Q.2', N'2')\par
+INSERT [dbo].[Cinema] ([Id], [Name], [Address], [Logo]) VALUES (3, N'GLX\~- Nguy\u7877?n Du', N'116 Nguy\u7877?n Du, Q.1', N'3')\par
+INSERT [dbo].[Cinema] ([Id], [Name], [Address], [Logo]) VALUES (4, N'GLX - T\f0\lang1033\'e2n B\'ecnh', N'246 Nguy\f1\lang1066\u7877?n H\u7891?ng \f2\'d0\f0\lang1033\'e0o, T\'e2n B\'ecnh', N'4')\par
+SET IDENTITY_INSERT [dbo].[Cinema] OFF\par
+SET IDENTITY_INSERT [dbo].[Movie] ON \par
+\par
+INSERT [dbo].[Movie] ([Id], [Picture], [Name], [Description], [Duration]) VALUES (1, N'1', N'NG\'d4I NH\'c0 B\f2\u431?\u416?M B\u431?\f1\lang1066\u7898?M', N'\ldblquote Ng\f0\lang1033\'f4i Nh\'e0 B\f2\u432?\u417?m B\u432?\f1\lang1066\u7899?m\rdblquote  l\f0\lang1033\'e0 b\f1\lang1066\u7897? phim xoay quanh c\f0\lang1033\'e2u chuy\f1\lang1066\u7879?n n\f0\lang1033\'ean duy\'ean c\f1\lang1066\u7911?a Ho\f0\lang1033\'e0ng (Li\'ean B\f1\lang1066\u7881?nh Ph\f0\lang1033\'e1t) v\'e0 Mai (Ho\'e0ng Y\f1\lang1066\u7871?n Chibi). B\u7857?ng s\u7921? kh\f0\lang1033\'f4n kh\'e9o v\'e0 l\'e9m l\f2\u297?nh, Mai \'f0\f0\'e3 thuy\f1\lang1066\u7871?t ph\u7909?c \f2\'f0\u432?\f1\u7907?c b\u7889? m\u7865? t\u7915? B\u7855?c v\f0\lang1033\'e0o Nam \f2\'f0\f1\lang1066\u7875? g\u7863?p g\u7905? v\f0\lang1033\'e0 b\'e0n chuy\f1\lang1066\u7879?n c\f2\u432?\f1\u7899?i h\u7887?i c\u7911?a c\u7843? hai. M\u7885?i chuy\u7879?n t\f2\u432?\f1\u7903?ng ch\u7915?ng s\u7869? r\u7845?t \f0\lang1033\'eam \f2\'f0\f1\lang1066\u7865?p cho \f2\'f0\f1\u7871?n khi c\u7843? hai b\f0\lang1033\'ean gia \f2\'f0\f0\'ecnh \f2\'f0\f1\lang1066\u7873?u b\u7883? ph\f2\u417?i b\f0\lang1033\'e0y nh\f1\lang1066\u7919?ng b\f0\lang1033\'ed m\f1\lang1066\u7853?t \ldblquote\f2\'f0\f1\u7897?ng tr\u7901?i\rdblquote  c\f0\lang1033\'f9ng s\f1\lang1066\u7921? kh\f0\lang1033\'e1c bi\f1\lang1066\u7879?t v\u7873? m\u7885?i m\u7863?t. \f2\'d0i\f1\u7873?u g\f0\lang1033\'ec s\f1\lang1066\u7869? c\u7913?u v\f0\lang1033\'e3n \f2\'f0\u432?\f1\lang1066\u7907?c t\f0\lang1033\'ecnh y\'eau nhi\f1\lang1066\u7879?t th\f0\lang1033\'e0nh c\f1\lang1066\u7911?a tu\u7893?i tr\u7867? v\f0\lang1033\'e0 trao cho h\f1\lang1066\u7885? m\u7897?t c\f0\lang1033\'e1i k\f1\lang1066\u7871?t \f2\'f0\f1\u7847?y vi\f0\lang1033\'ean m\'e3n?', 100)\par
+INSERT [dbo].[Movie] ([Id], [Picture], [Name], [Description], [Duration]) VALUES (2, N'2', N'B\f1\lang1066\u7840?N H\u7884?C C\f0\lang1033\'d5I \'c2M', N'Nh\f1\lang1066\u7919?ng ng\f0\lang1033\'e0y \f2\'f0\f1\lang1066\u7847?u ti\f0\lang1033\'ean t\f1\lang1066\u7841?i tr\f2\u432?\f1\u7901?ng trung h\u7885?c c\u7911?a c\u7853?u nam sinh Alex ch\u7859?ng kh\f0\lang1033\'e1c g\'ec \f2\'f0\f1\lang1066\u7883?a ng\u7909?c, khi n\u7841?n b\u7855?t n\u7841?t v\f0\lang1033\'e0 b\f1\lang1066\u7841?o l\u7921?c h\u7885?c \f2\'f0\u432?\f1\u7901?ng di\u7877?n ra nh\f2\u432? c\u417?m b\f1\u7919?a. S\u7921? xu\u7845?t hi\u7879?n c\u7911?a c\f0\lang1033\'f4 b\f1\lang1066\u7841?n Maggie khi\u7871?n cho cu\u7897?c s\u7889?ng c\u7911?a Alex th\f0\lang1033\'fa v\f1\lang1066\u7883? h\f2\u417?n h\f1\u7859?n. C\u7843? hai s\u7899?m tr\u7903? th\f0\lang1033\'e0nh \f2\'f0\f0\'f4i b\f1\lang1066\u7841?n th\f0\lang1033\'e2n. Tuy nhi\'ean, nh\f1\lang1066\u7919?ng s\u7921? vi\u7879?c k\f0\lang1033\'ec l\f1\lang1066\u7841? v\f0\lang1033\'e0 kinh ho\'e0ng b\f1\lang1066\u7855?t \f2\'f0\f1\u7847?u x\u7843?y ra. \f2\'d0\f0\lang1033\'e3 c\'f3 nh\f1\lang1066\u7919?ng c\f0\lang1033\'e1i ch\f1\lang1066\u7871?t \f2\'f0\u432?\f1\u7907?c g\f0\lang1033\'e2y ra b\f1\lang1066\u7903?i nh\u7919?ng \ldblquote b\u7841?n h\u7885?c c\f0\lang1033\'f5i \'e2m\rdblquote  khi\f1\lang1066\u7871?n cho ng\f0\lang1033\'f4i tr\f2\u432?\f1\lang1066\u7901?ng tr\u7903? n\f0\lang1033\'ean \f2\'f0\f0\'e1ng s\f1\lang1066\u7907? h\f2\u417?n bao gi\f1\u7901? h\u7871?t.', 90)\par
+INSERT [dbo].[Movie] ([Id], [Picture], [Name], [Description], [Duration]) VALUES (3, N'3', N'ANH TH\u7846?Y NG\f0\lang1033\'d4I SAO', N'Ho\'e0ng l\'e0 m\f1\lang1066\u7897?t ch\f0\lang1033\'e0ng trai tr\f1\lang1066\u7867? \f0\lang1033\'f4m m\f1\lang1066\u7897?ng th\f0\lang1033\'e0nh ng\'f4i sao ca nh\f1\lang1066\u7841?c, v\f0\lang1033\'ec ch\f2\u432?a ch\u432?a g\f1\lang1066\u7863?p th\u7901?i n\f0\lang1033\'ean t\f1\lang1066\u7841?m ki\u7871?m s\u7889?ng b\u7857?ng c\f0\lang1033\'f4ng vi\f1\lang1066\u7879?c l\f0\lang1033\'e0m th\f1\lang1066\u7847?y gi\f0\lang1033\'e1o d\f1\lang1066\u7841?y nh\u7841?c. Sau bi\u7871?n c\u7889?, Ho\f0\lang1033\'e0ng bu\f1\lang1066\u7897?c ph\u7843?i chuy\u7875?n c\f0\lang1033\'f4ng t\'e1c ra m\f1\lang1066\u7897?t h\f0\lang1033\'f2n \f2\'f0\f1\lang1066\u7843?o c\f0\lang1033\'e1ch xa \f2\'f0\f1\lang1066\u7845?t li\u7873?n v\f0\lang1033\'e0 ti\f1\lang1066\u7871?p qu\u7843?n m\u7897?t l\u7899?p h\u7885?c \f2\'f0\f1\u7863?c bi\u7879?t v\u7899?i v\u7887?n v\u7865?n 5 h\u7885?c tr\f0\lang1033\'f2. C\f1\lang1066\u7843?m th\u7845?y cu\u7897?c s\u7889?ng m\u7899?i ch\u7881? mang l\u7841?i phi\u7873?n to\f0\lang1033\'e1i, Ho\'e0ng nhi\f1\lang1066\u7873?u l\u7847?n b\u7887? v\u7873? nh\f2\u432?ng kh\f0\lang1033\'f4ng th\'e0nh v\'ec \f2\'f0\f0\'e1m tr\f1\lang1066\u7867? v\f0\lang1033\'e0 ng\f2\u432?\f1\lang1066\u7901?i d\f0\lang1033\'e2n \f2\'f0\f1\lang1066\u7843?o lu\f0\lang1033\'f4n t\'ecm c\'e1ch gi\f1\lang1066\u7919? ch\f0\lang1033\'e2n th\f1\lang1066\u7847?y gi\f0\lang1033\'e1o. \f2\'d0\f1\lang1066\u7871?n khi anh d\u7847?n th\f0\lang1033\'edch nghi v\f1\lang1066\u7899?i h\f0\lang1033\'f2n \f2\'f0\f1\lang1066\u7843?o n\f0\lang1033\'e0y c\f2\u361?ng l\f0\'e0 l\'fac c\f2\u417? h\f1\lang1066\u7897?i tr\u7903? th\f0\lang1033\'e0nh ca s\f2\u297? t\f0\'ecm \f2\'f0\f1\lang1066\u7871?n, bu\u7897?c Ho\f0\lang1033\'e0ng ph\f1\lang1066\u7843?i \f2\'f0\u432?a ra l\f1\u7921?a ch\u7885?n.', 105)\par
+INSERT [dbo].[Movie] ([Id], [Picture], [Name], [Description], [Duration]) VALUES (4, N'4', N'ANGRY BIRDS 2', N'L\u7847?n \f2\'f0\f1\u7847?u ti\f0\lang1033\'ean trong l\f1\lang1066\u7883?ch s\u7917? Angry Birds, Chim v\f0\lang1033\'e0 Heo quy\f1\lang1066\u7871?t \f2\'f0\f1\u7883?nh b\u7855?t tay h\u7885?p t\f0\lang1033\'e1c v\f1\lang1066\u7899?i nhau \f2\'f0\f1\u7875? ch\u7889?ng l\u7841?i k\u7867? th\f0\lang1033\'f9 chung l\'e0 n\f1\lang1066\u7919? ho\f0\lang1033\'e0ng b\f2\'e3ng gi\f0\'e1 Zeta.', 100)\par
+SET IDENTITY_INSERT [dbo].[Movie] OFF\par
+SET IDENTITY_INSERT [dbo].[Reserved_Seat] ON \par
+\par
+INSERT [dbo].[Reserved_Seat] ([Id], [Id_ShowTime], [Seat]) VALUES (3, 1, 1)\par
+INSERT [dbo].[Reserved_Seat] ([Id], [Id_ShowTime], [Seat]) VALUES (4, 2, 2)\par
+INSERT [dbo].[Reserved_Seat] ([Id], [Id_ShowTime], [Seat]) VALUES (5, 3, 3)\par
+INSERT [dbo].[Reserved_Seat] ([Id], [Id_ShowTime], [Seat]) VALUES (6, 4, 4)\par
+SET IDENTITY_INSERT [dbo].[Reserved_Seat] OFF\par
+SET IDENTITY_INSERT [dbo].[Room] ON \par
+\par
+INSERT [dbo].[Room] ([Id], [Id_ShowTime], [Amount], [Name]) VALUES (1, 1, 120, N'A')\par
+INSERT [dbo].[Room] ([Id], [Id_ShowTime], [Amount], [Name]) VALUES (2, 2, 130, N'B')\par
+INSERT [dbo].[Room] ([Id], [Id_ShowTime], [Amount], [Name]) VALUES (3, 3, 140, N'C')\par
+INSERT [dbo].[Room] ([Id], [Id_ShowTime], [Amount], [Name]) VALUES (4, 4, 150, N'D')\par
+SET IDENTITY_INSERT [dbo].[Room] OFF\par
+SET IDENTITY_INSERT [dbo].[Room_Detail] ON \par
+\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (5, 1, 1, N'12', N'8')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (6, 1, 2, N'13', N'7')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (7, 1, 3, N'10', N'8')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (8, 2, 1, N'12', N'8')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (9, 2, 2, N'13', N'7')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (10, 2, 3, N'10', N'8')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (11, 3, 1, N'12', N'8')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (12, 3, 2, N'13', N'7')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (13, 3, 3, N'10', N'8')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (14, 4, 1, N'12', N'8')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (15, 4, 2, N'13', N'7')\par
+INSERT [dbo].[Room_Detail] ([Id], [Id_Room], [Id_Seat_Type], [Row], [Column]) VALUES (16, 4, 3, N'10', N'8')\par
+SET IDENTITY_INSERT [dbo].[Room_Detail] OFF\par
+SET IDENTITY_INSERT [dbo].[Seat_Type] ON \par
+\par
+INSERT [dbo].[Seat_Type] ([Id], [Type]) VALUES (1, N'\f2\'d0\u417?n')\par
+INSERT [dbo].[Seat_Type] ([Id], [Type]) VALUES (2, N'\'d0\f0\'f4i')\par
+INSERT [dbo].[Seat_Type] ([Id], [Type]) VALUES (3, N'Vip')\par
+SET IDENTITY_INSERT [dbo].[Seat_Type] OFF\par
+SET IDENTITY_INSERT [dbo].[Show_Time] ON \par
+\par
+INSERT [dbo].[Show_Time] ([Id], [Id_BookingDetail], [Time_Start], [Time_End], [Seat]) VALUES (1, 10, CAST(N'09:30:00' AS Time), CAST(N'11:30:00' AS Time), 120)\par
+INSERT [dbo].[Show_Time] ([Id], [Id_BookingDetail], [Time_Start], [Time_End], [Seat]) VALUES (2, 11, CAST(N'11:30:00' AS Time), CAST(N'12:05:00' AS Time), 130)\par
+INSERT [dbo].[Show_Time] ([Id], [Id_BookingDetail], [Time_Start], [Time_End], [Seat]) VALUES (3, 12, CAST(N'12:05:00' AS Time), CAST(N'13:30:00' AS Time), 140)\par
+INSERT [dbo].[Show_Time] ([Id], [Id_BookingDetail], [Time_Start], [Time_End], [Seat]) VALUES (4, 13, CAST(N'13:30:00' AS Time), CAST(N'14:10:00' AS Time), 150)\par
+SET IDENTITY_INSERT [dbo].[Show_Time] OFF\lang9\par
+}
+ 
