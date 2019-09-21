@@ -23,3 +23,11 @@
 /Avaya.Domain/obj
 /Avaya.Model/obj
 /Avaya.Service/obj
+/Avaya.API
+/Avaya.Core/bin/Debug/netcoreapp2.0
+/Avaya.Domain/bin/Debug/netcoreapp2.0/Avaya.Core.dll
+/Avaya.Domain/bin/Debug/netcoreapp2.0
+/Avaya.Service/bin/Debug/netcoreapp2.0
+/Avaya.Model/bin/Debug/netcoreapp2.0
+/WebApp/node_modules/.bin
+/WebApp/node_modules
