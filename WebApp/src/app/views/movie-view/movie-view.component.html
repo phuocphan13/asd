@@ -1,35 +1,33 @@
-<div class="news-info-container" >
-    
-  <img class="news-image" [src]="movie.imgUrl">
-    
-  <div class="Infor">
-      <dl class="info_spec" id="dSpec0">
-          <dt>Tên phim</dt>
-          <dd id="dVClass">{{movie.name}}</dd>
-          <dt>Thời lượng</dt>
-          <dd id="dReleaseDate">{{movie.time}}</dd>
-      </dl>
+<div class="news-info-container">
 
-      <dl class="info_spec" id="dSpec0">
-          <dt>Mô tả</dt>
-          <dd id="dVClass">{{movie.decription}}</dd>
-          
-      </dl>
+    <img class="news-image" [src]="movie.imgUrl">
 
-      <dl class="info_spec space" id="dSpec0">
-          <a target="_blank">
-              <dd class="title">{{movie.showtime}}</dd>              
-          </a>
-      </dl>
-      <dl class="info_spec" id="dSpec0">
-            <dt>Địa chỉ</dt>
-            <dd id="dVClass">{{movie.address}}</dd>
+    <div class="infor">
+        <div class="">
+            <span><b>Tên phim</b>: {{movie.name}}</span> 
+            <span class="movie-time"><b>Thời lượng</b>: {{movie.time}}</span>
+        </div>
 
-      </dl>
-      
-    <!-- <div class="news-author">{{movie.name}} {{movie.time}} </div>
+        <div class="">
+            <p class="movie-description">{{movie.decription}}</p>
+        </div>
+
+        <div>
+            <div class="show-time-box" *ngFor="let item of movie.showtime">
+                <div class="show-time" (click)="onClickShowTime(item)">{{item}}</div>
+            </div>
+
+        </div>
+
+        <div class="info_spec" id="dSpec0">
+            <div>Địa chỉ:</div>
+            <div id="dVClass">{{movie.address}}</div>
+
+        </div>
+
+        <!-- <div class="news-author">{{movie.name}} {{movie.time}} </div>
     <div class="news-description">{{movie.decription}}</div>
     <div class="news-author">{{movie.showtime}}</div> -->
-  </div>
-  
+    </div>
+
 </div>
