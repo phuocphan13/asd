@@ -12,6 +12,7 @@ export class TimeMovieCinemaComponent implements OnInit {
 
   searchItem: SearchModel;
   minDate: Date;
+  date: any;
 
 
   listMovies: any = [
@@ -44,13 +45,13 @@ export class TimeMovieCinemaComponent implements OnInit {
     this.searchItem.cinemaId = event.id;
   }
 
-  onChangeDatepicker(event)
-  {
-    this.searchItem.date = event.id;
-  }
+ 
 
   onClickSearch()
   {
+    //console.log(this.date)
+    this.searchItem.date = this.date;
     this.searchData.emit(this.searchItem);
+    
   }
 }

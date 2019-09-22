@@ -7,9 +7,12 @@
     width: 220px;
     height: 240px;
 }
+
+
 .news-info-container{
     display: flex;
     flex-direction: row ;    
+    //height: 280px;
 }
 .info_spec dt, .info_spec dd {
     display: inline-block;
@@ -37,9 +40,7 @@
     font-weight: 400;
     color: #417505; 
   }
-.title:hover{
-    //color: #fb4226;  
-}
+
 a:hover{
     text-decoration: none;
 }

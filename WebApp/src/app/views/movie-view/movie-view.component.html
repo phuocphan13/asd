@@ -1,6 +1,7 @@
 <div class="news-info-container" >
+    
   <img class="news-image" [src]="movie.imgUrl">
-
+    
   <div class="Infor">
       <dl class="info_spec" id="dSpec0">
           <dt>Tên phim</dt>
@@ -12,6 +13,7 @@
       <dl class="info_spec" id="dSpec0">
           <dt>Mô tả</dt>
           <dd id="dVClass">{{movie.decription}}</dd>
+          
       </dl>
 
       <dl class="info_spec space" id="dSpec0">
@@ -19,8 +21,15 @@
               <dd class="title">{{movie.showtime}}</dd>              
           </a>
       </dl>
+      <dl class="info_spec" id="dSpec0">
+            <dt>Địa chỉ</dt>
+            <dd id="dVClass">{{movie.address}}</dd>
+
+      </dl>
+      
     <!-- <div class="news-author">{{movie.name}} {{movie.time}} </div>
     <div class="news-description">{{movie.decription}}</div>
     <div class="news-author">{{movie.showtime}}</div> -->
   </div>
+  
 </div>
