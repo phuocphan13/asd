@@ -6,6 +6,6 @@ namespace Avaya.Model.Movie
 {
     public class ShowTimeModel : BaseModel
     {
-        public string ShowTime { get; set; }
+        public string TimeStart { get; set; }
     }
 }

@@ -12,6 +12,6 @@ namespace Avaya.Service.MovieService
 
         List<Movie> GetData(string query);
 
-        List<MovieModel> GetListMovies(SearchMovieModel searchMovie);
+        MovieModel GetListMovies(SearchMovieModel searchMovie);
     }
 }
