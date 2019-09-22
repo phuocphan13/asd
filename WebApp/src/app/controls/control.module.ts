@@ -6,6 +6,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentSectionComponent } from './payment-section/payment-section.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PaymentSectionComponent } from './payment-section/payment-section.compo
     PaymentSectionComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
     NgSelectModule,
     BrowserAnimationsModule,

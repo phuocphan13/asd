@@ -1,7 +1,12 @@
 .corn-container {
   display: flex;
   flex-direction: row;
-  max-width: 700px;
+  max-width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(231, 229, 229);
 }
 
 .item1 {
@@ -14,18 +19,33 @@
 
 .combocorn-container {
   display: flex;
+  padding-left: 10px;
   flex-direction: row;
-  max-width: 700px;
+  max-width: 100%;
+  margin-bottom: 5px;
+  background-color: rgb(252, 252, 249);
 }
 
 .item4 {
-  flex-grow: 2;
+ width: 500px;
 }
 
 .item5 {
-  flex-grow: 1;
+  width: 320px;
+}
+
+input {
+  text-align: center;
 }
 
 .img-combo {
   width: 100px;
+}
+
+p {
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(197, 24, 24);
+  background-color: rgb(255, 255, 226);
+  padding: 10px;
 }

@@ -1,6 +1,9 @@
 <div>
+  <p>
+    CHỌN VÉ/THỨC ĂN
+  </p>
   <div class="corn-container">
-    <div class="item1">Loại Vé</div> 
+    <div class="item1">LOẠI VÉ</div> 
     <div class="item2">GIÁ TIỀN</div>   
     <div class="item3">SỐ LƯỢNG</div>      
   </div>
@@ -8,8 +11,9 @@
   <div class="combocorn-container" *ngFor="let item of listTicket">
     <div class="item4">{{item.tickettype}}</div>
     <div class="item5">{{item.price}}</div>   
-    <div class="item6"><input type="number" id='ticketValue' 
-      value="0" min="0" max="10" (change)="ItemsValueOutPut(item)"></div> 
+    <div class="item6"><input type="number" id='ticketValue' [(ngModel)]="item.value" oninput="validity.valid||(value='');"
+     min="0" max="10" (change)="ticketValueOutPut()">
+  </div> 
   </div>
 </div>
 
@@ -23,7 +27,7 @@
   <div class="combocorn-container" *ngFor="let item of listCombo">
     <div class="item4">{{item.comboname}}</div>
     <div class="item5">{{item.price}}</div>   
-    <div class="item6"><input type="number" id='comboValue' 
-      value="0" min="0" max="10"(change)="ItemsValueOutPut(item)"></div>      
+    <div class="item6"><input type="number" id='comboValue' [(ngModel)]="item.value" oninput="validity.valid||(value='');"
+     min="0" max="10"(change)="ticketValueOutPut()"></div>      
   </div>
 </div>
