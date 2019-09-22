@@ -20,6 +20,7 @@ namespace Avaya.Model.Movie
         public string Picture { get; set; }
 
         public string Address { get; set; }
+
         public List<ShowTimeModel> ShowTime { get; set; }
     }
 }

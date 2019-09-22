@@ -65,7 +65,8 @@ namespace Avaya.Service.MovieService
                                 && x.IdCinema == int.Parse(searchMovie.CinemaName)
                                 && x.Date == DateTime.Parse(searchMovie.Date));
 
-            var showtime = _showTimeRepository.FirstOrDefault(x => x.IdBookingDetail == bookingdetail.Id).MapTo<ShowTimeModel>();
+            movie.ShowTime = _showTimeRepository.GetAll()
+                .Where(x => x.IdBookingDetail == bookingdetail.Id).MapTo<List<ShowTimeModel>>();
 
             
             movie.Address = cinema.Address;            
