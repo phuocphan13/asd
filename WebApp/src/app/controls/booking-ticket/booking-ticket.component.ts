@@ -17,42 +17,42 @@ export class BookingTicketComponent implements OnInit {
       id: 0,
       imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
       comboname: "Bắp Nước",
-      price: "40.000",
+      price: 40000,
       value: 0
     },
     {
       id: 1,
       imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
       comboname: "Bắp Nước Vừa",
-      price: "50.000",
+      price: 50000,
       value: 0
     },
     {
       id: 2,
       imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
       comboname: "Bắp Nước To",
-      price: "60.000",
+      price: 60000,
       value: 0
     },
     {
       id: 3,
       imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
       comboname: "Bắp Nước KHỔNG LỒ",
-      price: "100.000",
+      price: 100000,
       value: 0
     },
     {
       id: 4,
       imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
       comboname: "Bắp Bò",
-      price: "75.000",
+      price: 75000,
       value: 0
     },
     {
       id: 5,
       imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
       comboname: "Bắp Chuối",
-      price: "65.000",
+      price: 65000,
       value: 0
     },
   ]
@@ -61,43 +61,43 @@ export class BookingTicketComponent implements OnInit {
     {
       id: 0,
       tickettype: "Vé 2D",
-      price: "80.000 ",
+      price: 80000 ,
       value: 0
     },
     {
       id: 1,
       tickettype: "Vé 3D",
-      price: "100.000 ",
+      price: 100000 ,
       value: 0
     },
     {
       id: 2,
       tickettype: "Vé IMAX",
-      price: "180.000 ",
+      price: 180000 ,
       value: 0
     },
     {
       id: 3,
       tickettype: "Vé IMAX2",
-      price: "180.000 ",
+      price: 185000 ,
       value: 0
     },
     {
       id: 4,
       tickettype: "Vé VERY IMAX",
-      price: "180.000 ",
+      price: 190000 ,
       value: 0
     },
     {
       id: 5,
       tickettype: "Vé EVEN-BETTER IMAX",
-      price: "180.000 ",
+      price: 280000 ,
       value: 0
     },
     {
       id: 6,
       tickettype: "Vé I'M-MAX",
-      price: "180.000 ",
+      price: 380000 ,
       value: 0
     },
   ]
@@ -118,10 +118,10 @@ export class BookingTicketComponent implements OnInit {
     }
     
     this.listTicket.forEach(element => {
-      this.totalTicketPrice = this.totalTicketPrice + ((element.value) * parseInt(element.price));
+      this.totalTicketPrice = this.totalTicketPrice + ((element.value) * (element.price));
     });
     this.listCombo.forEach(element => {
-      this.totalComboPrice = this.totalComboPrice + ((element.value) * parseInt(element.price));
+      this.totalComboPrice = this.totalComboPrice + ((element.value) * (element.price));
     });
     this.totalPrice = this.totalComboPrice + this.totalTicketPrice;
     this.itemsValue.emit(this.totalPrice);

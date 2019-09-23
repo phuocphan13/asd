@@ -10,7 +10,7 @@
   <div class ="combo-container">
   <div class="combocorn-container" *ngFor="let item of listTicket">
     <div class="first-column-item">{{item.tickettype}}</div>
-    <div class="second-column-item">{{item.price}}</div>   
+    <div class="second-column-item">{{item.price | number}}</div>   
     <div class="input-field"><input type="number" id='ticketValue' [(ngModel)]="item.value" oninput="validity.valid||(value='');"
       min ="0"  (change)="ticketValueOutPut(item)">
   </div> 
@@ -28,7 +28,7 @@
   <div class ="combo-container">
   <div class="combocorn-container" *ngFor="let item of listCombo">
     <div class="first-column-item">{{item.comboname}}</div>
-    <div class="second-column-item">{{item.price}}</div>   
+    <div class="second-column-item">{{item.price | number}}</div>   
     <div class="input-field"><input type="number" id='comboValue' [(ngModel)]="item.value" oninput="validity.valid||(value='');"
      min ="0" (change)="ticketValueOutPut(item)"></div>      
   </div>
