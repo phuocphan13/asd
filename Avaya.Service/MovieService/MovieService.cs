@@ -39,39 +39,30 @@ namespace Avaya.Service.MovieService
 
         public MovieModel GetListMovies(SearchMovieModel searchMovie)
         {
-            //var list = _movieRepository.GetAll().ToList();
-            //var entities = _movieRepository.GetAll().FirstOrDefault();
-            //var list = AutoMapper.Mapper.Map<Movie, MovieModel>(entities);
-            //var list = new List<MovieModel>();
-            //var moviename = _movieRepository.FirstOrDefault(x => x.Name.Contains(searchMovie.MovieName));
-            //var bookingdetail = _bookingDetailRepository.GetAll().Where(x => x.IdMovie == moviename.Id).ToList();
-            //foreach (var item in bookingdetail)
-            //{
-            //    var cinema = _cinemaRepository.GetAll().Where(x => x.Id == item.IdCinema).ToList();
-            //    foreach (var items in cinema)
-            //    {
+            if (searchMovie.MovieName == null || searchMovie.CinemaName == null || searchMovie.Date == null
+                 || searchMovie.MovieName == "" || searchMovie.CinemaName == "" || searchMovie.Date == "")
+            {
+                return null;
+            }
+            else if(searchMovie.MovieName != null && searchMovie.CinemaName != null && searchMovie.Date != null)
+            {
+                var movie = _movieRepository.FirstOrDefault(x => x.Id == int.Parse(searchMovie.MovieName)).MapTo<MovieModel>();
 
-            //    }
-            //}
-            //var list  = _movieRepository.GetAll().Where(x=>x.Name.Contains(searchMovie.MovieName))
-            //var abc = AutoMapper.Mapper.Map<Movie, MovieTemptModel>(movie);
+                var cinema = _cinemaRepository.FirstOrDefault(x => x.Id == int.Parse(searchMovie.CinemaName)).MapTo<MovieModel>();
+
+                var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == int.Parse(searchMovie.MovieName)
+                                    && x.IdCinema == int.Parse(searchMovie.CinemaName)
+                                    && x.Date == DateTime.Parse(searchMovie.Date));
+
+                movie.ShowTime = _showTimeRepository.GetAll()
+                    .Where(x => x.IdBookingDetail == bookingdetail.Id).MapTo<List<ShowTimeModel>>();
 
 
-            var movie = _movieRepository.FirstOrDefault(x => x.Id == int.Parse(searchMovie.MovieName)).MapTo<MovieModel>();
+                movie.Address = cinema.Address;
 
-            var cinema = _cinemaRepository.FirstOrDefault(x => x.Id == int.Parse(searchMovie.CinemaName)).MapTo<MovieModel>();
-
-            var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == int.Parse(searchMovie.MovieName)
-                                && x.IdCinema == int.Parse(searchMovie.CinemaName)
-                                && x.Date == DateTime.Parse(searchMovie.Date));
-
-            movie.ShowTime = _showTimeRepository.GetAll()
-                .Where(x => x.IdBookingDetail == bookingdetail.Id).MapTo<List<ShowTimeModel>>();
-
-            
-            movie.Address = cinema.Address;            
-            
-            return movie;
+                return movie;
+            }
+            return null;
         }
     }
 }
