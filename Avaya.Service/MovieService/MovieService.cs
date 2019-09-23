@@ -39,8 +39,12 @@ namespace Avaya.Service.MovieService
 
         public MovieModel GetListMovies(SearchMovieModel searchMovie)
         {
-            if (searchMovie.MovieName == null || searchMovie.CinemaName == null || searchMovie.Date == null
-                 || searchMovie.MovieName == "" || searchMovie.CinemaName == "" || searchMovie.Date == "")
+            if (string.IsNullOrEmpty(searchMovie.MovieName)
+                ||string.IsNullOrEmpty(searchMovie.CinemaName)
+                ||string.IsNullOrEmpty(searchMovie.Date) 
+                || string.IsNullOrWhiteSpace(searchMovie.MovieName)
+                ||string.IsNullOrWhiteSpace(searchMovie.CinemaName)
+                ||string.IsNullOrWhiteSpace(searchMovie.Date))
             {
                 return null;
             }
