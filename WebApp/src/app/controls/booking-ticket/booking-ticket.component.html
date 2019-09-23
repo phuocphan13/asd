@@ -1,33 +1,36 @@
 <div>
   <p>
-    CHỌN VÉ/THỨC ĂN
+    BẢNG GIÁ
   </p>
   <div class="corn-container">
-    <div class="item1">LOẠI VÉ</div> 
-    <div class="item2">GIÁ TIỀN</div>   
-    <div class="item3">SỐ LƯỢNG</div>      
+    <div class="first-column-text">LOẠI VÉ</div> 
+    <div class="second-column-text">GIÁ TIỀN</div>   
+    <div class="third-column-text">SỐ LƯỢNG</div>      
   </div>
-  
+  <div class ="combo-container">
   <div class="combocorn-container" *ngFor="let item of listTicket">
-    <div class="item4">{{item.tickettype}}</div>
-    <div class="item5">{{item.price}}</div>   
-    <div class="item6"><input type="number" id='ticketValue' [(ngModel)]="item.value" oninput="validity.valid||(value='');"
-     min="0" max="10" (change)="ticketValueOutPut()">
+    <div class="first-column-item">{{item.tickettype}}</div>
+    <div class="second-column-item">{{item.price}}</div>   
+    <div class="input-field"><input type="number" id='ticketValue' [(ngModel)]="item.value" oninput="validity.valid||(value='');"
+      min ="0"  (change)="ticketValueOutPut(item)">
   </div> 
   </div>
 </div>
-
+</div>
+<div class="decorative">
+</div>
 <div>
   <div class="corn-container" >
-    <div class="item1">COMBO</div> 
-    <div class="item2">GIÁ TIỀN</div>   
-    <div class="item3">SỐ LƯỢNG</div>      
+    <div class="first-column-text">COMBO</div> 
+    <div class="second-column-text">GIÁ TIỀN</div>   
+    <div class="third-column-text">SỐ LƯỢNG</div>      
   </div>
-
+  <div class ="combo-container">
   <div class="combocorn-container" *ngFor="let item of listCombo">
-    <div class="item4">{{item.comboname}}</div>
-    <div class="item5">{{item.price}}</div>   
-    <div class="item6"><input type="number" id='comboValue' [(ngModel)]="item.value" oninput="validity.valid||(value='');"
-     min="0" max="10"(change)="ticketValueOutPut()"></div>      
+    <div class="first-column-item">{{item.comboname}}</div>
+    <div class="second-column-item">{{item.price}}</div>   
+    <div class="input-field"><input type="number" id='comboValue' [(ngModel)]="item.value" oninput="validity.valid||(value='');"
+     min ="0" (change)="ticketValueOutPut(item)"></div>      
   </div>
+</div>
 </div>

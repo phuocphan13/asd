@@ -34,6 +34,27 @@ export class BookingTicketComponent implements OnInit {
       price: "60.000",
       value: 0
     },
+    {
+      id: 3,
+      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
+      comboname: "Bắp Nước KHỔNG LỒ",
+      price: "100.000",
+      value: 0
+    },
+    {
+      id: 4,
+      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
+      comboname: "Bắp Bò",
+      price: "75.000",
+      value: 0
+    },
+    {
+      id: 5,
+      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
+      comboname: "Bắp Chuối",
+      price: "65.000",
+      value: 0
+    },
   ]
 
   listTicket: any = [
@@ -55,6 +76,30 @@ export class BookingTicketComponent implements OnInit {
       price: "180.000 ",
       value: 0
     },
+    {
+      id: 3,
+      tickettype: "Vé IMAX2",
+      price: "180.000 ",
+      value: 0
+    },
+    {
+      id: 4,
+      tickettype: "Vé VERY IMAX",
+      price: "180.000 ",
+      value: 0
+    },
+    {
+      id: 5,
+      tickettype: "Vé EVEN-BETTER IMAX",
+      price: "180.000 ",
+      value: 0
+    },
+    {
+      id: 6,
+      tickettype: "Vé I'M-MAX",
+      price: "180.000 ",
+      value: 0
+    },
   ]
 
   constructor() { }
@@ -62,7 +107,16 @@ export class BookingTicketComponent implements OnInit {
   ngOnInit() {
   }
 
-  ticketValueOutPut() {
+  ticketValueOutPut(item) {
+    if(item.value==null)
+    {
+      item.value=0;
+    }
+    else if(item.value>10)
+    {
+      item.value=10;
+    }
+    
     this.listTicket.forEach(element => {
     this.totalTicketPrice= this.totalTicketPrice+ ((element.value) * parseInt(element.price));
     });
