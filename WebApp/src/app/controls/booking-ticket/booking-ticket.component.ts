@@ -8,9 +8,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class BookingTicketComponent implements OnInit {
 
   @Output() itemsValue = new EventEmitter<any>();
-  totalTicketPrice: any=0;
-  totalComboPrice:any=0;
-  totalPrice:any=0
+  totalTicketPrice: any = 0;
+  totalComboPrice: any = 0;
+  totalPrice: any = 0
 
   listCombo: any = [
     {
@@ -118,15 +118,15 @@ export class BookingTicketComponent implements OnInit {
     }
     
     this.listTicket.forEach(element => {
-    this.totalTicketPrice= this.totalTicketPrice+ ((element.value) * parseInt(element.price));
+      this.totalTicketPrice = this.totalTicketPrice + ((element.value) * parseInt(element.price));
     });
     this.listCombo.forEach(element => {
-      this.totalComboPrice= this.totalComboPrice+ ((element.value) * parseInt(element.price));
-      });
-    this.totalPrice=this.totalComboPrice+this.totalTicketPrice;
+      this.totalComboPrice = this.totalComboPrice + ((element.value) * parseInt(element.price));
+    });
+    this.totalPrice = this.totalComboPrice + this.totalTicketPrice;
     this.itemsValue.emit(this.totalPrice);
-    this.totalTicketPrice=0;
-    this.totalComboPrice=0;
+    this.totalTicketPrice = 0;
+    this.totalComboPrice = 0;
   }
 
 }
