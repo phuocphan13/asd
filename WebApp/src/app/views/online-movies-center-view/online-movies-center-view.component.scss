@@ -1,22 +1,4 @@
-.online-movies-container{
-    width: 800px;
-    display:flex;
-    flex-direction: column;
+.movies{
     margin-left: 100px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
-
-.browse-clip{
-    position: relative;
-    align-self: center;
-    cursor: pointer;
-    margin-bottom: 25px;
-    padding: 10px;
-    border: 2px solid black;
-}
-
-img{
-    width: 600px;
-    height: 190px;   
-}
-

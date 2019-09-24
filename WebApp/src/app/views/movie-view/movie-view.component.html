@@ -12,17 +12,15 @@
             <p class="movie-description">{{movie.decription}}</p>
         </div>
 
-        <div>
+        <div class="show-time-container">
             <div class="show-time-box" *ngFor="let item of movie.showtime">
                 <div class="show-time" (click)="onClickShowTime(item)">{{item}}</div>
             </div>
 
         </div>
 
-        <div class="info_spec" id="dSpec0">
-            <div>Địa chỉ:</div>
-            <div id="dVClass">{{movie.address}}</div>
-
+        <div >
+            <br><span><b>Địa chỉ</b>: {{movie.address}}</span>            
         </div>
 
         <!-- <div class="news-author">{{movie.name}} {{movie.time}} </div>

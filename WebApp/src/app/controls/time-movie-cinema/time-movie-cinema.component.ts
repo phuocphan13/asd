@@ -34,7 +34,9 @@ export class TimeMovieCinemaComponent implements OnInit {
   }
 
   ngOnInit() {
+  
   }
+
 
   onChangeMovieName(event) {
     this.searchItem.nameId = event.id;
