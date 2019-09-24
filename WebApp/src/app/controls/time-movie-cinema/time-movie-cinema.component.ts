@@ -13,6 +13,8 @@ export class TimeMovieCinemaComponent implements OnInit {
   searchItem: SearchModel;
   minDate: Date;
   date: any;
+  pickedMovie : any;
+  pickedCinema : any;
 
 
   listMovies: any = [
@@ -51,7 +53,14 @@ export class TimeMovieCinemaComponent implements OnInit {
 
   onClickSearch()
   {
-    //console.log(this.date)
+    if(this.pickedCinema && this.date && this.listMovies)
+    {
+      alert("All field filled");
+    }
+    else{
+      alert("field missing");
+    }
+    console.log()
     this.searchItem.date = this.date;
     this.searchData.emit(this.searchItem);
     
