@@ -53,7 +53,8 @@ export class TimeMovieCinemaComponent implements OnInit {
 
   onClickSearch()
   {
-    if(this.pickedCinema && this.date && this.listMovies)
+    //check xem cả 3 field có giá trị truthy hay falsy (falsy là các kiểu: undefined,NaN,empty,0,null,"");
+    if(this.pickedCinema && this.date && this.pickedMovie)
     {
       alert("All field filled");
     }
