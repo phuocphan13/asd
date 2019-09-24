@@ -13,6 +13,7 @@ export class TimeMovieCinemaComponent implements OnInit {
   searchItem: SearchModel;
   minDate: Date;
   date: any;
+  
   pickedMovie : any;
   pickedCinema : any;
 
