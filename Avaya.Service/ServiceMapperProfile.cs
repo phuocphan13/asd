@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Avaya.Domain.Models;
 using Avaya.Model;
+using Avaya.Model.ShowSeat;
 
 namespace Avaya.Service
 {
@@ -8,9 +9,9 @@ namespace Avaya.Service
     {
         public ServiceMapperProfile()
         {
-            var config = new MapperConfiguration(cfg => {
-                //cfg.CreateMap<ProductDetails, ProductDetailModel>();
-            });
+            CreateMap<Room, SeatModel>().ReverseMap();
+            CreateMap<ReservedSeat, ReservedSeatModel>().ReverseMap();
+            CreateMap<SeatType, SeatTypeModel>().ReverseMap();
         }
     }
 }

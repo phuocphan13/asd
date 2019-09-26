@@ -1,5 +1,6 @@
 ﻿using Avaya.Domain;
 using Avaya.Service.CinemaService;
+using Avaya.Service.ShowSeatService;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +13,7 @@ namespace Avaya.Service
             services.ConfigureDomain(configuration);
             services.AddScoped<ICinemaService, CinemaService.CinemaService>();
             //services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<IShowSeatService, ShowSeatService.ShowSeatService>();
         }
     }
 }
