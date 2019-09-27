@@ -31,7 +31,6 @@ import { BookingTicketComponent } from './controls/booking-ticket/booking-ticket
 import { MovieViewComponent } from './views/movie-view/movie-view.component';
 import { TimeMovieCinemaComponent } from './controls/time-movie-cinema/time-movie-cinema.component';
 import { PaymentSectionComponent } from './controls/payment-section/payment-section.component';
-import { OnlineMoviesCenterViewComponent } from './views/online-movies-center-view/online-movies-center-view.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
@@ -39,6 +38,7 @@ import { ViewModule } from './views/view.module';
 import { ControlModule } from './controls/control.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PaymentViewComponent } from './views/payment-view/payment-view.component';
+import { MovieNewsViewComponent } from './views/movie-news-view/movie-news-view.component';
 
 const appRoutes: Routes = [
   {
@@ -60,10 +60,12 @@ export const environment = {
   declarations: [
     AppComponent,
     MainViewComponent,
+    SidenewsSectionComponent,
     NewsSectionComponent,
-    SidenewsHalfsizeComponent,
     ArticleComponent,
+    SidenewsHalfsizeComponent,
     PaymentViewComponent,
+    MovieNewsViewComponent,
   ],
   imports: [
     ControlModule,
