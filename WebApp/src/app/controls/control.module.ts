@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     TimeMovieCinemaComponent,
     PaymentSectionComponent,
   ],
-  imports: [    
+  imports: [
     FormsModule,
     CommonModule,
     NgSelectModule,
