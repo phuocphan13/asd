@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Avaya.Core.Repositories;
 using Avaya.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Avaya.Service.CinemaService
 {
@@ -21,7 +22,8 @@ namespace Avaya.Service.CinemaService
 
         public List<Cinema> GetAll()
         {
-            return _cinemaDetailsRepository.GetAll().ToList();
+            var abc = _cinemaDetailsRepository.GetAll().Include(x => x.BookingDetail).ToList();
+            return _cinemaDetailsRepository.GetAll().Include(x => x.BookingDetail).ToList();
         }
 
         //public List<Cinema> GetAll(int date, Movie movie);
