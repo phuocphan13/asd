@@ -23,10 +23,6 @@ namespace Avaya.API.Controllers
         {
             _movieService = movieService;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         [HttpGet]
         public IActionResult GetAll()
