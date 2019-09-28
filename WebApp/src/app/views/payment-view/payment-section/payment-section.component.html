@@ -11,19 +11,21 @@
         <b>Rạp: </b>{{theater}}
       </p>
       <p>
-        <b>Suất Chiếu: </b>{{showtime}}
+        <b>Suất Chiếu: </b>{{showtime}} - {{showdate}}
       </p>
       <p>
         <b>Ghế: </b>{{seatnumber}}
       </p>
       <h2>
-        TỔNG:
+        TỔNG: {{completePrice | number}} vnđ
       </h2>
     </div>
     <div class="booking-proceed">
-      <a href="" class="proceed-button">
-        THANH TOÁN
-      </a>
+      <div class="proceed-button" (click)="checkOut()">
+        <div>
+            THANH TOÁN
+        </div>
+      </div>
     </div>
   </div>
 </div>

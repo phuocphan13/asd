@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -12,10 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Avaya.Domain\Avaya.Domain.csproj" />
     <ProjectReference Include="..\Avaya.Model\Avaya.Model.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="MovieService\" />
   </ItemGroup>
 
 </Project>

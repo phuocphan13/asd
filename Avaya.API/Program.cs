@@ -20,6 +20,19 @@ namespace Avaya.API
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://localhost:59239")
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var env = hostingContext.HostingEnvironment;
+                    config.SetBasePath(env.ContentRootPath);
+                    config.AddInMemoryCollection(new[]
+                           {
+                             new KeyValuePair<string,string>("the-key", "the-value")
+                               })
+                           .AddJsonFile("appsettings.json", reloadOnChange: true, optional: false)
+                           .AddJsonFile($"appsettings.{env}.json", optional: true)
+                           .AddEnvironmentVariables();
+                })
                 .Build();
     }
 }

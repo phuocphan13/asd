@@ -13,18 +13,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace Avaya.API.Controllers
 {
     [Route("api/[controller]/[action]")]
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class MenuController : Controller
     {
         private readonly ICinemaService _cinemaService;
         public MenuController(ICinemaService cinemaService)
         {
             _cinemaService = cinemaService;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
 
         [HttpGet]

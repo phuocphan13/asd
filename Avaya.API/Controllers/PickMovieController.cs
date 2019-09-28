@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http.Cors;
-using Avaya.Service.PickMovie;
+using Avaya.Service.PickMovieService;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -22,7 +22,7 @@ namespace Avaya.API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var result = _pickmovieService.Loading();
+            var result = _pickmovieService.GetAll();
             return Ok(result);
         }
     }
