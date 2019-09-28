@@ -18,6 +18,7 @@ namespace Avaya.Domain.Log
         {
             _configFileName = configFileName;
         }
+
         public ILogger CreateLogger(string categoryName)
         {
             return _loggers.GetOrAdd(categoryName, CreateLoggerImplementation);
