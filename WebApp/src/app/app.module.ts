@@ -30,7 +30,6 @@ import { ControlModule } from './controls/control.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ServiceModule } from './core/services/service.module';
 import { AppCommonModule } from './common/app-common.module';
-import { ServiceModule } from './core/services/service.module';
 
 const appRoutes: Routes = [
   {
