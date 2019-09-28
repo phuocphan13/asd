@@ -2,6 +2,7 @@
   width: 400px;
   background-color: #f1f1f1;
   padding: 10px;
+  border:2px solid grey;
   margin-bottom: 15px;
 }
 
@@ -42,11 +43,12 @@
 
 .booking-proceed {
   text-align: center;
-
+  cursor: pointer;
   .proceed-button {
-    width: 48%;
+    width: 95%;
     display: inline-block;
     font-size: 18px;
+    font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #ffffff;
@@ -54,5 +56,8 @@
     padding: 15px;
     margin-top: 15px;
     line-height: 1.2;
+  }
+  div:hover{
+    font-size: 20px;
   }
 }
