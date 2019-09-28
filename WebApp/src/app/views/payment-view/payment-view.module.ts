@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaymentSectionComponent } from './payment-section/payment-section.component';
 import { BookingTicketComponent } from './booking-ticket/booking-ticket.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { BookingTicketComponent } from './booking-ticket/booking-ticket.componen
       PaymentSectionComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     BookingTicketComponent,
