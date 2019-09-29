@@ -13,9 +13,9 @@ export class TimeMovieCinemaComponent implements OnInit {
   searchItem: SearchModel;
   minDate: Date;
   date: any;
-  
-  pickedMovie : any;
-  pickedCinema : any;
+
+  pickedMovie: any;
+  pickedCinema: any;
 
 
   listMovies: any = [
@@ -37,32 +37,27 @@ export class TimeMovieCinemaComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+
   }
 
 
   onChangeMovieName(event) {
-    this.searchItem.nameId = event.id;
+    this.searchItem.movieId = event.id;
   }
 
-  onChangeCinemaName(event)
-  {
+  onChangeCinemaName(event) {
     this.searchItem.cinemaId = event.id;
   }
 
- 
 
-  onClickSearch()
-  {
+
+  onClickSearch() {
     //check xem cả 3 field có giá trị truthy hay falsy (falsy là các kiểu: undefined,NaN,empty,0,null,"");
-    if(this.pickedCinema && this.date && this.pickedMovie)
-    {
-      alert("All field filled");
-      console.log()
-    this.searchItem.date = this.date;
-    this.searchData.emit(this.searchItem);
+    if (this.pickedCinema && this.date && this.pickedMovie) {
+      this.searchItem.date = this.date;
+      this.searchData.emit(this.searchItem);
     }
-    else{
+    else {
       alert("field missing");
     }
   }
