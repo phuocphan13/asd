@@ -3,6 +3,7 @@ import { DropDownComponent } from './drop-down/drop-down.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ItemShowingComponent } from './item-showing/item-showing.component';
+import { PipeModule } from '../pipes/pipe.module';
 
 @NgModule({
     declarations: [
@@ -11,10 +12,12 @@ import { ItemShowingComponent } from './item-showing/item-showing.component';
     ],
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        PipeModule
     ],
     exports: [
-        DropDownComponent
+        DropDownComponent,
+        ItemShowingComponent
     ]
 })
 export class CommonComponentModule { }

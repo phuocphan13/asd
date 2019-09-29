@@ -52,7 +52,6 @@ export class TimeMovieCinemaComponent implements OnInit {
 
   onClickSearch()
   {
-    this.router.navigateByUrl('/news')
-    // this.searchData.emit(this.searchItem);
+    this.searchData.emit(this.searchItem);
   }
 }

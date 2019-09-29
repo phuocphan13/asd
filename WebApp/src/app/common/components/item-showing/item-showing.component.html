@@ -1,7 +1,15 @@
-<img class="news-image" [src]="movie.imgUrl">
-
-<div class="Infor">
-  <div class="news-author">{{movie.name}} {{movie.time}} </div>
-  <div class="news-description">{{movie.decription}}</div>
-  <div *ngIf="type === movie" class="news-author">{{movie.showtime}}</div>
+<div class="container">
+  <img class="image" [src]="_domSanitizer.bypassSecurityTrustUrl(item.imgUrl)">
+  <div class="body-info">
+    <div class="tilte"><span class="name">{{item.name | truncate : 20}}</span></div>
+    <div class="description">{{item.description | truncate : 200}}</div>
+    <div *ngIf="type === 1" class="time-format">{{item.time}} phút - 2D - 16+</div>
+    <div *ngIf="type === 1" class="show-time-container">
+      <div class="show-time-box" *ngFor="let showtime of item.showtime">
+        <div class="show-time" (click)="onClickShowTime(item)">{{showtime}}</div>
+      </div>
+    </div>
+    <div *ngIf="type === 2" class="date">{{item.date}}</div>
+    <div *ngIf="type === 2" class="author">{{item.author}}</div>
+  </div>
 </div>

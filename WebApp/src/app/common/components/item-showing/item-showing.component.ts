@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-item-showing',
@@ -8,12 +9,13 @@ import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum';
 })
 export class ItemShowingComponent implements OnInit {
 
-  @Input("data") movie: any
+  @Input("data") item: any;
   @Input() type: ItemShowingEnum;
 
-  constructor() { }
+  constructor(private _domSanitizer: DomSanitizer ) { }
 
   ngOnInit() {
+    console.log(this.type);
   }
 
 }
