@@ -12,6 +12,8 @@ namespace Avaya.Service.PaymentService
 {
     public class PaymentService: IPaymentService
     {
+        private readonly IRepository<Avaya.Domain.Models.Service>;
+     
        
     }
 }
