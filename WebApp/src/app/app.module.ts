@@ -27,10 +27,8 @@ import { SharedModule } from './shared/shared.module';
 import { ViewModule } from './views/view.module';
 import { ControlModule } from './controls/control.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { PaymentViewComponent } from './views/payment-view/payment-view.component';
 import { ServiceModule } from './core/services/service.module';
 import { AppCommonModule } from './common/app-common.module';
-import { TruncatePipe } from './common/pipes/truncate.pipe';
 
 const appRoutes: Routes = [
   {
@@ -53,14 +51,13 @@ export const environment = {
     AppComponent,
     MainViewComponent,
     ArticleComponent,
-    PaymentViewComponent,
   ],
   imports: [
     AppCommonModule,
+    ServiceModule,
     ControlModule,
     ViewModule,
     SharedModule,
-    ServiceModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -91,7 +88,7 @@ export const environment = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
   ],
- 
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

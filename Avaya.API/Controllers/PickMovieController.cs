@@ -3,30 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http.Cors;
-using Avaya.Core.Repositories;
-using Avaya.Domain.Models;
-using Avaya.Model;
-using Avaya.Service;
-using Avaya.Service.CinemaService;
+using Avaya.Service.PickMovieService;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace Avaya.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
-    public class MenuController : Controller
+    public class PickMovieController : Controller
     {
-        private readonly IMenuService _menuService;
-        public MenuController(IMenuService menuService)
+        private readonly IPickMovieService _pickmovieService;
+        public PickMovieController(IPickMovieService pickmovieService)
         {
-            _menuService = menuService;
+            _pickmovieService = pickmovieService;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var listMenus = _menuService.GetAll();
-            return Ok(listMenus);
+            var result = _pickmovieService.GetAll();
+            return Ok(result);
         }
     }
 }

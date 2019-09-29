@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
 using Avaya.Domain.Models;
 using Avaya.Model;
+using Avaya.Model.Menu;
+using Avaya.Model.Movie;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Avaya.Service
 {
@@ -8,9 +12,11 @@ namespace Avaya.Service
     {
         public ServiceMapperProfile()
         {
-            var config = new MapperConfiguration(cfg => {
-                //cfg.CreateMap<ProductDetails, ProductDetailModel>();
-            });
+            CreateMap<Movie, MovieTemptModel>().ReverseMap();
+            CreateMap<Movie, MovieModel>().ReverseMap();
+            CreateMap<Cinema, MovieModel>().ReverseMap();
+            CreateMap<ShowTime, MovieModel>().ReverseMap();
+            CreateMap<Menu, MenuModel>().ReverseMap();
         }
     }
 }

@@ -14,7 +14,6 @@ export class DropDownComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.listItems);
   }
 
 }
