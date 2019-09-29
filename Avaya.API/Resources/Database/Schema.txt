@@ -161,3 +161,12 @@ REFERENCES [dbo].[Booking_Detail] ([Id])
 GO
 ALTER TABLE [dbo].[Show_Time] CHECK CONSTRAINT [FK_Show_Time_Booking_Detail]
 GO
+
+
+
+Create table Menu(
+	Id int PRIMARY KEY,
+	Name varchar(100),
+	Parent int,
+	OrderBy int,
+)

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Avaya.Core.Repositories
 {
     public class RepositoryBase<TEntity, TContext> : IRepository<TEntity>
-        where TEntity : class  where TContext : DbContext
+        where TEntity : class where TContext : DbContext
     {
         protected readonly TContext Context;
         protected readonly int CurrentUserId;
@@ -111,7 +111,7 @@ namespace Avaya.Core.Repositories
         {
             await Entities.AddRangeAsync(entities);
         }
-        
+
 
         public virtual void Update(TEntity entity)
         {

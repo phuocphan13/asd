@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/core/services/menu.service';
+import { MovieService } from 'src/app/core/services/movie.service';
 
 @Component({
   selector: 'app-offline-movie-search-view',
@@ -10,16 +11,16 @@ export class OfflineMovieSearchViewComponent implements OnInit {
 
   listMovies: any = []
 
-  constructor(private menuService: MenuService) { }
+  constructor(private menuService: MenuService,
+    private movieService: MovieService) { }
 
   ngOnInit() {
   }
 
   outputData(event) {
-    //Call API
-    console.log(event);
-    // this.menuService.GetPost(event).subscribe(result=> {
-
+    // this.movieService.GetListMovies(event).subscribe(result => {
+    //  this.listMovies = result;
+    //   //Logic
     // });
 
     this.listMovies = [{

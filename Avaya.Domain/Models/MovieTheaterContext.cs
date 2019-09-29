@@ -17,6 +17,7 @@ namespace Avaya.Domain.Models
 
         public virtual DbSet<BookingDetail> BookingDetail { get; set; }
         public virtual DbSet<Cinema> Cinema { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<ReservedSeat> ReservedSeat { get; set; }
         public virtual DbSet<Room> Room { get; set; }
@@ -66,6 +67,15 @@ namespace Avaya.Domain.Models
                 entity.Property(e => e.Address).IsRequired();
 
                 entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<Menu>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Movie>(entity =>

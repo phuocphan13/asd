@@ -16,5 +16,10 @@ namespace Avaya.Core.Extension
         {
             return Mapper.Map(source, destination);
         }
+
+        public static TDestination MapTo<TSource, TDestination>(this TSource source)
+        {
+            return Mapper.Map<TSource, TDestination>(source);
+        }
     }
 }
