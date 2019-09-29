@@ -22,9 +22,8 @@ import { BsDropdownModule } from 'ngx-bootstrap';
 import { AlertModule } from 'ngx-alerts';
 import { MainViewComponent } from './views/main-view/main-view.component';
 import { ArticleComponent } from './article/article.component';
-import { NewsSectionComponent } from './controls/main-news/main-news.component';
-import { SidenewsHalfsizeComponent } from './controls/side-news-half-size/side-news-half-size.component';
 import { SharedModule } from './shared/shared.module';
+
 import { ViewModule } from './views/view.module';
 import { ControlModule } from './controls/control.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -51,8 +50,6 @@ export const environment = {
   declarations: [
     AppComponent,
     MainViewComponent,
-    NewsSectionComponent,
-    SidenewsHalfsizeComponent,
     ArticleComponent,
   ],
   imports: [
@@ -91,7 +88,7 @@ export const environment = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
   ],
- 
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

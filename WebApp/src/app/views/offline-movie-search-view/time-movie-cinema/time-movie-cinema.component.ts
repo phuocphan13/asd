@@ -13,6 +13,11 @@ export class TimeMovieCinemaComponent implements OnInit {
 
   searchItem: SearchModel;
   minDate: Date;
+  date: any;
+
+  pickedMovie: any;
+  pickedCinema: any;
+
 
   listMovies: any = [
     { id: 1, name: 'NGÔI NHÀ BƯƠM BƯỚM' },
@@ -20,11 +25,11 @@ export class TimeMovieCinemaComponent implements OnInit {
     { id: 3, name: 'ANH THẦY NGÔI SAO' },
     { id: 4, name: 'ANGRY BIRDS 2' },
   ];
-  listCinemas = [
+  listCinemas: any = [
     { id: 1, name: 'BHD Star Bitexco' },
     { id: 2, name: 'GLX - Nguyễn Du' },
-    { id: 1, name: 'BHD Star Vincom Thảo Điền' },
-    { id: 2, name: 'GLX - Tân Bình' },
+    { id: 3, name: 'BHD Star Vincom Thảo Điền' },
+    { id: 4, name: 'GLX - Tân Bình' },
   ];
 
   constructor(private router: Router) {
@@ -33,14 +38,15 @@ export class TimeMovieCinemaComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
+
 
   onChangeMovieName(event) {
-    this.searchItem.nameId = event.id;
+    this.searchItem.movieId = event.id;
   }
 
-  onChangeCinemaName(event)
-  {
+  onChangeCinemaName(event) {
     this.searchItem.cinemaId = event.id;
   }
 
