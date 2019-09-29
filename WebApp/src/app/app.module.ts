@@ -86,7 +86,6 @@ export const environment = {
   entryComponents: [
   ],
   providers: [
-    MenuService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
