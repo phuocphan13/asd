@@ -12,7 +12,7 @@ export class MovieService {
     constructor(public httpClient: HttpClient) {
     }
 
-    GetListMovies(data: SearchModel): Observable<any> {
+    getListMovies(data: SearchModel): Observable<any> {
         return this.httpClient.post(`${this.apiHost}/${this.homeAddress}/GetListMovies`, data);
     }
 }

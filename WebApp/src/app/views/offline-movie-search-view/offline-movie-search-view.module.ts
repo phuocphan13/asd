@@ -6,6 +6,7 @@ import { OfflineMovieSearchViewComponent } from '../offline-movie-search-view/of
 import { TimeMovieCinemaComponent } from './time-movie-cinema/time-movie-cinema.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
   imports: [
     NgSelectModule,
     BsDatepickerModule.forRoot(),
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     OfflineMovieSearchViewComponent

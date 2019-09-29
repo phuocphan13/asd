@@ -39,25 +39,25 @@ namespace Avaya.Service.MovieService
 
         public MovieModel GetListMovies(SearchMovieModel searchMovie)
         {
-            if (!string.IsNullOrEmpty(searchMovie.MovieName)
-                &&!string.IsNullOrEmpty(searchMovie.CinemaName)
-                &&!string.IsNullOrEmpty(searchMovie.Date) 
-                &&!string.IsNullOrWhiteSpace(searchMovie.MovieName)
-                &&!string.IsNullOrWhiteSpace(searchMovie.CinemaName)
-                &&!string.IsNullOrWhiteSpace(searchMovie.Date))
+            if (searchMovie.MovieId != 0
+                && searchMovie.CinemaId != 0
+                && !string.IsNullOrEmpty(searchMovie.Date)
+                && searchMovie.MovieId != 0
+                && searchMovie.CinemaId != 0
+                && !string.IsNullOrWhiteSpace(searchMovie.Date))
             {
-                var movie = _movieRepository.FirstOrDefault(x => x.Id == int.Parse(searchMovie.MovieName))
+                var movie = _movieRepository.FirstOrDefault(x => x.Id == searchMovie.MovieId)
                     .MapTo<MovieModel>();
                 if (movie == null)
                     return null;
 
-                var cinema = _cinemaRepository.FirstOrDefault(x => x.Id == int.Parse(searchMovie.CinemaName))
+                var cinema = _cinemaRepository.FirstOrDefault(x => x.Id == searchMovie.CinemaId)
                     .MapTo<MovieModel>();
                 if (cinema == null)
                     return null;
 
-                var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == int.Parse(searchMovie.MovieName)
-                                    && x.IdCinema == int.Parse(searchMovie.CinemaName)
+                var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
+                                    && x.IdCinema == searchMovie.CinemaId
                                     && x.Date == DateTime.Parse(searchMovie.Date));
                 if (bookingdetail == null)
                     return null;
@@ -70,7 +70,7 @@ namespace Avaya.Service.MovieService
 
                 return movie;
             }
-           
+
             return null;
         }
     }
