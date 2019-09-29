@@ -58,13 +58,12 @@ export class TimeMovieCinemaComponent implements OnInit {
     if(this.pickedCinema && this.date && this.pickedMovie)
     {
       alert("All field filled");
+      console.log()
+    this.searchItem.date = this.date;
+    this.searchData.emit(this.searchItem);
     }
     else{
       alert("field missing");
     }
-    console.log()
-    this.searchItem.date = this.date;
-    this.searchData.emit(this.searchItem);
-    
   }
 }

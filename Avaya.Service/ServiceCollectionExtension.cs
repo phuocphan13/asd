@@ -1,5 +1,6 @@
 ﻿using Avaya.Domain;
 using Avaya.Service.CinemaService;
+using Avaya.Service.PaymentService;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +12,7 @@ namespace Avaya.Service
         {
             services.ConfigureDomain(configuration);
             services.AddScoped<ICinemaService, CinemaService.CinemaService>();
+            services.AddScoped<IPaymentService, PaymentService.PaymentService>();
             //services.AddScoped<IMenuService, MenuService>();
         }
     }

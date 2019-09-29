@@ -24,7 +24,13 @@
 .news-info-container {
   display: flex;
   flex-direction: row;
-  //height: 280px;
+  border: 1px solid #e63757;
+  border-radius: .5rem;
+  margin-top: 120px;
+  margin-bottom: 120px; 
+  max-width: 900px;
+  padding: 1rem;
+  height: 280px;
 }
 
 .title {
@@ -54,8 +60,9 @@ a:hover {
   border-radius: 0.25rem;
   width: 70px;
   height: 30px;
+  margin-left: 5px;
 }
 
-.show-time-container{
-  display: flex;
+.row{
+  margin-left: 0px;
 }
