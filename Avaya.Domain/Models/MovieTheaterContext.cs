@@ -17,11 +17,13 @@ namespace Avaya.Domain.Models
 
         public virtual DbSet<BookingDetail> BookingDetail { get; set; }
         public virtual DbSet<Cinema> Cinema { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<ReservedSeat> ReservedSeat { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<RoomDetail> RoomDetail { get; set; }
         public virtual DbSet<SeatType> SeatType { get; set; }
+        public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ShowTime> ShowTime { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -65,6 +67,15 @@ namespace Avaya.Domain.Models
                 entity.Property(e => e.Address).IsRequired();
 
                 entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<Menu>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Movie>(entity =>
@@ -130,6 +141,15 @@ namespace Avaya.Domain.Models
                 entity.ToTable("Seat_Type");
 
                 entity.Property(e => e.Type).IsRequired();
+            });
+
+            modelBuilder.Entity<Service>(entity =>
+            {
+                entity.Property(e => e.IdCinema).HasColumnName("Id_Cinema");
+
+                entity.Property(e => e.Name).IsRequired();
+
+                entity.Property(e => e.Price).HasColumnType("numeric(18, 0)");
             });
 
             modelBuilder.Entity<ShowTime>(entity =>

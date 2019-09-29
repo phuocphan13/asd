@@ -21,24 +21,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { AlertModule } from 'ngx-alerts';
 import { MainViewComponent } from './views/main-view/main-view.component';
-import { NewsViewComponent } from './views/news-view/news-view.component';
-import { MoreTvNewsComponent } from './controls/more-tv-news/more-tv-news.component';
 import { ArticleComponent } from './article/article.component';
-import { NewsSectionComponent } from './controls/main-news/main-news.component';
-import { SidenewsSectionComponent } from './views/side-news/side-news.component';
-import { SidenewsHalfsizeComponent } from './controls/side-news-half-size/side-news-half-size.component';
-import { BookingTicketComponent } from './controls/booking-ticket/booking-ticket.component';
-import { MovieViewComponent } from './views/movie-view/movie-view.component';
-import { TimeMovieCinemaComponent } from './controls/time-movie-cinema/time-movie-cinema.component';
-import { PaymentSectionComponent } from './controls/payment-section/payment-section.component';
-import { OnlineMoviesCenterViewComponent } from './views/online-movies-center-view/online-movies-center-view.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
+
 import { ViewModule } from './views/view.module';
 import { ControlModule } from './controls/control.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { PaymentViewComponent } from './views/payment-view/payment-view.component';
+import { ServiceModule } from './core/services/service.module';
+import { AppCommonModule } from './common/app-common.module';
 
 const appRoutes: Routes = [
   {
@@ -60,12 +50,11 @@ export const environment = {
   declarations: [
     AppComponent,
     MainViewComponent,
-    NewsSectionComponent,
-    SidenewsHalfsizeComponent,
     ArticleComponent,
-    PaymentViewComponent,
   ],
   imports: [
+    AppCommonModule,
+    ServiceModule,
     ControlModule,
     ViewModule,
     SharedModule,
@@ -97,9 +86,9 @@ export const environment = {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
+    },
   ],
- 
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

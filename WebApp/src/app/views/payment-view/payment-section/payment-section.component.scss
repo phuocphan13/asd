@@ -1,0 +1,63 @@
+.payment-container {
+  width: 400px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border:2px solid grey;
+  margin-bottom: 15px;
+}
+
+.movie-image {
+  margin-top: 15px;
+  text-align: center;
+  width: 100%;
+
+  img {
+    width: 80%;
+  }
+}
+
+.movie-info-container {
+  h2 {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #43464b;
+    font-weight: bold;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.ticket-info {
+  margin-top: 15px;
+  p {
+    border-bottom: 1px dotted black;
+    padding: 10px 0;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 30px;
+  }
+}
+
+.booking-proceed {
+  text-align: center;
+  cursor: pointer;
+  .proceed-button {
+    width: 95%;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #f26b38;
+    padding: 15px;
+    margin-top: 15px;
+    line-height: 1.2;
+  }
+  div:hover{
+    font-size: 20px;
+  }
+}

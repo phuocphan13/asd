@@ -1,27 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MovieViewComponent } from './movie-view/movie-view.component';
 import { NewsViewComponent } from './news-view/news-view.component';
-import { OnlineMoviesCenterViewComponent } from './online-movies-center-view/online-movies-center-view.component';
-import { SidenewsSectionComponent } from './side-news/side-news.component';
-import { PaymentSectionComponent } from '../controls/payment-section/payment-section.component';
-import { OfflineMovieSearchViewComponent } from './offline-movie-search-view/offline-movie-search-view.component';
+import { MovieNewsViewModule } from './movie-news-view/movie-news-view.module';
+import { OfflineMovieSearchViewModule } from './offline-movie-search-view/offline-movie-search-view.module';
+import { PaymentViewModule } from './payment-view/payment-view.module';
+import { FilmOnlineViewModule } from './film-online-view/film-online-view.module';
 import { ControlModule } from '../controls/control.module';
 
 @NgModule({
   declarations: [
-    MovieViewComponent,
     NewsViewComponent,
-    OnlineMoviesCenterViewComponent,
-    SidenewsSectionComponent,
-    OfflineMovieSearchViewComponent
   ],
   imports: [
     ControlModule,
-    CommonModule
+    MovieNewsViewModule,
+    OfflineMovieSearchViewModule,
+    CommonModule,
+    PaymentViewModule,
+    FilmOnlineViewModule
   ],
   exports: [
-    OfflineMovieSearchViewComponent
+    MovieNewsViewModule,
+    OfflineMovieSearchViewModule,
+    PaymentViewModule
   ]
 })
 export class ViewModule { }
