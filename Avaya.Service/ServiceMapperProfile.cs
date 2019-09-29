@@ -15,7 +15,7 @@ namespace Avaya.Service
             CreateMap<Movie, MovieModel>().ReverseMap();
             CreateMap<Cinema, MovieModel>().ReverseMap();
             CreateMap<ShowTime, MovieModel>().ReverseMap();
-
+            CreateMap<ShowTime, ShowTimeModel>().ReverseMap();
 
 
             //var config = new MapperConfiguration(cfg =>
