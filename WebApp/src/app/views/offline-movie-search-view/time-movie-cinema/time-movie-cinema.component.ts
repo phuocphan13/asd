@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchModel } from 'src/app/core/model/search.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-time-movie-cinema',
@@ -26,7 +27,7 @@ export class TimeMovieCinemaComponent implements OnInit {
     { id: 2, name: 'GLX - Tân Bình' },
   ];
 
-  constructor() {
+  constructor(private router: Router) {
     this.minDate = new Date();
     this.searchItem = new SearchModel();
   }
@@ -45,6 +46,7 @@ export class TimeMovieCinemaComponent implements OnInit {
 
   onClickSearch()
   {
-    this.searchData.emit(this.searchItem);
+    this.router.navigateByUrl('/news')
+    // this.searchData.emit(this.searchItem);
   }
 }

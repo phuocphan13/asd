@@ -6,6 +6,7 @@ import { OfflineMovieSearchViewModule } from './offline-movie-search-view/offlin
 import { PaymentViewModule } from './payment-view/payment-view.module';
 import { FilmOnlineViewModule } from './film-online-view/film-online-view.module';
 import { ControlModule } from '../controls/control.module';
+import { PaymentViewComponent } from './payment-view/payment-view.component';
 
 @NgModule({
   declarations: [
