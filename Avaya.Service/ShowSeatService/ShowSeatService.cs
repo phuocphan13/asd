@@ -33,26 +33,22 @@ namespace Avaya.Service.ShowSeatService
 
         public ShowSeatModel GetListSeats (SearchSeatModel searchSeat)
         {
-            if (string.IsNullOrEmpty(searchSeat.ShowTime)
-                || string.IsNullOrWhiteSpace(searchSeat.ShowTime))
-            {
-                return null;
-            }
-            else if (searchSeat.ShowTime != null)
+            if (!string.IsNullOrEmpty(searchSeat.ShowTime)
+                && !string.IsNullOrWhiteSpace(searchSeat.ShowTime))
             {
                 var listseats = new ShowSeatModel();
 
                 var room = _roomRepository.FirstOrDefault(x => x.IdShowTime == int.Parse(searchSeat.ShowTime));
-                
+
                 listseats.Seat = _roomDetailRepository.GetAll().Where(x => x.IdRoom == room.Id).MapTo<List<SeatModel>>();
 
-                listseats.ReserveSeat  = _reservedSeatRepository.GetAll()
+                listseats.ReserveSeat = _reservedSeatRepository.GetAll()
                     .Where(x => x.IdShowTime == int.Parse(searchSeat.ShowTime)).MapTo<List<ReservedSeatModel>>();
 
                 listseats.SeatType = _seatTypeRepository.GetAll().MapTo<List<SeatTypeModel>>();
 
                 return listseats;
-            }
+            }            
             return null;
         }
     }
