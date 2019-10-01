@@ -18,6 +18,10 @@ namespace Avaya.Domain.Models
         public virtual DbSet<BookingDetail> BookingDetail { get; set; }
         public virtual DbSet<Cinema> Cinema { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
+        public virtual DbSet<NewsArticleCategories> NewsArticleCategories { get; set; }
+        public virtual DbSet<NewsArticles> NewsArticles { get; set; }
+        public virtual DbSet<NewsCategories> NewsCategories { get; set; }
+        public virtual DbSet<NewsImage> NewsImage { get; set; }
         public virtual DbSet<ReservedSeat> ReservedSeat { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<RoomDetail> RoomDetail { get; set; }
@@ -72,6 +76,109 @@ namespace Avaya.Domain.Models
                 entity.Property(e => e.Name).IsRequired();
 
                 entity.Property(e => e.Picture).IsRequired();
+            });
+
+            modelBuilder.Entity<NewsArticleCategories>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.NewsArticleId).HasColumnName("newsArticleID");
+
+                entity.Property(e => e.NewsCategoryId).HasColumnName("newsCategoryID");
+
+                entity.HasOne(d => d.NewsArticle)
+                    .WithMany(p => p.NewsArticleCategories)
+                    .HasForeignKey(d => d.NewsArticleId)
+                    .HasConstraintName("fk_artiID");
+
+                entity.HasOne(d => d.NewsCategory)
+                    .WithMany(p => p.NewsArticleCategories)
+                    .HasForeignKey(d => d.NewsCategoryId)
+                    .HasConstraintName("fk_cataID");
+            });
+
+            modelBuilder.Entity<NewsArticles>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Author)
+                    .HasColumnName("author")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnName("createdDate")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Description)
+                    .HasColumnName("description")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.Headline)
+                    .IsRequired()
+                    .HasColumnName("headline")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastModifiedDate)
+                    .HasColumnName("lastModifiedDate")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Priority).HasColumnName("priority");
+
+                entity.Property(e => e.PublishDate)
+                    .HasColumnName("publishDate")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Source)
+                    .HasColumnName("source")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Tags)
+                    .HasColumnName("tags")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasColumnName("text")
+                    .HasColumnType("text");
+            });
+
+            modelBuilder.Entity<NewsCategories>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<NewsImage>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ArticlePhotoId).HasColumnName("articlePhotoID");
+
+                entity.Property(e => e.PhotoHeight).HasColumnName("photoHeight");
+
+                entity.Property(e => e.PhotoUrl)
+                    .HasColumnName("photoURL")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.PhotoWidth).HasColumnName("photoWidth");
+
+                entity.HasOne(d => d.ArticlePhoto)
+                    .WithMany(p => p.NewsImage)
+                    .HasForeignKey(d => d.ArticlePhotoId)
+                    .HasConstraintName("fk_photo");
             });
 
             modelBuilder.Entity<ReservedSeat>(entity =>
