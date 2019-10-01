@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieNewsService } from 'src/app/core/services/movie-news.service';
 
 @Component({
   selector: 'app-news-home-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsHomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private movieNewsService: MovieNewsService ) { }
   show: boolean=true;
   id1 : any = {
     headertitle: 'Star Wars 9 LEGO Sets Reveal Rise of Skywalkers New Millennium Falcon Design',   
@@ -54,8 +55,11 @@ export class NewsHomePageComponent implements OnInit {
   listclip: any =[this.id1,this.id2,this.id3,this.id4,this.id5,this.id6];
 
   ngOnInit() {
+
   }
   logicChange(){
-    this.show=!this.show;
+    this.movieNewsService.GetAll().subscribe(result =>{
+      console.log(result);
+    });
   }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Avaya.Domain.Models;
 using Avaya.Model;
+using Avaya.Model.MovieNews;
 
 namespace Avaya.Service
 {
@@ -9,7 +10,7 @@ namespace Avaya.Service
         public ServiceMapperProfile()
         {
             var config = new MapperConfiguration(cfg => {
-                //cfg.CreateMap<ProductDetails, ProductDetailModel>();
+                cfg.CreateMap<NewsArticles, NewsModel>();
             });
         }
     }

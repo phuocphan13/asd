@@ -20,6 +20,8 @@ namespace Avaya.Domain
                 options.UseSqlServer(configuration.GetConnectionString("MovieTheater")));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRepository<NewsArticles>, Repository<NewsArticles>>();
+            services.AddScoped<IRepository<NewsImage>, Repository<NewsImage>>();
             services.AddScoped<IRepository<BookingDetail>, Repository<BookingDetail>>();
             services.AddScoped<IRepository<Cinema>, Repository<Cinema>>();
             services.AddScoped<IRepository<Movie>, Repository<Movie>>();

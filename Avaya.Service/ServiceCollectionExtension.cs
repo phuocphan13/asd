@@ -1,6 +1,6 @@
 ﻿using Avaya.Domain;
 using Avaya.Service.CinemaService;
-using Avaya.Service.NewsService
+using Avaya.Service.NewsService;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
