@@ -6,6 +6,7 @@ using Avaya.Model.Movie;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Avaya.Model.ShowSeat;
+using Avaya.Model.Service;
 
 namespace Avaya.Service
 {
@@ -21,6 +22,7 @@ namespace Avaya.Service
             CreateMap<Room, SeatModel>().ReverseMap();
             CreateMap<ReservedSeat, ReservedSeatModel>().ReverseMap();
             CreateMap<SeatType, SeatTypeModel>().ReverseMap();
+            CreateMap <Avaya.Domain.Models.Service, PaymentModel >().ReverseMap();
         }
     }
 }

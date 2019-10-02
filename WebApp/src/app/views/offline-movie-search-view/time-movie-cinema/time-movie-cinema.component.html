@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
 <div class="content">
+  <div class="label-tab-buyticket">mua vé nhanh</div>
   <div class="movies">
     <ng-select class="select-movies" [searchable]="false" [items]="listMovies" bindLabel="name" bindValue="id"[(ngModel)]="pickedMovie"
       (change)="onChangeMovieName($event)" placeholder="Select movie name..."></ng-select>
