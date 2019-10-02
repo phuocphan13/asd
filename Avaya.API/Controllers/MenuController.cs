@@ -13,33 +13,20 @@ using Microsoft.AspNetCore.Mvc;
 namespace Avaya.API.Controllers
 {
     [Route("api/[controller]/[action]")]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class MenuController : Controller
     {
-        private readonly ICinemaService _cinemaService;
-        public MenuController(ICinemaService cinemaService)
+        private readonly IMenuService _menuService;
+        public MenuController(IMenuService menuService)
         {
-            _cinemaService = cinemaService;
+            _menuService = menuService;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var listMenus = _cinemaService.GetAll();
+            var listMenus = _menuService.GetAll();
             return Ok(listMenus);
         }
-
-        //[HttpGet("{query}")]
-        //public IActionResult GetData(int query)
-        //{
-        //    var listMenus = _menuService.Change(query);
-        //    return Ok(listMenus);
-        //}
-
-        //[HttpPost]
-        //public IActionResult GetPost([FromBody] ProductDetailModel abc)
-        //{
-        //    //var listMenus = _menuService.GetAll();
-        //    return Ok("asdasd");
-        //}
     }
 }
