@@ -40,5 +40,14 @@ namespace Avaya.Service.NewsService
             }
             return news;
         }
+
+        public NewsDetailModel GetById(int id)
+        {
+            var news = _newsArticleRepository.FirstOrDefault( x => x.Id == id ).MapTo<NewsDetailModel>();
+            var Image = _newsImageRepository.GetAll();
+            var ImageID = _newsImageRepository.GetAllList(x => x.ArticlePhotoId == news.Id);
+            news.ListImage = ImageID;
+            return news;
+        }
     }
 }

@@ -14,5 +14,6 @@ namespace Avaya.Service.NewsService
     public interface INewsService
     {
         List<NewsModel> GetAll();
+        NewsDetailModel GetById(int id);
     }
 }

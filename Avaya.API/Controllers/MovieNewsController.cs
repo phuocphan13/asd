@@ -27,5 +27,13 @@ namespace Avaya.API.Controllers
             var listNews = _newsService.GetAll();
             return Ok(listNews);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var newsItem = _newsService.GetById(id);
+            return Ok(newsItem);
+        }
+
     }
 }

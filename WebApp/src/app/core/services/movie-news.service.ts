@@ -15,4 +15,8 @@ export class MovieNewsService {
     return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetAll`);
   }
 
+  GetById(id):Observable<any> {
+    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetById/${id}`);
+  }
+
 }
