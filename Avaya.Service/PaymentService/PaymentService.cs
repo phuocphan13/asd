@@ -23,9 +23,8 @@ namespace Avaya.Service.PaymentService
             var listpayment = new List<PaymentModel>();
             foreach (var item in searchService)
             {
-                var aa = new PaymentModel();
                 var abc = _serviceRepository.FirstOrDefault(x => x.Id == item.Id).MapTo<PaymentModel>();
-                listpayment.Add(aa);
+                listpayment.Add(abc);
             }
             return listpayment;
         }
