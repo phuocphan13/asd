@@ -1,0 +1,32 @@
+$margin-right-icon: 20px;
+$margin-left-textbox: 10px;
+$margin-top-icon: 3px;
+
+$color-icon: #6c7475;
+
+.input-form {
+  margin-left: $margin-left-textbox;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.email-icon {
+  margin-right: $margin-right-icon;
+  margin-top: $margin-top-icon;
+  color: $color-icon;
+}
+
+.form-control {
+  width: 80%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-icon{
+    margin-right: $margin-right-icon;
+    margin-top: $margin-top-icon;
+    color: $color-icon;
+}

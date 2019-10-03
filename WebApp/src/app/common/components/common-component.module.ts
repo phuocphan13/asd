@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ItemShowingComponent } from './item-showing/item-showing.component';
 import { PipeModule } from '../pipes/pipe.module';
+import { InputComponent } from './input/input.component';
 
 @NgModule({
     declarations: [
         DropDownComponent,
-        ItemShowingComponent
+        ItemShowingComponent,
+        InputComponent
     ],
     imports: [
         CommonModule,
@@ -17,6 +19,7 @@ import { PipeModule } from '../pipes/pipe.module';
     ],
     exports: [
         DropDownComponent,
+        InputComponent,
         ItemShowingComponent
     ]
 })

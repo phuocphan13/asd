@@ -1,0 +1,9 @@
+<div class="title">Log In</div>
+<app-input icon="fa-user" placeholder="Username..." [(ngModel)]="username" name="username" ngDefaultControl></app-input>
+<app-input icon="fa-lock" placeholder="Password..." [(ngModel)]="password" name="password" ngDefaultControl></app-input>
+<small id="notice" class="form-text text-muted">Don't ever share your username and password with anyone else.</small>
+<a href="javascript:void(0)" class="forgotten-link" (click)="onClickForgotten()">Forgotten username or password?</a>
+<div class="button-form">
+  <button type="submit" class="btn button-log-in" (click)="onClickLogIn()">Log In</button>
+  <button class="btn btn-danger button-cancel" (click)="onClickCancel()">Cancel</button>
+</div>
