@@ -1,0 +1,22 @@
+<div class="box">
+  <h2 class="booking-title">Chọn ghế:</h2>
+  <div>
+    <span class="front">Màn hình</span>
+  </div>
+  <div class="container" *ngFor="let item1 of listRow">
+    <div class="seatRowLeft">{{item1.name}}</div>
+
+    <div class="containerCol" *ngFor="let item2 of listCol">
+      <div class="seatCol"  (click)="onClickShowseat(item2)">{{item2.name}}</div>
+    </div>
+
+    <div class="seatRowRight">{{item1.name}}</div>
+  </div>
+  <!-- <div class="seat-cinema-container">
+      <div class="" *ngFor="let item of listStatus">
+          <div class="seat-cinema">{{item.name}}</div>
+        </div>
+  </div> -->
+
+
+</div>
