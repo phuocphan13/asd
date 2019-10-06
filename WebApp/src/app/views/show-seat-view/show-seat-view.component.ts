@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-seat-view.component.scss']
 })
 export class ShowSeatViewComponent implements OnInit {
-
   listRow: any = [
     { id: 1, name: 'A' },
     { id: 2, name: 'B' },
@@ -35,6 +34,9 @@ export class ShowSeatViewComponent implements OnInit {
     { id: 3, name: 'Có thể chọn' },
     { id: 4, name: 'Không thể chọn' },    
   ];
+  onClickShowseat(item2) {
+    
+}
 
   constructor() { }
 
