@@ -58,7 +58,7 @@ namespace Avaya.Service.MovieService
 
                 var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
                                     && x.IdCinema == searchMovie.CinemaId
-                                    && x.Date == DateTime.Parse(searchMovie.Date));
+                                    && x.Date == DateTime.Parse(searchMovie.Date).Date);
                 if (bookingdetail == null)
                     return null;
 

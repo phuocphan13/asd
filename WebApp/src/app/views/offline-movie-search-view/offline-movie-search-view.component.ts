@@ -19,7 +19,7 @@ export class OfflineMovieSearchViewComponent implements OnInit {
 
   outputData(event) {
     this.movieService.getListMovies(event).subscribe(result => {
-      this.listMovies = result;
+      this.listMovies.push(result);
       //Logic
     });
   }
