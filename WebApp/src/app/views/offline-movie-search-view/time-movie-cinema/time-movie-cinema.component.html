@@ -1,20 +1,20 @@
 <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
 <div class="content">
-  <div class="Movies">
-    <!-- <select class="select-movies"> -->
-    <ng-select class="select-movies" [searchable]="false" [items]="listMovies" bindLabel="name" bindValue="id"
+  <div class="movies">
+    <ng-select class="select-movies" [searchable]="false" [items]="listMovies" bindLabel="name" bindValue="id"[(ngModel)]="pickedMovie"
       (change)="onChangeMovieName($event)" placeholder="Select movie name..."></ng-select>
-    <!-- <option *ngFor="let item of listMovies">{{item.name}}</option> -->
-    <!-- </select> -->
   </div>
-  <div class="Cinemas">
-    <ng-select class="select-movies" [searchable]="false" [items]="listCinemas" bindLabel="name" bindValue="id"
-    (change)="onChangeCinemaName($event)" placeholder="Select movie name..."></ng-select>
-  </div>
-  <input type="text" placeholder="Datepicker" class="form-control" [minDate]="minDate" bsDatepicker>
-  <!-- <input class="input-date" type="date"> -->
 
-  <div class="search">
-    <button (click)="onClickSearch()">Tìm Kiếm</button>
+  <div class="cinemas">
+    <ng-select class="select-movies" [searchable]="false" [items]="listCinemas" bindLabel="name" bindValue="id"[(ngModel)]="pickedCinema"
+      (change)="onChangeCinemaName($event)" placeholder="Select cinemas name..."></ng-select>
   </div>
+
+  <input placeholder="Datepicker" class="form-control" [minDate]="minDate" bsDatepicker [(ngModel)]="date"
+    bindvalue="date" required oninput="validity.valid||(value='');">
+
+  <div class="search">  
+    <button type="button" (click)="onClickSearch()">Tìm Kiếm</button>
+  </div>
+
 </div>

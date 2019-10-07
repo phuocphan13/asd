@@ -1,5 +1,5 @@
 export class SearchModel{
-    nameId: number;
+    movieId: number;
     cinemaId: number;
-    date: Date;
+    date: string;
 }

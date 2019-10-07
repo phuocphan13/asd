@@ -31,6 +31,8 @@ namespace Avaya.Domain
             services.AddScoped<IRepository<RoomDetail>, Repository<RoomDetail>>();
             services.AddScoped<IRepository<SeatType>, Repository<SeatType>>();
             services.AddScoped<IRepository<ShowTime>, Repository<ShowTime>>();
+            services.AddScoped<IRepository<Service>, Repository<Service>>();
+            services.AddScoped<IRepository<Menu>, Repository<Menu>>();
         }
     }
 }

@@ -1,4 +1,4 @@
-{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset163 Calibri;}{\f2\fnil\fcharset238 Calibri;}}
+﻿{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset163 Calibri;}{\f2\fnil\fcharset238 Calibri;}}
 {\*\generator Riched20 10.0.17763}\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\f0\fs22\lang9 SET IDENTITY_INSERT [dbo].[Booking_Detail] ON \par
 \par
@@ -64,4 +64,13 @@ INSERT [dbo].[Show_Time] ([Id], [Id_BookingDetail], [Time_Start], [Time_End], [S
 INSERT [dbo].[Show_Time] ([Id], [Id_BookingDetail], [Time_Start], [Time_End], [Seat]) VALUES (4, 13, CAST(N'13:30:00' AS Time), CAST(N'14:10:00' AS Time), 150)\par
 SET IDENTITY_INSERT [dbo].[Show_Time] OFF\lang9\par
 }
+
+
+insert into Menu values (1,'Rạp Chiếu Phim', 0, 1) 
+insert into Menu values (2,'Rạp', 1, 1)
+insert into Menu values (3,'Lịch Chiếu', 1, 2)
+insert into Menu values (4,'Xuất Chiếu', 1, 3)
+insert into Menu values (5, 'Phime', 0, 2)
+insert into Menu values (6, 'Phim Bộ', 5, 1)
+insert into Menu values (7, 'Phim Lẻ', 5, 2)
  
