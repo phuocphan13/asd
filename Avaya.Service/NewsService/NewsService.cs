@@ -26,10 +26,9 @@ namespace Avaya.Service.NewsService
         public List<NewsModel> GetAll()
         {
             var news = _newsArticleRepository.GetAll().MapTo<List<NewsModel>>();
-            var Image = _newsImageRepository.GetAll();
             foreach (var temp in news)
             {
-                var ImageID = _newsImageRepository.FirstOrDefault(x => x.ArticlePhotoId == temp.Id);
+                var ImageID = _newsImageRepository.FirstOrDefault(x => x.ArticlePhotoId == temp.Id && x.Type == 1);
                 if (ImageID == null)
                 {
                     continue;
@@ -43,10 +42,7 @@ namespace Avaya.Service.NewsService
 
         public NewsDetailModel GetById(int id)
         {
-            var news = _newsArticleRepository.FirstOrDefault( x => x.Id == id ).MapTo<NewsDetailModel>();
-            var Image = _newsImageRepository.GetAll();
-            var ImageID = _newsImageRepository.GetAllList(x => x.ArticlePhotoId == news.Id);
-            news.ListImage = ImageID;
+            var news = _newsArticleRepository.Get( id ).MapTo<NewsDetailModel>();
             return news;
         }
     }

@@ -11,7 +11,7 @@
           </div>
           <div *ngFor="let item of listclip"> 
               <div class="browse-clip">
-                  <a class="image" href="#"(click)="logicChange(item.id)" > <img src={{item.photoUrl}}> </a>
+                  <a class="image" href="#"(click)="logicChange(item.id)" > <img src={{item.photoUrl}} width ={{item.photoWidth}} height={{item.photoHeight}}> </a>
                   <div class="clip-info">
                     <h3> {{item.headline}} </h3>
                     <div class='clip-descript'>
@@ -29,7 +29,6 @@
     <main-news-section [newsID]="newsId"></main-news-section>
   </div>
   <div class='sidenews-section'>
-    <app-side-news-section></app-side-news-section>
-    
+    <app-side-news-section></app-side-news-section>   
   </div>
 </div>

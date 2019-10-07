@@ -10,6 +10,7 @@ namespace Avaya.Domain.Models
         public short? PhotoHeight { get; set; }
         public string PhotoUrl { get; set; }
         public int ArticlePhotoId { get; set; }
+        public int? Type { get; set; }
 
         public virtual NewsArticles ArticlePhoto { get; set; }
     }

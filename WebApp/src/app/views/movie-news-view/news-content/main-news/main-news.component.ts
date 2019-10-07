@@ -16,7 +16,7 @@ export class NewsSectionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieNewsService.GetById(this.newsID).subscribe(result => {
+    this.movieNewsService.getById(this.newsID).subscribe(result => {
       console.log(result);
       this.detailNews=result;
       console.log(this.detailNews);

@@ -11,11 +11,11 @@ export class MovieNewsService {
   constructor(public httpClient: HttpClient){ 
    }
 
-  GetAll() :Observable<any> {
+  getAll() :Observable<any> {
     return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetAll`);
   }
 
-  GetById(id):Observable<any> {
+  getById(id):Observable<any> {
     return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetById/${id}`);
   }
 

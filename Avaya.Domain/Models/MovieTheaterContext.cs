@@ -99,9 +99,7 @@ namespace Avaya.Domain.Models
 
             modelBuilder.Entity<NewsArticles>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Author)
                     .HasColumnName("author")
@@ -174,6 +172,8 @@ namespace Avaya.Domain.Models
                     .HasColumnType("text");
 
                 entity.Property(e => e.PhotoWidth).HasColumnName("photoWidth");
+
+                entity.Property(e => e.Type).HasColumnName("type");
 
                 entity.HasOne(d => d.ArticlePhoto)
                     .WithMany(p => p.NewsImage)

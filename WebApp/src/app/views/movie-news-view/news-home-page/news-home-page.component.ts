@@ -17,9 +17,9 @@ export class NewsHomePageComponent implements OnInit {
   itemcounter : any = 0;
 
   ngOnInit() {
-    this.movieNewsService.GetAll().subscribe(result =>{
+    this.movieNewsService.getAll().subscribe(result =>{
       console.log(result);
-      this.listclip[this.itemcounter]=result[this.itemcounter];
+      this.listclip=result;
       this.itemcounter++;
     });
   }

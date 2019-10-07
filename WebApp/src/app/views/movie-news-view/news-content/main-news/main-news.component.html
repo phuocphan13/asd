@@ -9,15 +9,12 @@
     </div>
   </div>
   <div class="article-body">
-  <img src= {{detailNews.listImage[3].photoUrl}}>
-  <p>
-      {{detailNews.text}}
-  </p>
+ <div [innerHTML]="detailNews.text">
   </div>
   <div class="article-tag">
     <strong>
       TAGS:
     </strong>
-    <a href="#">Bà Già</a>,<a href="#">Ông Già</a>
+    <a href="#">{{detailNews.tags}}</a>
   </div>
 </div>
