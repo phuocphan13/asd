@@ -1,0 +1,9 @@
+<div class="input-form container">
+  <i [class]="iconClass"></i>
+  <input type="text" class="form-control" [placeholder]="placeholder" [(ngModel)]="value">
+  <div *ngIf="errorMessage && errorMessage.length > 1">
+    <div *ngFor="let item of errorMessage">
+      <span>{{item}}</span>
+    </div>
+  </div>
+</div>

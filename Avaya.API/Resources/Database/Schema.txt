@@ -166,7 +166,7 @@ GO
 
 Create table Menu(
 	Id int PRIMARY KEY,
-	Name varchar(100),
+	Name nvarchar(100),
 	Parent int,
 	OrderBy int,
 )

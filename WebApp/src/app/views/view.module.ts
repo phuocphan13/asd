@@ -6,6 +6,11 @@ import { OfflineMovieSearchViewModule } from './offline-movie-search-view/offlin
 import { PaymentViewModule } from './payment-view/payment-view.module';
 import { FilmOnlineViewModule } from './film-online-view/film-online-view.module';
 import { ControlModule } from '../controls/control.module';
+import { PaymentViewComponent } from './payment-view/payment-view.component';
+import { LoginModalComponent } from '../modals/login/login.modal.component';
+import { FormsModule } from '@angular/forms';
+import { ForgottenModalComponent } from '../modals/forgotten/forgotten.modal.component';
+import { ModalsModule } from '../modals/modals.module';
 
 @NgModule({
   declarations: [
@@ -17,12 +22,16 @@ import { ControlModule } from '../controls/control.module';
     OfflineMovieSearchViewModule,
     CommonModule,
     PaymentViewModule,
-    FilmOnlineViewModule
+    FilmOnlineViewModule,
+    FormsModule,
+    ModalsModule
+  ],
+  entryComponents: [
   ],
   exports: [
     MovieNewsViewModule,
     OfflineMovieSearchViewModule,
-    PaymentViewModule
+    PaymentViewModule,
   ]
 })
 export class ViewModule { }

@@ -1,0 +1,9 @@
+<div class="title">Forgotten Username and Password</div>
+<div class="description">Please sumbit correctly your email address. The system will send you an email for reset your
+  password.</div>
+<app-input icon="fa-envelope" placeholder="Enter your email..." [(ngModel)]="email" name="email" ngDefaultControl>
+</app-input>
+<div class="button-form">
+  <button type="submit" class="btn button-submit" (click)="onClickSubmit()">Submit</button>
+  <button class="btn btn-danger button-cancel" (click)="onClickCancel()">Cancel</button>
+</div>

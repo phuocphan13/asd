@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, forwardRef } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRouting } from './app.router';
 import { CommonModule } from '@angular/common';
@@ -15,10 +15,10 @@ import { SidebarModule } from 'ng-sidebar';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalsModule } from './modals/modals.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, ModalModule } from 'ngx-bootstrap';
 import { AlertModule } from 'ngx-alerts';
 import { MainViewComponent } from './views/main-view/main-view.component';
 import { ArticleComponent } from './article/article.component';
@@ -29,6 +29,8 @@ import { ControlModule } from './controls/control.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ServiceModule } from './core/services/service.module';
 import { AppCommonModule } from './common/app-common.module';
+import { InputComponent } from './common/components/input/input.component';
+import { LoginModalComponent } from './modals/login/login.modal.component';
 
 const appRoutes: Routes = [
   {
@@ -53,6 +55,7 @@ export const environment = {
     ArticleComponent,
   ],
   imports: [
+    ModalsModule,
     AppCommonModule,
     ServiceModule,
     ControlModule,
@@ -87,6 +90,11 @@ export const environment = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
+    // { 
+    //   provide: NG_VALUE_ACCESSOR,
+    //   multi: true,
+    //   useExisting: forwardRef(() => LoginModalComponent),
+    // }
   ],
   
   bootstrap: [AppComponent]

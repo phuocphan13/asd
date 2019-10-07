@@ -9,10 +9,12 @@ namespace Avaya.Domain.Log
     public class Log4NetLogger : ILogger
     {
         private readonly ILog _log;
+
         public Log4NetLogger(ILog log)
         {
             _log = log;
         }
+
         public IDisposable BeginScope<TState>(TState state)
         {
             return null;
