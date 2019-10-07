@@ -7,7 +7,7 @@
     <div class="seatRowLeft">{{item1.name}}</div>
 
     <div class="containerCol" *ngFor="let item2 of listCol">
-      <div class="seatCol"  (click)="onClickShowseat(item2)">{{item2.name}}</div>
+      <div [style.background-color]="color" class="seatCol" (click)="onClickShowseat(item2)">{{item2.name}}</div>
     </div>
 
     <div class="seatRowRight">{{item1.name}}</div>
