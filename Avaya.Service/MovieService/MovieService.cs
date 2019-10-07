@@ -69,6 +69,8 @@ namespace Avaya.Service.MovieService
                 movie.Address = cinema.Address;
 
                 return movie;
+                    
+               
             }
 
             return null;

@@ -26,8 +26,8 @@ export class TimeMovieCinemaComponent implements OnInit {
   ];
   listCinemas: any = [
     { id: 1, name: 'BHD Star Bitexco' },
-    { id: 2, name: 'GLX - Nguyễn Du' },
-    { id: 3, name: 'BHD Star Vincom Thảo Điền' },
+    { id: 2, name: 'BHD Star Vincom Thảo Điền' },
+    { id: 3, name: 'GLX - Nguyễn Du' },
     { id: 4, name: 'GLX - Tân Bình' },
   ];
 
