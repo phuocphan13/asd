@@ -31,23 +31,34 @@ namespace Avaya.Service.ShowSeatService
             _seatTypeRepository = seatTypeRepository;
         }
 
-        public ShowSeatModel GetListSeats (SearchSeatModel searchSeat)
+        public List<ShowSeatModel> GetListSeats (SearchSeatModel searchSeat)
         {
-            if (!string.IsNullOrEmpty(searchSeat.ShowTime)
-                && !string.IsNullOrWhiteSpace(searchSeat.ShowTime))
+            if (searchSeat.ShowTime!=0)
             {
-                var listseats = new ShowSeatModel();
+                var listseats = new List<ShowSeatModel>();
 
-                var room = _roomRepository.FirstOrDefault(x => x.IdShowTime == int.Parse(searchSeat.ShowTime));
+                var room = _roomRepository.FirstOrDefault(x => x.IdShowTime == searchSeat.ShowTime);
 
-                listseats.Seat = _roomDetailRepository.GetAll().Where(x => x.IdRoom == room.Id).MapTo<List<SeatModel>>();
+                var roomdetail = _roomDetailRepository.GetAll().Where(x => x.IdRoom == room.Id).ToList();
 
-                listseats.ReserveSeat = _reservedSeatRepository.GetAll()
-                    .Where(x => x.IdShowTime == int.Parse(searchSeat.ShowTime)).MapTo<List<ReservedSeatModel>>();
+                foreach(var item in roomdetail)
+                {
 
-                listseats.SeatType = _seatTypeRepository.GetAll().MapTo<List<SeatTypeModel>>();
+                }
 
-                return listseats;
+                //var listseats = new ShowSeatModel();
+
+                //var room = _roomRepository.FirstOrDefault(x => x.IdShowTime == int.Parse(searchSeat.ShowTime));
+
+                //listseats.Seat = _roomDetailRepository.GetAll().Where(x => x.IdRoom == room.Id).MapTo<List<SeatModel>>();
+
+                //listseats.ReserveSeat = _reservedSeatRepository.GetAll()
+                //    .Where(x => x.IdShowTime == int.Parse(searchSeat.ShowTime)).MapTo<List<ReservedSeatModel>>();
+
+                //listseats.SeatType = _seatTypeRepository.GetAll().MapTo<List<SeatTypeModel>>();
+
+                
+                //return listseats;
             }            
             return null;
         }
