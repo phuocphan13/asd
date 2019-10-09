@@ -7,6 +7,6 @@ namespace Avaya.Model.Service
     public class SearchServiceModel
     {
         public int Id { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
     }
 }
