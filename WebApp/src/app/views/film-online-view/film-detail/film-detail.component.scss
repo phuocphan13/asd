@@ -1,0 +1,57 @@
+.image{
+    width: 250px;
+}
+
+.body-info{
+    width: 250px;
+    height: 450px;
+}
+
+.title{
+    font-weight: 700;
+    font-family: Vaud,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin-top: 7px;
+    letter-spacing: .5px;
+}
+
+.detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info{
+    margin-top: 12px;
+}
+
+.time{
+    color: hsla(0,0%,100%,.5);
+    font-weight: 400;
+    font-size: 11px;
+    font-family: Vaud,Helvetica Neue,sans-serif;
+}
+
+.category{
+    color: hsla(0,0%,100%,.5);
+    font-weight: 400;
+    font-size: 11px;
+    font-family: Vaud,Helvetica Neue,sans-serif;
+}
+
+.type{
+    height: 25px;
+    margin-top: 15px;
+    line-height: 12px;
+    font-size: 11px;
+    background-color: hsla(0,0%,100%,.2);
+    border-radius: 4px;
+    color: #fff;
+    width: 56px;
+    text-align: center;
+}
+
+p{
+    margin-top: 5px;
+}

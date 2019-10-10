@@ -32,6 +32,7 @@ import { ModalsModule } from '../modals/modals.module';
     MovieNewsViewModule,
     OfflineMovieSearchViewModule,
     PaymentViewModule,
+    FilmOnlineViewModule
   ]
 })
 export class ViewModule { }

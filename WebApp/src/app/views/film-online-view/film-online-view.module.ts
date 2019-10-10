@@ -14,6 +14,7 @@ import { FilmShowingViewComponent } from './film-showing-view/film-showing-view.
         CommonModule,
     ],
     exports: [
+        FilmOnlineViewComponent
     ]
 })
 export class FilmOnlineViewModule { }

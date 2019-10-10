@@ -90,11 +90,6 @@ export const environment = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
-    // { 
-    //   provide: NG_VALUE_ACCESSOR,
-    //   multi: true,
-    //   useExisting: forwardRef(() => LoginModalComponent),
-    // }
   ],
   
   bootstrap: [AppComponent]
