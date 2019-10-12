@@ -18,9 +18,9 @@ namespace Avaya.Service
             CreateMap<Cinema, MovieModel>().ReverseMap();
             CreateMap<ShowTime, MovieModel>().ReverseMap();
             CreateMap<Menu, MenuModel>().ReverseMap();
-            CreateMap<Room, SeatModel>().ReverseMap();
-            CreateMap<ReservedSeat, ReservedSeatModel>().ReverseMap();
-            CreateMap<SeatType, SeatTypeModel>().ReverseMap();
+            CreateMap<Booking, ShowSeatModel>().ReverseMap();
+            CreateMap<RoomDetail, ShowSeatModel>().ReverseMap();
+            CreateMap<SeatType, ShowSeatModel>().ReverseMap();
         }
     }
 }

@@ -15,11 +15,10 @@ namespace Avaya.Domain.Models
         {
         }
 
+        public virtual DbSet<Booking> Booking { get; set; }
         public virtual DbSet<BookingDetail> BookingDetail { get; set; }
         public virtual DbSet<Cinema> Cinema { get; set; }
-        public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
-        public virtual DbSet<ReservedSeat> ReservedSeat { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<RoomDetail> RoomDetail { get; set; }
         public virtual DbSet<SeatType> SeatType { get; set; }
@@ -38,6 +37,15 @@ namespace Avaya.Domain.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
+
+            modelBuilder.Entity<Booking>(entity =>
+            {
+                entity.Property(e => e.IdRoom).HasColumnName("Id_Room");
+
+                entity.Property(e => e.IdSeatType).HasColumnName("Id_Seat_Type");
+
+                entity.Property(e => e.IdShowTime).HasColumnName("Id_ShowTime");
+            });
 
             modelBuilder.Entity<BookingDetail>(entity =>
             {
@@ -69,33 +77,11 @@ namespace Avaya.Domain.Models
                 entity.Property(e => e.Name).IsRequired();
             });
 
-            modelBuilder.Entity<Menu>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.Name)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-            });
-
             modelBuilder.Entity<Movie>(entity =>
             {
                 entity.Property(e => e.Name).IsRequired();
 
                 entity.Property(e => e.Picture).IsRequired();
-            });
-
-            modelBuilder.Entity<ReservedSeat>(entity =>
-            {
-                entity.ToTable("Reserved_Seat");
-
-                entity.Property(e => e.IdShowTime).HasColumnName("Id_ShowTime");
-
-                entity.HasOne(d => d.IdShowTimeNavigation)
-                    .WithMany(p => p.ReservedSeat)
-                    .HasForeignKey(d => d.IdShowTime)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Reserved_Seat_Show_Time");
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -115,25 +101,13 @@ namespace Avaya.Domain.Models
             {
                 entity.ToTable("Room_Detail");
 
-                entity.Property(e => e.Column).IsRequired();
-
                 entity.Property(e => e.IdRoom).HasColumnName("Id_Room");
 
                 entity.Property(e => e.IdSeatType).HasColumnName("Id_Seat_Type");
 
-                entity.Property(e => e.Row).IsRequired();
+                entity.Property(e => e.RowEnd).HasColumnName("Row_End");
 
-                entity.HasOne(d => d.IdRoomNavigation)
-                    .WithMany(p => p.RoomDetail)
-                    .HasForeignKey(d => d.IdRoom)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Room_Detail_Room");
-
-                entity.HasOne(d => d.IdSeatTypeNavigation)
-                    .WithMany(p => p.RoomDetail)
-                    .HasForeignKey(d => d.IdSeatType)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Room_Detail_Seat_Type");
+                entity.Property(e => e.RowStart).HasColumnName("Row_Start");
             });
 
             modelBuilder.Entity<SeatType>(entity =>
