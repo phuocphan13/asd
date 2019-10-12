@@ -15,5 +15,6 @@ namespace Avaya.Service.NewsService
     {
         List<NewsModel> GetAll();
         NewsDetailModel GetById(int id);
+        //List<NewsModel> GetSideNews();
     }
 }

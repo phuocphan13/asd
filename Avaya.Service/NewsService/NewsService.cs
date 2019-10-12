@@ -45,5 +45,29 @@ namespace Avaya.Service.NewsService
             var news = _newsArticleRepository.Get( id ).MapTo<NewsDetailModel>();
             return news;
         }
+
+        //public List<NewsModel> GetSideNews()
+        //{
+        //    var news = _newsArticleRepository.GetAll().MapTo<List<NewsModel>>();
+        //    List<int> newsIdList = new List<int>();
+        //    foreach (var temp in news)
+        //    {
+        //        newsIdList.Add(temp.Id);
+
+        //    }
+        //    Random rnd = new Random();
+        //    IEnumerable<int> randomNews = newsIdList.OrderBy(x => rnd.Next()).Take(3);
+        //    foreach (var temp in randomNews)
+        //    {
+        //        var ImageID = _newsImageRepository.FirstOrDefault(x => x.ArticlePhotoId == temp.Id && x.Type == 1);
+        //        if (ImageID == null)
+        //        {
+        //            continue;
+        //        }
+        //        temp.PhotoHeight = ImageID.PhotoHeight;
+        //        temp.PhotoUrl = ImageID.PhotoUrl;
+        //        temp.PhotoWidth = ImageID.PhotoWidth;
+        //    }
+        //}
     }
 }

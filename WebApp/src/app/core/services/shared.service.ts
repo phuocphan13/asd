@@ -10,5 +10,6 @@ export class SharedService{
     change(isChange: boolean)
     {
         this.action.emit(isChange);
+        
     }
 }

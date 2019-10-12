@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ɵConsole, OnChanges } from '@angular/core';
 import { MovieNewsService } from 'src/app/core/services/movie-news.service';
 
 @Component({
@@ -6,24 +6,27 @@ import { MovieNewsService } from 'src/app/core/services/movie-news.service';
   templateUrl: './main-news.component.html',
   styleUrls: ['./main-news.component.scss']
 })
-export class NewsSectionComponent implements OnInit {
-  
-  @Input() newsID: number;
-  detailNews: any;
+export class NewsSectionComponent implements OnInit, OnChanges {
+
+  @Input() newsId: number;
+  detailNews: any = {
+    headline: "",
+  };
 
   constructor(private movieNewsService: MovieNewsService) {
-
   }
 
   ngOnInit() {
-    this.movieNewsService.getById(this.newsID).subscribe(result => {
-      console.log(result);
-      this.detailNews=result;
-      console.log(this.detailNews);
-    })
-    
+
   }
 
+  ngOnChanges() {
+    this.loadingNews();
+  }
 
-  
+  private loadingNews() {
+    this.movieNewsService.getById(this.newsId).subscribe(result => {
+      this.detailNews = result;
+    })
+  }
 }
