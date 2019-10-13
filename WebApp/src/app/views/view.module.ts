@@ -6,6 +6,8 @@ import { OfflineMovieSearchViewModule } from './offline-movie-search-view/offlin
 import { PaymentViewModule } from './payment-view/payment-view.module';
 import { FilmOnlineViewModule } from './film-online-view/film-online-view.module';
 import { ControlModule } from '../controls/control.module';
+import { ShowSeatViewComponent } from './show-seat-view/show-seat-view.component';
+import { ShowSeatViewModule } from './show-seat-view/show-seat-view.module';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { ControlModule } from '../controls/control.module';
     OfflineMovieSearchViewModule,
     CommonModule,
     PaymentViewModule,
-    FilmOnlineViewModule
+    FilmOnlineViewModule,
+    ShowSeatViewModule
   ],
   exports: [
     MovieNewsViewModule,
     OfflineMovieSearchViewModule,
-    PaymentViewModule
+    PaymentViewModule,
+    ShowSeatViewModule
   ]
 })
 export class ViewModule { }
