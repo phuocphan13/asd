@@ -7,6 +7,7 @@ import { CarouselFilmComponent } from './carousel-film/carousel-film.component';
 import { CarouselModule } from 'ngx-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
         CarouselModule.forRoot(),
         BrowserModule,
         FormsModule,
+        NgbModule,
     ],
     exports: [
         FilmOnlineViewComponent

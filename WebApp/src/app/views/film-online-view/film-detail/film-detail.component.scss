@@ -2,17 +2,17 @@ $margin-left: 10px;
 $text-color: black;
 
 .image {
-  width: 250px;
+  width: 230px;
   margin-top: $margin-left;
   margin-left: $margin-left;
   border-radius: 10px;
 }
 
 .body-info {
-  width: 270px;
-  height: 470px;
+  width: 250px;
+  height: 440px;
   border: 1px white solid;
-  border-radius: 5%;
+  border-radius: 20px;
   background-color: rgb(233, 229, 229);
 }
 
@@ -33,7 +33,7 @@ $text-color: black;
 }
 
 .info {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .text{

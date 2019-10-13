@@ -184,3 +184,11 @@ create table FilmOnline(
 	ReleaseDate date,
 	Type nvarchar(max)
 )
+
+create table CategoriesOfFilm
+(
+	Id int identity(1,1) primary key,
+	FilmOnlineId int,
+	FilmCategoryId int
+)
+

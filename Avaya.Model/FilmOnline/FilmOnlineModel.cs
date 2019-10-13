@@ -13,5 +13,9 @@ namespace Avaya.Model.FilmOnline
         public string Time { get; set; }
 
         public string Type { get; set; }
+
+        public int Index { get; set; }
+
+        public string Category { get; set; }
     }
 }

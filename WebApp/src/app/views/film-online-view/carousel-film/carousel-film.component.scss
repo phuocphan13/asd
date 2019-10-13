@@ -1,28 +1,43 @@
 $margin-film-detail: 14px;
 
-.carousel-body{
-    width: 100%;
-    height: 500px;
-    background-color:rgb(14, 13, 13);
-    display: flex;
-    flex-direction: row;
-    padding-left: 320px;
+.carousel {
+  background-color: rgb(14, 13, 13);
+  width: 100%;
 }
 
-.film-detail{
-    margin-left: $margin-film-detail;
-    margin-right: $margin-film-detail;
-    margin-top: 14px;
+.carousel-body {
+  height: 470px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 110px;
 }
 
-.button{
-    margin-top: 175px;
-    border-radius: 10px;
-    width: 50px;
-    height: 100px;
-    background-color: rgb(49, 48, 48);
+.film-detail {
+  margin-left: $margin-film-detail;
+  margin-right: $margin-film-detail;
+  margin-top: 14px;
 }
 
-.icon{
-    color: white;
+.button {
+  margin-top: 200px;
+  border-radius: 10px;
+  width: 50px;
+  height: 100px;
+  background-color: rgb(49, 48, 48);
+}
+
+.icon {
+  color: white;
+}
+
+.carousel-head{
+    background-color: rgb(66, 64, 64);
+    text-align: center;
+}
+
+.title-header {
+  color: #dacb46;
+  font-size: 22px;
+  font-weight: 900;
+  margin-top: 200px;
 }
