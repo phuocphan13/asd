@@ -12,7 +12,7 @@ export class ItemShowingComponent implements OnInit {
   @Input("data") item: any;
   @Input() type: ItemShowingEnum;
 
-  constructor(private _domSanitizer: DomSanitizer ) { }
+  constructor(private _domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
     console.log(this.type);

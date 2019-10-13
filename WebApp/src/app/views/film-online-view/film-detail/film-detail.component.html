@@ -1,11 +1,18 @@
 <div class="body-info">
-  <img class="image" src="https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg">
-  <div class="title">Avenger: Endgame</div>
+  <div class="image-container">
+    <img class="image" [src]="_domSanitizer.bypassSecurityTrustUrl(item.imgUrl)">
+    <div class="middle">
+        <i class="icon-play far fa-play-circle fa-5x"></i>
+    </div>
+  </div>
+  <div class="title text">{{item.title}}</div>
   <div class="detail">
     <div class="info">
-      <div class="time">(2019) - 2 hr 30 min</div>
-      <div class="category">Action, Fiction, Drama</div>
+      <div class="time text">{{item.time}}</div>
+      <div class="category text">{{item.category}}</div>
     </div>
-    <div class="type"><p>TV-MA</p></div>
+    <div class="type text">
+      <p>{{item.type}}</p>
+    </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { ModalsModule } from './modals/modals.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDropdownModule, ModalModule } from 'ngx-bootstrap';
+import { BsDropdownModule, ModalModule, CarouselModule } from 'ngx-bootstrap';
 import { AlertModule } from 'ngx-alerts';
 import { MainViewComponent } from './views/main-view/main-view.component';
 import { ArticleComponent } from './article/article.component';

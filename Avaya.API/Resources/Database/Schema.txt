@@ -170,3 +170,17 @@ Create table Menu(
 	Parent int,
 	OrderBy int,
 )
+
+create table FilmCategory(
+	Id int identity(1,1) primary key,
+	Name nvarchar(max)
+)
+
+create table FilmOnline(
+	Id int identity(1,1) primary key,
+	Title nvarchar(max),
+	ImgUrl varchar(max),
+	Duration int,
+	ReleaseDate date,
+	Type nvarchar(max)
+)
