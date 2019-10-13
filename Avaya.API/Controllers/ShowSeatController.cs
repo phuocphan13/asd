@@ -27,7 +27,7 @@ namespace Avaya.API.Controllers
         [HttpPost]
         public IActionResult GetListSeats([FromBody]SearchSeatModel searchSeat)
         {
-            var result = _showSeatService.GetListSeats(searchSeat);
+            var result = _showSeatService.GetShowSeat(searchSeat);
             return Ok(result);
         }
     }

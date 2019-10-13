@@ -7,6 +7,6 @@ namespace Avaya.Service.ShowSeatService
 {
     public interface IShowSeatService
     {
-        ShowSeatModel GetListSeats(SearchSeatModel searchSeat);
+        ShowSeatModel GetShowSeat(SearchSeatModel searchSeat);
     }
 }

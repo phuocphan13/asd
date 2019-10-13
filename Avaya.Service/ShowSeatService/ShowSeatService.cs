@@ -31,49 +31,34 @@ namespace Avaya.Service.ShowSeatService
             _seatTypeRepository = seatTypeRepository;
         }
 
-        public ShowSeatModel GetListSeats(SearchSeatModel searchSeat)
+        public ShowSeatModel GetShowSeat(SearchSeatModel searchSeat)
         {
             if (searchSeat.ShowTime != 0)
             {
-                var listseats = new ShowSeatModel();
+                var showSeat = new ShowSeatModel();
 
                 var room = _roomRepository.FirstOrDefault(x => x.IdShowTime == searchSeat.ShowTime);
                 if (room == null)
-                {
                     return null;
-                }
 
-                listseats.Seat = _roomDetailRepository.GetAll().
-                    Where(x => x.IdRoom == room.Id).MapTo<List<SeatModel>>();
-                if (listseats.Seat == null)
-                {
+                var roomDetail = _roomDetailRepository.GetAll().Where(x => x.IdRoom == room.Id).ToList();
+                showSeat.Seat = Mapper.Map<List<RoomDetail>, List<SeatModel>>(roomDetail);
+
+                if (showSeat.Seat == null)
                     return null;
-                }
 
-                var list = _roomDetailRepository.GetAll().
-                    Where(x => x.IdRoom == room.Id).ToList();
-                foreach (var item in list)
+                foreach (var item in showSeat.Seat)
                 {
-                    var seattype = _seatTypeRepository.FirstOrDefault(x => x.Id == item.IdSeatType);
-                    if (seattype == null)
-                    {
-                        return null;
-                    }
-
-                    foreach (var items in listseats.Seat)
-                    {
-                        items.Type = seattype.Type;
-                    }
+                    var seatType = _seatTypeRepository.FirstOrDefault(x => x.Id == item.IdSeatType);
+                    item.Type = seatType.Type;
                 }
 
-                listseats.ReservedSeat = _bookingSeatRepository.GetAll().
+                showSeat.ReservedSeat = _bookingSeatRepository.GetAll().
                     Where(x => x.IdRoom == room.Id).MapTo<List<ReservedSeatModel>>();
-                if (listseats.ReservedSeat == null)
-                {
+                if (showSeat.ReservedSeat == null)
                     return null;
-                }
 
-                return listseats;
+                return showSeat;
             }
             return null;
 
