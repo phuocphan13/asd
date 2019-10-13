@@ -23,10 +23,6 @@ namespace Avaya.API.Controllers
         {
             _showSeatService = showSeatService;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         [HttpPost]
         public IActionResult GetListSeats([FromBody]SearchSeatModel searchSeat)
