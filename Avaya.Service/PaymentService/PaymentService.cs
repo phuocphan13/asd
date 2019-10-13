@@ -5,6 +5,7 @@ using System.Text;
 using AutoMapper;
 using Avaya.Core.Extension;
 using Avaya.Core.Repositories;
+using Avaya.Core.UoW;
 using Avaya.Domain.Models;
 using Avaya.Model.Service;
 
@@ -14,9 +15,12 @@ namespace Avaya.Service.PaymentService
     {
         private readonly IRepository<Avaya.Domain.Models.Service> _serviceRepository;
 
-        public PaymentService(IRepository<Avaya.Domain.Models.Service> serviceRepository)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public PaymentService(IRepository<Avaya.Domain.Models.Service> serviceRepository,IUnitOfWork unitOfWork)
         {
             _serviceRepository = serviceRepository;
+            _unitOfWork = unitOfWork;
         }
         public List<PaymentModel> GetListPayment(List<SearchServiceModel> searchService)
         {

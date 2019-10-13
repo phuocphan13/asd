@@ -1,47 +1,50 @@
 $margin-left: 140px;
 
 .content {
-    margin-top: 150px;
-    margin-bottom: 150px;
-    margin-left: 50px;
-    background-color: #E6E6E6;
-    padding: 80px 25px 38px 18px;
-    position: relative;
-  }
-  .label-tab-buyticket{
-    
-    background-color: #f26b38;
-    color: #ffffff;
-    text-transform: uppercase;
-    font-size: 18px;
-    padding: 12px 26px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .movies {
-    margin-bottom: 15px;
-  }
-  
-  .select-movies {
-    width: 222px;
-  }
-  
-  .cinemas {
-    margin-bottom: 15px;
-  }
-  
-  .form-control {
-    margin-bottom: 15px;
-    width: 222px;
-  }
+  margin-top: 50px;
+  margin-bottom: 150px;
+  margin-left: 30px;
+  background-color: #e6e6e6;
+  padding: 80px 25px 38px 18px;
+  position: relative;
+}
+.label-tab-buyticket {
+  background-color: #f26b38;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 12px 26px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.movies {
+  margin-bottom: 15px;
+}
 
-  .input-date {
-    width: 222px;
-  }
-  
-  .search {
-    margin-left: $margin-left;
-    
-  }
- 
+.select-movies {
+  width: 222px;
+}
+
+.cinemas {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+  width: 222px;
+}
+
+.input-date {
+  width: 222px;
+}
+
+.search {
+  margin-left: $margin-left;
+}
+
+.button-search {
+  background-color: #f26b38;
+  color: #ffffff;
+}
+

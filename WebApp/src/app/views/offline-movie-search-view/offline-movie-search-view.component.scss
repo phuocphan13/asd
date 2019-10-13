@@ -1,4 +1,12 @@
-.main-view-container{
-    display: flex;
-    //justify-content: space-around;
+.main-view-container {
+  display: flex;
+  //justify-content: space-around;
+}
+.comment {
+  margin-top: 50px;
+  margin-left: 30px;
+  width: 250px;
+  height: 311px;
+  border: solid 1px black;
+  float: right;
 }

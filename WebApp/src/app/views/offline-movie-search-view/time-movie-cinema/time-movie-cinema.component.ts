@@ -50,8 +50,16 @@ export class TimeMovieCinemaComponent implements OnInit {
     this.searchItem.cinemaId = event.id;
   }
 
-  onClickSearch()
-  {
-    this.searchData.emit(this.searchItem);
+  onClickSearch() {
+    // if (this.pickedCinema && this.date && this.pickedMovie) {
+      // this.searchItem.date = this.date;
+      this.searchItem.date = "04-09-2019";
+      this.searchItem.movieId = 4;
+      this.searchItem.cinemaId = 4;
+      this.searchData.emit(this.searchItem);
+    // }
+    // else {
+    //   alert("field missing");
+    // }
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum';
 
 @Component({
   selector: 'app-online-movies-center-view',
@@ -7,8 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class OnlineMoviesCenterViewComponent implements OnInit {
   @Input("data") listMovie: any;
-
-
+  type= ItemShowingEnum.Movie;
 
   constructor() { }
 
