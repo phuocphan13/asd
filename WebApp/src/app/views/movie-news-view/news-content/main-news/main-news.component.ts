@@ -6,7 +6,7 @@ import { MovieNewsService } from 'src/app/core/services/movie-news.service';
   templateUrl: './main-news.component.html',
   styleUrls: ['./main-news.component.scss']
 })
-export class NewsSectionComponent implements OnInit, OnChanges {
+export class MainNewsComponent implements OnInit, OnChanges {
 
   @Input() newsId: number;
   detailNews: any = {

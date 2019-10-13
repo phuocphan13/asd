@@ -18,6 +18,7 @@ export class NewsHomePageComponent implements OnInit {
   sideshow: boolean =false;
   listclip: any = [] ;
   itemcounter : any = 0;
+  type : number =2;
 
   ngOnInit() {
     var newscount: any=0;
