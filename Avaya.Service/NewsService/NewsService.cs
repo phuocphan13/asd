@@ -28,14 +28,10 @@ namespace Avaya.Service.NewsService
             var news = _newsArticleRepository.GetAll().MapTo<List<NewsModel>>();
             foreach (var temp in news)
             {
-                var ImageID = _newsImageRepository.FirstOrDefault(x => x.ArticlePhotoId == temp.Id && x.Type == 1);
-                if (ImageID == null)
-                {
-                    continue;
-                }
-                temp.PhotoHeight = ImageID.PhotoHeight;
-                temp.PhotoUrl = ImageID.PhotoUrl;
-                temp.PhotoWidth = ImageID.PhotoWidth;
+                var imageId = _newsImageRepository.FirstOrDefault(x => x.ArticlePhotoId == temp.Id && x.Type == 1);
+                temp.PhotoHeight = imageId.PhotoHeight;
+                temp.PhotoUrl = imageId.PhotoUrl;
+                temp.PhotoWidth = imageId.PhotoWidth;
             }
             return news;
         }

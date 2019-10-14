@@ -9,6 +9,7 @@ import { MovieNewsService } from 'src/app/core/services/movie-news.service';
 export class SidenewsSectionComponent implements OnInit {
 
   listclip: [];
+  news: [] = [] ;
 
   @Output() show = new EventEmitter<any>();
   newsId: any = 0;
@@ -27,8 +28,17 @@ export class SidenewsSectionComponent implements OnInit {
   
   private loadingTrendingItems() {
     this.movieNewsService.getAll().subscribe(result => {
+      // this.news[0]=0;
       this.listclip = result;
       var newsamount: number = 0;
+      var randomid: number =0;
+      var temp : number = 0;
+      randomid = this.listclip[Math.floor(Math.random() * this.listclip.length)];     
+      // if(randomid != this.newsId)
+      // {
+      //   this.news[newsamount] = randomid;
+      // }
+      newsamount++;
       newsamount = this.listclip.length;
       this.listclip = result.splice(5, newsamount);
     });
