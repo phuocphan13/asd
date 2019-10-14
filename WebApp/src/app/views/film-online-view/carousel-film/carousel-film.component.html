@@ -11,7 +11,7 @@
     <div class="carousel-view">
       <div class="carousel-showing" [style.left]="filmLeftPosition">
         <div class="film-detail" *ngFor="let item of listFilmOnlines; let index = index">
-          <app-film-detail [data]="item"></app-film-detail>
+          <app-carousel-film-detail [data]="item"></app-carousel-film-detail>
         </div>
       </div>
     </div>
