@@ -10,7 +10,13 @@ export class CarouselFilmComponent implements OnInit {
 
   listFilmOnlines: any;
   listShowingIndex = [0, 1, 2, 3, 4];
-  listShowingFilmOnlines: [];
+
+  widthOfFilm = 278;
+  filmLeftPosition = "0px";
+  leftNumberValue = 0;
+  maxLeftValue = 0;
+  minLeftValue = -834;
+  numberOfSlideFilms = 3;
 
   title = "HOTEST FILM";
 
@@ -19,38 +25,43 @@ export class CarouselFilmComponent implements OnInit {
   ngOnInit() {
     this.filmOnlineService.getAll().subscribe(result => {
       this.listFilmOnlines = result;
-      this.getListShowingFilmOnline();
     });
   }
 
   onClickButtonRight() {
-    this.reShowingFilm(1);
+    if (this.leftNumberValue > this.minLeftValue) {
+      this.leftNumberValue -= this.widthOfFilm * this.numberOfSlideFilms;
+      this.filmLeftPosition = `${this.leftNumberValue}px`;
+    }
   }
 
   onClickButtonLeft() {
-    this.reShowingFilm(-1);
+    if (this.leftNumberValue < this.maxLeftValue) {
+      this.leftNumberValue += this.widthOfFilm * this.numberOfSlideFilms;
+      this.filmLeftPosition = `${this.leftNumberValue}px`;
+    }
   }
 
-  private reShowingFilm(index: number) {
-    let maximumLength = this.listFilmOnlines.length;
-    this.listShowingIndex = this.listShowingIndex.map(x => {
-      x += index;
-      if (x === maximumLength) {
-        return 0
-      }
-      if (x === - 1) {
-        return (maximumLength - 1);
-      }
-      return x;
-    });
-    this.getListShowingFilmOnline();
-  }
+  // private reShowingFilm(index: number) {
+  //   let maximumLength = this.listFilmOnlines.length;
+  //   this.listShowingIndex = this.listShowingIndex.map(x => {
+  //     x += index;
+  //     if (x === maximumLength) {
+  //       return 0
+  //     }
+  //     if (x === - 1) {
+  //       return (maximumLength - 1);
+  //     }
+  //     return x;
+  //   });
+  //   this.getListShowingFilmOnline();
+  // }
 
-  private getListShowingFilmOnline() {
-    this.listShowingFilmOnlines = [];
-    this.listShowingIndex.forEach(element => {
-      let filmOnline = this.listFilmOnlines.find(x => x.index === element) as never;
-      this.listShowingFilmOnlines.push(filmOnline);
-    });
-  }
+  // private getListShowingFilmOnline() {
+  //   this.listShowingFilmOnlines = [];
+  //   this.listShowingIndex.forEach(element => {
+  //     let filmOnline = this.listFilmOnlines.find(x => x.index === element) as never;
+  //     this.listShowingFilmOnlines.push(filmOnline);
+  //   });
+  // }
 }
