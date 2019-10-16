@@ -112,7 +112,6 @@ namespace Avaya.Core.Repositories
             await Entities.AddRangeAsync(entities);
         }
 
-
         public virtual void Update(TEntity entity)
         {
             Entities.Update(entity);

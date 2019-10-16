@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../core/services/shared.service';
-import { Router } from '@angular/router';
+import { ItemShowingComponent } from 'src/app/common/components/item-showing/item-showing.component';
+import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum';
+
 
 @Component({
   selector: 'app-main-view',
@@ -9,11 +11,11 @@ import { Router } from '@angular/router';
 })
 export class MainViewComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit() {
-    
+
   }
 
 }
