@@ -10,7 +10,6 @@ namespace Avaya.Model.Payment
         public int serviceId { get; set; }
         public int quantity { get; set; }
         public decimal price { get; set; }
-        public int IdUser { get; set; }
-        public decimal Total { get; set; }
+        public decimal total { get; set; }
     }
 }
