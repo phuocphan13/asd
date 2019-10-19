@@ -24,11 +24,11 @@ namespace Avaya.Service.Film
             _categoryOfFilmRepository = categoryOfFilmRepository;
         }
 
-        public List<FilmOnlineModel> GetAll()
+        public List<FilmCarouselModel> GetListFilmsCarousel()
         {
             int i = 0;
             var listFilmsEntity = _filmOnlineRepository.GetAll();
-            var listFilms = listFilmsEntity.MapTo<List<FilmOnlineModel>>();
+            var listFilms = listFilmsEntity.MapTo<List<FilmCarouselModel>>();
 
             var listFilmIds = listFilmsEntity.Select(x => x.Id);
 
@@ -45,6 +45,14 @@ namespace Avaya.Service.Film
                 var categories = listCategoriesEntity.Where(x => categoryOfFilm.Any(t => t.FilmCategoryId == x.Id));
                 item.Category = string.Join(", ", categories.Select(x => x.Name));
             }
+            return listFilms;
+        }
+
+        public List<FilmNominationModel> GetListFilmsNomination()
+        {
+            var listFilmsEntity = _filmOnlineRepository.GetAll();
+            var listFilms = listFilmsEntity.MapTo<List<FilmNominationModel>>();
+
             return listFilms;
         }
     }

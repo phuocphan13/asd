@@ -8,13 +8,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselFilmDetailComponent } from './carousel-film-detail/carousel-film-detail.component';
+import { NominationFilmDetailComponent } from './nomination-film-detail/nomination-film-detail.component';
+import { NominationFilmViewComponent } from './nomination-film-view/nomination-film-view.component';
+import { PipeModule } from 'src/app/common/pipes/pipe.module';
 
 @NgModule({
     declarations: [
         FilmOnlineViewComponent,
         CarouselFilmDetailComponent,
         FilmShowingViewComponent,
-        CarouselFilmComponent
+        CarouselFilmComponent,
+        NominationFilmDetailComponent,
+        NominationFilmViewComponent
     ],
     imports: [
         CommonModule,
@@ -22,9 +27,10 @@ import { CarouselFilmDetailComponent } from './carousel-film-detail/carousel-fil
         BrowserModule,
         FormsModule,
         NgbModule,
+        PipeModule
     ],
     exports: [
-        FilmOnlineViewComponent
+        FilmOnlineViewComponent,
     ]
 })
 export class FilmOnlineViewModule { }
