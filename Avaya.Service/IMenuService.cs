@@ -8,7 +8,7 @@
 //{
 //    public interface IMenuService
 //    {
-//        List<Menu> GetAll();
+//        List<MenuService> GetAll();
 
 //        List<ProductDetailModel> Change(int query);
 //    }

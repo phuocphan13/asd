@@ -1,0 +1,110 @@
+.home-logo{
+background-color: rgb(68, 68, 68);
+ margin-bottom: 5px;
+    .name-logo{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center; 
+        line-height: 300px;
+        color: rgb(224, 158, 158);
+        height: 300px;
+        background-image: url(https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg)
+    }
+}
+
+.article-home-news{
+    margin-top: 30px;
+    width: 1300px;
+    height: 1700px;
+  
+}
+
+.main-section{
+    float: left;
+    width: 800px;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 120px;
+}
+
+.sidenews-section{
+    float: right;   
+    padding-top:20px;
+}
+
+.article-title:after {
+    overflow: hidden;
+    width: 100%;
+    height: 2px;
+    background: #dba433;
+    content: " ";
+    vertical-align: middle;
+    margin-left: .75em;
+    display: inline-block;
+}
+
+.article-title {
+    display: inline-block;
+    position: relative;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2e2c2b;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: .75em;
+    width: 100%!important;
+    padding: 1rem 0;
+    margin-bottom: .5rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.browse-clip{
+    position: relative;
+    flex-direction: row;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 15px;
+    img{
+        width: 90%;
+        height: 95%;
+        position: relative;
+    }
+}
+
+.clip-info{
+    width: 60%;
+
+    h3{
+        font-size: 100%;
+        font-weight: bold;
+        line-height: 32px;
+        font-size: 28px;
+        font-family: Arial,arial,sans-serif;
+        color: rgb(0, 0, 0);
+    }
+}
+
+.clip-descript{
+font-weight: 400;
+font-size: 14px;
+line-height: 25px;
+}
+
+.article-tag{
+    width: 85%;
+    font-family: Arial,arial,sans-serif;
+    text-transform: capitalize;
+
+    a{
+        color: #ff8902;
+        font-weight: 600;
+        text-decoration: underline;
+        -webkit-text-decoration-color: #dba433;
+        text-decoration-color: #dba433;
+    }
+
+}

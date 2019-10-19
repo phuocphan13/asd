@@ -1,0 +1,31 @@
+$font-family: 'Ubuntu',"Trebuchet MS",Trebuchet,Verdana,Helvetica,Arial,sans-serif;
+$margin-left: 10px;
+
+.body-info{
+    width: 160px;
+    height: 300px;
+    background-color: rgb(34, 30, 30);
+    border-bottom: 1px solid #868489;
+    cursor: pointer;
+}
+
+.image{
+    width: 157px;
+}
+
+.title{
+    margin-left: $margin-left;
+    margin-top: 5px;
+    font-family: $font-family;
+    color: white;
+}
+
+.time
+{
+    margin-top: 5px;
+    font-family: $font-family;
+    margin-left: $margin-left;
+    font-size: 11px;
+    color: white;
+    font-style: italic;
+}

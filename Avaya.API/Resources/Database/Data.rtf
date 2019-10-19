@@ -1,4 +1,4 @@
-{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset163 Calibri;}{\f2\fnil\fcharset238 Calibri;}}
+﻿{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset163 Calibri;}{\f2\fnil\fcharset238 Calibri;}}
 {\*\generator Riched20 10.0.17763}\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\f0\fs22\lang9 SET IDENTITY_INSERT [dbo].[Booking_Detail] ON \par
 \par
@@ -64,4 +64,112 @@ INSERT [dbo].[Show_Time] ([Id], [Id_BookingDetail], [Time_Start], [Time_End], [S
 INSERT [dbo].[Show_Time] ([Id], [Id_BookingDetail], [Time_Start], [Time_End], [Seat]) VALUES (4, 13, CAST(N'13:30:00' AS Time), CAST(N'14:10:00' AS Time), 150)\par
 SET IDENTITY_INSERT [dbo].[Show_Time] OFF\lang9\par
 }
+
+
+insert into Menu values (1,'Rạp Chiếu Phim', 0, 1) 
+insert into Menu values (2,'Rạp', 1, 1)
+insert into Menu values (3,'Lịch Chiếu', 1, 2)
+insert into Menu values (4,'Xuất Chiếu', 1, 3)
+insert into Menu values (5, 'Phime', 0, 2)
+insert into Menu values (6, 'Phim Bộ', 5, 1)
+insert into Menu values (7, 'Phim Lẻ', 5, 2)
+
+
+insert into FilmCategory values ('Drama')
+insert into FilmCategory values ('Action')
+insert into FilmCategory values ('Comedy')
+insert into FilmCategory values ('Science')
+insert into FilmCategory values ('Musical')
+insert into FilmCategory values ('Adventure')
+insert into FilmCategory values ('War')
  
+
+insert into FilmOnline values ('Avenger: Endgame', 
+	'https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg', 250,'PG-13', '09-09-2019')
+
+insert into FilmOnline values ('Power Ranger', 
+	'https://cdn2.bigcommerce.com/n-nr1m3w/b72t4x/products/77996/images/85337/power_rangers_-_group__99917.1493833860.1280.1280.jpg?c=2', 180,'PG-13', '09-09-2019')
+
+insert into FilmOnline values ('Lucifer', 
+	'https://m.media-amazon.com/images/M/MV5BZTA2NTBkYWUtMzM4Zi00YzhlLTk4NWItY2U1ODczNDMyNDAzXkEyXkFqcGdeQXVyNDg4NjY5OTQ@._V1_SY1000_CR0,0,675,1000_AL_.jpg', 250,'TV-MA', '09-09-2019')
+
+insert into FilmOnline values ('Breaking Bad', 
+	'https://images-na.ssl-images-amazon.com/images/I/51fWOBx3agL.jpg', 130,'PG-13', '09-09-2019')
+
+insert into FilmOnline values ('El Camino', 
+	'https://i.redd.it/uimm8n9id9o31.jpg', 200,'AP-CN', '07-02-2019')
+
+insert into FilmOnline values ('Supernatural', 
+	'https://images-na.ssl-images-amazon.com/images/I/6122B7h60kL._SY679_.jpg', 205,'AP-CN', '07-02-2019')
+
+
+insert into FilmOnline values ('Good Doctor', 
+	'https://i.etsystatic.com/18272096/r/il/b1865e/1681315111/il_570xN.1681315111_9o9b.jpg', 205,'AP-CN', '07-02-2019')
+ 
+
+insert into FilmOnline values ('Shawshank Redemption', 
+	'https://images-na.ssl-images-amazon.com/images/I/71H7DhnOoRL._SY679_.jpg', 205,'AP-CN', '07-02-2019')
+
+
+insert into FilmOnline values ('Game Of Thrones', 
+	'https://images-na.ssl-images-amazon.com/images/I/51IkXIrjpXL._SY679_.jpg', 250, 'PG-21', '03-04-2019')
+
+insert into FilmOnline values ('Black Panther', 
+	'https://images-na.ssl-images-amazon.com/images/I/61BlAIoqQUL.jpg', 300, 'PG-21', '03-04-2019')
+
+insert into FilmOnline values ('Maze Runner', 
+	'https://images-na.ssl-images-amazon.com/images/I/91nB2P7VgvL._SY679_.jpg', 120, 'PG-21', '03-04-2019')
+
+insert into FilmOnline values ('Dark Phoenix', 
+	'https://s3.birthmoviesdeath.com/images/made/X-Men-Dark-Phoenix-New-Poster_1200_1777_81_s.jpg', 250, 'PG-21', '03-04-2019')
+
+insert into FilmOnline values ('Bumblebee', 
+	'https://media.comicbook.com/2018/11/bumblebee-poster-1143862.jpeg', 130, 'PG-21', '03-04-2019')
+
+insert into FilmOnline values ('Maleficent', 
+	'https://d994l96tlvogv.cloudfront.net/uploads/film/poster/maleficent-mistress-of-evil-new-poster.jpeg', 122, 'PG-21', '03-04-2019')
+
+insert into FilmOnline values ('Kungfu Hustle', 
+	'https://images-na.ssl-images-amazon.com/images/I/51tBlJ8iwnL.jpg', 232, 'PG-21', '03-04-2019')
+
+insert into FilmOnline values ('John Wick', 
+	'https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0101_1024x1024.jpeg?v=1485014463', 209, 'PG-21', '03-04-2019')
+
+insert into FilmOnline values ('Fast and Furious 7', 
+	'https://images-na.ssl-images-amazon.com/images/I/61JXqCUozzL._SY679_.jpg', 178, 'PG-21', '03-04-2019')
+
+	
+insert into CategoriesOfFilm values (1, 1)
+insert into CategoriesOfFilm values (1, 2)
+insert into CategoriesOfFilm values (1, 3)
+
+insert into CategoriesOfFilm values (2, 1)
+insert into CategoriesOfFilm values (2, 5)
+insert into CategoriesOfFilm values (2, 6)
+
+insert into CategoriesOfFilm values (3, 5)
+insert into CategoriesOfFilm values (3, 7)
+
+
+insert into CategoriesOfFilm values (4, 1)
+insert into CategoriesOfFilm values (4, 6)
+
+
+insert into CategoriesOfFilm values (5, 1)
+insert into CategoriesOfFilm values (5, 5)
+insert into CategoriesOfFilm values (5, 6)
+
+
+insert into CategoriesOfFilm values (6, 1)
+insert into CategoriesOfFilm values (6, 5)
+insert into CategoriesOfFilm values (6, 6)
+
+
+insert into CategoriesOfFilm values (7, 1)
+insert into CategoriesOfFilm values (7, 5)
+insert into CategoriesOfFilm values (7, 6)
+
+
+insert into CategoriesOfFilm values (8, 2)
+insert into CategoriesOfFilm values (8, 4)
+insert into CategoriesOfFilm values (8, 5)

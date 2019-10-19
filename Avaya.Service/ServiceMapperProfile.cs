@@ -1,9 +1,13 @@
 ﻿using AutoMapper;
 using Avaya.Domain.Models;
 using Avaya.Model;
+using Avaya.Model.Menu;
 using Avaya.Model.Movie;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using Avaya.Model.ShowSeat;
+using Avaya.Model.FilmOnline;
+using Avaya.Core.Helper;
 
 namespace Avaya.Service
 {
@@ -15,20 +19,16 @@ namespace Avaya.Service
             CreateMap<Movie, MovieModel>().ReverseMap();
             CreateMap<Cinema, MovieModel>().ReverseMap();
             CreateMap<ShowTime, MovieModel>().ReverseMap();
-
-
-
-            //var config = new MapperConfiguration(cfg =>
-            //{
-
-            //    //    ////cfg.CreateMap<ProductDetails, ProductDetailModel>();
-            //    cfg.CreateMap<Movie, MovieModel>()
-            //            .ForMember(x => x.MovieName, m => m.MapFrom(f => f.Name));
-            //    cfg.CreateMap<ShowTime, MovieModel>()
-            //            .ForMember(x => x.ListShowTime, m => m.MapFrom(f => f.TimeStart));
-            //    //    cfg.CreateMap<Movie, MovieTemptModel>();
-
-            //});
+            CreateMap<Menu, MenuModel>().ReverseMap();
+            CreateMap<Room, SeatModel>().ReverseMap();
+            CreateMap<ReservedSeat, ReservedSeatModel>().ReverseMap();
+            CreateMap<SeatType, SeatTypeModel>().ReverseMap();
+            CreateMap<FilmOnline, FilmCarouselModel>()
+                .ForMember(x => x.Time, opt => opt.MapFrom(
+                    i => $"({i.ReleaseDate.Value.Year}) - {TransformHelper.TimeIntToString(i.Duration.Value)}"))
+                .ReverseMap();
+            CreateMap<FilmOnline, FilmNominationModel>()
+                .ForMember(x => x.Time, opt => opt.MapFrom(i => i.Duration)).ReverseMap();
         }
     }
 }

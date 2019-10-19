@@ -15,13 +15,21 @@ namespace Avaya.Domain.Models
         {
         }
 
+        public virtual DbSet<Bill> Bill { get; set; }
+        public virtual DbSet<BillDetail> BillDetail { get; set; }
+        public virtual DbSet<Booking> Booking { get; set; }
         public virtual DbSet<BookingDetail> BookingDetail { get; set; }
+        public virtual DbSet<CategoriesOfFilm> CategoriesOfFilm { get; set; }
         public virtual DbSet<Cinema> Cinema { get; set; }
+        public virtual DbSet<FilmCategory> FilmCategory { get; set; }
+        public virtual DbSet<FilmOnline> FilmOnline { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<ReservedSeat> ReservedSeat { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<RoomDetail> RoomDetail { get; set; }
         public virtual DbSet<SeatType> SeatType { get; set; }
+        public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ShowTime> ShowTime { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -36,6 +44,36 @@ namespace Avaya.Domain.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
+
+            modelBuilder.Entity<Bill>(entity =>
+            {
+                entity.Property(e => e.IdUser).HasColumnName("Id_User");
+
+                entity.Property(e => e.Total).HasColumnType("numeric(18, 0)");
+            });
+
+            modelBuilder.Entity<BillDetail>(entity =>
+            {
+                entity.ToTable("Bill_Detail");
+
+                entity.Property(e => e.IdBill).HasColumnName("Id_Bill");
+
+                entity.Property(e => e.IdService).HasColumnName("Id_Service");
+
+                entity.HasOne(d => d.IdBillNavigation)
+                    .WithMany(p => p.BillDetail)
+                    .HasForeignKey(d => d.IdBill)
+                    .HasConstraintName("FK__Bill_Deta__Id_Bi__74AE54BC");
+            });
+
+            modelBuilder.Entity<Booking>(entity =>
+            {
+                entity.Property(e => e.IdRoom).HasColumnName("Id_Room");
+
+                entity.Property(e => e.IdSeatType).HasColumnName("Id_Seat_Type");
+
+                entity.Property(e => e.IdShowTime).HasColumnName("Id_ShowTime");
+            });
 
             modelBuilder.Entity<BookingDetail>(entity =>
             {
@@ -65,6 +103,20 @@ namespace Avaya.Domain.Models
                 entity.Property(e => e.Address).IsRequired();
 
                 entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<FilmOnline>(entity =>
+            {
+                entity.Property(e => e.ImgUrl).IsUnicode(false);
+
+                entity.Property(e => e.ReleaseDate).HasColumnType("date");
+            });
+
+            modelBuilder.Entity<Menu>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name).HasMaxLength(100);
             });
 
             modelBuilder.Entity<Movie>(entity =>
@@ -104,25 +156,13 @@ namespace Avaya.Domain.Models
             {
                 entity.ToTable("Room_Detail");
 
-                entity.Property(e => e.Column).IsRequired();
-
                 entity.Property(e => e.IdRoom).HasColumnName("Id_Room");
 
                 entity.Property(e => e.IdSeatType).HasColumnName("Id_Seat_Type");
 
-                entity.Property(e => e.Row).IsRequired();
+                entity.Property(e => e.RowEnd).HasColumnName("Row_End");
 
-                entity.HasOne(d => d.IdRoomNavigation)
-                    .WithMany(p => p.RoomDetail)
-                    .HasForeignKey(d => d.IdRoom)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Room_Detail_Room");
-
-                entity.HasOne(d => d.IdSeatTypeNavigation)
-                    .WithMany(p => p.RoomDetail)
-                    .HasForeignKey(d => d.IdSeatType)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Room_Detail_Seat_Type");
+                entity.Property(e => e.RowStart).HasColumnName("Row_Start");
             });
 
             modelBuilder.Entity<SeatType>(entity =>
@@ -130,6 +170,15 @@ namespace Avaya.Domain.Models
                 entity.ToTable("Seat_Type");
 
                 entity.Property(e => e.Type).IsRequired();
+            });
+
+            modelBuilder.Entity<Service>(entity =>
+            {
+                entity.Property(e => e.IdCinema).HasColumnName("Id_Cinema");
+
+                entity.Property(e => e.Name).IsRequired();
+
+                entity.Property(e => e.Price).HasColumnType("numeric(18, 0)");
             });
 
             modelBuilder.Entity<ShowTime>(entity =>
