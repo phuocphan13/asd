@@ -5,13 +5,18 @@ namespace Avaya.Domain.Models
 {
     public partial class RoomDetail
     {
-        public int Id { get; set; }
-        public int IdRoom { get; set; }
-        public int IdSeatType { get; set; }
-        public string Row { get; set; }
-        public string Column { get; set; }
+        public RoomDetail()
+        {
+            Booking = new HashSet<Booking>();
+        }
 
-        public virtual Room IdRoomNavigation { get; set; }
-        public virtual SeatType IdSeatTypeNavigation { get; set; }
+        public int Id { get; set; }
+        public int IdSeatType { get; set; }
+        public int IdRoom { get; set; }
+        public int Column { get; set; }
+        public int? Row { get; set; }
+        public Guid Guid { get; set; }
+
+        public virtual ICollection<Booking> Booking { get; set; }
     }
 }

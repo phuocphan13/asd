@@ -16,13 +16,16 @@ namespace Avaya.Service.PaymentService
     {
         private readonly IRepository<Avaya.Domain.Models.Service> _serviceRepository;
         private readonly IRepository<BillDetail> _billDetailRepository;
+        private readonly IRepository<Bill> _billRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PaymentService(IRepository<Avaya.Domain.Models.Service> serviceRepository,IUnitOfWork unitOfWork, IRepository<BillDetail> billDetailRepository)
+        public PaymentService(IRepository<Avaya.Domain.Models.Service> serviceRepository
+            ,IUnitOfWork unitOfWork, IRepository<BillDetail> billDetailRepository, IRepository<Bill> billRepository)
         {
             _serviceRepository = serviceRepository;
             _unitOfWork = unitOfWork;
             _billDetailRepository = billDetailRepository;
+            _billRepository = billRepository;
         }
         public List<PaymentModel> GetListPayment(List<SearchServiceModel> searchService)
         {
@@ -55,9 +58,25 @@ namespace Avaya.Service.PaymentService
 
         public bool Create(BillDetailModel insertBillModel)
         {
-            var insert = AutoMapper.Mapper.Map<BillDetail>(insertBillModel);
-            _billDetailRepository.Insert(insert);
-            return _unitOfWork.SaveChanges();
+            var insert = AutoMapper.Mapper.Map<Bill>(insertBillModel);
+            _billRepository.Insert(insert);
+            _unitOfWork.SaveChanges();
+
+            var bill = _billRepository.GetAll().ToList();
+            if (bill == null)
+                return false;
+            else foreach(var item in bill)
+                {
+                    if(item.IdUser == insertBillModel.UserId)
+                    {
+                        var insertBillDetal = AutoMapper.Mapper.Map<BillDetail>(insertBillModel);
+                        insertBillDetal.IdBill = item.Id;
+                        _billDetailRepository.Insert(insertBillDetal);
+                        _unitOfWork.SaveChanges();
+                    }
+                }
+
+            return true;
         }
 
         

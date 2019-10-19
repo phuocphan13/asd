@@ -24,7 +24,11 @@ namespace Avaya.Service
             CreateMap<ReservedSeat, ReservedSeatModel>().ReverseMap();
             CreateMap<SeatType, SeatTypeModel>().ReverseMap();
             CreateMap <Avaya.Domain.Models.Service, PaymentModel >().ReverseMap();
-            CreateMap<BillDetail, BillDetailModel>().ReverseMap();
+            CreateMap<BillDetail, BillDetailModel>()
+                .ForMember(dest=>dest.serviceId,opt=>opt.MapFrom(src=>src.IdService)).ReverseMap();
+            CreateMap<Bill, BillDetailModel>()
+                .ForMember(dest=>dest.UserId,opt=>opt.MapFrom(src=>src.IdUser)).ReverseMap();
+            CreateMap<Bill, BillDetail>().ReverseMap();
         }
     }
 }

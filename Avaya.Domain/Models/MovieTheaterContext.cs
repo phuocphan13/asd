@@ -17,11 +17,10 @@ namespace Avaya.Domain.Models
 
         public virtual DbSet<Bill> Bill { get; set; }
         public virtual DbSet<BillDetail> BillDetail { get; set; }
+        public virtual DbSet<Booking> Booking { get; set; }
         public virtual DbSet<BookingDetail> BookingDetail { get; set; }
         public virtual DbSet<Cinema> Cinema { get; set; }
-        public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
-        public virtual DbSet<ReservedSeat> ReservedSeat { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<RoomDetail> RoomDetail { get; set; }
         public virtual DbSet<SeatType> SeatType { get; set; }
@@ -52,8 +51,6 @@ namespace Avaya.Domain.Models
             {
                 entity.ToTable("Bill_Detail");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.IdBill).HasColumnName("Id_Bill");
 
                 entity.Property(e => e.IdService).HasColumnName("Id_Service");
@@ -64,6 +61,22 @@ namespace Avaya.Domain.Models
                     .WithMany(p => p.BillDetail)
                     .HasForeignKey(d => d.IdBill)
                     .HasConstraintName("FK_Bill_Detail_Bill");
+            });
+
+            modelBuilder.Entity<Booking>(entity =>
+            {
+                entity.Property(e => e.IdRoom).HasColumnName("Id_Room");
+
+                entity.Property(e => e.IdRoomDetail).HasColumnName("Id_Room_Detail");
+
+                entity.Property(e => e.IdSeatType).HasColumnName("Id_Seat_Type");
+
+                entity.Property(e => e.IdShowTime).HasColumnName("Id_ShowTime");
+
+                entity.HasOne(d => d.IdRoomDetailNavigation)
+                    .WithMany(p => p.Booking)
+                    .HasForeignKey(d => d.IdRoomDetail)
+                    .HasConstraintName("FK__Booking__Id_Room__73852659");
             });
 
             modelBuilder.Entity<BookingDetail>(entity =>
@@ -96,33 +109,11 @@ namespace Avaya.Domain.Models
                 entity.Property(e => e.Name).IsRequired();
             });
 
-            modelBuilder.Entity<Menu>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.Name)
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-            });
-
             modelBuilder.Entity<Movie>(entity =>
             {
                 entity.Property(e => e.Name).IsRequired();
 
                 entity.Property(e => e.Picture).IsRequired();
-            });
-
-            modelBuilder.Entity<ReservedSeat>(entity =>
-            {
-                entity.ToTable("Reserved_Seat");
-
-                entity.Property(e => e.IdShowTime).HasColumnName("Id_ShowTime");
-
-                entity.HasOne(d => d.IdShowTimeNavigation)
-                    .WithMany(p => p.ReservedSeat)
-                    .HasForeignKey(d => d.IdShowTime)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Reserved_Seat_Show_Time");
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -142,25 +133,13 @@ namespace Avaya.Domain.Models
             {
                 entity.ToTable("Room_Detail");
 
-                entity.Property(e => e.Column).IsRequired();
+                entity.Property(e => e.Guid)
+                    .HasColumnName("GUID")
+                    .HasDefaultValueSql("(newid())");
 
                 entity.Property(e => e.IdRoom).HasColumnName("Id_Room");
 
                 entity.Property(e => e.IdSeatType).HasColumnName("Id_Seat_Type");
-
-                entity.Property(e => e.Row).IsRequired();
-
-                entity.HasOne(d => d.IdRoomNavigation)
-                    .WithMany(p => p.RoomDetail)
-                    .HasForeignKey(d => d.IdRoom)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Room_Detail_Room");
-
-                entity.HasOne(d => d.IdSeatTypeNavigation)
-                    .WithMany(p => p.RoomDetail)
-                    .HasForeignKey(d => d.IdSeatType)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Room_Detail_Seat_Type");
             });
 
             modelBuilder.Entity<SeatType>(entity =>
