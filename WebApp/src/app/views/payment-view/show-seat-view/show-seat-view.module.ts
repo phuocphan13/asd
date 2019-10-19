@@ -6,7 +6,7 @@ import { ShowSeatViewComponent } from './show-seat-view.component';
 
 @NgModule({
   declarations: [
-      ShowSeatViewComponent,
+      
   ],
   imports: [
     NgSelectModule,
@@ -14,7 +14,7 @@ import { ShowSeatViewComponent } from './show-seat-view.component';
     CommonModule
   ],
   exports: [
-    ShowSeatViewComponent
+    
   ]
 })
 export class ShowSeatViewModule { }

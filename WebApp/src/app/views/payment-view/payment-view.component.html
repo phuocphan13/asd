@@ -1,6 +1,9 @@
 <div class="payment-view-wrapper">
-  <div class="picking-side">
+  <!-- <div class="picking-side">
     <app-booking-ticket (itemsValue)="ItemsValueOutPut($event)"></app-booking-ticket>
+  </div> -->
+  <div>
+    <app-show-seat-view [data]="item"></app-show-seat-view>
   </div>
   <div class="payment-side">
     <app-payment-section [completePrice]="completePrice"></app-payment-section>

@@ -4,12 +4,14 @@ import { PaymentSectionComponent } from './payment-section/payment-section.compo
 import { BookingTicketComponent } from './booking-ticket/booking-ticket.component';
 import { FormsModule } from '@angular/forms';
 import { PaymentViewComponent } from './payment-view.component';
+import { ShowSeatViewComponent } from './show-seat-view/show-seat-view.component';
 
 @NgModule({
   declarations: [
       BookingTicketComponent,
       PaymentSectionComponent,
-      PaymentViewComponent
+      PaymentViewComponent,
+      ShowSeatViewComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { PaymentViewComponent } from './payment-view.component';
   exports: [
     BookingTicketComponent,
     PaymentSectionComponent,
-    PaymentViewComponent
+    PaymentViewComponent,
+    ShowSeatViewComponent
   ]
 })
 export class PaymentViewModule { }

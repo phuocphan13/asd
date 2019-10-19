@@ -18,7 +18,7 @@ import { FilmOnlineService } from './film-online.service';
     SideNewsService,
     SharedService,
     MovieService,
-    FilmOnlineService
+    FilmOnlineService,
 
     ShowSeatService
   ]

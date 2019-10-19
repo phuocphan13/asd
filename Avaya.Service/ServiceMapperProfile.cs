@@ -22,7 +22,6 @@ namespace Avaya.Service
             CreateMap<Menu, MenuModel>().ReverseMap();
             CreateMap<Room, SeatModel>().ReverseMap();
             CreateMap<ReservedSeat, ReservedSeatModel>().ReverseMap();
-            CreateMap<SeatType, SeatTypeModel>().ReverseMap();
             CreateMap<FilmOnline, FilmOnlineModel>()
                 .ForMember(x => x.Time, opt => opt.MapFrom(
                     i => $"({i.ReleaseDate.Value.Year}) - {TransformHelper.TimeIntToString(i.Duration.Value)}"))
