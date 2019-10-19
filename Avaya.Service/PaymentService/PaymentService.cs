@@ -7,6 +7,7 @@ using Avaya.Core.Extension;
 using Avaya.Core.Repositories;
 using Avaya.Core.UoW;
 using Avaya.Domain.Models;
+using Avaya.Model.Payment;
 using Avaya.Model.Service;
 
 namespace Avaya.Service.PaymentService
@@ -14,13 +15,14 @@ namespace Avaya.Service.PaymentService
     public class PaymentService : IPaymentService
     {
         private readonly IRepository<Avaya.Domain.Models.Service> _serviceRepository;
-
+        private readonly IRepository<BillDetail> _billDetailRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PaymentService(IRepository<Avaya.Domain.Models.Service> serviceRepository,IUnitOfWork unitOfWork)
+        public PaymentService(IRepository<Avaya.Domain.Models.Service> serviceRepository,IUnitOfWork unitOfWork, IRepository<BillDetail> billDetailRepository)
         {
             _serviceRepository = serviceRepository;
             _unitOfWork = unitOfWork;
+            _billDetailRepository = billDetailRepository;
         }
         public List<PaymentModel> GetListPayment(List<SearchServiceModel> searchService)
         {
@@ -32,7 +34,7 @@ namespace Avaya.Service.PaymentService
                 if (list == null)
                     return null;
 
-                list.Total = item.Quantity * list.Price;
+                //list.Total = item.Quantity * list.Price;
 
                 list.Quantity = item.Quantity;
 
@@ -41,5 +43,23 @@ namespace Avaya.Service.PaymentService
 
             return listpayment;
         }
+
+        public List<PaymentModel> GetAll()
+        {
+            return _serviceRepository.GetAll().MapTo<List<PaymentModel>>();
+        }
+        public List<PaymentModel> GetListBill(List<BillDetailModel> billPayment)
+        {
+            return null ;
+        }
+
+        public bool Create(BillDetailModel insertBillModel)
+        {
+            var insert = AutoMapper.Mapper.Map<BillDetail>(insertBillModel);
+            _billDetailRepository.Insert(insert);
+            return _unitOfWork.SaveChanges();
+        }
+
+        
     }
 }

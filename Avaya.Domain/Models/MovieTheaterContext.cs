@@ -15,6 +15,8 @@ namespace Avaya.Domain.Models
         {
         }
 
+        public virtual DbSet<Bill> Bill { get; set; }
+        public virtual DbSet<BillDetail> BillDetail { get; set; }
         public virtual DbSet<BookingDetail> BookingDetail { get; set; }
         public virtual DbSet<Cinema> Cinema { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
@@ -38,6 +40,31 @@ namespace Avaya.Domain.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
+
+            modelBuilder.Entity<Bill>(entity =>
+            {
+                entity.Property(e => e.IdUser).HasColumnName("Id_User");
+
+                entity.Property(e => e.Total).HasColumnType("numeric(18, 0)");
+            });
+
+            modelBuilder.Entity<BillDetail>(entity =>
+            {
+                entity.ToTable("Bill_Detail");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.IdBill).HasColumnName("Id_Bill");
+
+                entity.Property(e => e.IdService).HasColumnName("Id_Service");
+
+                entity.Property(e => e.Price).HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.IdBillNavigation)
+                    .WithMany(p => p.BillDetail)
+                    .HasForeignKey(d => d.IdBill)
+                    .HasConstraintName("FK_Bill_Detail_Bill");
+            });
 
             modelBuilder.Entity<BookingDetail>(entity =>
             {

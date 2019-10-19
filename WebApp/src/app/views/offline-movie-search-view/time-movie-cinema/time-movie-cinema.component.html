@@ -2,19 +2,19 @@
 <div class="content">
   <div class="label-tab-buyticket">mua vé nhanh</div>
   <div class="movies">
-    <ng-select class="select-movies" [searchable]="false" [items]="listMovies" bindLabel="name" bindValue="id"[(ngModel)]="pickedMovie"
-      (change)="onChangeMovieName($event)" placeholder="Select movie name..."></ng-select>
+    <ng-select class="select-movies" [searchable]="false" [items]="listMovies" bindLabel="name" bindValue="id"
+      [(ngModel)]="movieId" [(ngModel)]="pickedMovie" placeholder="Select movie name..."></ng-select>
   </div>
 
   <div class="cinemas">
-    <ng-select class="select-movies" [searchable]="false" [items]="listCinemas" bindLabel="name" bindValue="id"[(ngModel)]="pickedCinema"
-      (change)="onChangeCinemaName($event)" placeholder="Select cinemas name..."></ng-select>
+    <ng-select class="select-movies" [searchable]="false" [items]="listCinemas" bindLabel="name" bindValue="id"
+      [(ngModel)]="cinemaId" [(ngModel)]="pickedCinema" placeholder="Select cinemas name..."></ng-select>
   </div>
 
-  <input placeholder="Datepicker" class="form-control" [minDate]="minDate" bsDatepicker [(ngModel)]="date"
-    bindvalue="date" required oninput="validity.valid||(value='');">
+  <input placeholder="Datepicker" class="form-control" bsDatepicker [(ngModel)]="date" bindvalue="date" required
+    oninput="validity.valid||(value='');">
 
-  <div class="search">  
+  <div class="search">
     <button class="btn button-search" type="button" (click)="onClickSearch()">Tìm Kiếm</button>
   </div>
 </div>

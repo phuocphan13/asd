@@ -7,6 +7,7 @@ import { MovieService } from './movie.service';
 
 import { SideNewsHalfsizeService } from './side-news-halfsize.service'
 import { SideNewsService } from './side-news.service'
+import { PaymentService } from './payment.service';
 @NgModule({
   declarations: [
   ],
@@ -15,8 +16,9 @@ import { SideNewsService } from './side-news.service'
     SideNewsHalfsizeService,
     MovieNewsService,
     SideNewsService,
-      SharedService,
-      MovieService
+    SharedService,
+    MovieService,
+    PaymentService
   ]
 })
 export class ServiceModule { }

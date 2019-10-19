@@ -13,8 +13,11 @@ export class OnlineMoviesCenterViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   ngOnchange(){
+
   }
+
 }

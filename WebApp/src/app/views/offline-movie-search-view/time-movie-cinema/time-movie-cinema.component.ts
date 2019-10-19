@@ -12,8 +12,11 @@ export class TimeMovieCinemaComponent implements OnInit {
   @Output() searchData = new EventEmitter();
 
   searchItem: SearchModel;
+  searchItemTemp: SearchModel;
   minDate: Date;
   date: any;
+  movieId: any;
+  cinemaId: any;
 
   pickedMovie: any;
   pickedCinema: any;
@@ -35,31 +38,36 @@ export class TimeMovieCinemaComponent implements OnInit {
   constructor(private router: Router) {
     this.minDate = new Date();
     this.searchItem = new SearchModel();
+    this.searchItemTemp = new SearchModel();
   }
 
   ngOnInit() {
 
   }
 
-
-  onChangeMovieName(event) {
-    this.searchItem.movieId = event.id;
-  }
-
-  onChangeCinemaName(event) {
-    this.searchItem.cinemaId = event.id;
-  }
-
   onClickSearch() {
-    // if (this.pickedCinema && this.date && this.pickedMovie) {
-      // this.searchItem.date = this.date;
-      this.searchItem.date = "04-09-2019";
-      this.searchItem.movieId = 4;
-      this.searchItem.cinemaId = 4;
-      this.searchData.emit(this.searchItem);
-    // }
-    // else {
-    //   alert("field missing");
-    // }
+    if (this.pickedCinema && this.date && this.pickedMovie) {
+
+      this.searchItem.movieId = this.movieId;
+      this.searchItem.cinemaId = this.cinemaId;
+      this.searchItem.date = this.date;
+      //1
+
+      if (this.searchItem.date != this.searchItemTemp.date
+        || this.searchItem.movieId != this.searchItemTemp.movieId
+        || this.searchItem.cinemaId != this.searchItemTemp.cinemaId) {
+        this.searchData.emit(this.searchItem);
+      }
+
+      //2
+      this.searchItemTemp = this.searchItem;
+
+      //3
+      this.searchItem = new SearchModel();
+      console.log(this.searchItemTemp);
+    }
+    else {
+      alert("field missing");
+    }
   }
 }

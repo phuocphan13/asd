@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentService } from 'src/app/core/services/payment.service';
 
 @Component({
   selector: 'app-payment-view',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentViewComponent implements OnInit {
 
-  completePrice: any;
+  listItems: any;
 
-  constructor() { }
+  constructor( private paymentService: PaymentService) { }
 
   ngOnInit() {
   }
 
-  ItemsValueOutPut(event) {
-    this.completePrice = event;
+  itemsValueOutPut(event) {
+    this.listItems = event;
   }
 }
