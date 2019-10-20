@@ -31,24 +31,27 @@ namespace Avaya.Service.SaveSeatService
             var roomDetail = _roomDetailRepository.GetAll().ToList();
             var booking = _bookingRepository.GetAll().ToList();
 
-            foreach(var seat in roomDetail)
+            foreach (var seat in roomDetail)
             {
-                foreach(var reservedSeat in saveSeatModel)
+                foreach (var reservedSeat in saveSeatModel)
                 {
                     if (reservedSeat.GUID.Contains(seat.Guid.ToString()))
                     {
-                        var insertSeat = AutoMapper.Mapper.Map<Booking>(seat);
-
                         foreach (var booked in booking)
                         {
-                            if (booked.IdShowTime != insertSeat.IdShowTime && booked.IdRoomDetail != insertSeat.IdRoomDetail)
+                            if (booked.IdShowTime == reservedSeat.ShowTime && booked.IdRoomDetail == seat.Id)
                             {
+                                return false;
+                            }
+                            else
+                            {
+                                var insertSeat = AutoMapper.Mapper.Map<Booking>(seat);
+                                insertSeat.Id = 0;
                                 insertSeat.IdRoomDetail = seat.Id;
                                 insertSeat.IdShowTime = reservedSeat.ShowTime;
                                 _bookingRepository.Insert(insertSeat);
                                 _unitOfWork.SaveChanges();
                             }
-                            else return false;
                         }
                     }
                 }

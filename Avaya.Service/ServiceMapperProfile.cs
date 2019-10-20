@@ -32,7 +32,7 @@ namespace Avaya.Service
             CreateMap<SeatType, ShowSeatModel>().ReverseMap();
             CreateMap<RoomDetail, SeatModel>().ReverseMap();
             CreateMap<Booking, SaveSeatModel>().ReverseMap();
-            CreateMap<Booking, RoomDetail>().ReverseMap();
+            CreateMap<Booking, RoomDetail>().ForMember(x => x.Id, y => y.Ignore()).ReverseMap();
         }
     }
 }

@@ -40,8 +40,8 @@ export class ShowSeatViewComponent implements OnInit {
     
   }
 
-  onClick(){
-    console.log(this.item);
+  onClick(item){
+    console.log(item);
   }
 
 }
