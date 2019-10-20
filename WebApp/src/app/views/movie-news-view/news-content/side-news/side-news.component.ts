@@ -6,11 +6,11 @@ import { MovieNewsService } from 'src/app/core/services/movie-news.service';
   templateUrl: './side-news.component.html',
   styleUrls: ['./side-news.component.scss']
 })
-export class SidenewsSectionComponent implements OnInit , OnChanges {
+export class SidenewsSectionComponent implements OnInit, OnChanges {
 
   listclip: any[] = [];
   news: [] = [];
-  firstrun : boolean = true;
+  firstrun: boolean = true;
 
   @Output() show = new EventEmitter<any>();
   @Input() newsId: number = 0;
@@ -18,27 +18,21 @@ export class SidenewsSectionComponent implements OnInit , OnChanges {
   constructor(private movieNewsService: MovieNewsService) { }
 
   ngOnInit() {
-    this.loadTrendingItems(5);
   }
 
   onClickLogicChange(id) {
-      this.newsId = id;
-      this.loadTrendingItems(0);
-      this.show.emit(this.newsId);
+    this.newsId = id;
+    this.show.emit(this.newsId);
   }
 
-  ngOnChanges(){
-    if(this.firstrun==true && this.newsId)
-    {
-      this.loadTrendingItems(0);
-      this.firstrun=false;
-    }  
+  ngOnChanges() {
+    this.loadTrendingItems(0);
   }
 
   private loadTrendingItems(itemindex) {
     this.movieNewsService.getAll().subscribe(result => {
-      this.listclip=[];
-      result.splice(0,itemindex);
+      this.listclip = [];
+      result.splice(0, itemindex);
       var randomid: any;
       for (var i = 0; i < 3; i++) {
         do {
