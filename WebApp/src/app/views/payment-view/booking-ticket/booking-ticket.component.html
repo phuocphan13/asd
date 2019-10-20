@@ -29,7 +29,7 @@
     <div class="combocorn-container" *ngFor="let item of listCombo">
       <div class="first-column-item">{{item.name}}</div>
       <div class="second-column-item">{{item.price | number}}</div>
-      <div class="input-field"><input type="number" id='comboValue' [(ngModel)]="item.quantity"
+      <div class="input-field"><input type="number" id='comboValue' value="0" [(ngModel)]="item.quantity"
           oninput="validity.valid||(value='');" min="0" (change)="ticketValueOutPut(item)"></div>
     </div>
   </div>

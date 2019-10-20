@@ -5,11 +5,11 @@ using System.Text;
 namespace Avaya.Model.Payment
 {
     public class BillDetailModel
-    {        
-        public int UserId { get; set; }
-        public int serviceId { get; set; }
-        public int quantity { get; set; }
-        public decimal price { get; set; }
-        public decimal total { get; set; }
+    {
+        public int ServiceId { get; set; }
+
+        public int Quantity { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

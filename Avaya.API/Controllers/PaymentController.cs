@@ -15,38 +15,24 @@ namespace Avaya.API.Controllers
 
     public class PaymentController : Controller
     {
-        private readonly IPaymentService _PaymentService;
+        private readonly IPaymentService _paymentService;
 
         public PaymentController(IPaymentService paymentService)
         {
-            _PaymentService = paymentService;
-        }
-
-        [HttpPost]
-        public IActionResult GetListPayment([FromBody]List<SearchServiceModel> searchPayment)
-        {
-            var result = _PaymentService.GetListPayment(searchPayment);
-            return Ok(result);
+            _paymentService = paymentService;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var result = _PaymentService.GetAll();
+            var result = _paymentService.GetAll();
             return Ok(result);
         }
 
-
         [HttpPost]
-        public IActionResult GetListBill([FromBody]List<BillDetailModel> billPayment)
+        public IActionResult Create([FromBody]BillModel bill)
         {
-            var result = _PaymentService.GetListBill(billPayment);
-            return Ok(result);
-        }
-        [HttpPost]
-        public IActionResult Create([FromBody]BillDetailModel insertBillModel)
-        {
-            var result = _PaymentService.Create(insertBillModel);
+            var result = _paymentService.Create(bill);
             return Ok(result);
         }
     }

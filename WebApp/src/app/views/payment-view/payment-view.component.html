@@ -3,6 +3,6 @@
     <app-booking-ticket (itemsValue)="itemsValueOutPut($event)"></app-booking-ticket>
   </div>
   <div class="payment-side">
-    <app-payment-section [listItems]="listItems"></app-payment-section>
+    <app-payment-section [listItems]="listItems" [changesTrigger]="changesTriggerValue"></app-payment-section>
   </div>
 </div>

@@ -1,6 +1,6 @@
 export class BillModel{
-    userId: number;
-    serviceId: number;
+    id: number;
+    name: number;
     quantity: number;
     price: number;
 }

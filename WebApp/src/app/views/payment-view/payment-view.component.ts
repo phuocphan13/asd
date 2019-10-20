@@ -9,6 +9,7 @@ import { PaymentService } from 'src/app/core/services/payment.service';
 export class PaymentViewComponent implements OnInit {
 
   listItems: any;
+  changesTriggerValue = 1;
 
   constructor( private paymentService: PaymentService) { }
 
@@ -16,6 +17,7 @@ export class PaymentViewComponent implements OnInit {
   }
 
   itemsValueOutPut(event) {
+    this.changesTriggerValue++;
     this.listItems = event;
   }
 }
