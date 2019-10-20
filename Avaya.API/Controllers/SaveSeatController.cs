@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http.Cors;
+using Avaya.Model.BookingSeat;
 using Avaya.Model.SaveSeat;
 using Avaya.Service.SaveSeatService;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +22,9 @@ namespace Avaya.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveSeat([FromBody]List<SaveSeatModel> saveSeat)
+        public IActionResult SaveSeat([FromBody]BookingSeatModel seatBooking)
         {
-            var result = _saveSeatService.SaveSeat(saveSeat);
+            var result = _saveSeatService.BookingSeat(seatBooking);
             return Ok(result);
         }
 
