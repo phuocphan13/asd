@@ -7,6 +7,6 @@ namespace Avaya.Service.SaveSeatService
 {
     public interface ISaveSeatService
     {
-        SaveSeat (List<SaveSeatModel> saveSeatModel);
+       bool SaveSeat (List<SaveSeatModel> saveSeatModel);
     }
 }

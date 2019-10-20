@@ -19,8 +19,8 @@ namespace Avaya.Service.SaveSeatService
 
         public SaveSeatService(IRepository<Booking> bookingRepository, IRepository<RoomDetail> roomDetailRepository)
         {
-            bookingRepository = _bookingRepository;
-            roomDetailRepository = _roomDetailRepository;
+            _bookingRepository = bookingRepository;
+            _roomDetailRepository = roomDetailRepository;
         }
 
         public bool SaveSeat(List<SaveSeatModel> saveSeatModel)
