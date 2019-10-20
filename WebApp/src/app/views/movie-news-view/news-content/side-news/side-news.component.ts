@@ -18,24 +18,24 @@ export class SidenewsSectionComponent implements OnInit , OnChanges {
   constructor(private movieNewsService: MovieNewsService) { }
 
   ngOnInit() {
-    this.loadingTrendingItems(5);
+    this.loadTrendingItems(5);
   }
 
   onClickLogicChange(id) {
       this.newsId = id;
-      this.loadingTrendingItems(0);
+      this.loadTrendingItems(0);
       this.show.emit(this.newsId);
   }
 
   ngOnChanges(){
     if(this.firstrun==true && this.newsId)
     {
-      this.loadingTrendingItems(0);
+      this.loadTrendingItems(0);
       this.firstrun=false;
     }  
   }
 
-  private loadingTrendingItems(itemindex) {
+  private loadTrendingItems(itemindex) {
     this.movieNewsService.getAll().subscribe(result => {
       this.listclip=[];
       result.splice(0,itemindex);
