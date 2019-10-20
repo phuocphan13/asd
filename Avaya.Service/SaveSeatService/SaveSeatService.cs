@@ -5,6 +5,7 @@ using System.Text;
 using AutoMapper;
 using Avaya.Core.Extension;
 using Avaya.Core.Repositories;
+using Avaya.Core.UoW;
 using Avaya.Domain.Models;
 using Avaya.Domain.UoW;
 using Avaya.Model.SaveSeat;
@@ -15,7 +16,7 @@ namespace Avaya.Service.SaveSeatService
     {
         private readonly IRepository<Booking> _bookingRepository;
         private readonly IRepository<RoomDetail> _roomDetailRepository;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         public SaveSeatService(IRepository<Booking> bookingRepository, IRepository<RoomDetail> roomDetailRepository)
         {
@@ -42,7 +43,6 @@ namespace Avaya.Service.SaveSeatService
                             {
                                 insertSeat.IdRoomDetail = seat.Id;
                                 insertSeat.IdShowTime = reservedSeat.ShowTime;
-                                insertSeat.IdRoom = seat.IdRoom;
                                 _bookingRepository.Insert(insertSeat);
                                 _unitOfWork.SaveChanges();
                             }
