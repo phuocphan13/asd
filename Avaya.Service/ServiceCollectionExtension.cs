@@ -7,6 +7,7 @@ using Avaya.Service.ShowSeatService;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Avaya.Service.Film;
+using Avaya.Service.SaveSeatService;
 
 namespace Avaya.Service
 {
@@ -22,6 +23,7 @@ namespace Avaya.Service
             services.AddScoped<IPaymentService, PaymentService.PaymentService>();
             services.AddScoped<IShowSeatService, ShowSeatService.ShowSeatService>();
             services.AddScoped<IFilmService, FilmService>();
+            services.AddScoped<ISaveSeatService, Avaya.Service.SaveSeatService.SaveSeatService>();
         }
     }
 }

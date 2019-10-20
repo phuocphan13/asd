@@ -40,6 +40,9 @@ namespace Avaya.Service.SaveSeatService
                         {
                             if (booked.IdShowTime != insertSeat.IdShowTime && booked.IdRoomDetail != insertSeat.IdRoomDetail)
                             {
+                                insertSeat.IdRoomDetail = seat.Id;
+                                insertSeat.IdShowTime = reservedSeat.ShowTime;
+                                insertSeat.IdRoom = seat.IdRoom;
                                 _bookingRepository.Insert(insertSeat);
                                 _unitOfWork.SaveChanges();
                             }

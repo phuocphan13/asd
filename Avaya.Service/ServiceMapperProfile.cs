@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Avaya.Model.ShowSeat;
 using Avaya.Model.FilmOnline;
 using Avaya.Core.Helper;
+using Avaya.Model.SaveSeat;
 
 namespace Avaya.Service
 {
@@ -30,7 +31,8 @@ namespace Avaya.Service
             CreateMap<RoomDetail, ShowSeatModel>().ReverseMap();
             CreateMap<SeatType, ShowSeatModel>().ReverseMap();
             CreateMap<RoomDetail, SeatModel>().ReverseMap();
-            
+            CreateMap<Booking, SaveSeatModel>().ReverseMap();
+            CreateMap<Booking, RoomDetail>().ReverseMap();
         }
     }
 }

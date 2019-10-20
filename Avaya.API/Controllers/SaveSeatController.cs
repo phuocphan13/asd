@@ -21,9 +21,9 @@ namespace Avaya.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveSeat([FromBody]SaveSeatModel saveSeat)
+        public IActionResult SaveSeat([FromBody]List<SaveSeatModel> saveSeat)
         {
-            
+            var result = _saveSeatService.SaveSeat(saveSeat);
             return Ok(result);
         }
 

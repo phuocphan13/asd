@@ -7,5 +7,6 @@ namespace Avaya.Model.SaveSeat
     public class SaveSeatModel
     {
         public string GUID { get; set; }
+        public int ShowTime { get; set; }
     }
 }
