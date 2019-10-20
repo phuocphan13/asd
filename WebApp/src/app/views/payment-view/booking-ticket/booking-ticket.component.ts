@@ -25,6 +25,7 @@ export class BookingTicketComponent implements OnInit {
   }
 
   ticketValueOutPut() {
-    this.itemsValue.emit(this.listTicket);
+    this.itemsValue.emit(this.listTicket);    
+    // this.itemsValue.emit(this.listCombo);
   }
 }
