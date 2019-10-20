@@ -30,6 +30,7 @@ namespace Avaya.Service
             CreateMap<RoomDetail, ShowSeatModel>().ReverseMap();
             CreateMap<SeatType, ShowSeatModel>().ReverseMap();
             CreateMap<RoomDetail, SeatModel>().ReverseMap();
+            
         }
     }
 }
