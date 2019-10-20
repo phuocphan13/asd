@@ -184,3 +184,45 @@ create table FilmOnline(
 	ReleaseDate date,
 	Type nvarchar(max)
 )
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Booking](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Room] [int] NOT NULL,
+	[Id_ShowTime] [int] NOT NULL,
+	[Id_Seat_Type] [int] NOT NULL,
+	[Id_Room_Detail] [int] NULL,
+ CONSTRAINT [PK_Booking] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Room_Detail]    Script Date: 10/20/2019 10:08:34 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Room_Detail](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Seat_Type] [int] NOT NULL,
+	[Id_Room] [int] NOT NULL,
+	[Column] [int] NOT NULL,
+	[Row] [int] NULL,
+	[GUID] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_Room_Detail] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Room_Detail] ADD  CONSTRAINT [DF__Room_Detai__GUID__607251E5]  DEFAULT (newid()) FOR [GUID]
+GO
+ALTER TABLE [dbo].[Booking]  WITH CHECK ADD FOREIGN KEY([Id_Room_Detail])
+REFERENCES [dbo].[Room_Detail] ([Id])
+GO
