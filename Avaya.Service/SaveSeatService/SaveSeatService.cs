@@ -18,10 +18,12 @@ namespace Avaya.Service.SaveSeatService
         private readonly IRepository<RoomDetail> _roomDetailRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public SaveSeatService(IRepository<Booking> bookingRepository, IRepository<RoomDetail> roomDetailRepository)
+        public SaveSeatService(IRepository<Booking> bookingRepository
+            , IRepository<RoomDetail> roomDetailRepository, IUnitOfWork unitOfWork)
         {
             _bookingRepository = bookingRepository;
             _roomDetailRepository = roomDetailRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public bool SaveSeat(List<SaveSeatModel> saveSeatModel)
