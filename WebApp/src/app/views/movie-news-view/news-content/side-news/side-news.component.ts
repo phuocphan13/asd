@@ -10,6 +10,7 @@ export class SidenewsSectionComponent implements OnInit , OnChanges {
 
   listclip: any[] = [];
   news: [] = [];
+  firstrun : boolean = true;
 
   @Output() show = new EventEmitter<any>();
   @Input() newsId: number = 0;
@@ -17,24 +18,27 @@ export class SidenewsSectionComponent implements OnInit , OnChanges {
   constructor(private movieNewsService: MovieNewsService) { }
 
   ngOnInit() {
-    
-    this.loadingTrendingItems();
+    this.loadingTrendingItems(5);
   }
 
   onClickLogicChange(id) {
-    this.listclip = [];
-    this.newsId = id;
-    this.loadingTrendingItems();
-    this.show.emit(this.newsId);
+      this.newsId = id;
+      this.loadingTrendingItems(0);
+      this.show.emit(this.newsId);
   }
 
   ngOnChanges(){
-    
+    if(this.firstrun==true && this.newsId)
+    {
+      this.loadingTrendingItems(0);
+      this.firstrun=false;
+    }  
   }
 
-  private loadingTrendingItems() {
+  private loadingTrendingItems(itemindex) {
     this.movieNewsService.getAll().subscribe(result => {
-      result.splice(0,5);
+      this.listclip=[];
+      result.splice(0,itemindex);
       var randomid: any;
       for (var i = 0; i < 3; i++) {
         do {
