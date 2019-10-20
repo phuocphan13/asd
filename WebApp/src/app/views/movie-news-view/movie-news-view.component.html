@@ -4,6 +4,6 @@
         <main-news-section *ngIf="!isShow" [newsId]="newsId"></main-news-section>
     </div>
     <div class="side-news">
-        <app-side-news-section (show)="getNewsId($event)"></app-side-news-section>
+        <app-side-news-section (show)="getNewsId($event)" [newsId]="newsId"></app-side-news-section>
     </div>
 </div>

@@ -12,6 +12,7 @@ export class TimeMovieCinemaComponent implements OnInit {
   @Output() searchData = new EventEmitter();
 
   searchItem: SearchModel;
+  searchItemTemp: SearchModel;
   minDate: Date;
   date: any;
 
@@ -27,14 +28,16 @@ export class TimeMovieCinemaComponent implements OnInit {
   ];
   listCinemas: any = [
     { id: 1, name: 'BHD Star Bitexco' },
-    { id: 2, name: 'GLX - Nguyễn Du' },
-    { id: 3, name: 'BHD Star Vincom Thảo Điền' },
+    { id: 2, name: 'BHD Star Vincom Thảo Điền' },
+    { id: 3, name: 'GLX - Nguyễn Du' },
     { id: 4, name: 'GLX - Tân Bình' },
   ];
 
   constructor(private router: Router) {
     this.minDate = new Date();
     this.searchItem = new SearchModel();
+    this.searchItemTemp = new SearchModel();
+
   }
 
   ngOnInit() {
@@ -50,8 +53,21 @@ export class TimeMovieCinemaComponent implements OnInit {
     this.searchItem.cinemaId = event.id;
   }
 
-  onClickSearch()
-  {
-    this.searchData.emit(this.searchItem);
+  onClickSearch() {
+    // if (this.pickedCinema && this.date && this.pickedMovie) {
+      this.searchItem.date = this.date;
+      this.searchItem.date = "04-09-2019";
+      this.searchItem.movieId = 4;
+      this.searchItem.cinemaId = 4;
+      if(this.searchItem.date != this.searchItemTemp.date || this.searchItem.movieId != this.searchItemTemp.movieId || this.searchItem.cinemaId != this.searchItemTemp.cinemaId)
+      {
+        console.log("khác data");
+        this.searchData.emit(this.searchItem);
+      }
+      this.searchItemTemp = this.searchItem;
+    // }
+    // else {
+    //   alert("field missing");
+    // }
   }
 }
