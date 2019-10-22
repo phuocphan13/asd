@@ -10,10 +10,11 @@ import { NgModule } from "@angular/core";
 
 const appRoutes: Routes = [
     {
-        path: '', component: MainViewComponent,
+        path: '', 
+        component: MainViewComponent,
         children: [
             {
-                path: 'news',
+                path: '',
                 loadChildren: './views/movie-news-view/movie-news-view.module#MovieNewsViewModule',
             }
         ]

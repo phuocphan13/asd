@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MovieNewsService } from 'src/app/core/services/movie-news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-home-page',
@@ -10,7 +11,8 @@ export class NewsHomePageComponent implements OnInit {
 
   @Output() sendingNewsId = new EventEmitter();
 
-  constructor(private movieNewsService: MovieNewsService) { }
+  constructor(private movieNewsService: MovieNewsService,
+    private router: Router) { }
 
 
   newsId: any = 0;
@@ -25,6 +27,7 @@ export class NewsHomePageComponent implements OnInit {
     this.movieNewsService.getAll().subscribe(result => {
       if (result) {
         this.listclip = result.splice(0, 5);
+        console.log(this.listclip);
         this.itemcounter++;
       }
     });
@@ -34,7 +37,8 @@ export class NewsHomePageComponent implements OnInit {
     // this.show = !this.show;
     // this.sideshow = false;
     // this.newsId = id;
-    this.sendingNewsId.emit(id);
+    // this.sendingNewsId.emit(id);
+    this.router.navigateByUrl("news-detail")
   }
 
   SidelogicChange(event) {

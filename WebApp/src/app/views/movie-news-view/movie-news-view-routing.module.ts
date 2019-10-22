@@ -6,10 +6,17 @@ import { NewsHomePageComponent } from "./news-home-page/news-home-page.component
 
 const routes: Routes = [
     {
-        path: '', component: MovieNewsViewComponent, 
+        path: '',
+        component: MovieNewsViewComponent,
         children: [
-            { path: '', component: NewsHomePageComponent },
-            { path: 'news-detail', component: MainNewsComponent }
+            {
+                path: '',
+                component: NewsHomePageComponent
+            },
+            { 
+                path: 'news-detail', 
+                component: MainNewsComponent 
+            }
         ]
     }
 ];
@@ -25,4 +32,4 @@ const routes: Routes = [
     ]
 })
 
-export class MovieNewsViewRoutingModule {}
+export class MovieNewsViewRoutingModule { }
