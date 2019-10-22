@@ -6,7 +6,7 @@ import { NewsHomePageComponent } from "./news-home-page/news-home-page.component
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'news',
         component: MovieNewsViewComponent,
         children: [
             {

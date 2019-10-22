@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, forwardRef } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +29,7 @@ import { ServiceModule } from './core/services/service.module';
 import { AppCommonModule } from './common/app-common.module';
 import { InputComponent } from './common/components/input/input.component';
 import { LoginModalComponent } from './modals/login/login.modal.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 const appRoutes: Routes = [
   {
@@ -60,7 +60,6 @@ export const environment = {
     ControlModule,
     SharedModule,
     CommonModule,
-    BrowserModule,
     HttpClientModule,
     NgSelectModule,
     FormsModule,
@@ -72,7 +71,7 @@ export const environment = {
     PerfectScrollbarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'}),
+    AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: 'right' }),
     BsDatepickerModule.forRoot()
   ],
   entryComponents: [
@@ -83,7 +82,7 @@ export const environment = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     },
   ],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

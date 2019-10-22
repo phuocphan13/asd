@@ -22,8 +22,8 @@ import { MovieNewsViewRoutingModule } from './movie-news-view-routing.module';
   imports: [
     NgSelectModule,
     BsDatepickerModule.forRoot(),
-    CommonModule,
-    MovieNewsViewRoutingModule
+    MovieNewsViewRoutingModule,
+    CommonModule
   ],
   exports: [
     MovieNewsViewComponent

@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     OfflineMovieSearchViewComponent
