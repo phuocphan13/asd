@@ -8,6 +8,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
 import { MainNewsComponent } from './news-content/main-news/main-news.component';
 import { NewsContentComponent } from './news-content/news-content.component'
 import { NewsHomePageComponent } from './news-home-page/news-home-page.component'
+import { MovieNewsViewRoutingModule } from './movie-news-view-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,12 @@ import { NewsHomePageComponent } from './news-home-page/news-home-page.component
     MainNewsComponent,
     NewsHomePageComponent,
     NewsContentComponent
-    
   ],
   imports: [
     NgSelectModule,
     BsDatepickerModule.forRoot(),
-    CommonModule
+    CommonModule,
+    MovieNewsViewRoutingModule
   ],
   exports: [
     MovieNewsViewComponent

@@ -58,11 +58,9 @@ export const environment = {
     AppCommonModule,
     ServiceModule,
     ControlModule,
-    ViewModule,
     SharedModule,
     CommonModule,
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     NgSelectModule,
     FormsModule,
@@ -74,10 +72,6 @@ export const environment = {
     PerfectScrollbarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, {
-      enableTracing: environment.production === false,
-      useHash: true
-    }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'}),
     BsDatepickerModule.forRoot()
   ],

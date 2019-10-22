@@ -1,7 +1,8 @@
 <div class="news-container">
     <div class="main-news">
-        <app-news-home-page *ngIf="isShow" (sendingNewsId)="getNewsId($event)"></app-news-home-page>
-        <main-news-section *ngIf="!isShow" [newsId]="newsId"></main-news-section>
+        <router-outlet></router-outlet>
+        <!-- <app-news-home-page *ngIf="isShow" (sendingNewsId)="getNewsId($event)"></app-news-home-page>
+        <main-news-section *ngIf="!isShow" [newsId]="newsId"></main-news-section> -->
     </div>
     <div class="side-news">
         <app-side-news-section (show)="getNewsId($event)" [newsId]="newsId"></app-side-news-section>

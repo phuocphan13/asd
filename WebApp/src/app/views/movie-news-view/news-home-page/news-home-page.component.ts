@@ -10,32 +10,34 @@ export class NewsHomePageComponent implements OnInit {
 
   @Output() sendingNewsId = new EventEmitter();
 
-  constructor(private movieNewsService: MovieNewsService ) { }
+  constructor(private movieNewsService: MovieNewsService) { }
 
 
   newsId: any = 0;
   show: boolean = true;
-  sideshow: boolean =false;
-  listclip: any = [] ;
-  itemcounter : any = 0;
-  type : number =2;
+  sideshow: boolean = false;
+  listclip: any = [];
+  itemcounter: any = 0;
+  type: number = 2;
 
   ngOnInit() {
-    var newscount: any=0;
-    this.movieNewsService.getAll().subscribe(result =>{
-      this.listclip = result.splice(0,5);
-      this.itemcounter++;
+    var newscount: any = 0;
+    this.movieNewsService.getAll().subscribe(result => {
+      if (result) {
+        this.listclip = result.splice(0, 5);
+        this.itemcounter++;
+      }
     });
   }
 
-  onClickLogicChange(id){
+  onClickLogicChange(id) {
     // this.show = !this.show;
     // this.sideshow = false;
     // this.newsId = id;
     this.sendingNewsId.emit(id);
   }
 
-  SidelogicChange(event){   
+  SidelogicChange(event) {
     // if(this.show==true)
     // {
     //   this.show = !this.show;

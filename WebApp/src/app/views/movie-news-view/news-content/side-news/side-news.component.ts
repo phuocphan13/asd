@@ -31,18 +31,20 @@ export class SidenewsSectionComponent implements OnInit, OnChanges {
 
   private loadTrendingItems(itemindex) {
     this.movieNewsService.getAll().subscribe(result => {
-      this.listclip = [];
-      result.splice(0, itemindex);
-      var randomid: any;
-      for (var i = 0; i < 3; i++) {
-        do {
-          randomid = result[Math.floor(Math.random() * result.length)];
+      if (result) {
+        this.listclip = [];
+        result.splice(0, itemindex);
+        var randomid: any;
+        for (var i = 0; i < 3; i++) {
+          do {
+            randomid = result[Math.floor(Math.random() * result.length)];
+          }
+          while (randomid.id == this.newsId)
+          let index = result.map(x => x.id).indexOf(randomid.id);
+          this.listclip.push(randomid);
+          result.splice(index, 1);
+          console.log(result);
         }
-        while (randomid.id == this.newsId)
-        let index = result.map(x => x.id).indexOf(randomid.id);
-        this.listclip.push(randomid);
-        result.splice(index, 1);
-        console.log(result);
       }
     });
   }

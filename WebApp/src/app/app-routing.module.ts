@@ -13,8 +13,8 @@ const appRoutes: Routes = [
         path: '', component: MainViewComponent,
         children: [
             {
-                path: 'SpendingAccount',
-                loadChildren: 'app/views/movie-news-view.module#MovieNewsViewModule',
+                path: 'news',
+                loadChildren: './views/movie-news-view/movie-news-view.module#MovieNewsViewModule',
             }
         ]
     }
