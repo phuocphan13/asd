@@ -2,12 +2,11 @@
   <div class="section-title">
     TRENDING
   </div>
-  <div *ngFor="let item of listclip"> 
-      <div class="browse-clip">
-          <a class="image" href="#"> <img src={{item.img}}> </a>
-          <div class="clip-info">
-            <h3> {{item.headertitle}} </h3>
-          </div>
-      </div>     
+  <div *ngFor="let item of listclip">
+    <div class="browse-clip" (click)="onClickLogicChange(item.id)">
+      <a class="image" href="#"> <img src={{item.photoUrl}}> </a>
+      <div class="clip-info">
+        <h3> {{item.headline}} </h3>
+      </div>
     </div>
-  
+  </div>

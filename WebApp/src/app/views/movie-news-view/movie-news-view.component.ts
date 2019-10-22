@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieNewsViewComponent implements OnInit {
 
+  isShow: boolean = true;
+  newsId: number;
   constructor() { }
 
   ngOnInit() {
   }
 
+  getNewsId(event) {
+    console.log(event);
+    this.newsId = event;
+    this.isShow = false;
+  }
 }
