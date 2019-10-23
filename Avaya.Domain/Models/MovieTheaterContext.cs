@@ -17,19 +17,15 @@ namespace Avaya.Domain.Models
 
         public virtual DbSet<Bill> Bill { get; set; }
         public virtual DbSet<BillDetail> BillDetail { get; set; }
-        public virtual DbSet<Booking> Booking { get; set; }
         public virtual DbSet<BookingDetail> BookingDetail { get; set; }
-        public virtual DbSet<CategoriesOfFilm> CategoriesOfFilm { get; set; }
         public virtual DbSet<Cinema> Cinema { get; set; }
-        public virtual DbSet<FilmCategory> FilmCategory { get; set; }
-        public virtual DbSet<FilmOnline> FilmOnline { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ReservedSeat> ReservedSeat { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<RoomDetail> RoomDetail { get; set; }
         public virtual DbSet<SeatType> SeatType { get; set; }
-        public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ShowTime> ShowTime { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -47,40 +43,21 @@ namespace Avaya.Domain.Models
 
             modelBuilder.Entity<Bill>(entity =>
             {
-                entity.Property(e => e.IdUser).HasColumnName("Id_User");
-
                 entity.Property(e => e.Total).HasColumnType("numeric(18, 0)");
             });
 
             modelBuilder.Entity<BillDetail>(entity =>
             {
-                entity.ToTable("Bill_Detail");
-
-                entity.Property(e => e.IdBill).HasColumnName("Id_Bill");
-
-                entity.Property(e => e.IdService).HasColumnName("Id_Service");
-
                 entity.Property(e => e.Price).HasColumnType("numeric(18, 0)");
 
                 entity.HasOne(d => d.IdBillNavigation)
                     .WithMany(p => p.BillDetail)
                     .HasForeignKey(d => d.IdBill)
-                    .HasConstraintName("FK__Bill_Deta__Id_Bi__74AE54BC");
-            });
-
-            modelBuilder.Entity<Booking>(entity =>
-            {
-                entity.Property(e => e.IdRoom).HasColumnName("Id_Room");
-
-                entity.Property(e => e.IdSeatType).HasColumnName("Id_Seat_Type");
-
-                entity.Property(e => e.IdShowTime).HasColumnName("Id_ShowTime");
+                    .HasConstraintName("FK_Bill_Detail_Bill");
             });
 
             modelBuilder.Entity<BookingDetail>(entity =>
             {
-                entity.ToTable("Booking_Detail");
-
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
                 entity.Property(e => e.IdCinema).HasColumnName("Id_Cinema");
@@ -107,18 +84,13 @@ namespace Avaya.Domain.Models
                 entity.Property(e => e.Name).IsRequired();
             });
 
-            modelBuilder.Entity<FilmOnline>(entity =>
-            {
-                entity.Property(e => e.ImgUrl).IsUnicode(false);
-
-                entity.Property(e => e.ReleaseDate).HasColumnType("date");
-            });
-
             modelBuilder.Entity<Menu>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e.Name).HasMaxLength(100);
+                entity.Property(e => e.Name)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Movie>(entity =>
@@ -128,10 +100,15 @@ namespace Avaya.Domain.Models
                 entity.Property(e => e.Picture).IsRequired();
             });
 
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.Property(e => e.Name).IsRequired();
+
+                entity.Property(e => e.Price).HasColumnType("numeric(18, 0)");
+            });
+
             modelBuilder.Entity<ReservedSeat>(entity =>
             {
-                entity.ToTable("Reserved_Seat");
-
                 entity.Property(e => e.IdShowTime).HasColumnName("Id_ShowTime");
 
                 entity.HasOne(d => d.IdShowTimeNavigation)
@@ -156,37 +133,34 @@ namespace Avaya.Domain.Models
 
             modelBuilder.Entity<RoomDetail>(entity =>
             {
-                entity.ToTable("Room_Detail");
+                entity.Property(e => e.Column).IsRequired();
 
                 entity.Property(e => e.IdRoom).HasColumnName("Id_Room");
 
                 entity.Property(e => e.IdSeatType).HasColumnName("Id_Seat_Type");
 
-                entity.Property(e => e.RowEnd).HasColumnName("Row_End");
+                entity.Property(e => e.Row).IsRequired();
 
-                entity.Property(e => e.RowStart).HasColumnName("Row_Start");
+                entity.HasOne(d => d.IdRoomNavigation)
+                    .WithMany(p => p.RoomDetail)
+                    .HasForeignKey(d => d.IdRoom)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Room_Detail_Room");
+
+                entity.HasOne(d => d.IdSeatTypeNavigation)
+                    .WithMany(p => p.RoomDetail)
+                    .HasForeignKey(d => d.IdSeatType)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Room_Detail_Seat_Type");
             });
 
             modelBuilder.Entity<SeatType>(entity =>
             {
-                entity.ToTable("Seat_Type");
-
                 entity.Property(e => e.Type).IsRequired();
-            });
-
-            modelBuilder.Entity<Service>(entity =>
-            {
-                entity.Property(e => e.IdCinema).HasColumnName("Id_Cinema");
-
-                entity.Property(e => e.Name).IsRequired();
-
-                entity.Property(e => e.Price).HasColumnType("numeric(18, 0)");
             });
 
             modelBuilder.Entity<ShowTime>(entity =>
             {
-                entity.ToTable("Show_Time");
-
                 entity.Property(e => e.IdBookingDetail).HasColumnName("Id_BookingDetail");
 
                 entity.Property(e => e.TimeEnd).HasColumnName("Time_End");

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Avaya.Model.Service
+namespace Avaya.Domain.Models
 {
-    public class PaymentModel: BaseModel
+    public partial class Product
     {
+        public int Id { get; set; }
+        public int IdCinema { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int? Quantity { get; set; }

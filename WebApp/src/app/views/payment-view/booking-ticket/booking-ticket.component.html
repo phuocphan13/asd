@@ -12,7 +12,7 @@
       <div class="first-column-item">{{item.name}}</div>
       <div class="second-column-item">{{item.price | number}}</div>
       <div class="input-field"><input type="number" id='ticketValue' [(ngModel)]="item.quantity"
-          oninput="validity.valid||(value='');" min="0" (change)="ticketValueOutPut(item)">
+          oninput="validity.valid||(value='');" min="0" (change)="onChangeTicketValue(item)">
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
       <div class="first-column-item">{{item.name}}</div>
       <div class="second-column-item">{{item.price | number}}</div>
       <div class="input-field"><input type="number" id='comboValue' value="0" [(ngModel)]="item.quantity"
-          oninput="validity.valid||(value='');" min="0" (change)="ticketValueOutPut(item)"></div>
+          oninput="validity.valid||(value='');" min="0" (change)="onChangeTicketValue(item)"></div>
     </div>
   </div>
 </div>

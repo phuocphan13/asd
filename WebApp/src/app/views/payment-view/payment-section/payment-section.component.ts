@@ -39,7 +39,7 @@ export class PaymentSectionComponent implements OnInit, OnChanges {
     }
   }
 
-  checkOut() {
+  onClickCheckOut() {
     this.bill.userId = 1;
     this.bill.total = this.completedPrice;
     this.listItems.forEach(x => {

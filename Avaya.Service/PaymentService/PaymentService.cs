@@ -14,15 +14,15 @@ namespace Avaya.Service.PaymentService
 {
     public class PaymentService : IPaymentService
     {
-        private readonly IRepository<Avaya.Domain.Models.Service> _serviceRepository;
+        private readonly IRepository<Product> _productRepository;
         private readonly IRepository<BillDetail> _billDetailRepository;
         private readonly IRepository<Bill> _billRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PaymentService(IRepository<Avaya.Domain.Models.Service> serviceRepository
+        public PaymentService(IRepository<Product> productRepository
             , IUnitOfWork unitOfWork, IRepository<BillDetail> billDetailRepository, IRepository<Bill> billRepository)
         {
-            _serviceRepository = serviceRepository;
+            _productRepository = productRepository;
             _unitOfWork = unitOfWork;
             _billDetailRepository = billDetailRepository;
             _billRepository = billRepository;
@@ -30,7 +30,7 @@ namespace Avaya.Service.PaymentService
 
         public List<PaymentModel> GetAll()
         {
-            return _serviceRepository.GetAll().MapTo<List<PaymentModel>>();
+            return _productRepository.GetAll().MapTo<List<PaymentModel>>();
         }
 
         public bool Create(BillModel bill)
