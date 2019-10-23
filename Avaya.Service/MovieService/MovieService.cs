@@ -56,14 +56,14 @@ namespace Avaya.Service.MovieService
                 if (cinema == null)
                     return null;
 
-                var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
+                var bookingDetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
                                     && x.IdCinema == searchMovie.CinemaId
                                     && x.Date == DateTime.Parse(searchMovie.Date));
-                if (bookingdetail == null)
+                if (bookingDetail == null)
                     return null;
 
                 movie.ShowTime = _showTimeRepository.GetAll()
-                    .Where(x => x.IdBookingDetail == bookingdetail.Id)
+                    .Where(x => x.IdBookingDetail == bookingDetail.Id)
                     .MapTo<List<ShowTimeModel>>();
 
                 movie.Address = cinema.Address;
