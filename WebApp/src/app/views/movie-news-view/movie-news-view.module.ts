@@ -1,29 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidenewsSectionComponent } from './news-content/side-news/side-news.component';
-import { SidenewsHalfsizeComponent } from './news-content/side-news-half-size/side-news-half-size.component';
+import { SidenewsComponent } from './side-news/side-news.component';
 import { MovieNewsViewComponent } from './movie-news-view.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap';
-import { MainNewsComponent } from './news-content/main-news/main-news.component';
-import { NewsContentComponent } from './news-content/news-content.component'
-import { NewsHomePageComponent } from './news-home-page/news-home-page.component'
+import { MainNewsComponent } from './main-news/main-news.component';
+import { NewsHomePageComponent } from './news-home-page/news-home-page.component';
 import { MovieNewsViewRoutingModule } from './movie-news-view-routing.module';
+import { CommonComponentModule } from 'src/app/common/components/common-component.module';
 
 @NgModule({
   declarations: [
-    SidenewsSectionComponent,
+    SidenewsComponent,
     MovieNewsViewComponent,
-    SidenewsHalfsizeComponent,
     MainNewsComponent,
     NewsHomePageComponent,
-    NewsContentComponent
   ],
   imports: [
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     CommonModule,
-    MovieNewsViewRoutingModule
+    MovieNewsViewRoutingModule,
+    CommonComponentModule,
   ],
   exports: [
     MovieNewsViewComponent

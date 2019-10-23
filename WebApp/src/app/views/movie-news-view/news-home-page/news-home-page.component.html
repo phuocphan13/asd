@@ -6,7 +6,8 @@
         LATEST NEWS
       </div>
       <div *ngFor="let item of listclip">
-        <div class="browse-clip">
+          <app-item-showing [data]="item" [type]="type" ></app-item-showing>
+        <!-- <div class="browse-clip">
           <a class="image" href="#" (click)="onClickLogicChange(item.id)"> <img src={{item.photoUrl}} width={{item.photoWidth}}
               height={{item.photoHeight}}> </a>
           <div class="clip-info">
@@ -18,7 +19,7 @@
               <a href="#">{{item.author}}</a> - <a href="#">{{ item.publishDate | date }}</a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- <app-item-showing [data] = "listclip" [type]="type" ></app-item-showing> -->
     </div>

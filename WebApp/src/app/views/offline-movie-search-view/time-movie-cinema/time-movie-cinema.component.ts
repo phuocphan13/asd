@@ -61,7 +61,6 @@ export class TimeMovieCinemaComponent implements OnInit {
       this.searchItem.cinemaId = 4;
       if(this.searchItem.date != this.searchItemTemp.date || this.searchItem.movieId != this.searchItemTemp.movieId || this.searchItem.cinemaId != this.searchItemTemp.cinemaId)
       {
-        console.log("khác data");
         this.searchData.emit(this.searchItem);
       }
       this.searchItemTemp = this.searchItem;
