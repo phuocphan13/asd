@@ -38,7 +38,7 @@ namespace Avaya.Service.SeatService
         public List<ShowSeatModel> GetShowSeat(SearchSeatModel searchSeat)
         {
 
-            if(searchSeat.ShowTime !=0)
+            if (searchSeat.ShowTime != 0)
             {
                 var listSeats = new List<ShowSeatModel>();
 
@@ -52,7 +52,7 @@ namespace Avaya.Service.SeatService
 
                 listSeats = Mapper.Map<List<RoomDetail>, List<ShowSeatModel>>(roomDetail);
                 if (listSeats == null)
-                    return null; 
+                    return null;
 
                 var listReservedSeats = _bookingSeatRepository.GetAll()
                     .Where(x => x.IdRoom == room.Id && x.IdShowTime == searchSeat.ShowTime);
