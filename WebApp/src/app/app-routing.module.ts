@@ -14,6 +14,10 @@ const appRoutes: Routes = [
             {
                 path: 'payment',
                 loadChildren: './views/payment-view/payment-view.module#PaymentViewModule',
+            },
+            {
+                path: 'film-online',
+                loadChildren: './views/film-online-view/film-online-view.module#FilmOnlineViewModule',
             }
         ]
     },

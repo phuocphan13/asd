@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MovieNewsService } from 'src/app/core/services/movie-news.service';
 import { Router } from '@angular/router';
 import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum'
+import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.service';
 
 @Component({
   selector: 'app-news-home-page',
@@ -13,7 +14,8 @@ export class NewsHomePageComponent implements OnInit {
   @Output() sendingNewsId = new EventEmitter();
 
   constructor(private movieNewsService: MovieNewsService,
-    private router: Router) { }
+    private router: Router,
+    private movieNewsSharedService: MovieNewsSharedService) { }
 
   newsId: any = 0;
   show: boolean = true;
@@ -29,14 +31,16 @@ export class NewsHomePageComponent implements OnInit {
         this.itemCounter++;
       }
     });
+    this.changeAction();
   }
 
   onClickLogicChange(id) {
-    // this.show = !this.show;
-    // this.sideshow = false;
-    // this.newsId = id;
-    // this.sendingNewsId.emit(id);
-    this.router.navigateByUrl("news/news-detail")
+
+  }
+
+  private changeAction() {
+    this.movieNewsSharedService.set(13);
+    this.movieNewsSharedService.changedAction(true);
   }
 
   sidelogicChange(event) {
