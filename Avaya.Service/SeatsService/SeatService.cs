@@ -38,7 +38,7 @@ namespace Avaya.Service.SeatService
         public List<ShowSeatModel> GetShowSeat(SearchSeatModel searchSeat)
         {
 
-            if (searchSeat.ShowTime != 0)
+            if (searchSeat.ShowTime != 0 && searchSeat.ShowTime>0)
             {
                 var listSeats = new List<ShowSeatModel>();
 
@@ -78,27 +78,29 @@ namespace Avaya.Service.SeatService
         {
             var roomDetail = _roomDetailRepository.GetAll().ToList();
             var booking = _bookingSeatRepository.GetAll().ToList();
-
-            foreach (var seat in roomDetail)
+            if (saveSeatModel != null)
             {
-                foreach (var reservedSeat in saveSeatModel)
+                foreach (var seat in roomDetail)
                 {
-                    if (reservedSeat.GUID.Contains(seat.Guid.ToString()))
+                    foreach (var reservedSeat in saveSeatModel)
                     {
-                        foreach (var booked in booking)
+                        if (reservedSeat.GUID.Contains(seat.Guid.ToString()))
                         {
-                            if (booked.IdShowTime == reservedSeat.ShowTime && booked.IdRoomDetail == seat.Id)
+                            foreach (var booked in booking)
                             {
-                                return false;
-                            }
-                            else
-                            {
-                                var insertSeat = AutoMapper.Mapper.Map<Booking>(seat);
-                                insertSeat.Id = 0;
-                                insertSeat.IdRoomDetail = seat.Id;
-                                insertSeat.IdShowTime = reservedSeat.ShowTime;
-                                _bookingSeatRepository.Insert(insertSeat);
-                                _unitOfWork.SaveChanges();
+                                if (booked.IdShowTime == reservedSeat.ShowTime && booked.IdRoomDetail == seat.Id)
+                                {
+                                    return false;
+                                }
+                                else
+                                {
+                                    var insertSeat = AutoMapper.Mapper.Map<Booking>(seat);
+                                    insertSeat.Id = 0;
+                                    insertSeat.IdRoomDetail = seat.Id;
+                                    insertSeat.IdShowTime = reservedSeat.ShowTime;
+                                    _bookingSeatRepository.Insert(insertSeat);
+                                    _unitOfWork.SaveChanges();
+                                }
                             }
                         }
                     }
