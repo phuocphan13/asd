@@ -17,15 +17,14 @@ export class MainNewsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-
+    console.log("Lucifer");
   }
 
   ngOnChanges() {
-    this.loadingNews();
+    // this.loadingNews();
   }
 
   private loadingNews() {
-    console.log("vào hàm")
     this.movieNewsService.getById(this.newsId).subscribe(result => {
       this.detailNews = result;
     })

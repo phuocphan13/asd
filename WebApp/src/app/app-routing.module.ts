@@ -8,23 +8,15 @@ const appRoutes: Routes = [
         component: MainViewComponent,
         children: [
             {
-                path: '',
-                loadChildren: './views/view.module#ViewModule',
+                path: 'news',
+                loadChildren: './views/movie-news-view/movie-news-view.module#MovieNewsViewModule',
+            },
+            {
+                path: 'payment',
+                loadChildren: './views/payment-view/payment-view.module#PaymentViewModule',
             }
         ]
     },
-    // {
-    //     path: 'home/:brandId',
-    //     component: HomeComponent
-    // },
-    // {
-    //     path: 'temp-of-use',
-    //     component: TempOfUseComponent,
-    // },
-    // {
-    //     path: "accept-push-message",
-    //     component: AcceptPushMessageComponent,
-    // }
 ];
 
 @NgModule({

@@ -27,7 +27,6 @@ export class NewsHomePageComponent implements OnInit {
     this.movieNewsService.getAll().subscribe(result => {
       if (result) {
         this.listclip = result.splice(0, 5);
-        console.log(this.listclip);
         this.itemcounter++;
       }
     });
@@ -38,7 +37,7 @@ export class NewsHomePageComponent implements OnInit {
     // this.sideshow = false;
     // this.newsId = id;
     // this.sendingNewsId.emit(id);
-    this.router.navigateByUrl("/news/news-detail")
+    this.router.navigateByUrl("news/news-detail")
   }
 
   SidelogicChange(event) {
@@ -48,6 +47,5 @@ export class NewsHomePageComponent implements OnInit {
     // } 
     this.newsId = event;
     this.show = !this.show;
-    console.log(this.newsId);
   }
 }

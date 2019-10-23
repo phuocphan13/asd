@@ -6,7 +6,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SidebarModule } from 'ng-sidebar';
 
@@ -22,21 +21,10 @@ import { MainViewComponent } from './views/main-view/main-view.component';
 import { ArticleComponent } from './article/article.component';
 import { SharedModule } from './shared/shared.module';
 
-import { ViewModule } from './views/view.module';
 import { ControlModule } from './controls/control.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ServiceModule } from './core/services/service.module';
 import { AppCommonModule } from './common/app-common.module';
-import { InputComponent } from './common/components/input/input.component';
-import { LoginModalComponent } from './modals/login/login.modal.component';
-import { BrowserModule } from '@angular/platform-browser';
-
-const appRoutes: Routes = [
-  {
-    path: '**',
-    redirectTo: ''
-  }
-];
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
