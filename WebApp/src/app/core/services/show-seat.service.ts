@@ -7,7 +7,7 @@ import { SearchSeatModel } from '../model/search-seat.model';
 
 export class ShowSeatService {
 
-    homeAddress = 'api/ShowSeat';
+    homeAddress = 'api/Seat';
     apiHost = "http://localhost:59239";
     constructor(public httpClient: HttpClient) {
     }

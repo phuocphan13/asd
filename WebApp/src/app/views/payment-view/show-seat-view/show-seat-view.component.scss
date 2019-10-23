@@ -31,49 +31,7 @@
   flex-direction: row;
   margin-left: 313px;
 }
-.seatRowLeft {
-  text-align: center;
-  height: 20px;
-  width: 20px;
-  line-height: 18px;
-  margin-bottom: 5px;
-  border: solid 1px #4c4145;
-  margin-right: 10px;
-}
-.seatRowRight {
-  text-align: center;
-  height: 20px;
-  width: 20px;
-  line-height: 18px;
-  margin-bottom: 5px;
-  border: solid 1px #4c4145;
-  margin-left: 10px;
-}
 
-.containerCol {
-  display: flex;
-  flex-direction: column;
-}
-
-.seatCol {
-  text-align: center;
-  height: 20px;
-  width: 20px;
-  line-height: 18px;
-  margin-bottom: 5px;
-  background-color: #dbdee1;
-  margin-left: 1.8px;
-}
-
-.seat-cinema-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 30px;
-}
-.seat-cinema {
-  margin-left: 10px;
-}
 
 .seat:hover {
   background-color: green;
