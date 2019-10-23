@@ -17,11 +17,11 @@ export class MainNewsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-
+    console.log("Lucifer");
   }
 
   ngOnChanges() {
-    this.loadingNews();
+    // this.loadingNews();
   }
 
   private loadingNews() {

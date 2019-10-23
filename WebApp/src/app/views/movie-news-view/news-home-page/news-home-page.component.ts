@@ -36,7 +36,7 @@ export class NewsHomePageComponent implements OnInit {
     // this.sideshow = false;
     // this.newsId = id;
     // this.sendingNewsId.emit(id);
-    this.router.navigateByUrl("news-detail")
+    this.router.navigateByUrl("news/news-detail")
   }
 
   sidelogicChange(event) {

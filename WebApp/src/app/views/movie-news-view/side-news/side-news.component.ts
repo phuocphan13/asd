@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input, ɵConsole, OnChanges } from '@angular/core';
 import { MovieNewsService } from 'src/app/core/services/movie-news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-news-section',
@@ -15,14 +16,16 @@ export class SidenewsComponent implements OnInit, OnChanges {
   @Output() show = new EventEmitter<any>();
   @Input() newsId: number = 0;
 
-  constructor(private movieNewsService: MovieNewsService) { }
+  constructor(private movieNewsService: MovieNewsService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
   onClickLogicChange(id) {
-    this.newsId = id;
-    this.show.emit(this.newsId);
+    // this.newsId = id;
+    // this.show.emit(this.newsId);
+    this.router.navigateByUrl("news/news-detail")
   }
 
   ngOnChanges() {
