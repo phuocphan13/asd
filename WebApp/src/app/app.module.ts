@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { AppRouting } from './app.router';
 import { CommonModule } from '@angular/common';
 import { SidebarModule } from 'ng-sidebar';
 
@@ -59,11 +58,9 @@ export const environment = {
     AppCommonModule,
     ServiceModule,
     ControlModule,
-    ViewModule,
     SharedModule,
     CommonModule,
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     NgSelectModule,
     FormsModule,
@@ -71,15 +68,10 @@ export const environment = {
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
     BsDropdownModule.forRoot(),
-    AppRouting,
     AppRoutingModule,
     PerfectScrollbarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, {
-      enableTracing: environment.production === false,
-      useHash: true
-    }),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'}),
     BsDatepickerModule.forRoot()
   ],

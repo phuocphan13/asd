@@ -4,6 +4,7 @@ using Avaya.Service.PaymentService;
 using Avaya.Service.MovieService;
 using Avaya.Service.PickMovieService;
 using Avaya.Service.ShowSeatService;
+using Avaya.Service.NewsService;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Avaya.Service.Film;
@@ -20,6 +21,8 @@ namespace Avaya.Service
             services.AddScoped<IMovieService, MovieService.MovieService>();
             services.AddScoped<IPickMovieService, PickMovieService.PickMovieService>();
             services.AddScoped<IPaymentService, PaymentService.PaymentService>();
+            services.AddScoped<INewsService, NewsService.NewsService>();
+            //services.AddScoped<IMenuService, MenuService>();
             services.AddScoped<IShowSeatService, ShowSeatService.ShowSeatService>();
             services.AddScoped<IFilmService, FilmService>();
         }
