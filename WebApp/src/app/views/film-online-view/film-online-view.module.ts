@@ -11,6 +11,7 @@ import { CarouselFilmDetailComponent } from './carousel-film-detail/carousel-fil
 import { NominationFilmDetailComponent } from './nomination-film-detail/nomination-film-detail.component';
 import { NominationFilmViewComponent } from './nomination-film-view/nomination-film-view.component';
 import { PipeModule } from 'src/app/common/pipes/pipe.module';
+import { FilmOnlineViewRoutingModule } from './film-online-view-routing.module';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { PipeModule } from 'src/app/common/pipes/pipe.module';
         CarouselModule.forRoot(),
         FormsModule,
         NgbModule,
-        PipeModule
+        PipeModule,
+        FilmOnlineViewRoutingModule
     ],
     exports: [
         FilmOnlineViewComponent,
