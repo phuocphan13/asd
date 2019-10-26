@@ -9,6 +9,8 @@ namespace Avaya.Service.Film
     {
         List<FilmCarouselModel> GetListFilmsCarousel();
 
-        List<FilmNominationModel> GetListFilmsNomination();
+        FilmNominationLoadingModel GetListFilmsNomination();
+
+        FilmNominationLoadingModel GetLoadMoreFilmNomination(int numberFilmNominationCurrent, int numberFilmNominationTake = 5);
     }
 }

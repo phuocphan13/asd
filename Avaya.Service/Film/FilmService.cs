@@ -48,12 +48,43 @@ namespace Avaya.Service.Film
             return listFilms;
         }
 
-        public List<FilmNominationModel> GetListFilmsNomination()
+        public FilmNominationLoadingModel GetListFilmsNomination()
         {
-            var listFilmsEntity = _filmOnlineRepository.GetAll();
+            var filmNomination = new FilmNominationLoadingModel();
+
+            var listFilmsEntity = _filmOnlineRepository.GetAll().Take(7);
+            var numberNominationFilmMaximum = _filmOnlineRepository.Count();
+
+            var listFilms = listFilmsEntity.MapTo<List<FilmNominationModel>>();
+            filmNomination.ListFilmNominations = listFilms;
+            filmNomination.NumberFilmNominationCurrent = 7;
+            filmNomination.IsLoadMore = numberNominationFilmMaximum > 7;
+
+            return filmNomination;
+        }
+
+        public FilmNominationLoadingModel GetLoadMoreFilmNomination(
+            int numberFilmNominationCurrent, int numberFilmNominationTake = 7)
+        {
+            var filmNomination = new FilmNominationLoadingModel();
+            var numberNominationFilmMaximum = _filmOnlineRepository.Count();
+            var listFilmsEntity = _filmOnlineRepository.GetAll().Skip(numberFilmNominationCurrent).Take(numberFilmNominationTake);
+
             var listFilms = listFilmsEntity.MapTo<List<FilmNominationModel>>();
 
-            return listFilms;
+            filmNomination.ListFilmNominations = listFilms;
+            if(numberNominationFilmMaximum == numberFilmNominationCurrent + listFilms.Count)
+            {
+                filmNomination.IsLoadMore = false;
+                filmNomination.NumberFilmNominationCurrent = numberNominationFilmMaximum;
+            }
+            else
+            {
+                filmNomination.IsLoadMore = true;
+                filmNomination.NumberFilmNominationCurrent = numberFilmNominationCurrent + numberFilmNominationTake;
+            }
+            
+            return filmNomination;
         }
     }
 }
