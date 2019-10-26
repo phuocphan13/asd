@@ -41,7 +41,7 @@ export class ShowSeatViewComponent implements OnInit {
         case 6: x.name = `${x.row}F`; break;
         case 7: x.name = `${x.row}G`; break;
       }
-      x.color = x.isBooking ? "#808080" : '#ffffff';
+      x.color = x.isBooking ? "#727575" : '#dfdfdf';
     });
   }
 
@@ -49,7 +49,7 @@ export class ShowSeatViewComponent implements OnInit {
     if (item.isBooking) {
       return;
     }
-    item.color = "green";
+    item.color = "#7dc71d";
 
 
     this.seatBooking.idShowTime = 1;

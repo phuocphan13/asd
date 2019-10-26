@@ -3,7 +3,8 @@
   width: 850px;
   height: 563px;
 }
-.booking-title {
+
+.seat-title {
   font-size: 24px;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -13,7 +14,7 @@
   padding: 14px;
 }
 
-.front {
+.screen {
   height: 29px;
   width: 698px;
   display: block;
@@ -26,27 +27,6 @@
   margin-left: 7%;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  margin-left: 313px;
-}
-
-.seat:hover {
-  background-color: green;
-}
-
-.seat {
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
-  color: darkgray;
-  text-align: center;
-  vertical-align: middle;
-  margin-left: 15px;
-  margin-top: 15px;
-
-}
 .seat-body {
   display: flex;
   width: 670px;
@@ -56,12 +36,25 @@
   margin-left: 9%;
 }
 
-.colum-container{
-    display: flex;
-}
-
 .seat-container {
   display: flex;
   margin-top: 30px;
-  flex-wrap: wrap ;
+  flex-wrap: wrap;
 }
+
+.seat:hover {
+  background-color: #7dc71d;
+}
+
+.seat {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #95aac9;
+  text-align: center;
+  margin-left: 25px;
+  margin-top: 15px;
+  line-height: 35px;
+  border-radius: 5px;
+}
+

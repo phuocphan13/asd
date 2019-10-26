@@ -1,19 +1,17 @@
 <div class="box">
-  <h2 class="booking-title">Chọn ghế:</h2>
+  <h2 class="seat-title">Chọn ghế:</h2>
   <div>
-    <span class="front">Màn hình</span>
+    <span class="screen">Màn hình</span>
   </div>
 
   <div class="seat-body">
     <div class="seat-container">
-      <div class="seat" [class.seat-booking]="!item.isBooking"
-        *ngFor="let item of listSeats"
-        [style.background-color]="item.color"
-        (click)="onClick(item)">
+      <div class="seat" [class.seat-booking]="!item.isBooking" *ngFor="let item of listSeats"
+        [style.background-color]="item.color" (click)="onClick(item)">
         {{item.name}}
       </div>
     </div>
   </div>
-
-  <button class="btn btn-danger" (click)="onClickSaveSeat()">Click</button>
 </div>
+<br>
+<button class="btn btn-danger" (click)="onClickSaveSeat()">Click</button>
