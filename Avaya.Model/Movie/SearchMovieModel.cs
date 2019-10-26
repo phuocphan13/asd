@@ -8,10 +8,10 @@ namespace Avaya.Model.Movie
     public class SearchMovieModel
     {
         [Required(ErrorMessage = "Nhập tên phim")]
-        public string MovieName { get; set; }
+        public int MovieId { get; set; }
 
         [Required(ErrorMessage = "Nhập rạp")]
-        public string CinemaName { get; set; }
+        public int CinemaId { get; set; }
 
         [Required(ErrorMessage = "Chọn ngày")]
         public string Date { get; set; }

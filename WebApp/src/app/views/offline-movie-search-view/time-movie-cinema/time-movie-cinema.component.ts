@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchModel } from 'src/app/core/model/search.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-time-movie-cinema',
@@ -13,9 +14,9 @@ export class TimeMovieCinemaComponent implements OnInit {
   searchItem: SearchModel;
   minDate: Date;
   date: any;
-  
-  pickedMovie : any;
-  pickedCinema : any;
+
+  pickedMovie: any;
+  pickedCinema: any;
 
 
   listMovies: any = [
@@ -31,39 +32,26 @@ export class TimeMovieCinemaComponent implements OnInit {
     { id: 4, name: 'GLX - Tân Bình' },
   ];
 
-  constructor() {
+  constructor(private router: Router) {
     this.minDate = new Date();
     this.searchItem = new SearchModel();
   }
 
   ngOnInit() {
-  
+
   }
 
 
   onChangeMovieName(event) {
-    this.searchItem.nameId = event.id;
+    this.searchItem.movieId = event.id;
   }
 
-  onChangeCinemaName(event)
-  {
+  onChangeCinemaName(event) {
     this.searchItem.cinemaId = event.id;
   }
 
- 
-
   onClickSearch()
   {
-    //check xem cả 3 field có giá trị truthy hay falsy (falsy là các kiểu: undefined,NaN,empty,0,null,"");
-    if(this.pickedCinema && this.date && this.pickedMovie)
-    {
-      alert("All field filled");
-      console.log()
-    this.searchItem.date = this.date;
     this.searchData.emit(this.searchItem);
-    }
-    else{
-      alert("field missing");
-    }
   }
 }

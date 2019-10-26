@@ -39,33 +39,38 @@ namespace Avaya.Service.MovieService
 
         public MovieModel GetListMovies(SearchMovieModel searchMovie)
         {
-            if (string.IsNullOrEmpty(searchMovie.MovieName)
-                ||string.IsNullOrEmpty(searchMovie.CinemaName)
-                ||string.IsNullOrEmpty(searchMovie.Date) 
-                || string.IsNullOrWhiteSpace(searchMovie.MovieName)
-                ||string.IsNullOrWhiteSpace(searchMovie.CinemaName)
-                ||string.IsNullOrWhiteSpace(searchMovie.Date))
+            if (searchMovie.MovieId != 0
+                && searchMovie.CinemaId != 0
+                && !string.IsNullOrEmpty(searchMovie.Date)
+                && searchMovie.MovieId != 0
+                && searchMovie.CinemaId != 0
+                && !string.IsNullOrWhiteSpace(searchMovie.Date))
             {
-                return null;
-            }
-            else if(searchMovie.MovieName != null && searchMovie.CinemaName != null && searchMovie.Date != null)
-            {
-                var movie = _movieRepository.FirstOrDefault(x => x.Id == int.Parse(searchMovie.MovieName)).MapTo<MovieModel>();
+                var movie = _movieRepository.FirstOrDefault(x => x.Id == searchMovie.MovieId)
+                    .MapTo<MovieModel>();
+                if (movie == null)
+                    return null;
 
-                var cinema = _cinemaRepository.FirstOrDefault(x => x.Id == int.Parse(searchMovie.CinemaName)).MapTo<MovieModel>();
+                var cinema = _cinemaRepository.FirstOrDefault(x => x.Id == searchMovie.CinemaId)
+                    .MapTo<MovieModel>();
+                if (cinema == null)
+                    return null;
 
-                var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == int.Parse(searchMovie.MovieName)
-                                    && x.IdCinema == int.Parse(searchMovie.CinemaName)
+                var bookingDetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
+                                    && x.IdCinema == searchMovie.CinemaId
                                     && x.Date == DateTime.Parse(searchMovie.Date));
+                if (bookingDetail == null)
+                    return null;
 
                 movie.ShowTime = _showTimeRepository.GetAll()
-                    .Where(x => x.IdBookingDetail == bookingdetail.Id).MapTo<List<ShowTimeModel>>();
-
+                    .Where(x => x.IdBookingDetail == bookingDetail.Id)
+                    .MapTo<List<ShowTimeModel>>();
 
                 movie.Address = cinema.Address;
 
                 return movie;
             }
+
             return null;
         }
     }

@@ -31,6 +31,9 @@ namespace Avaya.Domain
             services.AddScoped<IRepository<ShowTime>, Repository<ShowTime>>();
             services.AddScoped<IRepository<Service>, Repository<Service>>();
             services.AddScoped<IRepository<Menu>, Repository<Menu>>();
+            services.AddScoped<IRepository<Booking>, Repository<Booking>>();
+            services.AddScoped<IRepository<FilmCategory>, Repository<FilmCategory>>();
+            services.AddScoped<IRepository<FilmOnline>, Repository<FilmOnline>>();
         }
     }
 }

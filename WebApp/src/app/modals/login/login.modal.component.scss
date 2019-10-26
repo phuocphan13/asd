@@ -1,0 +1,79 @@
+$margin-right-icon: 20px;
+$margin-left-textbox: 10px;
+$margin-top-icon: 3px;
+
+$color-icon: #6C7475;
+
+.title {
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  background-color: #6C7475;
+  color: white;
+}
+
+.username-form {
+    margin-left: $margin-left-textbox;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.password-form{
+    margin-left: $margin-left-textbox;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-control{
+    width: 80%;
+}
+
+.username-icon{
+    margin-right: $margin-right-icon;
+    margin-top: $margin-top-icon;
+    color: $color-icon;
+}
+
+.password-icon{
+    margin-right: $margin-right-icon;
+    margin-top: $margin-top-icon;
+    color: $color-icon;
+}
+
+$margin-left-usual: 70px;
+
+.text-muted{
+    margin-left: $margin-left-usual;
+}
+
+.forgotten-link{
+    margin-left: $margin-left-usual;
+    font-size: 14px;
+}
+
+.button-form{
+    width: 398px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.btn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 179px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button-log-in{
+    background-color: #6495e3;
+}
+
+.button-cancel{
+    background-color: #E36479;
+}

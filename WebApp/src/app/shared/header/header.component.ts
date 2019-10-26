@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DropDownItemModel } from 'src/app/core/model/drop-down-item.model';
 import { MenuService } from 'src/app/core/services/menu.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { LoginModalComponent } from 'src/app/modals/login/login.modal.component';
+import { ForgottenModalComponent } from 'src/app/modals/forgotten/forgotten.modal.component';
 
 @Component({
   selector: 'app-header',
@@ -10,20 +13,13 @@ import { MenuService } from 'src/app/core/services/menu.service';
 export class HeaderComponent implements OnInit {
 
   searchText: string;
-  titleMenu1 = "Phim Chiếu Rạp";
-  titleMenu2 = "Phim";
   listMenus: [];
+  modalRef: BsModalRef;
+  username: string;
+  password: string;
 
-  // listHeaderChildrens: DropDownItemModel[] = [
-  //   { id: 1, name: 'Rạp' },
-  //   { id: 2, name: 'Lịch chiếu' },
-  //   { id: 3, name: 'Suất chiếu' },
-  // ];
-  // listMenus: DropDownItemModel[] = [
-  //   { id: 1, name: 'Phim bộ' },
-  //   { id: 2, name: 'Phim lẻ' },
-  // ];
-  constructor(private menuService: MenuService) { }
+  constructor(private menuService: MenuService,
+    private modalService: BsModalService) { }
 
   ngOnInit() {
     this.menuService.GetAll().subscribe(result => {
@@ -32,5 +28,22 @@ export class HeaderComponent implements OnInit {
   }
 
   onSearch() {
+
+  }
+
+  onClickLogin() {
+    this.modalRef = this.modalService.show(LoginModalComponent, {
+      ignoreBackdropClick: true
+    });
+    this.modalRef.content.username = this.username;
+    this.modalRef.content.password = this.password;
+    this.modalRef.content.event.subscribe(result => {
+      if(result === 1)
+      {
+        this.modalRef = this.modalService.show(ForgottenModalComponent, {
+          ignoreBackdropClick: true
+        });
+      }
+    })
   }
 }

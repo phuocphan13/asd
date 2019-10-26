@@ -4,9 +4,10 @@ import { MovieNewsService } from './movie-news.service'
 import { MenuService } from './menu.service';
 import { SharedService } from './shared.service';
 import { MovieService } from './movie.service';
-
+import {ShowSeatService} from './show-seat.service';
 import { SideNewsHalfsizeService } from './side-news-halfsize.service'
 import { SideNewsService } from './side-news.service'
+import { FilmOnlineService } from './film-online.service';
 @NgModule({
   declarations: [
   ],
@@ -15,8 +16,11 @@ import { SideNewsService } from './side-news.service'
     SideNewsHalfsizeService,
     MovieNewsService,
     SideNewsService,
-      SharedService,
-      MovieService
+    SharedService,
+    MovieService,
+    FilmOnlineService,
+
+    ShowSeatService
   ]
 })
 export class ServiceModule { }

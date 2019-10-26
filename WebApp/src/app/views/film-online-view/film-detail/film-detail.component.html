@@ -1,3 +1,18 @@
-<p>
-  film-detail works!
-</p>
+<div class="body-info">
+  <div class="image-container">
+    <img class="image" [src]="_domSanitizer.bypassSecurityTrustUrl(item.imgUrl)">
+    <div class="middle">
+        <i class="icon-play far fa-play-circle fa-5x"></i>
+    </div>
+  </div>
+  <div class="title text">{{item.title}}</div>
+  <div class="detail">
+    <div class="info">
+      <div class="time text">{{item.time}}</div>
+      <div class="category text">{{item.category}}</div>
+    </div>
+    <div class="type text">
+      <p>{{item.type}}</p>
+    </div>
+  </div>
+</div>
