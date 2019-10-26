@@ -1,28 +1,31 @@
 import { Component, OnInit, Output, EventEmitter, Input, ɵConsole, OnChanges } from '@angular/core';
 import { MovieNewsService } from 'src/app/core/services/movie-news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-news-section',
   templateUrl: './side-news.component.html',
   styleUrls: ['./side-news.component.scss']
 })
-export class SidenewsSectionComponent implements OnInit, OnChanges {
+export class SidenewsComponent implements OnInit, OnChanges {
 
-  listclip: any[] = [];
+  listClip: any[] = [];
   news: [] = [];
-  firstrun: boolean = true;
+  firstRun: boolean = true;
 
   @Output() show = new EventEmitter<any>();
   @Input() newsId: number = 0;
 
-  constructor(private movieNewsService: MovieNewsService) { }
+  constructor(private movieNewsService: MovieNewsService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
   onClickLogicChange(id) {
-    this.newsId = id;
-    this.show.emit(this.newsId);
+    // this.newsId = id;
+    // this.show.emit(this.newsId);
+    this.router.navigateByUrl("news/news-detail")
   }
 
   ngOnChanges() {
@@ -32,7 +35,7 @@ export class SidenewsSectionComponent implements OnInit, OnChanges {
   private loadTrendingItems(itemindex) {
     this.movieNewsService.getAll().subscribe(result => {
       if (result) {
-        this.listclip = [];
+        this.listClip = [];
         result.splice(0, itemindex);
         var randomid: any;
         for (var i = 0; i < 3; i++) {
@@ -41,9 +44,8 @@ export class SidenewsSectionComponent implements OnInit, OnChanges {
           }
           while (randomid.id == this.newsId)
           let index = result.map(x => x.id).indexOf(randomid.id);
-          this.listclip.push(randomid);
+          this.listClip.push(randomid);
           result.splice(index, 1);
-          console.log(result);
         }
       }
     });

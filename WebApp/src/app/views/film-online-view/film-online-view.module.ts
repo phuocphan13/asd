@@ -24,7 +24,6 @@ import { PipeModule } from 'src/app/common/pipes/pipe.module';
     imports: [
         CommonModule,
         CarouselModule.forRoot(),
-        BrowserModule,
         FormsModule,
         NgbModule,
         PipeModule

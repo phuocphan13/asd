@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input, ɵConsole, OnChanges } from '@angular/core';
 import { MovieNewsService } from 'src/app/core/services/movie-news.service';
+import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.service';
 
 @Component({
   selector: 'main-news-section',
@@ -8,16 +9,21 @@ import { MovieNewsService } from 'src/app/core/services/movie-news.service';
 })
 export class MainNewsComponent implements OnInit, OnChanges {
 
-  @Input() newsId: number;
+ 
   detailNews: any = {
     headline: "",
   };
 
-  constructor(private movieNewsService: MovieNewsService) {
+  newsId: number;
+
+  constructor(private movieNewsService: MovieNewsService,
+    private movieNewsSharedService: MovieNewsSharedService) {
   }
 
   ngOnInit() {
-
+    this.newsId = this.movieNewsSharedService.get();
+    console.log(this.newsId);
+    console.log("Lucifer");
   }
 
   ngOnChanges() {
@@ -25,7 +31,6 @@ export class MainNewsComponent implements OnInit, OnChanges {
   }
 
   private loadingNews() {
-    console.log("vào hàm")
     this.movieNewsService.getById(this.newsId).subscribe(result => {
       this.detailNews = result;
     })

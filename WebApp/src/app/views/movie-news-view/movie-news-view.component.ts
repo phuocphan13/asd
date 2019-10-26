@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-news-view',
@@ -9,9 +11,15 @@ export class MovieNewsViewComponent implements OnInit {
 
   isShow: boolean = true;
   newsId: number;
-  constructor() { }
+  constructor(private movieNewsSharedService: MovieNewsSharedService,
+    private router: Router) { }
 
   ngOnInit() {
+    this.movieNewsSharedService.routingAction.subscribe(result => {
+      if (result) {
+        this.router.navigateByUrl("payment");
+      }
+    });
   }
 
   getNewsId(event) {
