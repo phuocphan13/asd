@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchModel } from 'src/app/core/model/search.model';
 import { Router } from '@angular/router';
+import { invalid } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-time-movie-cinema',
@@ -45,12 +46,12 @@ export class TimeMovieCinemaComponent implements OnInit {
 
   }
 
-  onClickSearch() {
+  onClickSearch() {//lúc nhập sai thì nó báo invali date thì phải check dk đó để k chạy tiếp
     if (this.pickedCinema && this.date && this.pickedMovie) {
-
       this.searchItem.movieId = this.movieId;
       this.searchItem.cinemaId = this.cinemaId;
       this.searchItem.date = this.date;
+      console.log(this.date);
       //1
 
       if (this.searchItem.date != this.searchItemTemp.date

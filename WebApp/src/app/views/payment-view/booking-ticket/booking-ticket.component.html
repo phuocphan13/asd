@@ -11,8 +11,9 @@
     <div class="combocorn-container" *ngFor="let item of listTicket">
       <div class="first-column-item">{{item.name}}</div>
       <div class="second-column-item">{{item.price | number}}</div>
-      <div class="input-field"><input type="number" id='ticketValue' [(ngModel)]="item.quantity"
-          oninput="validity.valid||(value='');" min="0" (change)="onChangeTicketValue(item)">
+      <div class="input-field">
+        <input type="number" onKeyDown="return false" id='ticketValue' [(ngModel)]="item.quantity"
+          oninput="validity.valid||(value='');" min="0" max="10" (change)="onChangeTicketValue(item)">
       </div>
     </div>
   </div>
@@ -29,8 +30,9 @@
     <div class="combocorn-container" *ngFor="let item of listCombo">
       <div class="first-column-item">{{item.name}}</div>
       <div class="second-column-item">{{item.price | number}}</div>
-      <div class="input-field"><input type="number" id='comboValue' value="0" [(ngModel)]="item.quantity"
-          oninput="validity.valid||(value='');" min="0" (change)="onChangeTicketValue(item)"></div>
+      <div class="input-field">
+        <input type="number" onKeyDown="return false" id='comboValue' value="0" [(ngModel)]="item.quantity"
+          oninput="validity.valid||(value='');" min="0" max="10" (change)="onChangeTicketValue(item)"></div>
     </div>
   </div>
 </div>

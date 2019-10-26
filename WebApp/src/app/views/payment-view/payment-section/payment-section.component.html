@@ -3,29 +3,31 @@
     <img src={{img}}>
   </div>
   <div class="movie-info-container">
-    <h2>
+    <h3>
       {{moviename}}
-    </h2>
-    <div class="ticket-info">
-      <p>
-        <b>Rạp: </b>{{theater}}
-      </p>
-      <p>
-        <b>Suất Chiếu: </b>{{showtime}} - {{showdate}}
-      </p>
-      <p>
-        <b>Ghế: </b>{{seatnumber}}
-      </p>
-      <h2>
-        TỔNG: {{completedPrice | number}} vnđ
-      </h2>
-    </div>
-    <div class="booking-proceed">
-      <div class="proceed-button" (click)="onClickCheckOut()">
-        <div>
-            THANH TOÁN
-        </div>
-      </div>
+    </h3>
+    <p>
+      <b>Rạp: </b>{{theater}}
+    </p>
+    <p>
+      <b>Suất Chiếu: </b>{{showtime}} - {{showdate}}
+    </p>
+    <p>
+      <b>Ghế: </b>{{seatnumber}}
+    </p>
+  </div>
+</div>
+<div class="payment-container">
+  <div class="total">
+    <i class="fas fa-money-check"> {{completedPrice | number}} VNĐ</i> 
+  </div>
+
+</div>
+
+<div class="booking-proceed">
+  <div class="proceed-button" (click)="onClickCheckOut()">
+    <div>
+      THANH TOÁN
     </div>
   </div>
 </div>

@@ -12,7 +12,7 @@
   </div>
 
   <input placeholder="Datepicker" class="form-control" bsDatepicker [(ngModel)]="date" bindvalue="date" required
-    oninput="validity.valid||(value='');">
+    oninput="validity.valid||(value='');" onkeydown="return false">
 
   <div class="search">
     <button class="btn button-search" type="button" (click)="onClickSearch()">Tìm Kiếm</button>
