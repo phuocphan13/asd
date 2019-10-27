@@ -28,17 +28,14 @@ namespace Avaya.API.Controllers
         public IActionResult GetListSeats([FromBody]SearchSeatModel searchSeat)
         {
             var result = _SeatService.GetShowSeat(searchSeat);
-            if (result != null)
-                return Ok(result);
-            return null;
+            return Ok(result);
         }
+
         [HttpPost]
         public IActionResult SaveSeat([FromBody]List<SaveSeatModel> saveSeat)
         {
             var result = _SeatService.SaveSeat(saveSeat);
-            if (result == false)
-                return Ok(result);
-            return null;
+            return Ok(result);
         }
     }
 }

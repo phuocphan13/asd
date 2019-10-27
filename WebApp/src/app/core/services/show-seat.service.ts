@@ -18,6 +18,6 @@ export class ShowSeatService {
     }
 
     bookingSeat(seatBooking: SeatBookingModel): Observable<any> {
-        return this.httpClient.post(`${this.apiHost}/api/SaveSeat/SaveSeat`, seatBooking);
+        return this.httpClient.post(`${this.apiHost}/api/Seat/SaveSeat`, seatBooking);
     }
 }
