@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidenewsSectionComponent } from './side-news.component';
+import { SidenewsComponent } from './side-news.component';
 
 describe('SidenewsSectionComponent', () => {
-  let component: SidenewsSectionComponent;
-  let fixture: ComponentFixture<SidenewsSectionComponent>;
+  let component: SidenewsComponent;
+  let fixture: ComponentFixture<SidenewsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidenewsSectionComponent ]
+      declarations: [ SidenewsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SidenewsSectionComponent);
+    fixture = TestBed.createComponent(SidenewsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

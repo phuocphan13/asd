@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, ɵConsole, OnChanges } from '@angular/core';
 import { MovieNewsService } from 'src/app/core/services/movie-news.service';
 import { Router } from '@angular/router';
+import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.service';
 
 @Component({
   selector: 'app-side-news-section',
@@ -13,30 +14,35 @@ export class SidenewsComponent implements OnInit, OnChanges {
   news: [] = [];
   firstRun: boolean = true;
 
-  @Output() show = new EventEmitter<any>();
   @Input() newsId: number = 0;
 
   constructor(private movieNewsService: MovieNewsService,
     private router: Router) { }
 
   ngOnInit() {
+    this.loadTrendingItems(5);
   }
 
   onClickLogicChange(id) {
-    // this.newsId = id;
-    // this.show.emit(this.newsId);
-    this.router.navigateByUrl("news/news-detail")
+    this.changeAction(id);
+  }
+
+  private changeAction(id) {
+    this.router.navigateByUrl(`news/news-detail/${id}`)
   }
 
   ngOnChanges() {
-    this.loadTrendingItems(0);
+    // console.log("onchange");
+    // if (this.newsId) {
+    //   this.loadTrendingItems(0);
+    // }
   }
 
-  private loadTrendingItems(itemindex) {
+  private loadTrendingItems(itemIndex) {
     this.movieNewsService.getAll().subscribe(result => {
       if (result) {
-        this.listClip = [];
-        result.splice(0, itemindex);
+        this.listClip = result;
+        result.splice(0, itemIndex);
         var randomid: any;
         for (var i = 0; i < 3; i++) {
           do {

@@ -14,7 +14,7 @@ const routes: Routes = [
                 component: NewsHomePageComponent
             },
             {
-                path: 'news-detail',
+                path: 'news-detail/:id',
                 component: MainNewsComponent,
             }
         ]

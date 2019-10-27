@@ -15,16 +15,5 @@ export class MovieNewsViewComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.movieNewsSharedService.routingAction.subscribe(result => {
-      if (result) {
-        this.router.navigateByUrl("payment");
-      }
-    });
-  }
-
-  getNewsId(event) {
-    console.log(event);
-    this.newsId = event;
-    this.isShow = false;
   }
 }
