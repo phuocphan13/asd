@@ -68,11 +68,14 @@ namespace Avaya.Service.Film
         {
             var filmNomination = new FilmNominationLoadingModel();
             var numberNominationFilmMaximum = _filmOnlineRepository.Count();
-            var listFilmsEntity = _filmOnlineRepository.GetAll().Skip(numberFilmNominationCurrent).Take(numberFilmNominationTake);
+
+            var listFilmsEntity = _filmOnlineRepository.GetAll().Skip(numberFilmNominationCurrent)
+                .Take(numberFilmNominationTake);
 
             var listFilms = listFilmsEntity.MapTo<List<FilmNominationModel>>();
 
             filmNomination.ListFilmNominations = listFilms;
+
             if(numberNominationFilmMaximum == numberFilmNominationCurrent + listFilms.Count)
             {
                 filmNomination.IsLoadMore = false;

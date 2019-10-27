@@ -19,8 +19,8 @@ export class FilmOnlineService{
   }
 
   getLoadMoreFilmNomination(numberFilmNominationCurrent: any, numberFilmNominationTake: any) :Observable<any> {
-    let params = new HttpParams().set('numberFilmNominationCurrent', numberFilmNominationCurrent)
+    let queryParams = new HttpParams().set('numberFilmNominationCurrent', numberFilmNominationCurrent)
                                  .set("numberFilmNominationTake", numberFilmNominationTake);
-    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetLoadMoreFilmNomination`, {params: params});
+    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetLoadMoreFilmNomination`, {params: queryParams});
   }
 }
