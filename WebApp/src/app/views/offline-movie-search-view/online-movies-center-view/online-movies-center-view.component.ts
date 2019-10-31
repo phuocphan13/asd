@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum';
 
 @Component({
@@ -8,16 +8,20 @@ import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum';
 })
 export class OnlineMoviesCenterViewComponent implements OnInit {
   @Input("data") listMovie: any;
-  type= ItemShowingEnum.Movie;
+  @Output() bookingMovieItem = new EventEmitter();
+  type = ItemShowingEnum.Movie;
 
   constructor() { }
 
   ngOnInit() {
-    
-  }
-
-  ngOnchange(){
 
   }
 
+  ngOnchange() {
+
+  }
+
+  getBookingItem(event) {
+    this.bookingMovieItem.emit(event);
+  }
 }

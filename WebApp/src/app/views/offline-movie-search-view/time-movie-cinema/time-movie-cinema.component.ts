@@ -46,12 +46,12 @@ export class TimeMovieCinemaComponent implements OnInit {
 
   }
 
-  onClickSearch() {//lúc nhập sai thì nó báo invali date thì phải check dk đó để k chạy tiếp
+  onClickSearch() {
     if (this.pickedCinema && this.date && this.pickedMovie) {
       this.searchItem.movieId = this.movieId;
       this.searchItem.cinemaId = this.cinemaId;
       this.searchItem.date = this.date;
-      console.log(this.date);
+      // console.log(this.date);
       //1
 
       if (this.searchItem.date != this.searchItemTemp.date
@@ -65,7 +65,7 @@ export class TimeMovieCinemaComponent implements OnInit {
 
       //3
       this.searchItem = new SearchModel();
-      console.log(this.searchItemTemp);
+      // console.log(this.searchItemTemp);
     }
     else {
       alert("field missing");

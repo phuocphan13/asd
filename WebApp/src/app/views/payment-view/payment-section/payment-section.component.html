@@ -1,16 +1,16 @@
 <div class="payment-container">
   <div class="movie-image">
-    <img src={{img}}>
+    <img class="image" src="{{item.picture}}">
   </div>
   <div class="movie-info-container">
     <h3>
-      {{moviename}}
+      {{item.name}}
     </h3>
     <p>
-      <b>Rạp: </b>{{theater}}
+      <b>Rạp: </b>{{item.address}}
     </p>
     <p>
-      <b>Suất Chiếu: </b>{{showtime}} - {{showdate}}
+      <b>Suất Chiếu: </b>{{item.showtime}} 
     </p>
     <p>
       <b>Ghế: </b>{{seatnumber}}

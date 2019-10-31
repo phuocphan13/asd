@@ -25,7 +25,14 @@ export class BookingTicketComponent implements OnInit {
   }
 
   onChangeTicketValue() {
-    this.itemsValue.emit(this.listTicket);    
+    let listItems = [];
+    this.listTicket.forEach(element => {
+      listItems.push(element);
+    });
+    this.listCombo.forEach(element => {
+      listItems.push(element);
+    });
+    this.itemsValue.emit(listItems);
     //this.itemsValue.emit(this.listCombo);
   }
 }

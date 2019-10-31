@@ -4,11 +4,13 @@ import { Injectable, EventEmitter } from '@angular/core';
   providedIn: 'root'
 })
 
-export class SharedService{
-    action = new EventEmitter();
+export class SharedService{    
+    item: any;
 
-    change(isChange: boolean)
-    {
-        this.action.emit(isChange);
+    get(){
+      return this.item;
+    }
+    set(value: any){
+      this.item = value;
     }
 }

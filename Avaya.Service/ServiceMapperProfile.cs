@@ -17,7 +17,9 @@ namespace Avaya.Service
         {
             CreateMap<Movie, MovieTemptModel>().ReverseMap();
             CreateMap<Movie, MovieModel>().ReverseMap();
-            CreateMap<Cinema, MovieModel>().ReverseMap();
+            CreateMap<Cinema, MovieModel>()
+                .ForMember(x => x.Address, opt => opt.MapFrom(i => i.Name))
+                .ReverseMap();
             CreateMap<ShowTime, MovieModel>().ReverseMap();
             CreateMap<Menu, MenuModel>().ReverseMap();
             CreateMap<Room, SeatModel>().ReverseMap();

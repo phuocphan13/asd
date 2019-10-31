@@ -9,45 +9,13 @@ import { NewsViewComponent } from "./views/news-view/news-view.component";
 
 const appRoutes: Routes = [
     {
-        path: '',
+        path: 'offline',
         component: OfflineMovieSearchViewComponent,
     },
     {
         path: 'payment',
-        component: PaymentViewComponent,
-        children: [
-            {
-                path: 'abc',
-                component: PaymentViewComponent,
-                children: [
-                    {
-                        path: 'abc',
-                        component: PaymentViewComponent,
-                    }
-                ]
-            },
-            {
-                path: 'aaa',
-                component: PaymentViewComponent,
-            }
-        ]
-    },
-    {
-        path: 'news',
-        component: NewsViewComponent,
-    }
-    // {
-    //     path: 'home/:brandId',
-    //     component: HomeComponent
-    // },
-    // {
-    //     path: 'temp-of-use',
-    //     component: TempOfUseComponent,
-    // },
-    // {
-    //     path: "accept-push-message",
-    //     component: AcceptPushMessageComponent,
-    // }
+        component: PaymentViewComponent,       
+    },   
 ]
 
 export const AppRouting = RouterModule.forChild(
