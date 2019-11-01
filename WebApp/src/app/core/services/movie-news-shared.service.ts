@@ -16,4 +16,5 @@ export class MovieNewsSharedService {
   changedAction(value: boolean) {
     this.routingAction.emit(value);
   }
+
 }

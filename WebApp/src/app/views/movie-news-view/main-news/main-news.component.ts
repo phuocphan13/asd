@@ -25,8 +25,8 @@ export class MainNewsComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.activatedRoute.params.subscribe(param => {
       console.log(param);
-      // this.newsId = param.id;
-      // this.loadingNews();
+      this.newsId = param.id;
+      this.loadingNews();
     })
   }
 
@@ -34,8 +34,8 @@ export class MainNewsComponent implements OnInit, OnChanges {
   }
 
   private loadingNews() {
-    // this.movieNewsService.getById(this.newsId).subscribe(result => {
-    //   this.detailNews = result;
-    // })
+    this.movieNewsService.getById(this.newsId).subscribe(result => {
+      this.detailNews = result;
+    })
   }
 }
