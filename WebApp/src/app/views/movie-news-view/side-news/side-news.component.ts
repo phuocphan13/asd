@@ -13,7 +13,6 @@ export class SidenewsComponent implements OnInit {
   listClip: any[] = [];
   news: [] = [];
   firstRun: boolean = true;
-
   @Input() newsId: number = 0;
 
   constructor(private movieNewsService: MovieNewsService,
@@ -23,32 +22,29 @@ export class SidenewsComponent implements OnInit {
   ngOnInit() {
     this.loadTrendingItems(5);
     this.movieNewsSharedService.routingAction.subscribe(result => {
-      if(result)
-      {
-        this.newsId=this.movieNewsSharedService.get();
-        this.clearData();
+      if (result) {
+        this.newsId = this.movieNewsSharedService.get();
         this.loadTrendingItems(0);
       }
     });
   }
 
   onClickLogicChange(id) {
-    this.newsId=id;
+    this.newsId = id;
     this.changeAction(id);
-    this.clearData();
     this.loadTrendingItems(0);
   }
 
   private changeAction(id) {
     this.router.navigateByUrl(`news/news-detail/${id}`)
-    window.scroll(0,0);
   }
 
-  private clearData(){
-    this.listClip= [];
+  private prepareList(){
+    this.listClip=[];
   }
 
   private loadTrendingItems(itemIndex) {
+    this.prepareList();
     this.movieNewsService.getAll().subscribe(result => {
       if (result) {
         result.splice(0, itemIndex);

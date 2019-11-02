@@ -39,9 +39,5 @@ export class NewsHomePageComponent implements OnInit {
   private changeAction(id) {
     this.router.navigateByUrl(`news/news-detail/${id}`)
   }
-
-  sidelogicChange(event) {
-    this.newsId = event;
-    this.show = !this.show;
-  }
+  
 }
