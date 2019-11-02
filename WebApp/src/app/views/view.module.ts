@@ -35,7 +35,7 @@ import { ViewRoutingModule } from './view-routing.module';
     OfflineMovieSearchViewModule,
     PaymentViewModule,
     FilmOnlineViewModule,
-    ModalsModule
+    ModalsModule,
     PaymentViewModule,
     FilmOnlineViewModule
   ]

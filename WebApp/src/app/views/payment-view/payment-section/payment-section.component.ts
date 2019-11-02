@@ -23,9 +23,8 @@ export class PaymentSectionComponent implements OnInit {
   seatBooking: SeatBookingModel;
 
   constructor(private showSeatService: ShowSeatService,
-    private seatSharedService: SeatSharedService) { }
-
-  constructor(private router: Router) { }
+    private seatSharedService: SeatSharedService,
+    private router: Router) { }
 
   ngOnInit() {
     

@@ -21,7 +21,7 @@ import { MovieNewsSharedService } from './movie-news-shared.service';
     SharedService,
     MovieService,
 
-    MovieNewsSharedService
+    MovieNewsSharedService,
     FilmOnlineService,
     SeatSharedService,
     ShowSeatService

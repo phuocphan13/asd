@@ -189,18 +189,7 @@ namespace Avaya.Domain.Models
                     .HasConstraintName("fk_photo");
             });
 
-            modelBuilder.Entity<ReservedSeat>(entity =>
-            {
-                entity.ToTable("Reserved_Seat");
-
-                entity.Property(e => e.IdShowTime).HasColumnName("Id_ShowTime");
-
-                entity.HasOne(d => d.IdShowTimeNavigation)
-                    .WithMany(p => p.ReservedSeat)
-                    .HasForeignKey(d => d.IdShowTime)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Reserved_Seat_Show_Time");
-            });
+            
 
             modelBuilder.Entity<Room>(entity =>
             {

@@ -1,21 +1,22 @@
 <div class="payment-view-wrapper">
-  <div class="picking-side">
-    <!-- <app-booking-ticket (itemsValue)="ItemsValueOutPut($event)"></app-booking-ticket> -->
+  <!-- <div class="picking-side">
+      <app-show-seat-view [data]="item"></app-show-seat-view>
+    </div> -->
+    <div class="picking-side">
     <router-outlet></router-outlet>
+    </div>
+    <div class="payment-side">
+    <app-payment-section></app-payment-section>
+    </div>
+    <!-- <app-booking-ticket (itemsValue)="ItemsValueOutPut($event)"></app-booking-ticket> -->
+    <!-- <router-outlet></router-outlet>
   </div>
   <div class="payment-side">
     <app-payment-section [completePrice]="completePrice"></app-payment-section>
-  </div>
+  </div> -->
   <!-- <div class="picking-side">
     <app-booking-ticket (itemsValue)="ItemsValueOutPut($event)"></app-booking-ticket>
-  </div> -->
-  
-   
-//    <div class="picking-side"> 
-//      <app-show-seat-view [data]="item"></app-show-seat-view>
-//    </div>
-//    <div class="payment-side">
-//      <app-payment-section></app-payment-section>
-//    </div>
+  </div> --> 
+     
   
 </div>
