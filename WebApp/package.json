@@ -27,7 +27,7 @@
     "core-js": "^2.5.4",
     "ng-sidebar": "^8.0.0",
     "ngx-alerts": "^3.4.5",
-    "ngx-bootstrap": "^4.1.1",
+    "ngx-bootstrap": "^4.3.0",
     "ngx-perfect-scrollbar": "^7.2.1",
     "password-hash": "^1.2.2",
     "rxjs": "~6.3.3",

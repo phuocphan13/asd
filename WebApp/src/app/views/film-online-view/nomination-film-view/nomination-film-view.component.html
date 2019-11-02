@@ -1,0 +1,12 @@
+<div class="body">
+  <div class="title">
+    Nomination Films
+  </div>
+  <div class="nomination-body">
+    <div class="nomination-container">
+      <app-nomination-film-detail class="nomination-film" *ngFor="let item of listNominationFilms" [data]="item">
+      </app-nomination-film-detail>
+    </div>
+    <button class="btn btn-light see-more-button">See More..</button>
+  </div>
+</div>

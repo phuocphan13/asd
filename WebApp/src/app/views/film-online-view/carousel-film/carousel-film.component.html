@@ -1,0 +1,22 @@
+<div class="carousel">
+  <div class="carousel-head">
+    <span class="title-header">
+      {{title}}
+    </span>
+  </div>
+  <div class="carousel-body">
+    <button class="button button-left-arrow" tabindex="-1" (click)="onClickButtonLeft()">
+      <i class="fas fa-chevron-left icon"></i>
+    </button>
+    <div class="carousel-view">
+      <div class="carousel-showing" [style.left]="filmLeftPosition">
+        <div class="film-detail" *ngFor="let item of listFilmOnlines; let index = index">
+          <app-carousel-film-detail [data]="item"></app-carousel-film-detail>
+        </div>
+      </div>
+    </div>
+    <button class="button button-right-arrow" tabindex="-1" (click)="onClickButtonRight()">
+      <i class="fas fa-chevron-right icon"></i>
+    </button>
+  </div>
+</div>

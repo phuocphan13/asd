@@ -27,7 +27,6 @@ export class LoginModalComponent implements OnInit {
 
   onClickLogIn() {
     //API Login
-    console.log(this.password)
   }
 
   onClickCancel() {
