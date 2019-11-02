@@ -1,0 +1,13 @@
+<div class="side-article">
+  <div class="section-title">
+    TRENDING
+  </div>
+  <div *ngFor="let item of listClip">
+    <div class="browse-clip" (click)="onClickLogicChange(item.id)">
+      <a class="image"> <img src={{item.photoUrl}}> </a>
+      <div class="clip-info">
+        <h3> {{item.headline}} </h3>
+      </div>
+    </div>
+  </div>
+</div>

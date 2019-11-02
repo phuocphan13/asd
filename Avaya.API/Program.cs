@@ -20,6 +20,7 @@ namespace Avaya.API
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseWebRoot("Content")
                 .UseUrls("http://localhost:59239")
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {

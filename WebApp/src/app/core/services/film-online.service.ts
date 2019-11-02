@@ -10,7 +10,11 @@ export class FilmOnlineService{
   constructor(public httpClient: HttpClient) {
   }
 
-  getAll() :Observable<any> {
-    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetAll`);
+  getListFilmsCarousel() :Observable<any> {
+    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmsCarousel`);
+  }
+
+  getListFilmsNomination() :Observable<any> {
+    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmsNomination`);
   }
 }

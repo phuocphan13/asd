@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './item-showing.component.html',
   styleUrls: ['./item-showing.component.scss']
 })
+
 export class ItemShowingComponent implements OnInit {
 
   @Input("data") item: any;
@@ -15,7 +16,7 @@ export class ItemShowingComponent implements OnInit {
   constructor(private _domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    console.log(this.type);
+    
   }
 
 }

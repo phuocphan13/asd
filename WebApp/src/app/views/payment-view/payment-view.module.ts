@@ -4,6 +4,7 @@ import { PaymentSectionComponent } from './payment-section/payment-section.compo
 import { BookingTicketComponent } from './booking-ticket/booking-ticket.component';
 import { FormsModule } from '@angular/forms';
 import { PaymentViewComponent } from './payment-view.component';
+import { PaymentViewRoutingModule } from './payment-view-routing.module';
 import { ShowSeatViewComponent } from './show-seat-view/show-seat-view.component';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ShowSeatViewComponent } from './show-seat-view/show-seat-view.component
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    PaymentViewRoutingModule
   ],
   exports: [
     BookingTicketComponent,

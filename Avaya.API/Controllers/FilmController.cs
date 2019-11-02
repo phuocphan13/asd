@@ -13,16 +13,24 @@ namespace Avaya.API.Controllers
     public class FilmController : Controller
     {
         private readonly IFilmService _filmService;
+
         public FilmController(IFilmService filmService)
         {
             _filmService = filmService;
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetListFilmsCarousel()
         {
-            var listMenus = _filmService.GetAll();
-            return Ok(listMenus);
+            var listCarouselFilms = _filmService.GetListFilmsCarousel();
+            return Ok(listCarouselFilms);
+        }
+
+        [HttpGet]
+        public IActionResult GetListFilmsNomination()
+        {
+            var listNominationFilms = _filmService.GetListFilmsNomination();
+            return Ok(listNominationFilms);
         }
     }
 }

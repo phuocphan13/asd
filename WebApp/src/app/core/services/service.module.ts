@@ -9,6 +9,7 @@ import { SideNewsHalfsizeService } from './side-news-halfsize.service'
 import { SideNewsService } from './side-news.service'
 import { FilmOnlineService } from './film-online.service';
 import { SeatSharedService } from './seat-shared.service';
+import { MovieNewsSharedService } from './movie-news-shared.service';
 @NgModule({
   declarations: [
   ],
@@ -19,6 +20,8 @@ import { SeatSharedService } from './seat-shared.service';
     SideNewsService,
     SharedService,
     MovieService,
+
+    MovieNewsSharedService
     FilmOnlineService,
     SeatSharedService,
     ShowSeatService

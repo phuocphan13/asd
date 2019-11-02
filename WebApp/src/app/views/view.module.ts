@@ -12,6 +12,7 @@ import { LoginModalComponent } from '../modals/login/login.modal.component';
 import { FormsModule } from '@angular/forms';
 import { ForgottenModalComponent } from '../modals/forgotten/forgotten.modal.component';
 import { ModalsModule } from '../modals/modals.module';
+import { ViewRoutingModule } from './view-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,11 @@ import { ModalsModule } from '../modals/modals.module';
     ControlModule,
     MovieNewsViewModule,
     OfflineMovieSearchViewModule,
-    CommonModule,
     PaymentViewModule,
     FilmOnlineViewModule,
     FormsModule,
-    ModalsModule
+    ViewRoutingModule,
+    CommonModule
   ],
   entryComponents: [
   ],
@@ -33,6 +34,8 @@ import { ModalsModule } from '../modals/modals.module';
     MovieNewsViewModule,
     OfflineMovieSearchViewModule,
     PaymentViewModule,
+    FilmOnlineViewModule,
+    ModalsModule
     PaymentViewModule,
     FilmOnlineViewModule
   ]

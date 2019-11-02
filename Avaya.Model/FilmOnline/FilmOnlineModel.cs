@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Avaya.Model.FilmOnline
 {
-    public class FilmOnlineModel: BaseModel
+    public class FilmCarouselModel: BaseModel
     {
         public string Title { get; set; }
 
@@ -13,5 +13,9 @@ namespace Avaya.Model.FilmOnline
         public string Time { get; set; }
 
         public string Type { get; set; }
+
+        public int Index { get; set; }
+
+        public string Category { get; set; }
     }
 }

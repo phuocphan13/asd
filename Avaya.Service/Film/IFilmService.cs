@@ -7,6 +7,8 @@ namespace Avaya.Service.Film
 {
     public interface IFilmService
     {
-        List<FilmOnlineModel> GetAll();
+        List<FilmCarouselModel> GetListFilmsCarousel();
+
+        List<FilmNominationModel> GetListFilmsNomination();
     }
 }
