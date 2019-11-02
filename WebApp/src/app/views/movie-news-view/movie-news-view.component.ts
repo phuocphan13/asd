@@ -16,4 +16,8 @@ export class MovieNewsViewComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onActivate(event) {   
+    window.scroll(0,0);
+  }
 }
