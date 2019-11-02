@@ -22,9 +22,7 @@ export class HeaderComponent implements OnInit {
     private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.menuService.GetAll().subscribe(result => {
-      this.listMenus = result;
-    });
+    
   }
 
   onSearch() {

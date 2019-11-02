@@ -3,6 +3,7 @@ import { ShowSeatService } from 'src/app/core/services/show-seat.service';
 import { SearchSeatModel } from 'src/app/core/model/search-seat.model';
 import { SeatBookingModel } from 'src/app/core/model/seat-booking.model';
 import { ReverseSeatModel } from 'src/app/core/model/reverse-seat.model';
+import {SeatSharedService} from 'src/app/core/services/seat-shared.service';
 
 @Component({
   selector: 'app-show-seat-view',
@@ -20,7 +21,8 @@ export class ShowSeatViewComponent implements OnInit {
 
   seatBooking: SeatBookingModel;
 
-  constructor(private showSeatService: ShowSeatService) { }
+  constructor(private showSeatService: ShowSeatService,
+    private seatSharedService: SeatSharedService) { }
 
   ngOnInit() {
     this.seatBooking = new SeatBookingModel();
@@ -57,12 +59,16 @@ export class ShowSeatViewComponent implements OnInit {
     seat.guid = item.guid;
     seat.idSeatType = item.idSeatType;
     this.seatBooking.listReverseSeats.push(seat);
+    this.seatSharedService.set(this.seatBooking);
+    console.log(seat);
   }
 
   onClickSaveSeat() {
-    this.showSeatService.bookingSeat(this.seatBooking).subscribe(result => {
-      console.log(result);
-    })
+    // this.seatSharedService.set(this.seatBooking);
+    // this.showSeatService.bookingSeat(this.seatBooking).subscribe(result => {
+    //   console.log(this.seatBooking);
+    //   console.log(result);
+    // })
   }
 
 }
