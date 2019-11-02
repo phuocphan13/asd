@@ -17,42 +17,57 @@ export class SidenewsComponent implements OnInit, OnChanges {
   @Input() newsId: number = 0;
 
   constructor(private movieNewsService: MovieNewsService,
+    private movieNewsSharedService: MovieNewsSharedService,
     private router: Router) { }
 
   ngOnInit() {
     this.loadTrendingItems(5);
+    this.movieNewsSharedService.routingAction.subscribe(result => {
+      if(result)
+      {
+        this.clearData();
+        console.log("đcm");
+        this.loadTrendingItems(0);
+      }
+    });
   }
 
   onClickLogicChange(id) {
     this.changeAction(id);
+    this.clearData();
+    this.loadTrendingItems(0);
   }
 
   private changeAction(id) {
     this.router.navigateByUrl(`news/news-detail/${id}`)
   }
 
+  private clearData(){
+    this.listClip= [];
+  }
+
   ngOnChanges() {
-    // console.log("onchange");
-    // if (this.newsId) {
-    //   this.loadTrendingItems(0);
-    // }
+    console.log("onchange");
+    if (this.newsId) {
+      this.loadTrendingItems(0);
+    }
   }
 
   private loadTrendingItems(itemIndex) {
     this.movieNewsService.getAll().subscribe(result => {
       if (result) {
-        this.listClip = result;
         result.splice(0, itemIndex);
         var randomid: any;
         for (var i = 0; i < 3; i++) {
           do {
             randomid = result[Math.floor(Math.random() * result.length)];
           }
-          while (randomid.id == this.newsId)
+          while (randomid.id == this.newsId);
           let index = result.map(x => x.id).indexOf(randomid.id);
           this.listClip.push(randomid);
           result.splice(index, 1);
         }
+        console.log(this.listClip);
       }
     });
   }

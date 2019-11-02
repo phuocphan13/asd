@@ -9,7 +9,10 @@ namespace Avaya.Domain.Models
         public int IdRoom { get; set; }
         public int IdShowTime { get; set; }
         public int IdSeatType { get; set; }
-        public int Row { get; set; }
-        public int Column { get; set; }
+        public int? IdRoomDetail { get; set; }
+
+        public virtual RoomDetail IdRoomDetailNavigation { get; set; }
+        public virtual Room IdRoomNavigation { get; set; }
+        public virtual SeatType IdSeatTypeNavigation { get; set; }
     }
 }

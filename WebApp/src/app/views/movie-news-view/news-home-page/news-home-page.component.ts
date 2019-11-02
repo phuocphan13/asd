@@ -32,6 +32,12 @@ export class NewsHomePageComponent implements OnInit {
 
   onClickLogicChange(id) {
     this.movieNewsSharedService.set(id);
+    this.changeAction(id);
+    this.movieNewsSharedService.changedAction(true);
+  }
+
+  private changeAction(id) {
+    this.router.navigateByUrl(`news/news-detail/${id}`)
   }
 
   sidelogicChange(event) {

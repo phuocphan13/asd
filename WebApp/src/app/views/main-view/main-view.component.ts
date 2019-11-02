@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../../core/services/shared.service';
 import { ItemShowingComponent } from 'src/app/common/components/item-showing/item-showing.component';
 import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,11 +12,11 @@ import { ItemShowingEnum } from 'src/app/core/enum/item-showing.enum';
 })
 export class MainViewComponent implements OnInit {
 
-  constructor() {
+  constructor(private router:Router) {
   }
 
   ngOnInit() {
-
+    this.router.navigateByUrl("/payment");
   }
 
 }

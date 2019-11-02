@@ -6,6 +6,12 @@ import { BillDetailModel } from 'src/app/core/model/payment/bill-detail.model';
 import { SharedService } from 'src/app/core/services/shared.service';
 import { SearchInformationModel } from 'src/app/core/model/payment/search-information.model';
 import { MovieSharedService } from 'src/app/core/services/movie-shared.service';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { ShowSeatService } from 'src/app/core/services/show-seat.service';
+import { SeatBookingModel } from 'src/app/core/model/seat-booking.model';
+import { ReverseSeatModel } from 'src/app/core/model/reverse-seat.model';
+import {SeatSharedService} from 'src/app/core/services/seat-shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-section',

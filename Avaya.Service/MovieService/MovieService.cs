@@ -56,7 +56,7 @@ namespace Avaya.Service.MovieService
                 if (cinema == null)
                     return null;
 
-                var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
+                var bookingDetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
                                     && x.IdCinema == searchMovie.CinemaId
                                     && x.Date == DateTime.Parse(searchMovie.Date).Date);
                 if (bookingdetail == null)

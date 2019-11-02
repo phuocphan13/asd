@@ -14,6 +14,7 @@ export class PaymentViewComponent implements OnInit {
   constructor( private paymentService: PaymentService) { }
 
   ngOnInit() {
+    this.router.navigateByUrl("payment/booking-seat")
   }
 
   itemsValueOutPut(event) {
