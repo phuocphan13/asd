@@ -3,6 +3,7 @@ import { MenuService } from 'src/app/core/services/menu.service';
 import { MovieService } from 'src/app/core/services/movie.service';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/core/services/shared.service';
+import { SearchMovieSharedService } from 'src/app/core/services/search-movie-shared.service';
 
 @Component({
   selector: 'app-offline-movie-search-view',
@@ -16,9 +17,13 @@ export class OfflineMovieSearchViewComponent implements OnInit {
   constructor(private menuService: MenuService,
     private sharedService: SharedService,
     private router: Router,
-    private movieService: MovieService) { }
+    private movieService: MovieService,
+    private searchMovieSharedService: SearchMovieSharedService) { }
 
   ngOnInit() {
+    // this.searchMovieSharedService.routingAction.subscribe(result =>{
+    //   this.router.navigateByUrl("online");
+    // })
   }
 
   outputData(event) {
@@ -28,6 +33,7 @@ export class OfflineMovieSearchViewComponent implements OnInit {
       // console.log(this.listMovies);
       //Logic
     });
+
   }
 
   getBookingItem(event){

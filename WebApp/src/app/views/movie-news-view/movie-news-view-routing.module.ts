@@ -6,18 +6,18 @@ import { NewsHomePageComponent } from "./news-home-page/news-home-page.component
 
 const routes: Routes = [
     {
-        path: '',
-        component: MovieNewsViewComponent,
-        children: [
-            {
-                path: '',
-                component: NewsHomePageComponent
-            },
-            {
-                path: 'news-detail/:id',
-                component: MainNewsComponent,
-            }
-        ]
+        // path: '',
+        // component: MovieNewsViewComponent,
+        // children: [
+        //     {
+        //         path: '',
+        //         component: NewsHomePageComponent
+        //     },
+        //     {
+        //         path: 'news-detail/:id',
+        //         component: MainNewsComponent,
+        //     }
+        // ]
     }
 ];
 
