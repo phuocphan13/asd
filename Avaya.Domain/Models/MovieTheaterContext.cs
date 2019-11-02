@@ -56,6 +56,11 @@ namespace Avaya.Domain.Models
             modelBuilder.Entity<BillDetail>(entity =>
             {
                 entity.Property(e => e.Price).HasColumnType("numeric(18, 0)");
+
+                entity.HasOne(d => d.IdBillNavigation)
+                    .WithMany(p => p.BillDetail)
+                    .HasForeignKey(d => d.IdBill)
+                    .HasConstraintName("FK_Bill_Detail_Bill");
             });
 
             modelBuilder.Entity<Booking>(entity =>

@@ -19,24 +19,21 @@ export class OfflineMovieSearchViewComponent implements OnInit {
     private searchMovieSharedService: SearchMovieSharedService) { }
 
   ngOnInit() {
-    // this.searchMovieSharedService.routingAction.subscribe(result =>{
-    //   this.router.navigateByUrl("online");
-    // })
   }
 
   outputData(event) {
     this.movieService.getListMovies(event).subscribe(result => {
       this.listMovies = [];
       this.listMovies.push(result);
-      // console.log(this.listMovies);
-      //Logic
+      console.log(this.listMovies);
     });
 
   }
 
   getBookingItem(event){
     if(event){
-      this.router.navigateByUrl("payment");
+      localStorage.setItem("paymentStatus", "1");
+      this.router.navigateByUrl("payment/booking");
     }
   }
 }

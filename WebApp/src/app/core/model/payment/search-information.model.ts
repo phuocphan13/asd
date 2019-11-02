@@ -3,4 +3,5 @@ export class SearchInformationModel{
     address: string;
     name: string;
     showtime: string;
+    idShowTime: number;
 }

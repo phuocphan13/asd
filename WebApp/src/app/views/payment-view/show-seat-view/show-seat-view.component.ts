@@ -3,7 +3,9 @@ import { ShowSeatService } from 'src/app/core/services/show-seat.service';
 import { SearchSeatModel } from 'src/app/core/model/search-seat.model';
 import { SeatBookingModel } from 'src/app/core/model/seat-booking.model';
 import { ReverseSeatModel } from 'src/app/core/model/reverse-seat.model';
-import {SeatSharedService} from 'src/app/core/services/seat-shared.service';
+import { SeatSharedService } from 'src/app/core/services/seat-shared.service';
+import { PaymentSharedService } from 'src/app/core/services/payment-shared.service';
+import { MovieSharedService } from 'src/app/core/services/movie-shared.service';
 
 @Component({
   selector: 'app-show-seat-view',
@@ -17,16 +19,22 @@ export class ShowSeatViewComponent implements OnInit {
   text: number = 1;
   listSeats: any;
   rowSeats: [];
-  showTimeId: SearchSeatModel = { ShowTime: 1 };
+  showtime: SearchSeatModel = new SearchSeatModel();
+  listSeatBooked: any;
 
   seatBooking: SeatBookingModel;
 
   constructor(private showSeatService: ShowSeatService,
+    private movieSharedService: MovieSharedService,
+    private paymentSharedService: PaymentSharedService,
     private seatSharedService: SeatSharedService) { }
 
   ngOnInit() {
     this.seatBooking = new SeatBookingModel();
-    this.showSeatService.getShowSeats(this.showTimeId).subscribe(result => {
+    this.showtime.ShowTime = 1;
+    this.listSeatBooked = this.paymentSharedService.getNumberOfSeats();
+
+    this.showSeatService.getShowSeats(this.showtime).subscribe(result => {
       this.listSeats = result;
       this.showSeats();
     })
@@ -48,27 +56,14 @@ export class ShowSeatViewComponent implements OnInit {
   }
 
   onClick(item) {
+    console.log(item);
     if (item.isBooking) {
       return;
     }
     item.color = "#7dc71d";
-
-
-    this.seatBooking.idShowTime = 1;
     let seat = new ReverseSeatModel();
     seat.guid = item.guid;
     seat.idSeatType = item.idSeatType;
-    this.seatBooking.listReverseSeats.push(seat);
-    this.seatSharedService.set(this.seatBooking);
-    console.log(seat);
+    this.paymentSharedService.setListSeats(seat);
   }
-
-  onClickSaveSeat() {
-    // this.seatSharedService.set(this.seatBooking);
-    // this.showSeatService.bookingSeat(this.seatBooking).subscribe(result => {
-    //   console.log(this.seatBooking);
-    //   console.log(result);
-    // })
-  }
-
 }

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.navigateByUrl("offline");
+    // this.router.navigateByUrl("offline");
+    this.router.navigateByUrl("payment/booking");
   }
 }

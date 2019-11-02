@@ -11,6 +11,7 @@ import { SeatSharedService } from './seat-shared.service';
 import { MovieNewsSharedService } from './movie-news-shared.service';
 import { SearchMovieSharedService } from './search-movie-shared.service';
 import { ShowMovieSharedService } from './show-movie-shared.service';
+import { PaymentSharedService } from './payment-shared.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ShowMovieSharedService } from './show-movie-shared.service';
     PaymentService,
     MovieSharedService,
     SearchMovieSharedService,
-    ShowMovieSharedService
+    ShowMovieSharedService,
+    PaymentSharedService
   ]
 })
 export class ServiceModule { }

@@ -22,12 +22,12 @@ export class ItemShowingComponent implements OnInit {
 
     // console.log(this.item);
   }
-  onClickShowTime(item,showTime) {
+  onClickShowTime(item, time) {
     this.movieSharedService.item.picture = item.picture;
     this.movieSharedService.item.address  = item.address;
     this.movieSharedService.item.name  = item.name;
-    this.movieSharedService.item.showtime = showTime;
+    this.movieSharedService.item.showtime = time.timeStart;
+    this.movieSharedService.item.idShowTime = time.id;
     this.bookingMovieItem.emit(true);
-    // console.log(item.address);
   }
 }

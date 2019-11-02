@@ -31,12 +31,5 @@ namespace Avaya.API.Controllers
             var result = _SeatService.GetShowSeat(searchSeat);
             return Ok(result);
         }
-
-        [HttpPost]
-        public IActionResult SaveSeat([FromBody]BookingSeatModel seatBooking)
-        {
-            var result = _SeatService.BookingSeat(seatBooking);
-            return Ok(result);
-        }
     }
 }

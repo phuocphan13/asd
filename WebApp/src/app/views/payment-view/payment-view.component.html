@@ -1,8 +1,9 @@
 <div class="payment-view-wrapper">
   <div class="picking-side">
-    <app-booking-ticket (itemsValue)="itemsValueOutPut($event)"></app-booking-ticket>
+    <!-- <app-booking-ticket (itemsValue)="itemsValueOutPut($event)"></app-booking-ticket> -->
+    <router-outlet></router-outlet>
   </div>
   <div class="payment-side">
-    <app-payment-section [listItems]="listItems" [changesTrigger]="changesTriggerValue"></app-payment-section>
+    <app-payment-section></app-payment-section>
   </div>
 </div>
