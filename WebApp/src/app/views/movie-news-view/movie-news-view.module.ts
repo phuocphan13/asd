@@ -17,10 +17,10 @@ import { CommonComponentModule } from 'src/app/common/components/common-componen
     NewsHomePageComponent,
   ],
   imports: [
+    MovieNewsViewRoutingModule,
     NgSelectModule,
     BsDatepickerModule.forRoot(),
     CommonModule,
-    MovieNewsViewRoutingModule,
     CommonComponentModule,
   ],
   exports: [

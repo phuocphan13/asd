@@ -24,9 +24,7 @@ id = 1;
     private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.menuService.GetAll().subscribe(result => {
-      this.listMenus = result;
-    });
+    
   }
 
   onSearch() {

@@ -1,38 +1,33 @@
-import { Routes, RouterModule } from "@angular/router";
-import { MainViewComponent } from "./views/main-view/main-view.component";
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { MainViewComponent } from './views/main-view/main-view.component';
 
-const appRoutes: Routes = [
-    {
-        path: '',
-        component: MainViewComponent,
-        children: [
-            {
-                path: 'news',
-                loadChildren: './views/movie-news-view/movie-news-view.module#MovieNewsViewModule',
-            },
-            {
-                path: 'payment',
-                loadChildren: './views/payment-view/payment-view.module#PaymentViewModule',
-            },
-            {
-                path: 'film-online',
-                loadChildren: './views/film-online-view/film-online-view.module#FilmOnlineViewModule',
-            }
-        ]
-    },
+const routes: Routes = [
+  {
+    path: '',
+    component: MainViewComponent,
+    children: [
+      {
+        path: 'offline',
+        loadChildren: './views/offline-movie-search-view/offline-movie-search-view.module#OfflineMovieSearchViewModule',
+      },
+      {
+        path: 'payment',
+        loadChildren: './views/payment-view/payment-view.module#PaymentViewModule',
+      },
+    ]
+  }
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(appRoutes, { useHash: true ,scrollPositionRestoration: 'enabled' })
-        
-    ],
-    providers: [
-    ],
-    exports: [
-        RouterModule
-    ]
-})
+  imports: [
+    RouterModule.forRoot(routes, { useHash: true, scrollPositionRestoration: 'enabled' })
 
+  ],
+  providers: [
+  ],
+  exports: [
+    RouterModule
+  ]
+})
 export class AppRoutingModule { }
