@@ -14,9 +14,7 @@ export class OfflineMovieSearchViewComponent implements OnInit {
 
   listMovies: any = []
 
-  constructor(private menuService: MenuService,
-    private sharedService: SharedService,
-    private router: Router,
+  constructor(private router: Router,
     private movieService: MovieService,
     private searchMovieSharedService: SearchMovieSharedService) { }
 

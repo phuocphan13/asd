@@ -8,6 +8,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppCommonModule } from 'src/app/common/app-common.module';
+import { OfflineMovieSearchViewRoutingModule } from './offline-movie-search-view-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AppCommonModule } from 'src/app/common/app-common.module';
     BsDatepickerModule.forRoot(),
     CommonModule,
     FormsModule,
+    OfflineMovieSearchViewRoutingModule,
     AppCommonModule
   ],
   exports: [

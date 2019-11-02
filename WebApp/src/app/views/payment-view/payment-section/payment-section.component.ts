@@ -6,7 +6,6 @@ import { BillDetailModel } from 'src/app/core/model/payment/bill-detail.model';
 import { SharedService } from 'src/app/core/services/shared.service';
 import { SearchInformationModel } from 'src/app/core/model/payment/search-information.model';
 import { MovieSharedService } from 'src/app/core/services/movie-shared.service';
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ShowSeatService } from 'src/app/core/services/show-seat.service';
 import { SeatBookingModel } from 'src/app/core/model/seat-booking.model';
 import { ReverseSeatModel } from 'src/app/core/model/reverse-seat.model';
@@ -23,21 +22,13 @@ export class PaymentSectionComponent implements OnInit, OnChanges {
   @Input() listItems: BillModel[];
   @Input() changesTrigger: number;
 
-  // img: string = 'https://revengeofthefans.com/wp-content/uploads/2019/01/Breaking-Bad-RTF-e1548338096892.jpg';
-  // moviename: string = 'Cranky old man';
-  // theater: string = 'CGV';
-  // showtime: string = '9:30';
-  // // showdate: string = '22/07/2019';
-  // seatnumber: string = '13F';
-
   bill: PaymentBillModel;
   list: any[];
   completedPrice: number = 0;
 
   item: SearchInformationModel = new SearchInformationModel();
   constructor(private paymentService: PaymentService,
-    private movieSharedService: MovieSharedService,
-    private sharedService: SharedService) {
+    private movieSharedService: MovieSharedService) {
   }
 
   ngOnInit() {
