@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilmOnlineViewComponent } from './film-online-view.component';
 import { CarouselFilmComponent } from './carousel-film/carousel-film.component';
-import { CarouselModule } from 'ngx-bootstrap';
+import { CarouselModule, ProgressbarModule } from 'ngx-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -34,10 +34,13 @@ import { AlertModule } from 'ngx-alerts';
         NgbModule,
         PipeModule,
         FilmOnlineViewRoutingModule,
+        ProgressbarModule.forRoot(),
         AlertModule.forRoot({ maxMessages: 5, timeout: 2000, position: 'right' }),
     ],
     exports: [
         FilmOnlineViewComponent,
+    ],
+    providers: [
     ]
 })
 export class FilmOnlineViewModule { }

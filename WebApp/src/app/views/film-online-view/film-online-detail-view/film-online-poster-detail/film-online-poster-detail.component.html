@@ -1,11 +1,40 @@
 <div class="body-container">
   <div class="body-detail">
     <img class="image" [src]="_domSanitizer.bypassSecurityTrustUrl(data.imgUrl)">
-    <div class="info" filter="url(#blur)">
+    <div class="blur-info">
+      <div class="blured-background"></div>
+    </div>
+    <div class="info">
       <div class="info-detail">
-        <span class="title">Venom</span>
+        <div class="title-container">
+          <span class="title">{{data.title}}</span>
+          <div class="type">
+            <span class="type-info">{{data.type}}</span>
+          </div>
+        </div>
+        <div class="other-info-container">
+          <span class="time">{{data.time}}</span>
+          <span class="category">{{data.categories}}</span>
+          <span class="date">{{data.date}}</span>
+        </div>
+        <div class="description-container">
+          <span class="description">{{data.description}}</span>
+        </div>
+      </div>
+      <div class="rate-container">
+        <div class="imdb-rating rate-description-container">
+          <span class="imdb-title rating-title">IMDB:</span>
+          <progressbar class="progress" [value]="data.rates[0]" type="warning">{{data.rates[0]/10}}/10</progressbar>
+        </div>
+        <div class="critics-rating rate-description-container">
+          <span class="critics-title rating-title">Critics:</span>
+          <progressbar class="progress" [value]="data.rates[1]" type="danger">{{data.rates[1]/10}}/10</progressbar>
+        </div>
+        <div class="audience-rating rate-description-container">
+          <span class="audience-title rating-title">Audience:</span>
+          <progressbar class="progress" [value]="data.rates[2]" type="success">{{data.rates[2]/10}}/10</progressbar>
+        </div>
       </div>
     </div>
   </div>
-
 </div>

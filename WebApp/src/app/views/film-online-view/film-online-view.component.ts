@@ -15,6 +15,6 @@ export class FilmOnlineViewComponent implements OnInit {
   ngOnInit() {
     // this.router.navigateByUrl('film-online/film-detail/2');
     
-    this.router.navigateByUrl("film-online");
+    this.router.navigateByUrl("film-online/film-detail/1");
   }
 }

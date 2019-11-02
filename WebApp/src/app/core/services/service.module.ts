@@ -9,6 +9,7 @@ import { SideNewsHalfsizeService } from './side-news-halfsize.service'
 import { SideNewsService } from './side-news.service'
 import { FilmOnlineService } from './film-online.service';
 import { MovieNewsSharedService } from './movie-news-shared.service';
+import { FilmOnlineShareService } from './film-online-shared.service';
 @NgModule({
   declarations: [
   ],
@@ -20,7 +21,8 @@ import { MovieNewsSharedService } from './movie-news-shared.service';
     SharedService,
     MovieService,
     FilmOnlineService,
-    MovieNewsSharedService
+    MovieNewsSharedService,
+    FilmOnlineShareService
   ]
 })
 export class ServiceModule { }
