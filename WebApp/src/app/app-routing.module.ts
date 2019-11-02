@@ -20,14 +20,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(appRoutes, { useHash: true ,scrollPositionRestoration: 'enabled' })
-        
-    ],
-    providers: [
-    ],
-    exports: [
-        RouterModule
-    ]
+  imports: [
+    RouterModule.forRoot(routes, { useHash: true, scrollPositionRestoration: 'enabled' })
+
+  ],
+  providers: [
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }
