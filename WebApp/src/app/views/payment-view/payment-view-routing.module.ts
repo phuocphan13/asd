@@ -2,6 +2,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { PaymentViewComponent } from "./payment-view.component";
 import { BookingTicketComponent } from "./booking-ticket/booking-ticket.component";
+import { ShowSeatService } from "src/app/core/services/show-seat.service";
+import { ShowSeatViewComponent } from './show-seat-view/show-seat-view.component';
 
 const routes: Routes = [
     {
@@ -9,12 +11,12 @@ const routes: Routes = [
         component: PaymentViewComponent,
         children: [
             {
-                path: '',
+                path: 'booking',
                 component: BookingTicketComponent
             },
             { 
                 path: 'booking-seat', 
-                // component: ShowSeatComponent
+                component: ShowSeatViewComponent
             }
         ]
     }

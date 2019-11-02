@@ -1,3 +1,15 @@
+p {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  color: #283e59;
+  background-color: #f6c343;
+  padding: 10px;
+  border-radius: 1rem;
+  // box-shadow: 5px 10px rgb(255, 156, 42);
+}
+
 .corn-container {
   display: flex;
   flex-direction: row;
@@ -6,17 +18,10 @@
   font-weight: 700;
   padding-left: 10px;
   margin-bottom: 10px;
-  background-color: rgb(231, 229, 229);
-  box-shadow: 5px 5px rgb(124, 117, 117);
+  background-color: #c7d6ec;
+  // box-shadow: 5px 5px rgb(124, 117, 117);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.first-column-text {
-  flex-grow: 1.1;
-}
-
-.second-column-text {
-  flex-grow: 1;
+  border-radius: 0.375rem;
 }
 
 .combocorn-container {
@@ -25,59 +30,56 @@
   flex-direction: row;
   max-width: 100%;
   margin-bottom: 5px;
-  background-color: rgb(248, 248, 245);
+  background-color: #edf2f9;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  
+  border-radius: 0.375rem;
+  // font-weight: 700;
 }
 
-.input-field{
-  font-weight: 700;
-  padding-right: 10px;
+.first-column-text {
+  flex-grow: 3;
+}
+
+.second-column-text {
+  flex-grow: 2.5;
+}
+.third-column-text {
+  flex-grow: 0.15;
+}
+
+.input-field {
+  // font-weight: 700px;
+  padding-right: 35px;
 }
 
 .first-column-item {
- width: 550px;
+  width: 550px;
+  margin-top: 5px;
 }
 
 .second-column-item {
   width: 520px;
+  margin-top: 5px;
 }
 
 input {
+  border-radius: 0.375rem;
   text-align: center;
-  width: 80px;
-}
-
-.combo-container{
-  box-shadow: 5px 3px rgb(105, 100, 100);
-
+  width: 60px;
+  background-color: #edf2f9;
+  color: #212529;
 }
 
 .img-combo {
   width: 100px;
 }
 
-p {
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  text-align: center;
-  color: rgb(197, 24, 24);
-  background-color: rgb(252, 242, 224);
-  padding: 10px;
-  box-shadow: 5px 10px rgb(255, 156, 42);
-}
-
-.decorative{
-  width:90%;
+.decorative {
+  width: 90%;
   margin-left: 5%;
   margin-right: 5%;
   //height: 1px;
   margin-top: 10px;
   margin-bottom: 6px;
   //border-bottom: 1px dotted rgb(80, 80, 80);
-
-  
-
 }

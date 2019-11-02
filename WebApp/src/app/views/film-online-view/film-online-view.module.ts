@@ -22,6 +22,7 @@ import { PipeModule } from 'src/app/common/pipes/pipe.module';
         NominationFilmViewComponent
     ],
     imports: [
+        BrowserModule,
         CommonModule,
         CarouselModule.forRoot(),
         FormsModule,
