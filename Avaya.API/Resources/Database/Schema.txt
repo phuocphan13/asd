@@ -299,3 +299,108 @@ create table CategoriesOfFilm
 	FilmCategoryId int
 )
 
+USE [MovieTheater]
+GO
+/****** Object:  Table [dbo].[NewsArticleCategories]    Script Date: 11/2/2019 6:42:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NewsArticleCategories](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NewsCategoryId] [int] NOT NULL,
+	[NewsArticleId] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NewsArticles]    Script Date: 11/2/2019 6:42:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NewsArticles](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[HeadLine] [varchar](255) NOT NULL,
+	[Description] [text] NULL,
+	[Text] [text] NOT NULL,
+	[PublishDate] [datetime] NOT NULL,
+	[Author] [varchar](255) NULL,
+	[Source] [varchar](255) NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[LastModifiedDate] [datetime] NOT NULL,
+	[Tags] [varchar](255) NULL,
+	[Priority] [int] NULL,
+ CONSTRAINT [PK__NewsArti__3213E83F276EDEB3] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NewsCategories]    Script Date: 11/2/2019 6:42:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NewsCategories](
+	[Id] [int] NOT NULL,
+	[Name] [varchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NewsImage]    Script Date: 11/2/2019 6:42:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NewsImage](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[PhotoWidth] [smallint] NULL,
+	[PhotoHeight] [smallint] NULL,
+	[PhotoUrl] [text] NULL,
+	[ArticlePhotoId] [int] NOT NULL,
+	[Type] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[NewsArticles] ADD  CONSTRAINT [DF__NewsArtic__autho__30F848ED]  DEFAULT (NULL) FOR [Author]
+GO
+ALTER TABLE [dbo].[NewsArticles] ADD  CONSTRAINT [DF__NewsArtic__sourc__31EC6D26]  DEFAULT (NULL) FOR [Source]
+GO
+ALTER TABLE [dbo].[NewsArticles] ADD  CONSTRAINT [DF__NewsArticl__tags__32E0915F]  DEFAULT (NULL) FOR [Tags]
+GO
+ALTER TABLE [dbo].[NewsArticles] ADD  CONSTRAINT [DF__NewsArtic__prior__33D4B598]  DEFAULT (NULL) FOR [Priority]
+GO
+ALTER TABLE [dbo].[NewsImage] ADD  DEFAULT (NULL) FOR [PhotoWidth]
+GO
+ALTER TABLE [dbo].[NewsImage] ADD  DEFAULT (NULL) FOR [PhotoHeight]
+GO
+ALTER TABLE [dbo].[NewsArticleCategories]  WITH CHECK ADD  CONSTRAINT [fk_artiID] FOREIGN KEY([NewsArticleId])
+REFERENCES [dbo].[NewsArticles] ([Id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[NewsArticleCategories] CHECK CONSTRAINT [fk_artiID]
+GO
+ALTER TABLE [dbo].[NewsArticleCategories]  WITH CHECK ADD  CONSTRAINT [fk_cataID] FOREIGN KEY([NewsCategoryId])
+REFERENCES [dbo].[NewsCategories] ([Id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[NewsArticleCategories] CHECK CONSTRAINT [fk_cataID]
+GO
+ALTER TABLE [dbo].[NewsImage]  WITH CHECK ADD  CONSTRAINT [fk_photo] FOREIGN KEY([ArticlePhotoId])
+REFERENCES [dbo].[NewsArticles] ([Id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[NewsImage] CHECK CONSTRAINT [fk_photo]
+GO
