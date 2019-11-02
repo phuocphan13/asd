@@ -28,7 +28,6 @@ namespace Avaya.Service
             CreateMap<Menu, MenuModel>().ReverseMap();
             CreateMap<Room, SeatModel>().ReverseMap();
             CreateMap<ReservedSeat, ReservedSeatModel>().ReverseMap();
-            CreateMap<SeatType, SeatTypeModel>().ReverseMap();
             CreateMap <Avaya.Domain.Models.Service, PaymentModel >().ReverseMap();
 
             #region Payment Mapping
@@ -38,17 +37,20 @@ namespace Avaya.Service
             CreateMap<BillDetail, BillDetailModel>()
                 .ForMember(x => x.ServiceId, opt => opt.MapFrom(i => i.IdService))
                 .ReverseMap();
-            #endregion
-            CreateMap<FilmOnline, FilmCarouselModel>();
-            
-            CreateMap<FilmOnline, FilmNominationModel>()
-                .ForMember(x => x.Time, opt => opt.MapFrom(i => i.Duration)).ReverseMap();
             CreateMap<Booking, ShowSeatModel>().ReverseMap();
             CreateMap<RoomDetail, ShowSeatModel>().ReverseMap();
             CreateMap<SeatType, ShowSeatModel>().ReverseMap();
             CreateMap<RoomDetail, SeatModel>().ReverseMap();
             CreateMap<Booking, SaveSeatModel>().ReverseMap();
             CreateMap<Booking, RoomDetail>().ForMember(x => x.Id, y => y.Ignore()).ReverseMap();
+            #endregion
+
+            #region Film Online Mapping
+            CreateMap<FilmOnline, FilmCarouselModel>();
+            
+            CreateMap<FilmOnline, FilmNominationModel>()
+                .ForMember(x => x.Time, opt => opt.MapFrom(i => i.Duration)).ReverseMap();
+            #endregion
         }
     }
 }

@@ -10,8 +10,5 @@ namespace Avaya.Domain.Models
         public int? IdService { get; set; }
         public int? Quantity { get; set; }
         public decimal? Price { get; set; }
-
-        public virtual Bill IdBillNavigation { get; set; }
-        public virtual Service IdServiceNavigation { get; set; }
     }
 }
