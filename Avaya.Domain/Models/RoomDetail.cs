@@ -17,6 +17,7 @@ namespace Avaya.Domain.Models
         public int? Row { get; set; }
         public Guid Guid { get; set; }
 
+        public virtual SeatType IdSeatTypeNavigation { get; set; }
         public virtual ICollection<Booking> Booking { get; set; }
     }
 }

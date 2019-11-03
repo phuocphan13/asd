@@ -1,4 +1,4 @@
-<div class="body-container">
+<div *ngIf="data" class="body-container">
   <div class="body-detail">
     <img class="image" [src]="_domSanitizer.bypassSecurityTrustUrl(data.imgUrl)">
     <div class="blur-info">
@@ -14,11 +14,11 @@
         </div>
         <div class="other-info-container">
           <span class="time">{{data.time}}</span>
-          <span class="category">{{data.categories}}</span>
+          <span class="category">{{data.categories | truncate : 20}}</span>
           <span class="date">{{data.date}}</span>
         </div>
         <div class="description-container">
-          <span class="description">{{data.description}}</span>
+          <span class="description">{{data.description | truncate : 200}}</span>
         </div>
       </div>
       <div class="rate-container">

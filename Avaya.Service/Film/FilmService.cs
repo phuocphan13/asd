@@ -76,7 +76,7 @@ namespace Avaya.Service.Film
 
             filmNomination.ListFilmNominations = listFilms;
 
-            if(numberNominationFilmMaximum == numberFilmNominationCurrent + listFilms.Count)
+            if (numberNominationFilmMaximum == numberFilmNominationCurrent + listFilms.Count)
             {
                 filmNomination.IsLoadMore = false;
                 filmNomination.NumberFilmNominationCurrent = numberNominationFilmMaximum;
@@ -86,8 +86,26 @@ namespace Avaya.Service.Film
                 filmNomination.IsLoadMore = true;
                 filmNomination.NumberFilmNominationCurrent = numberFilmNominationCurrent + numberFilmNominationTake;
             }
-            
+
             return filmNomination;
+        }
+
+        public FilmDetailModel GetFilmDetail(int filmId)
+        {
+            var filmDetail = new FilmDetailModel();
+
+            var filmDetailEntity = _filmOnlineRepository.FirstOrDefault(x => x.Id == filmId);
+            var listCategoryIdEntities = _categoryOfFilmRepository.GetAll()
+                .Where(x => x.FilmOnlineId == filmId).Select(x => x.FilmOnlineId);
+            var listCategoryNameEntities = _filmCategoryRepository.GetAll()
+                .Where(x => listCategoryIdEntities.All(i => i == x.Id)).Select(x => x.Name).ToArray();
+
+            filmDetail = filmDetailEntity.MapTo<FilmDetailModel>();
+            filmDetail.Categories = string.Join(", ", listCategoryNameEntities);
+            filmDetail.Date = filmDetailEntity.ReleaseDate.Value.ToString("dd MMMM yyyy");
+
+
+            return filmDetail;
         }
     }
 }

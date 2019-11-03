@@ -29,12 +29,17 @@ namespace Avaya.Service
             CreateMap<Room, SeatModel>().ReverseMap();
             CreateMap<ReservedSeat, ReservedSeatModel>().ReverseMap();
             CreateMap<SeatType, SeatTypeModel>().ReverseMap();
+
+
             CreateMap<FilmOnline, FilmCarouselModel>()
                 .ForMember(x => x.Time, opt => opt.MapFrom(
                     i => $"({i.ReleaseDate.Value.Year}) - {TransformHelper.TimeIntToString(i.Duration.Value)}"))
                 .ReverseMap();
             CreateMap<FilmOnline, FilmNominationModel>()
                 .ForMember(x => x.Time, opt => opt.MapFrom(i => i.Duration)).ReverseMap();
+            CreateMap<FilmOnline, FilmDetailModel>()
+                .ForMember(x => x.Time, opt => opt.MapFrom(i => $"{TransformHelper.TimeIntToString(i.Duration.Value)}"))
+                .ReverseMap();
         }
     }
 }

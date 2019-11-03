@@ -6,5 +6,9 @@ export class FilmPosterDetailModel {
     date: string;
     type: string;
     categories: string;
-    rates: [];
+    rates: number[];
+
+    constructor() {
+        this.rates = new Array(0);
+    }
 }
