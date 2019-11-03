@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     FormsModule,
     CommonModule,
-    BrowserAnimationsModule,
   ],
   exports: [
   ],

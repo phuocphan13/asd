@@ -6,16 +6,11 @@ namespace Avaya.Model.ShowSeat
 {
     public class ShowSeatModel : BaseModel
     {
-        public ShowSeatModel()
-        {
-           ReserveSeat = new List<ReservedSeatModel>();
-
-           Seat = new List<SeatModel>();
-
-           SeatType = new List<SeatTypeModel>();
-        }
-        public List<ReservedSeatModel> ReserveSeat { get; set; }
-        public List<SeatModel> Seat { get; set; }
-        public List<SeatTypeModel> SeatType { get; set; }
+        public int Column { get; set; }
+        public int Row { get; set; }
+        public string Type { get; set; }
+        public int IdSeatType { get; set; }
+        public Boolean IsBooking { get; set; }
+        public Guid Guid { get; set; }
     }
 }

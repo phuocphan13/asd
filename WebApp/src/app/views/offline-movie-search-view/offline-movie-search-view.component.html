@@ -1,4 +1,7 @@
-<div class="main-view-container">
+<div class="main-view-container">    
     <app-time-movie-cinema (searchData)="outputData($event)"></app-time-movie-cinema>
-    <app-online-movies-center-view [data]="listMovies"></app-online-movies-center-view>
+    <app-online-movies-center-view (bookingMovieItem)="getBookingItem($event)" [data]="listMovies" class="center"></app-online-movies-center-view>
+    <div class="comment">
+
+    </div>
 </div>

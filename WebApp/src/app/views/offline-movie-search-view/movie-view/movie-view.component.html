@@ -1,13 +1,13 @@
 <div class="news-info-container">
-    <img class="news-image" [src]="movie.imgUrl">
+    <img class="news-image"  src="{{movie.picture}}">
 
     <div class="infor">
         <div class="">
             <span><b>Tên phim</b>: {{movie.name}}</span>
-            <span class="movie-time"><b>Thời lượng</b>: {{movie.time}}</span>
+            <span class="movie-time"><b>Thời lượng</b>: {{movie.duration}} phút</span>
         </div>
         <div class="">
-            <p class="movie-description">{{movie.decription}}</p>
+            <p class="movie-description">{{movie.description}}</p>
         </div>
         <div class="row">
             <div class="show-time-box" *ngFor="let item of movie.showtime">

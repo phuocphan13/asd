@@ -1,31 +1,36 @@
 <div class="payment-container">
   <div class="movie-image">
-    <img src={{img}}>
+    <img class="image" src="{{item.picture}}">
   </div>
   <div class="movie-info-container">
-    <h2>
-      {{moviename}}
-    </h2>
-    <div class="ticket-info">
-      <p>
-        <b>Rạp: </b>{{theater}}
-      </p>
-      <p>
-        <b>Suất Chiếu: </b>{{showtime}} - {{showdate}}
-      </p>
-      <p>
-        <b>Ghế: </b>{{seatnumber}}
-      </p>
-      <h2>
-        TỔNG: {{completePrice | number}} vnđ
-      </h2>
+    <h3>
+      {{item.name}}
+    </h3>
+    <p>
+      <b>Rạp: </b>{{item.address}}
+    </p>
+    <p>
+      <b>Suất Chiếu: </b>{{item.showtime}}
+    </p>
+    <p>
+      <b>Ghế: </b>{{seatnumber}}
+    </p>
+  </div>
+</div>
+<div class="payment-container">
+  <div class="total">
+    <i class="fas fa-money-check"> {{completedPrice | number}} VNĐ</i>
+  </div>
+
+</div>
+
+<div class="booking-proceed">
+  <div class="proceed-button">
+    <div *ngIf="paymentStatus == 1" (click)="onClickContinue()">
+      TIẾP TỤC
     </div>
-    <div class="booking-proceed">
-      <div class="proceed-button" (click)="checkOut()">
-        <div>
-            THANH TOÁN
-        </div>
-      </div>
+    <div *ngIf="paymentStatus == 2" (click)="onClickCheckOut()">
+      THANH TOÁN
     </div>
   </div>
 </div>

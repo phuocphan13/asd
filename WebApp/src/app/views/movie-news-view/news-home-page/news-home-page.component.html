@@ -1,35 +1,14 @@
-<div class='home-logo'>
-  <div class = 'name-logo'>
-  POTATO MOVIE & TV-NEWS
-  </div>
-</div>
 <div class='article-home-news'>
-  <div *ngIf = "show">
-      <div class='main-section'>
-          <div class= 'article-title'>
-              LATEST-NEWS
-          </div>
-          <div *ngFor="let item of listclip"> 
-              <div class="browse-clip">
-                  <a class="image" href="#"(click)="logicChange()" > <img src={{item.img}}> </a>
-                  <div class="clip-info">
-                    <h3> {{item.headertitle}} </h3>
-                    <div class='clip-descript'>
-                        {{item.description}}
-                      </div>
-                      <div class="article-tag">
-                          <a href="#">{{item.author}}</a> - <a href="#">{{item.date}}</a>
-                        </div>
-                      </div>
-                  </div>      
-              </div>     
-            </div>
-  </div>
-  <div *ngIf ="!show">
-    <main-news-section></main-news-section>
-  </div>
-  <div class='sidenews-section'>
-    <app-side-news-section></app-side-news-section>
-    
+  <div>
+    <div *ngIf="show" class='main-section'>
+      <div class='article-title'>
+        LATEST NEWS
+      </div>
+      <div *ngFor="let item of listClip">
+        <div class='news-item'>
+          <app-item-showing [data]="item" [type]="type" (click)="onClickLogicChange(item.id)"></app-item-showing>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

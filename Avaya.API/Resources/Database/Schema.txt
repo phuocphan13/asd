@@ -171,6 +171,113 @@ Create table Menu(
 	OrderBy int,
 )
 
+USE [MovieTheater]
+GO
+/****** Object:  Table [dbo].[NewsArticleCategories]    Script Date: 10/20/2019 10:13:34 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NewsArticleCategories](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[newsCategoryID] [int] NOT NULL,
+	[newsArticleID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NewsArticles]    Script Date: 10/20/2019 10:13:34 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NewsArticles](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[headline] [varchar](255) NOT NULL,
+	[description] [text] NULL,
+	[text] [text] NOT NULL,
+	[publishDate] [datetime] NOT NULL,
+	[author] [varchar](255) NULL,
+	[source] [varchar](255) NULL,
+	[createdDate] [datetime] NOT NULL,
+	[lastModifiedDate] [datetime] NOT NULL,
+	[tags] [varchar](255) NULL,
+	[priority] [int] NULL,
+ CONSTRAINT [PK__NewsArti__3213E83F276EDEB3] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NewsCategories]    Script Date: 10/20/2019 10:13:34 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NewsCategories](
+	[id] [int] NOT NULL,
+	[name] [varchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NewsImage]    Script Date: 10/20/2019 10:13:34 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NewsImage](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[photoWidth] [smallint] NULL,
+	[photoHeight] [smallint] NULL,
+	[photoURL] [text] NULL,
+	[articlePhotoID] [int] NOT NULL,
+	[type] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[NewsArticles] ADD  CONSTRAINT [DF__NewsArtic__autho__30F848ED]  DEFAULT (NULL) FOR [author]
+GO
+ALTER TABLE [dbo].[NewsArticles] ADD  CONSTRAINT [DF__NewsArtic__sourc__31EC6D26]  DEFAULT (NULL) FOR [source]
+GO
+ALTER TABLE [dbo].[NewsArticles] ADD  CONSTRAINT [DF__NewsArticl__tags__32E0915F]  DEFAULT (NULL) FOR [tags]
+GO
+ALTER TABLE [dbo].[NewsArticles] ADD  CONSTRAINT [DF__NewsArtic__prior__33D4B598]  DEFAULT (NULL) FOR [priority]
+GO
+ALTER TABLE [dbo].[NewsImage] ADD  DEFAULT (NULL) FOR [photoWidth]
+GO
+ALTER TABLE [dbo].[NewsImage] ADD  DEFAULT (NULL) FOR [photoHeight]
+GO
+ALTER TABLE [dbo].[NewsArticleCategories]  WITH CHECK ADD  CONSTRAINT [fk_artiID] FOREIGN KEY([newsArticleID])
+REFERENCES [dbo].[NewsArticles] ([id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[NewsArticleCategories] CHECK CONSTRAINT [fk_artiID]
+GO
+ALTER TABLE [dbo].[NewsArticleCategories]  WITH CHECK ADD  CONSTRAINT [fk_cataID] FOREIGN KEY([newsCategoryID])
+REFERENCES [dbo].[NewsCategories] ([id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[NewsArticleCategories] CHECK CONSTRAINT [fk_cataID]
+GO
+ALTER TABLE [dbo].[NewsImage]  WITH CHECK ADD  CONSTRAINT [fk_photo] FOREIGN KEY([articlePhotoID])
+REFERENCES [dbo].[NewsArticles] ([id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[NewsImage] CHECK CONSTRAINT [fk_photo]
+GO
+
+
 create table FilmCategory(
 	Id int identity(1,1) primary key,
 	Name nvarchar(max)
@@ -184,6 +291,48 @@ create table FilmOnline(
 	ReleaseDate date,
 	Type nvarchar(max)
 )
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Booking](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Room] [int] NOT NULL,
+	[Id_ShowTime] [int] NOT NULL,
+	[Id_Seat_Type] [int] NOT NULL,
+	[Id_Room_Detail] [int] NULL,
+ CONSTRAINT [PK_Booking] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Room_Detail]    Script Date: 10/20/2019 10:08:34 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Room_Detail](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Id_Seat_Type] [int] NOT NULL,
+	[Id_Room] [int] NOT NULL,
+	[Column] [int] NOT NULL,
+	[Row] [int] NULL,
+	[GUID] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_Room_Detail] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Room_Detail] ADD  CONSTRAINT [DF__Room_Detai__GUID__607251E5]  DEFAULT (newid()) FOR [GUID]
+GO
+ALTER TABLE [dbo].[Booking]  WITH CHECK ADD FOREIGN KEY([Id_Room_Detail])
+REFERENCES [dbo].[Room_Detail] ([Id])
+GO
 
 create table CategoriesOfFilm
 (

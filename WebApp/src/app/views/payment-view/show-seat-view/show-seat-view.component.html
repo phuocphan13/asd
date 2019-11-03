@@ -1,0 +1,16 @@
+<div class="box">
+  <h2 class="seat-title">Chọn ghế:</h2>
+  <div>
+    <span class="screen">Màn hình</span>
+  </div>
+
+  <div class="seat-body">
+    <div class="seat-container">
+      <div class="seat" [class.seat-booking]="!item.isBooking" *ngFor="let item of listSeats"
+        [style.background-color]="item.color" (click)="onClick(item)">
+        {{item.name}}
+      </div>
+    </div>
+  </div>
+</div>
+<br>

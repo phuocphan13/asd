@@ -6,6 +6,7 @@ namespace Avaya.Model.ShowSeat
 {
     public class SearchSeatModel
     {
-        public string ShowTime { get; set; }
+        public int ShowTime { get; set; }
     }
 }
+ 
