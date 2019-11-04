@@ -17,7 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'news',
-        loadChildren: './views/movie-news-view/movies-news-view.module#MovieNewsViewModule',
+        loadChildren: './views/movie-news-view/movie-news-view.module#MovieNewsViewModule',
       },
     ]
   }

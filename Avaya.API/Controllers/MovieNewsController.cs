@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Avaya.API.Controllers
 {
     [Route("api/[controller]/[action]")]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class MovieNewsController : Controller
     {
         private readonly INewsService _newsService;
