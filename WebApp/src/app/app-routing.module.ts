@@ -15,6 +15,10 @@ const routes: Routes = [
         path: 'payment',
         loadChildren: './views/payment-view/payment-view.module#PaymentViewModule',
       },
+      {
+        path: 'news',
+        loadChildren: './views/movie-news-view/movies-news-view.module#MovieNewsViewModule',
+      },
     ]
   }
 ];
