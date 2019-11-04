@@ -6,7 +6,7 @@
     <div *ngIf="type === 1" class="time-format">{{item.duration}} phút - 2D - 16+</div>
     <div *ngIf="type === 1" class="show-time-container">
       <div class="show-time-box" *ngFor="let time of item.showTime">
-        <div class="show-time" (click)="onClickShowTime(item,time.timeStart)" >{{time.timeStart}}</div>
+        <div class="show-time" (click)="onClickShowTime(item, time)">{{time.timeStart}}</div>
       </div>
     </div>
     <div *ngIf="type === 1" class="address">{{item.address}}</div>

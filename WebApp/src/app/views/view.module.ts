@@ -6,6 +6,7 @@ import { OfflineMovieSearchViewModule } from './offline-movie-search-view/offlin
 import { PaymentViewModule } from './payment-view/payment-view.module';
 import { FilmOnlineViewModule } from './film-online-view/film-online-view.module';
 import { ControlModule } from '../controls/control.module';
+import { ShowSeatViewComponent } from './payment-view/show-seat-view/show-seat-view.component';
 import { PaymentViewComponent } from './payment-view/payment-view.component';
 import { LoginModalComponent } from '../modals/login/login.modal.component';
 import { FormsModule } from '@angular/forms';
@@ -34,7 +35,9 @@ import { ViewRoutingModule } from './view-routing.module';
     OfflineMovieSearchViewModule,
     PaymentViewModule,
     FilmOnlineViewModule,
-    ModalsModule
+    ModalsModule,
+    PaymentViewModule,
+    FilmOnlineViewModule
   ]
 })
 export class ViewModule { }

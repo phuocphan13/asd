@@ -39,7 +39,6 @@ export const environment = {
   declarations: [
     AppComponent,
     MainViewComponent,
-    ArticleComponent,
   ],
   imports: [
     ModalsModule,

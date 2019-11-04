@@ -3,4 +3,5 @@ export class BillModel{
     name: number;
     quantity: number;
     price: number;
+    type: number;
 }

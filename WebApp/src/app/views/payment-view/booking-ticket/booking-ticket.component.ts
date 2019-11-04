@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PaymentService } from 'src/app/core/services/payment.service';
+import { PaymentSharedService } from 'src/app/core/services/payment-shared.service';
 
 @Component({
   selector: 'app-booking-ticket',
@@ -8,20 +9,18 @@ import { PaymentService } from 'src/app/core/services/payment.service';
 })
 export class BookingTicketComponent implements OnInit {
 
-  @Output() itemsValue = new EventEmitter<any>();
-
   totalPrice: number = 0;
   listCombo: any = [];
   listTicket: any = []
 
-  constructor(private paymentService: PaymentService) { }
+  constructor(private paymentService: PaymentService,
+    private paymentSharedService: PaymentSharedService) { }
 
   ngOnInit() {
     this.paymentService.getAll().subscribe(result => {
       this.listTicket = result.splice(0, 7);
       this.listCombo = result;
     });
-
   }
 
   onChangeTicketValue() {
@@ -32,7 +31,6 @@ export class BookingTicketComponent implements OnInit {
     this.listCombo.forEach(element => {
       listItems.push(element);
     });
-    this.itemsValue.emit(listItems);
-    //this.itemsValue.emit(this.listCombo);
+    this.paymentSharedService.set(listItems);
   }
 }

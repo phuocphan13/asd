@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Avaya.Model.ShowSeat
 {
-    public class ReservedSeatModel : BaseModel
+    public class ReservedSeatModel :BaseModel
     {
-        public string Seat { get; set; }
+        public int Row { get; set; }
+        public int Column { get; set; }
     }
 }

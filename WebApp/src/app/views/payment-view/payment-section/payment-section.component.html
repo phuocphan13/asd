@@ -10,7 +10,7 @@
       <b>Rạp: </b>{{item.address}}
     </p>
     <p>
-      <b>Suất Chiếu: </b>{{item.showtime}} 
+      <b>Suất Chiếu: </b>{{item.showtime}}
     </p>
     <p>
       <b>Ghế: </b>{{seatnumber}}
@@ -19,14 +19,17 @@
 </div>
 <div class="payment-container">
   <div class="total">
-    <i class="fas fa-money-check"> {{completedPrice | number}} VNĐ</i> 
+    <i class="fas fa-money-check"> {{completedPrice | number}} VNĐ</i>
   </div>
 
 </div>
 
 <div class="booking-proceed">
-  <div class="proceed-button" (click)="onClickCheckOut()">
-    <div>
+  <div class="proceed-button">
+    <div *ngIf="paymentStatus == 1" (click)="onClickContinue()">
+      TIẾP TỤC
+    </div>
+    <div *ngIf="paymentStatus == 2" (click)="onClickCheckOut()">
       THANH TOÁN
     </div>
   </div>
