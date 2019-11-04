@@ -74,7 +74,7 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdRoomDetailNavigation)
                     .WithMany(p => p.Booking)
                     .HasForeignKey(d => d.IdRoomDetail)
-                    .HasConstraintName("FK__Booking__IdRoomD__6AEFE058");
+                    .HasConstraintName("FK__Booking__IdRoomD__74AE54BC");
 
                 entity.HasOne(d => d.IdSeatTypeNavigation)
                     .WithMany(p => p.Booking)

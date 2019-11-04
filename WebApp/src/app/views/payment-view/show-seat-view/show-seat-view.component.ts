@@ -21,6 +21,7 @@ export class ShowSeatViewComponent implements OnInit {
   rowSeats: [];
   showtime: SearchSeatModel = new SearchSeatModel();
   listSeatBooked: any;
+  
 
   seatBooking: SeatBookingModel;
 
@@ -60,10 +61,22 @@ export class ShowSeatViewComponent implements OnInit {
     if (item.isBooking) {
       return;
     }
-    item.color = "#7dc71d";
     let seat = new ReverseSeatModel();
-    seat.guid = item.guid;
-    seat.idSeatType = item.idSeatType;
-    this.paymentSharedService.setListSeats(seat);
+    if (!item.checked) {
+      item.color = "#7dc71d";
+      seat.guid = item.guid;
+      seat.idSeatType = item.idSeatType;
+      item.checked = true;
+      this.paymentSharedService.setListSeats(seat);
+      console.log(seat);
+    }else if(item.checked){
+      item.color = "#DFDFDF";
+      item.checked = false;
+      console.log(item.checked);
+      return;
+
+
+    }
+
   }
 }
