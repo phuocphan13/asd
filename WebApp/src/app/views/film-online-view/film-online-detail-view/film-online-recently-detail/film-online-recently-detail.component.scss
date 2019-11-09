@@ -1,0 +1,82 @@
+.body-container {
+  height: 400px;
+  width: 560px;
+  background-color: rgb(153, 149, 149);
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  font-family: Vaud, Helvetica Neue, sans-serif;
+
+  .image-container {
+    width: 280px;
+    position: absolute;
+  }
+
+  .detail-container {
+    width: 280px;
+    position: absolute;
+    left: 280px;
+  }
+}
+
+.title-hearder-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 12px;
+
+  .type {
+    width: 120px;
+    margin-right: 24px;
+    text-align: right;
+  }
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+
+  .duration {
+    margin-top: 20px;
+  }
+
+  .categories{
+    margin-top: 10px;
+  }
+
+  .description{
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+
+  // .year-title {
+  //   text-align: right;
+  //   margin-right: 40px;
+  //   font-size: 12px;
+  // }
+
+  .name-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .score-title {
+    font-size: 13px;
+  }
+}
+
+.image {
+  height: 380px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+}

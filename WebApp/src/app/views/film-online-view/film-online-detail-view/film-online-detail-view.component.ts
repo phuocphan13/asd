@@ -8,13 +8,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FilmOnlineDetailViewComponent implements OnInit {
 
-  id: number;
+  filmId: number;
   data: any;
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(x => {
-      console.log(x);
+      if (x) {
+        this.filmId = parseInt(x.toString());
+      }
     })
   }
 

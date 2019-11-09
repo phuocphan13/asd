@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FilmOnlineService } from 'src/app/core/services/film-online.service';
 import { FilmPosterDetailModel } from 'src/app/core/model/film-model/film-poster-detail.model';
@@ -9,6 +9,8 @@ import { FilmPosterDetailModel } from 'src/app/core/model/film-model/film-poster
   styleUrls: ['./film-online-poster-detail.component.scss']
 })
 export class FilmOnlinePosterDetailComponent implements OnInit {
+
+  @Input() filmId: number;
 
   data: FilmPosterDetailModel;
 
@@ -23,5 +25,4 @@ export class FilmOnlinePosterDetailComponent implements OnInit {
       }
     })
   }
-
 }

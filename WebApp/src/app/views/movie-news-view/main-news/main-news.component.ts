@@ -22,8 +22,6 @@ export class MainNewsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.newsId = this.movieNewsSharedService.get();
-    console.log(this.newsId);
-    console.log("Lucifer");
   }
 
   ngOnChanges() {

@@ -15,6 +15,7 @@ import { FilmOnlineDetailViewComponent } from './film-online-detail-view/film-on
 import { FilmOnlineHomeViewComponent } from './film-online-home-view/film-online-home-view.component';
 import { FilmOnlinePosterDetailComponent } from './film-online-detail-view/film-online-poster-detail/film-online-poster-detail.component';
 import { AlertModule } from 'ngx-alerts';
+import { FilmOnlineRecentlyDetailComponent } from './film-online-detail-view/film-online-recently-detail/film-online-recently-detail.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { AlertModule } from 'ngx-alerts';
         NominationFilmViewComponent,
         FilmOnlineDetailViewComponent,
         FilmOnlineHomeViewComponent,
-        FilmOnlinePosterDetailComponent
+        FilmOnlinePosterDetailComponent,
+        FilmOnlineRecentlyDetailComponent
     ],
     imports: [
         CommonModule,

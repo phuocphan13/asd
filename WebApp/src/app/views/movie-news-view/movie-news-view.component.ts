@@ -23,7 +23,6 @@ export class MovieNewsViewComponent implements OnInit {
   }
 
   getNewsId(event) {
-    console.log(event);
     this.newsId = event;
     this.isShow = false;
   }
