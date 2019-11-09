@@ -11,7 +11,8 @@ export class BookingTicketComponent implements OnInit {
 
   totalPrice: number = 0;
   listCombo: any = [];
-  listTicket: any = []
+  listTicket: any = [];
+  bookingStatus: number;
 
   constructor(private paymentService: PaymentService,
     private paymentSharedService: PaymentSharedService) { }
@@ -21,6 +22,7 @@ export class BookingTicketComponent implements OnInit {
       this.listTicket = result.splice(0, 7);
       this.listCombo = result;
     });
+    this.bookingStatus = parseInt(localStorage.getItem("bookingStatus"));
   }
 
   onChangeTicketValue() {

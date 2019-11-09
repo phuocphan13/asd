@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SearchSeatModel } from '../model/search-seat.model';
 import { SeatBookingModel } from '../model/seat-booking.model';
+import { SeatModel } from '../model/payment/seat.model';
 
 @Injectable()
 
@@ -14,7 +15,7 @@ export class ShowSeatService {
     }
 
     getShowSeats(data: SearchSeatModel): Observable<any> {
-        return this.httpClient.post(`${this.apiHost}/${this.homeAddress}/GetListSeats`, data);
+        return this.httpClient.post<SeatModel[]>(`${this.apiHost}/${this.homeAddress}/GetListSeats`, data);
     }
 
     bookingSeat(seatBooking: SeatBookingModel): Observable<any> {

@@ -5,6 +5,5 @@ export class ReverseSeatModel {
     constructor() {
         this.guid = "";
         this.idSeatType = 0;
-        
     }
 }

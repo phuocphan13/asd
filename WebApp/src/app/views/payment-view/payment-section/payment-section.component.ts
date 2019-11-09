@@ -7,6 +7,10 @@ import { SearchInformationModel } from 'src/app/core/model/payment/search-inform
 import { MovieSharedService } from 'src/app/core/services/movie-shared.service';
 import { Router } from '@angular/router';
 import { PaymentSharedService } from 'src/app/core/services/payment-shared.service';
+import { forEach } from '@angular/router/src/utils/collection';
+import { ReverseSeatModel } from 'src/app/core/model/reverse-seat.model';
+import { empty } from 'rxjs';
+import { SeatTicketBookingModel } from 'src/app/core/model/payment/seat-ticket-booking.model';
 
 @Component({
   selector: 'app-payment-section',
@@ -19,7 +23,10 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   changesTrigger: number;
 
   bill: PaymentBillModel = new PaymentBillModel();
+
   list: any[];
+  listGUID: ReverseSeatModel[] = new Array(0);
+
   completedPrice: number = 0;
 
   paymentStatus: number;
@@ -54,7 +61,15 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   onClickCheckOut() {
     this.bill.userId = 1;
     this.bill.total = this.completedPrice;
-    this.bill.listSeats = this.paymentSharedService.getListSeats();
+
+    let listSeats = this.paymentSharedService.getListSeats().filter(x => x.isChecked && !x.isBooking);
+    listSeats.forEach(x => {
+      let reservedSeat = new ReverseSeatModel();
+      reservedSeat.guid = x.guid;
+      reservedSeat.idSeatType = x.idSeatType;
+      this.bill.listSeats.push(reservedSeat);
+    })
+    
     this.bill.idShowTime = this.item.idShowTime;
     this.listItems.forEach(x => {
       if (x.quantity !== 0) {
@@ -65,17 +80,23 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
         this.bill.listBillDetails.push(billDetail);
       }
     });
-    this.paymentService.getListBill(this.bill).subscribe(result => {
-      alert(result);
-    })
+
+    // this.paymentService.getListBill(this.bill).subscribe(result => {
+    //   alert(result);
+    // })
   }
 
   onClickContinue() {
+    let listSeatTicketBookings: SeatTicketBookingModel[] = new Array(0);
     this.listItems.filter(x => {
       if (x.type === 1 && x.quantity > 0) {
-        this.paymentSharedService.setNumberOfSeats(x.id, x.quantity, x.name);
+        let seatTicketBooking = new SeatTicketBookingModel();
+        seatTicketBooking.name = x.name;
+        seatTicketBooking.quantity = x.quantity;
+        listSeatTicketBookings.push(seatTicketBooking);
       }
     });
+    this.paymentSharedService.setNumberTicket(listSeatTicketBookings);
     this.paymentStatus = 2;
     this.router.navigateByUrl("payment/booking-seat");
   }
