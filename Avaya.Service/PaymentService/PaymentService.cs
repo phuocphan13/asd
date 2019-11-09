@@ -22,28 +22,52 @@ namespace Avaya.Service.PaymentService
         private readonly IRepository<Product> _productRepository;
         private readonly IRepository<BillDetail> _billDetailRepository;
         private readonly IRepository<Bill> _billRepository;
+        private readonly IRepository<ProductCinema> _productCinemaRepository;
+
         private readonly IUnitOfWork _unitOfWork;
 
         public PaymentService(IRepository<Product> productRepository,
             IRepository<Booking> bookingRepository,
             IRepository<RoomDetail> roomDetailRepository,
             IRepository<Room> roomRepository,
-            IUnitOfWork unitOfWork,
+            IRepository<ProductCinema> productCinemaRepository,
             IRepository<BillDetail> billDetailRepository,
-            IRepository<Bill> billRepository)
+            IRepository<Bill> billRepository,
+            IUnitOfWork unitOfWork)
         {
             _bookingRepository = bookingRepository;
             _roomDetailRepository = roomDetailRepository;
             _roomRepository = roomRepository;
             _productRepository = productRepository;
-            _unitOfWork = unitOfWork;
             _billDetailRepository = billDetailRepository;
+            _productCinemaRepository = productCinemaRepository;
             _billRepository = billRepository;
+
+            _unitOfWork = unitOfWork;
         }
 
-        public List<PaymentModel> GetAll()
+        public List<PaymentModel> GetListProducts(int idCinema)
         {
-            return _productRepository.GetAll().MapTo<List<PaymentModel>>();
+            var listProductCinemaEntities = _productCinemaRepository.GetAll().Where(x => x.IdCinema == idCinema).ToList();
+            var listProductEntities = _productRepository.GetAll()
+                    .Where(x => listProductCinemaEntities.Any(i => i.IdProduct == x.Id)).ToList();
+
+            var listProducts = new List<PaymentModel>();
+
+            foreach (var productCinema in listProductCinemaEntities)
+            {
+                var product = listProductEntities.FirstOrDefault(x => x.Id == productCinema.IdProduct);
+                listProducts.Add(new PaymentModel()
+                {
+                    Id = productCinema.Id,
+                    Name = product.Name,
+                    Price = productCinema.Price.Value,
+                    Type = product.Type.Value,
+                    IdProduct = product.Id,
+                });
+            }
+
+            return listProducts;
         }
 
         public bool Create(BillModel bill)

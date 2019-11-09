@@ -23,9 +23,9 @@ namespace Avaya.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetListProducts(int idCinema)
         {
-            var result = _paymentService.GetAll();
+            var result = _paymentService.GetListProducts(idCinema);
             return Ok(result);
         }
 

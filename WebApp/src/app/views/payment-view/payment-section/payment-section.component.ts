@@ -11,6 +11,8 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { ReverseSeatModel } from 'src/app/core/model/reverse-seat.model';
 import { empty } from 'rxjs';
 import { SeatTicketBookingModel } from 'src/app/core/model/payment/seat-ticket-booking.model';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { BillConfirmModalComponent } from '../bill-confirm-modal/bill-confirm-modal.component';
 
 @Component({
   selector: 'app-payment-section',
@@ -21,20 +23,22 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
 
   listItems: BillModel[];
   changesTrigger: number;
-
-  bill: PaymentBillModel = new PaymentBillModel();
-
-  list: any[];
-  listGUID: ReverseSeatModel[] = new Array(0);
-
+  paymentStatus: number;
   completedPrice: number = 0;
 
-  paymentStatus: number;
+  listGUID: ReverseSeatModel[] = new Array(0);
+  list: any[];
 
+
+  bill: PaymentBillModel = new PaymentBillModel();
   item: SearchInformationModel = new SearchInformationModel();
+  
+  modalRef: BsModalRef;
+
   constructor(private paymentService: PaymentService,
     private paymentSharedService: PaymentSharedService,
     private router: Router,
+    private modalService: BsModalService,
     private movieSharedService: MovieSharedService) {
   }
 
@@ -66,10 +70,10 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
     listSeats.forEach(x => {
       let reservedSeat = new ReverseSeatModel();
       reservedSeat.guid = x.guid;
-      reservedSeat.idSeatType = x.idSeatType;
+      reservedSeat.idProduct = x.idProduct;
       this.bill.listSeats.push(reservedSeat);
     })
-    
+
     this.bill.idShowTime = this.item.idShowTime;
     this.listItems.forEach(x => {
       if (x.quantity !== 0) {
@@ -81,9 +85,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
       }
     });
 
-    // this.paymentService.getListBill(this.bill).subscribe(result => {
-    //   alert(result);
-    // })
+    this.showBillDetail();
   }
 
   onClickContinue() {
@@ -93,6 +95,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
         let seatTicketBooking = new SeatTicketBookingModel();
         seatTicketBooking.name = x.name;
         seatTicketBooking.quantity = x.quantity;
+        seatTicketBooking.idProduct = x.idProduct;
         listSeatTicketBookings.push(seatTicketBooking);
       }
     });
@@ -105,5 +108,14 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
     this.listItems.forEach(x => {
       this.completedPrice += (x.price * x.quantity);
     })
+  }
+
+  private showBillDetail() {
+    this.modalRef = this.modalService.show(BillConfirmModalComponent, {
+      ignoreBackdropClick: true
+    });
+    this.modalRef.content.bill = this.bill;
+    this.modalRef.content.total = this.completedPrice;
+    this.modalRef.content.listProducts = this.listItems;
   }
 }

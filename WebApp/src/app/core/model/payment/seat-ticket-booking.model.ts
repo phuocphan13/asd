@@ -1,5 +1,5 @@
 export class SeatTicketBookingModel{
-    idSeatType: number;
+    idProduct: number;
     quantity: number;
     name: string;
 }

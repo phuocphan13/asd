@@ -4,4 +4,5 @@ export class BillModel{
     quantity: number;
     price: number;
     type: number;
+    idProduct: number;
 }

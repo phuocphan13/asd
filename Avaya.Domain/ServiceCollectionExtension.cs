@@ -38,6 +38,7 @@ namespace Avaya.Domain
             services.AddScoped<IRepository<Bill>, Repository<Bill>>();
             services.AddScoped<IRepository<BillDetail>, Repository<BillDetail>>();
             services.AddScoped<IRepository<Product>, Repository<Product>>();
+            services.AddScoped<IRepository<ProductCinema>, Repository<ProductCinema>>();
         }
     }
 }

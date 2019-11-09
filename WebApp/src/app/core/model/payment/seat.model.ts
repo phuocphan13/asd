@@ -3,7 +3,7 @@ export class SeatModel {
     guid: string;
     column: number;
     row: number;
-    idSeatType: number;
+    idProduct: number;
     isBooking: boolean;
     name: string;
     type: string;

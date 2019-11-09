@@ -15,7 +15,7 @@ import { OfflineMovieSearchViewRoutingModule } from './offline-movie-search-view
     MovieViewComponent,
     OnlineMoviesCenterViewComponent,
     OfflineMovieSearchViewComponent,
-    TimeMovieCinemaComponent
+    TimeMovieCinemaComponent,
   ],
   imports: [
     NgSelectModule,

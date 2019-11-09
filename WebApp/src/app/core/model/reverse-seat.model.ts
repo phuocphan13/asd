@@ -1,9 +1,9 @@
 export class ReverseSeatModel {
     guid: string;
-    idSeatType: number;
+    idProduct: number;
     
     constructor() {
         this.guid = "";
-        this.idSeatType = 0;
+        this.idProduct = 0;
     }
 }

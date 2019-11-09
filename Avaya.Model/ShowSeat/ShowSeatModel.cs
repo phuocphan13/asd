@@ -9,7 +9,7 @@ namespace Avaya.Model.ShowSeat
         public int Column { get; set; }
         public int Row { get; set; }
         public string Type { get; set; }
-        public int IdSeatType { get; set; }
+        public int IdProduct { get; set; }
         public Boolean IsBooking { get; set; }
         public Guid Guid { get; set; }
     }
