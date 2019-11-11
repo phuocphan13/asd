@@ -8,7 +8,7 @@ namespace Avaya.Service.PaymentService
 {
     public interface IPaymentService
     {
-        List<PaymentModel> GetAll();
+        List<PaymentModel> GetListProducts(int idCinema);
 
         bool Create(BillModel bill);
     }

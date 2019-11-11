@@ -25,7 +25,7 @@ namespace Avaya.Domain.Models
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ReservedSeat> ReservedSeat { get; set; }
+        public virtual DbSet<ProductCinema> ProductCinema { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<RoomDetail> RoomDetail { get; set; }
         public virtual DbSet<SeatType> SeatType { get; set; }
@@ -115,11 +115,74 @@ namespace Avaya.Domain.Models
 
             modelBuilder.Entity<ReservedSeat>(entity =>
             {
-                entity.HasOne(d => d.IdShowTimeNavigation)
-                    .WithMany(p => p.ReservedSeat)
-                    .HasForeignKey(d => d.IdShowTime)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Reserved_Seat_Show_Time");
+                entity.Property(e => e.Author)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Description).HasColumnType("text");
+
+                entity.Property(e => e.HeadLine)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LastModifiedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.PublishDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Source)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Tags)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasColumnType("text");
+            });
+
+            modelBuilder.Entity<NewsCategories>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<NewsImage>(entity =>
+            {
+                entity.Property(e => e.PhotoUrl).HasColumnType("text");
+
+                entity.HasOne(d => d.ArticlePhoto)
+                    .WithMany(p => p.NewsImage)
+                    .HasForeignKey(d => d.ArticlePhotoId)
+                    .HasConstraintName("fk_photo");
+            });
+
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<ProductCinema>(entity =>
+            {
+                entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
+
+                entity.HasOne(d => d.IdCinemaNavigation)
+                    .WithMany(p => p.ProductCinema)
+                    .HasForeignKey(d => d.IdCinema)
+                    .HasConstraintName("FK__ProductCi__IdCin__1F63A897");
+
+                entity.HasOne(d => d.IdProductNavigation)
+                    .WithMany(p => p.ProductCinema)
+                    .HasForeignKey(d => d.IdProduct)
+                    .HasConstraintName("FK__ProductCi__IdPro__2057CCD0");
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -135,10 +198,16 @@ namespace Avaya.Domain.Models
 
             modelBuilder.Entity<RoomDetail>(entity =>
             {
-                entity.Property(e => e.Guid).HasColumnName("GUID");
+                entity.Property(e => e.Guid)
+                    .HasColumnName("GUID")
+                    .HasDefaultValueSql("(newid())");
 
-                entity.HasOne(d => d.IdSeatTypeNavigation)
+                entity.Property(e => e.IdProduct).HasDefaultValueSql("((1))");
+
+                entity.HasOne(d => d.IdProductNavigation)
                     .WithMany(p => p.RoomDetail)
+                    .HasForeignKey(d => d.IdProduct)
+                    .HasConstraintName("FK__RoomDetai__IdPro__22401542");
                     .HasForeignKey(d => d.IdSeatType)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Room_Detail_Room");

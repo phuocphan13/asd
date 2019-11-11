@@ -8,6 +8,7 @@ namespace Avaya.Domain.Models
         public Cinema()
         {
             BookingDetail = new HashSet<BookingDetail>();
+            ProductCinema = new HashSet<ProductCinema>();
         }
 
         public int Id { get; set; }
@@ -16,5 +17,6 @@ namespace Avaya.Domain.Models
         public string Logo { get; set; }
 
         public virtual ICollection<BookingDetail> BookingDetail { get; set; }
+        public virtual ICollection<ProductCinema> ProductCinema { get; set; }
     }
 }

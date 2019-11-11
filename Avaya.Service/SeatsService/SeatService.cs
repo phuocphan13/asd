@@ -58,13 +58,13 @@ namespace Avaya.Service.SeatService
                 var listReservedSeats = _bookingRepository.GetAll()
                     .Where(x => x.IdRoom == room.Id && x.IdShowTime == searchSeat.ShowTime);
 
-                var listSeatTypeId = roomDetail.Select(x => x.IdSeatType).ToList();
+                var listSeatTypeId = roomDetail.Select(x => x.IdProduct).ToList();
 
                 var listSeatTypes = _seatTypeRepository.GetAll().Where(x => listSeatTypeId.Any(i => i == x.Id)).ToList();
 
                 foreach (var item in listSeats)
                 {
-                    var seatType = listSeatTypes.FirstOrDefault(x => x.Id == item.IdSeatType);
+                    var seatType = listSeatTypes.FirstOrDefault(x => x.Id == item.IdProduct);
                     var isBooked = listReservedSeats.Any(x => x.IdRoomDetail == item.Id);
                     item.Type = seatType.Type;
                     item.IsBooking = isBooked;

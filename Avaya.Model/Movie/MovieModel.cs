@@ -21,6 +21,8 @@ namespace Avaya.Model.Movie
 
         public string Address { get; set; }
 
+        public int IdCinema { get; set; }
+
         public List<ShowTimeModel> ShowTime { get; set; }
     }
 }
