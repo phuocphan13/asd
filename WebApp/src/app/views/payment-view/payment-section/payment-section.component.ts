@@ -73,6 +73,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
       reservedSeat.idProduct = x.idProduct;
       this.bill.listSeats.push(reservedSeat);
     })
+    // this.bill.idRoom = 1;
 
     this.bill.idShowTime = this.item.idShowTime;
     this.listItems.forEach(x => {

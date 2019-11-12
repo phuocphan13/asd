@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentBillModel } from 'src/app/core/model/payment/payment-bill.model';
 import { MovieSharedService } from 'src/app/core/services/movie-shared.service';
 import { BillModel } from 'src/app/core/model/bill.model';
+import { BsModalRef } from 'ngx-bootstrap';
+import { PaymentService } from 'src/app/core/services/payment.service';
 
 @Component({
   selector: 'app-bill-confirm-modal',
@@ -15,7 +17,9 @@ export class BillConfirmModalComponent implements OnInit {
   total: number;
   listProducts: BillModel[];
 
-  constructor(private movieSharedService: MovieSharedService) { }
+  constructor(private movieSharedService: MovieSharedService,
+    private bsModalRef: BsModalRef,
+    private paymentService: PaymentService) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -25,18 +29,20 @@ export class BillConfirmModalComponent implements OnInit {
 
   private showData() {
     this.item = this.movieSharedService.item;
-    console.log(this.listProducts);
+    
     console.log(this.bill);
   }
 
   onClickSubmit() {
-    // this.paymentService.getListBill(this.bill).subscribe(result => {
-    //   alert(result);
-    // })
+    this.paymentService.getListBill(this.bill).subscribe(result => {
+      alert(result);
+    })
   }
 
   onClickCancel() {
-
+    this.closeModal();
   }
-
+  private closeModal() {
+    this.bsModalRef.hide();
+  }
 }

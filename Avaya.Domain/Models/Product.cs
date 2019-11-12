@@ -17,7 +17,5 @@ namespace Avaya.Domain.Models
 
         public virtual ICollection<ProductCinema> ProductCinema { get; set; }
         public virtual ICollection<RoomDetail> RoomDetail { get; set; }
-        public decimal Price { get; set; }
-        public int? Quantity { get; set; }
     }
 }
