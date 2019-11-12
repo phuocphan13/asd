@@ -1,53 +1,37 @@
-<div class="bill-container" *ngIf="item">
-  <div class="title">Bill</div>
-  <div class="description-container">
-    <img class="image" src="https://wallup.net/wp-content/uploads/2016/01/122488-Dota_2-748x421.jpg">
-    <div class="description-detail-container">
-      <div class="name">{{item.name}}</div>
-      <div class="cinema-address">{{item.address}}</div>
-      <div class="time">{{item.showtime}}</div>
+<div class="bg-color">
+  <div class="bill-container" *ngIf="item">
+    <div class="title">Bill</div>
+    <div class="description-container">
+      <img class="image" src="{{item.picture}}">
+      <div class="description-detail-container">
+        <div class="name">Name: {{item.name}}</div>
+        <div class="cinema-address">Address: {{item.address}}</div>
+        <div class="time">Time Start: {{item.showtime}}</div>
+      </div>
     </div>
-  </div>
-  <div class="detail-container">
-    <div class="bill-detail-container">
+    <div class="detail-container">
+      <div class="bill-detail-container">
         <div class="number">No</div>
         <div class="product-name">Name</div>
         <div class="quantity">Quantity</div>
         <div class="price">Price</div>
         <div class="product-total">Total</div>
+      </div>
+      <div class="bill-detail-container" *ngFor="let billDetail of bill.listBillDetails; let index = index">
+        <div class="number">{{index + 1}}</div>
+        <div class="product-name">Vé 2D</div>
+        <div class="quantity">{{billDetail.quantity}}</div>
+        <div class="price">{{billDetail.price}} VNĐ</div>
+        <div class="product-total">{{billDetail.quantity * billDetail.price}} VNĐ</div>
+      </div>
     </div>
-    <div class="bill-detail-container" *ngFor="let billDetail of bill.listBillDetails; let index = index">
-      <div class="number">{{index + 1}}</div>
-      <div class="product-name">Vé 2D</div>
-      <div class="quantity">{{billDetail.quantity}}</div>
-      <div class="price">{{billDetail.price}}</div>
-      <div class="product-total">{{billDetail.quantity * billDetail.price}}</div>
+    <div class="total">
+      <div class="bill-total">Bill Total: </div>
+      <div class="price-total">{{total}} VNĐ</div>
     </div>
-    <!-- <div class="bill-detail-container">
-      <div class="number">1</div>
-      <div class="product-name">Vé 2D</div>
-      <div class="quantity">2</div>
-      <div class="price">10000</div>
-      <div class="product-total">20000</div>
+    <div class="button-container">
+      <button type="submit" class="btn button-submit" (click)="onClickSubmit()">Submit</button>
+      <button class="btn btn-danger button-cancel" (click)="onClickCancel()">Cancel</button>
     </div>
-    <div class="bill-detail-container">
-      <div class="number">1</div>
-      <div class="product-name">Vé 2D</div>
-      <div class="quantity">2</div>
-      <div class="price">10000</div>
-      <div class="product-total">20000</div>
-    </div>
-    <div class="bill-detail-container">
-      <div class="number">1</div>
-      <div class="product-name">Vé 2D</div>
-      <div class="quantity">2</div>
-      <div class="price">10000</div>
-      <div class="product-total">20000</div>
-    </div> -->
-  </div>
-  <div class="total">{{total}} vnd</div>
-  <div class="button-container">
-    <button type="submit" class="btn button-submit" (click)="onClickSubmit()">Submit</button>
-    <button class="btn btn-danger button-cancel" (click)="onClickCancel()">Cancel</button>
   </div>
 </div>

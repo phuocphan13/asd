@@ -75,7 +75,7 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdRoomDetailNavigation)
                     .WithMany(p => p.Booking)
                     .HasForeignKey(d => d.IdRoomDetail)
-                    .HasConstraintName("FK__Booking__IdRoomD__6AEFE058");
+                    .HasConstraintName("FK__Booking__IdRoomD__778AC167");
 
                 entity.HasOne(d => d.IdSeatTypeNavigation)
                     .WithMany(p => p.Booking)
@@ -206,12 +206,12 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdCinemaNavigation)
                     .WithMany(p => p.ProductCinema)
                     .HasForeignKey(d => d.IdCinema)
-                    .HasConstraintName("FK__ProductCi__IdCin__1F63A897");
+                    .HasConstraintName("FK__ProductCi__IdCin__7F2BE32F");
 
                 entity.HasOne(d => d.IdProductNavigation)
                     .WithMany(p => p.ProductCinema)
                     .HasForeignKey(d => d.IdProduct)
-                    .HasConstraintName("FK__ProductCi__IdPro__2057CCD0");
+                    .HasConstraintName("FK__ProductCi__IdPro__00200768");
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -236,7 +236,7 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdProductNavigation)
                     .WithMany(p => p.RoomDetail)
                     .HasForeignKey(d => d.IdProduct)
-                    .HasConstraintName("FK__RoomDetai__IdPro__22401542");
+                    .HasConstraintName("FK__RoomDetai__IdPro__02084FDA");
             });
 
             modelBuilder.Entity<SeatType>(entity =>

@@ -5,20 +5,28 @@ $border-defaul: 1px solid black;
   display: flex;
   flex-direction: column;
   font-family: Khand, Arial Narrow, arial, sans-serif;
+  font-style: oblique;
   margin-right: $margin-defaul;
   margin-left: $margin-defaul;
-
   .title {
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
+    font-family: monospace;
     width: 100%;
     border-bottom: $border-defaul;
+    mix-blend-mode: color-burn;
   }
+}
+
+.bg-color {
+  background-color: floralwhite;
 }
 
 .description-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 
   .image {
     height: 100px;
@@ -47,8 +55,11 @@ $border-defaul: 1px solid black;
 }
 
 .total {
+  display: flex;
+  flex-direction: row;
   border-bottom: $border-defaul;
-  text-align: right;
+  text-align: left;
+  justify-content: space-between;
 }
 
 .button-container {
@@ -56,4 +67,34 @@ $border-defaul: 1px solid black;
   flex-direction: row;
   margin-top: $margin-defaul;
   margin-bottom: $margin-defaul;
+  justify-content: space-evenly;
 }
+
+
+
+.number {
+  width: 100px;
+}
+.product-name {
+  width: 100px;
+}
+.quantity {
+  width: 100px;
+}
+.price {
+  width: 100px;
+}
+.product-total {
+  width: 100px;
+}
+
+.bill-total{
+  width: 300px;
+}
+.price-total{
+  width: 95px;
+}
+
+.button-submit{
+  background-color: chartreuse;
+} 
