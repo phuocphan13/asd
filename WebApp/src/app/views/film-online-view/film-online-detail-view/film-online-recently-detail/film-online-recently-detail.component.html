@@ -1,28 +1,35 @@
-<div class="body-container">
+<div *ngIf="data" class="body-container" [style.width]="widthValue">
   <div class="image-container">
     <img class="image"
-      src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg">
+      [src]="_domSanitizer.bypassSecurityTrustUrl(data.imgUrl)">
+    <div class="overlay-container" (click)="onClickOverlay()">
+      <span class="overlay-text">{{detailText}} detail</span>
+      <i class="fas {{iconText}} fa-2x overlay-icon"></i>
+    </div>
   </div>
-  <div class="detail-container">
+  <div class="detail-container" [style.left]="leftPosition">
     <div class="title-hearder-container">
       <div class="title-container">
-        <span class="name-title">Joker(2018)</span>
-        <span class="score-title">6.9</span>
+        <span class="name-title">{{data.title}}</span>
+        <div class="score-container">
+          <i class="star-icon {{icon}}" *ngFor="let icon of starArray"></i>
+          <span class="score-title">5.3</span>
+        </div>
       </div>
       <div class="type">
-        <div>PG-13</div>
+        <div class="type-box">
+          <span class="type-text">PG-13</span>
+        </div>
       </div>
     </div>
     <div class="description-container">
-      <span class="duration">1h 36min</span>
-      <span class="categories">Adventure, Drama, Family</span>
-      <p class="description">In Gotham City, mentally-troubled comedian Arthur Fleck is disregarded and mistreated by society. He then
-        embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his
-        alter-ego: "The Joker".</p>
+      <span class="duration">{{data.time}}</span>
+      <span class="categories">{{data.categories | truncate: 30}}</span>
+      <p class="description">{{data.description | truncate: 170}}</p>
     </div>
     <div class="icon-container">
       <div class="favorite-button" role="button">
-          <i class="far fa-heart"></i>
+        <i class="far fa-heart fa-1x icon-fa"></i>
       </div>
       <div class="view-detail">
         <div class="view-detail-button">

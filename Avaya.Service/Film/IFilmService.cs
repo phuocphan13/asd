@@ -14,5 +14,7 @@ namespace Avaya.Service.Film
         FilmNominationLoadingModel GetLoadMoreFilmNomination(int numberFilmNominationCurrent, int numberFilmNominationTake = 5);
 
         FilmDetailModel GetFilmDetail(int filmId);
+
+        List<FilmDetailModel> GetListFilmDetails(int filmId, int numberOfFilms);
     }
 }

@@ -16,6 +16,8 @@ import { FilmOnlineHomeViewComponent } from './film-online-home-view/film-online
 import { FilmOnlinePosterDetailComponent } from './film-online-detail-view/film-online-poster-detail/film-online-poster-detail.component';
 import { AlertModule } from 'ngx-alerts';
 import { FilmOnlineRecentlyDetailComponent } from './film-online-detail-view/film-online-recently-detail/film-online-recently-detail.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { CommonComponentModule } from 'src/app/common/components/common-component.module';
 
 @NgModule({
     declarations: [
@@ -30,12 +32,14 @@ import { FilmOnlineRecentlyDetailComponent } from './film-online-detail-view/fil
         FilmOnlineRecentlyDetailComponent
     ],
     imports: [
+        NgSelectModule,
         CommonModule,
         CarouselModule.forRoot(),
         FormsModule,
         NgbModule,
         PipeModule,
         FilmOnlineViewRoutingModule,
+        CommonComponentModule,
         ProgressbarModule.forRoot(),
         AlertModule.forRoot({ maxMessages: 5, timeout: 2000, position: 'right' }),
     ],

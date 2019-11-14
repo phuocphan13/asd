@@ -28,4 +28,10 @@ export class FilmOnlineService {
   getFilmDetail(filmId: number) {
     return this.httpClient.get<FilmPosterDetailModel>(`${this.apiHost}/${this.homeAddress}/GetFilmDetail/${filmId}`);
   }
+
+  getListFilmDetails(filmId : any, numberOfFilms: any): Observable<any> {
+    let queryParams = new HttpParams().set('filmId', filmId)
+                                      .set("numberOfFilms", numberOfFilms);
+    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmDetails`, { params: queryParams });
+  }
 }

@@ -96,16 +96,44 @@ namespace Avaya.Service.Film
 
             var filmDetailEntity = _filmOnlineRepository.FirstOrDefault(x => x.Id == filmId);
             var listCategoryIdEntities = _categoryOfFilmRepository.GetAll()
-                .Where(x => x.FilmOnlineId == filmId).Select(x => x.FilmOnlineId);
+                .Where(x => x.FilmOnlineId == filmId);
             var listCategoryNameEntities = _filmCategoryRepository.GetAll()
-                .Where(x => listCategoryIdEntities.All(i => i == x.Id)).Select(x => x.Name).ToArray();
+                .Where(x => listCategoryIdEntities.Any(i => i.FilmCategoryId == x.Id)).Select(x => x.Name).ToArray();
 
             filmDetail = filmDetailEntity.MapTo<FilmDetailModel>();
             filmDetail.Categories = string.Join(", ", listCategoryNameEntities);
             filmDetail.Date = filmDetailEntity.ReleaseDate.Value.ToString("dd MMMM yyyy");
 
-
             return filmDetail;
+        }
+
+        public List<FilmDetailModel> GetListFilmDetails(int filmId, int numberOfFilms)
+        {
+            var listFilmDetails = new List<FilmDetailModel>();
+            var listFilmDetailEntities = _filmOnlineRepository.GetAll()
+                .Where(x => x.Id != filmId).Take(numberOfFilms).ToList();
+            var listCategoryOfFilms = _categoryOfFilmRepository.GetAll()
+                .Where(x => listFilmDetailEntities.Any(i => i.Id == x.FilmOnlineId));
+            var listCategoryEntities = _filmCategoryRepository.GetAll()
+                .Where(x => listCategoryOfFilms.Any(i => i.FilmCategoryId == x.Id)).ToList();
+
+            foreach (var item in listFilmDetailEntities)
+            {
+                var filmDetail = new FilmDetailModel();
+                filmDetail = item.MapTo<FilmDetailModel>();
+
+                var categoryNames = listCategoryEntities
+                    .Where(x => listCategoryOfFilms
+                    .Any(i => i.FilmOnlineId == item.Id))
+                    .Select(x => x.Name);
+
+                filmDetail.Categories = string.Join(", ", categoryNames);
+                filmDetail.Date = item.ReleaseDate.Value.ToString("dd MMMM yyyy");
+
+                listFilmDetails.Add(filmDetail);
+            }
+
+            return listFilmDetails;
         }
     }
 }
