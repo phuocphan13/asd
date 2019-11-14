@@ -12,6 +12,7 @@ export class FilmOnlineDetailViewComponent implements OnInit {
   filmId: number;
   data: any;
   listFilmDetails: any;
+  currentFilmId: number;
 
   dropdownItemsTrendingArray = [
     { id: 1, text: "Newest Date" },
@@ -47,18 +48,16 @@ export class FilmOnlineDetailViewComponent implements OnInit {
     this.filmOnlineService.getListFilmDetails(filmId, 3).subscribe(result => {
       if (result) {
         this.listFilmDetails = result;
-        for (let i = 0; i < this.listFilmDetails.length; i++) {
-          this.listFilmDetails[i].isExpand = i === 0;
-        }
+        this.currentFilmId = this.listFilmDetails[0].id;
       }
     });
   }
 
   onChangeViewDetail(event: number) {
-    this.listFilmDetails.forEach(element => {
-      if (element.id !== event) {
-        element.isExpand = false;
-      }
-    });
+    this.currentFilmId = event;
+  }
+
+  changeStatus(filmId: number) {
+    return filmId == this.currentFilmId;
   }
 }

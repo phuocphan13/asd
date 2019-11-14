@@ -9,8 +9,11 @@
     </div>
     <div class="film-detail-container">
         <app-film-online-recently-detail class="film-online-recently-detail" *ngFor="let item of listFilmDetails" [data]="item"
-            [isExpand]="item.isExpand"
+            [isExpand]="changeStatus(item.id)"
             (closeViewDetail)="onChangeViewDetail($event)">
         </app-film-online-recently-detail>
+    </div>
+    <div class="film-nomination-container">
+        <app-nomination-film-view></app-nomination-film-view>
     </div>
 </div>

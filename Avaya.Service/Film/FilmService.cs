@@ -70,7 +70,7 @@ namespace Avaya.Service.Film
             var numberNominationFilmMaximum = _filmOnlineRepository.Count();
 
             var listFilmsEntity = _filmOnlineRepository.GetAll().Skip(numberFilmNominationCurrent)
-                .Take(numberFilmNominationTake);
+                .Take(numberFilmNominationTake).ToList();
 
             var listFilms = listFilmsEntity.MapTo<List<FilmNominationModel>>();
 
