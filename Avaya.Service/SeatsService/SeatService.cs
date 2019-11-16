@@ -19,31 +19,40 @@ namespace Avaya.Service.SeatService
         private readonly IRepository<RoomDetail> _roomDetailRepository;
         private readonly IRepository<Room> _roomRepository;
         private readonly IRepository<ShowTime> _showTimeRepository;
-        private readonly IRepository<SeatType> _seatTypeRepository;
+        private readonly IRepository<RoomShowTime> _roomShowTimeRepository;
+        private readonly IRepository<Product> _productRepository;
+
         private readonly IUnitOfWork _unitOfWork;
+
         public SeatService(IRepository<Booking> bookingRepository,
             IRepository<RoomDetail> roomDetailRepository,
             IRepository<Room> roomRepository,
             IRepository<ShowTime> showTimeRepository,
-            IRepository<SeatType> seatTypeRepository,
+            IRepository<RoomShowTime> roomShowTimeRepository,
+            IRepository<Product> productRepository,
             IUnitOfWork unitOfWork)
         {
             _bookingRepository = bookingRepository;
             _roomDetailRepository = roomDetailRepository;
             _roomRepository = roomRepository;
             _showTimeRepository = showTimeRepository;
-            _seatTypeRepository = seatTypeRepository;
+            _roomShowTimeRepository = roomShowTimeRepository;
+            _productRepository = productRepository;
+
             _unitOfWork = unitOfWork;
         }
 
         public List<ShowSeatModel> GetShowSeat(SearchSeatModel searchSeat)
         {
 
-            if (searchSeat.ShowTime != 0 && searchSeat.ShowTime>0)
+            if (searchSeat.ShowTime != 0 && searchSeat.ShowTime > 0)
             {
                 var listSeats = new List<ShowSeatModel>();
 
-                var room = _roomRepository.FirstOrDefault(x => x.IdShowTime == searchSeat.ShowTime);
+                var roomShowTime = _roomShowTimeRepository.FirstOrDefault(x => x.IdShowTime == searchSeat.ShowTime);
+                //TODO: Check null
+
+                var room = _roomRepository.FirstOrDefault(x => x.Id == roomShowTime.IdRoom);
                 if (room == null)
                     return null;
 
@@ -56,19 +65,19 @@ namespace Avaya.Service.SeatService
                     return null;
 
                 var listReservedSeats = _bookingRepository.GetAll()
-                    .Where(x => x.IdRoom == room.Id && x.IdShowTime == searchSeat.ShowTime);
+                    .Where(x => x.IdShowTime == searchSeat.ShowTime);
 
-                var listSeatTypeId = roomDetail.Select(x => x.IdProduct).ToList();
+                var listProductId = roomDetail.Select(x => x.IdProduct).ToList();
 
-                var listSeatTypes = _seatTypeRepository.GetAll().Where(x => listSeatTypeId.Any(i => i == x.Id)).ToList();
+                var listProducs = _productRepository.GetAll().Where(x => listProductId.Any(i => i == x.Id));
 
 
                 foreach (var item in listSeats)
                 {
-                    var seatType = listSeatTypes.FirstOrDefault(x => x.Id == item.IdProduct);
+                    var product = listProducs.FirstOrDefault(x => x.Id == item.IdProduct);
                     var isBooked = listReservedSeats.Any(x => x.IdRoomDetail == item.Id);
-                    item.Type = seatType.Type;
-                    item.IdSeatType = seatType.Id;
+                    item.Type = product.Name;
+                    item.IdSeatType = product.Id;
                     item.IsBooking = isBooked;
                 }
                 return listSeats;
