@@ -1,5 +1,5 @@
 $margin-defaul: 10px;
-$border-defaul: 1px solid black;
+$border-defaul: 1px dashed black;
 
 .bill-container {
   display: flex;
@@ -8,8 +8,9 @@ $border-defaul: 1px solid black;
   font-style: oblique;
   margin-right: $margin-defaul;
   margin-left: $margin-defaul;
+  font-size: 20px;
   .title {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     font-family: monospace;
     width: 100%;
@@ -19,7 +20,7 @@ $border-defaul: 1px solid black;
 }
 
 .bg-color {
-  background-color: floralwhite;
+  background-color: gold
 }
 
 .description-container {
@@ -29,7 +30,7 @@ $border-defaul: 1px solid black;
   align-items: center;
 
   .image {
-    height: 100px;
+    height: 250px;
     margin-top: $margin-defaul;
     margin-bottom: $margin-defaul;
   }
@@ -60,6 +61,7 @@ $border-defaul: 1px solid black;
   border-bottom: $border-defaul;
   text-align: left;
   justify-content: space-between;
+  background-color: darkorange;
 }
 
 .button-container {
@@ -70,20 +72,22 @@ $border-defaul: 1px solid black;
   justify-content: space-evenly;
 }
 
-
-
 .number {
   width: 100px;
 }
+
 .product-name {
   width: 100px;
 }
+
 .quantity {
   width: 100px;
 }
+
 .price {
   width: 100px;
 }
+
 .product-total {
   width: 100px;
 }
@@ -91,10 +95,28 @@ $border-defaul: 1px solid black;
 .bill-total{
   width: 300px;
 }
+
 .price-total{
   width: 95px;
 }
 
 .button-submit{
   background-color: chartreuse;
+  width: 1000px;
+  height: 60px;
 } 
+
+.button-cancel{
+  width: 1000px;
+  height: 60px;
+}
+
+.seat-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.seats{
+  margin-left: $margin-defaul;
+}

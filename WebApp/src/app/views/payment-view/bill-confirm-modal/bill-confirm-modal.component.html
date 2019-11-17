@@ -4,29 +4,38 @@
     <div class="description-container">
       <img class="image" src="{{item.picture}}">
       <div class="description-detail-container">
-        <div class="name">Name: {{item.name}}</div>
-        <div class="cinema-address">Address: {{item.address}}</div>
-        <div class="time">Time Start: {{item.showtime}}</div>
+        <div class="name"><b>Name:</b> {{item.name}}</div>
+        <div class="cinema-address"><b>Address:</b> {{item.address}}</div>
+        <div class="date" ><b>Date:</b>15/11/2019</div>
+        <div class="time"><b>Time Start:</b> {{item.showtime}}</div>
+        <div class="duration"><b>Duration:</b> {{item.duration}}</div>
+        <div class="room"><b>Room:</b> 6</div>
+        <div class="seat-container">
+          <div class="seat-title"><b>Seat:</b></div>
+          <div *ngFor="let seat of itemSeats">
+            <div class="seats">{{seat.name}}</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="detail-container">
       <div class="bill-detail-container">
-        <div class="number">No</div>
-        <div class="product-name">Name</div>
-        <div class="quantity">Quantity</div>
-        <div class="price">Price</div>
-        <div class="product-total">Total</div>
+        <div class="number"><b>No</b></div>
+        <div class="product-name"><b>Name</b></div>
+        <div class="quantity"><b>Quantity</b></div>
+        <div class="price"><b>Price</b></div>
+        <div class="product-total"><b>Total</b></div>
       </div>
       <div class="bill-detail-container" *ngFor="let billDetail of bill.listBillDetails; let index = index">
         <div class="number">{{index + 1}}</div>
         <div class="product-name">Vé 2D</div>
         <div class="quantity">{{billDetail.quantity}}</div>
-        <div class="price">{{billDetail.price}} VNĐ</div>
-        <div class="product-total">{{billDetail.quantity * billDetail.price}} VNĐ</div>
+        <div class="price">{{billDetail.price}}</div>
+        <div class="product-total">{{billDetail.quantity * billDetail.price}}</div>
       </div>
     </div>
     <div class="total">
-      <div class="bill-total">Bill Total: </div>
+      <div class="bill-total"><b>Bill Total:</b> </div>
       <div class="price-total">{{total}} VNĐ</div>
     </div>
     <div class="button-container">

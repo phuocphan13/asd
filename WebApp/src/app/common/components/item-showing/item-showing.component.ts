@@ -20,7 +20,7 @@ export class ItemShowingComponent implements OnInit {
 
   ngOnInit() {
 
-    // console.log(this.item);
+    console.log(this.item);
   }
   onClickShowTime(item, time) {
     this.movieSharedService.item.picture = item.picture;
@@ -29,6 +29,8 @@ export class ItemShowingComponent implements OnInit {
     this.movieSharedService.item.showtime = time.timeStart;
     this.movieSharedService.item.idShowTime = time.id;
     this.movieSharedService.item.idCinema = item.idCinema;
+    this.movieSharedService.item.duration=item.duration;
+    this.movieSharedService.item.date =item.date;
     this.bookingMovieItem.emit(true);
   }
 }
