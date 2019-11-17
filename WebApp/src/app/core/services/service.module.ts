@@ -30,7 +30,7 @@ import { FilmOnlineShareService } from './film-online-shared.service';
     MovieSharedService,
     SearchMovieSharedService,
     ShowMovieSharedService,
-    PaymentSharedService
+    PaymentSharedService,
     FilmOnlineShareService
   ]
 })
