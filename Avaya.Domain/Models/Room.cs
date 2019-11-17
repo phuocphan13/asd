@@ -7,15 +7,13 @@ namespace Avaya.Domain.Models
     {
         public Room()
         {
-            Booking = new HashSet<Booking>();
+            RoomShowTime = new HashSet<RoomShowTime>();
         }
 
         public int Id { get; set; }
-        public int IdShowTime { get; set; }
         public int Amount { get; set; }
         public string Name { get; set; }
 
-        public virtual ShowTime IdShowTimeNavigation { get; set; }
-        public virtual ICollection<Booking> Booking { get; set; }
+        public virtual ICollection<RoomShowTime> RoomShowTime { get; set; }
     }
 }

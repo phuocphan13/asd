@@ -1,0 +1,43 @@
+.film-detail {
+  padding-left: 200px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.label-film-recently-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  .title-recently {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .sort-drop-down {
+    background-color: black;
+  }
+}
+
+.drop-down {
+  margin-left: 10px;
+  margin-top: -7px;
+}
+
+.line {
+  border-top: 1px solid rgb(197, 145, 0);
+  width: 840px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.film-detail-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.film-online-recently-detail:not(:first-child) {
+  margin-left: 30px;
+}

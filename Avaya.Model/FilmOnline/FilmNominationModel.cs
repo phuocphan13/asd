@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Avaya.Model.FilmOnline
 {
-    public class FilmNominationModel
+    public class FilmNominationModel: BaseModel
     {
         public string Title { get; set; }
 

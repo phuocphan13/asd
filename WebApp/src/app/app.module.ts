@@ -12,6 +12,8 @@ import { SidebarModule } from 'ng-sidebar';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { ProgressbarModule } from 'ngx-bootstrap';
+
 import { ModalsModule } from './modals/modals.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -54,12 +56,14 @@ export const environment = {
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
     BsDropdownModule.forRoot(),
+    ProgressbarModule.forRoot(),
     AppRoutingModule,
     PerfectScrollbarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: 'right' }),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    ProgressbarModule.forRoot()
   ],
   entryComponents: [
   ],

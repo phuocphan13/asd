@@ -13,6 +13,8 @@ namespace Avaya.Model.Payment
 
         public int IdShowTime { get; set; }
 
+        public int IdRoom { get; set; }
+
         public List<ReverseSeatModel> ListSeats { get; set; }
 
         public List<BillDetailModel> ListBillDetails { get; set; }

@@ -50,6 +50,9 @@ namespace Avaya.Service
             
             CreateMap<FilmOnline, FilmNominationModel>()
                 .ForMember(x => x.Time, opt => opt.MapFrom(i => i.Duration)).ReverseMap();
+            CreateMap<FilmOnline, FilmDetailModel>()
+                .ForMember(x => x.Time, opt => opt.MapFrom(i => $"{TransformHelper.TimeIntToString(i.Duration.Value)}"))
+                .ReverseMap();
             #endregion
 
             #region NewsServce Mapping
