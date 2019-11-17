@@ -69,7 +69,7 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdRoomDetailNavigation)
                     .WithMany(p => p.Booking)
                     .HasForeignKey(d => d.IdRoomDetail)
-                    .HasConstraintName("FK__Booking__IdRoomD__6AEFE058");
+                    .HasConstraintName("FK__Booking__IdRoomD__656C112C");
             });
 
             modelBuilder.Entity<BookingDetail>(entity =>
@@ -194,12 +194,12 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdCinemaNavigation)
                     .WithMany(p => p.ProductCinema)
                     .HasForeignKey(d => d.IdCinema)
-                    .HasConstraintName("FK__ProductCi__IdCin__1F63A897");
+                    .HasConstraintName("FK__ProductCi__IdCin__6B24EA82");
 
                 entity.HasOne(d => d.IdProductNavigation)
                     .WithMany(p => p.ProductCinema)
                     .HasForeignKey(d => d.IdProduct)
-                    .HasConstraintName("FK__ProductCi__IdPro__2057CCD0");
+                    .HasConstraintName("FK__ProductCi__IdPro__6C190EBB");
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -218,7 +218,7 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdProductNavigation)
                     .WithMany(p => p.RoomDetail)
                     .HasForeignKey(d => d.IdProduct)
-                    .HasConstraintName("FK__RoomDetai__IdPro__22401542");
+                    .HasConstraintName("FK__RoomDetai__IdPro__6D0D32F4");
             });
 
             modelBuilder.Entity<RoomShowTime>(entity =>
@@ -226,12 +226,12 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdRoomNavigation)
                     .WithMany(p => p.RoomShowTime)
                     .HasForeignKey(d => d.IdRoom)
-                    .HasConstraintName("FK__RoomShowT__IdRoo__2EA5EC27");
+                    .HasConstraintName("FK__RoomShowT__IdRoo__6E01572D");
 
                 entity.HasOne(d => d.IdShowTimeNavigation)
                     .WithMany(p => p.RoomShowTime)
                     .HasForeignKey(d => d.IdShowTime)
-                    .HasConstraintName("FK__RoomShowT__IdSho__2F9A1060");
+                    .HasConstraintName("FK__RoomShowT__IdSho__6EF57B66");
             });
 
             modelBuilder.Entity<ShowTime>(entity =>
