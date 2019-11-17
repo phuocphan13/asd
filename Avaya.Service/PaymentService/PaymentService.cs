@@ -22,28 +22,55 @@ namespace Avaya.Service.PaymentService
         private readonly IRepository<Product> _productRepository;
         private readonly IRepository<BillDetail> _billDetailRepository;
         private readonly IRepository<Bill> _billRepository;
+        private readonly IRepository<ProductCinema> _productCinemaRepository;
+        private readonly IRepository<RoomShowTime> _roomShowTimeRepository;
+
         private readonly IUnitOfWork _unitOfWork;
 
         public PaymentService(IRepository<Product> productRepository,
             IRepository<Booking> bookingRepository,
             IRepository<RoomDetail> roomDetailRepository,
             IRepository<Room> roomRepository,
-            IUnitOfWork unitOfWork,
+            IRepository<ProductCinema> productCinemaRepository,
             IRepository<BillDetail> billDetailRepository,
-            IRepository<Bill> billRepository)
+            IRepository<Bill> billRepository,
+            IRepository<RoomShowTime> roomShowTimeRepository,
+            IUnitOfWork unitOfWork)
         {
             _bookingRepository = bookingRepository;
             _roomDetailRepository = roomDetailRepository;
             _roomRepository = roomRepository;
             _productRepository = productRepository;
-            _unitOfWork = unitOfWork;
             _billDetailRepository = billDetailRepository;
+            _productCinemaRepository = productCinemaRepository;
             _billRepository = billRepository;
+            _roomShowTimeRepository = roomShowTimeRepository;
+
+            _unitOfWork = unitOfWork;
         }
 
-        public List<PaymentModel> GetAll()
+        public List<PaymentModel> GetListProducts(int idCinema)
         {
-            return _productRepository.GetAll().MapTo<List<PaymentModel>>();
+            var listProductCinemaEntities = _productCinemaRepository.GetAll().Where(x => x.IdCinema == idCinema).ToList();
+            var listProductEntities = _productRepository.GetAll()
+                    .Where(x => listProductCinemaEntities.Any(i => i.IdProduct == x.Id)).ToList();
+
+            var listProducts = new List<PaymentModel>();
+
+            foreach (var productCinema in listProductCinemaEntities)
+            {
+                var product = listProductEntities.FirstOrDefault(x => x.Id == productCinema.IdProduct);
+                listProducts.Add(new PaymentModel()
+                {
+                    Id = productCinema.Id,
+                    Name = product.Name,
+                    Price = productCinema.Price.Value,
+                    Type = product.Type.Value,
+                    IdProduct = product.Id,
+                });
+            }
+
+            return listProducts;
         }
 
         public bool Create(BillModel bill)
@@ -52,7 +79,19 @@ namespace Avaya.Service.PaymentService
 
             var listSeats = _roomDetailRepository.GetAll()
                 .Where(x => listSeatGuids.Any(i => i == x.Guid.ToString())).ToList();
-            var room = _roomRepository.FirstOrDefault(x => x.IdShowTime == bill.IdShowTime);
+
+
+
+
+
+
+            var room = _roomRepository.FirstOrDefault(x => x.Id == bill.IdRoom);
+
+
+
+
+
+
 
             var billEntity = bill.MapTo<Bill>();
             var billDetailEntities = bill.ListBillDetails.MapTo<List<BillDetail>>();
@@ -64,9 +103,11 @@ namespace Avaya.Service.PaymentService
             foreach (var item in bill.ListSeats)
             {
                 var booking = new Booking();
-                booking.IdRoom = room.Id;
                 booking.IdShowTime = bill.IdShowTime;
-                booking.IdSeatType = item.IdSeatType;
+
+                //booking.IdRoom = room.Id;
+                //booking.IdShowTime = bill.IdShowTime;
+                //booking.IdSeatType = item.IdSeatType;
 
                 var seatId = listSeats.FirstOrDefault(x => x.Guid == Guid.Parse(item.Guid)).Id;
 

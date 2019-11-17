@@ -28,6 +28,7 @@ export class ItemShowingComponent implements OnInit {
     this.movieSharedService.item.name  = item.name;
     this.movieSharedService.item.showtime = time.timeStart;
     this.movieSharedService.item.idShowTime = time.id;
+    this.movieSharedService.item.idCinema = item.idCinema;
     this.bookingMovieItem.emit(true);
   }
 }

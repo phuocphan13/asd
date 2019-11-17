@@ -13,8 +13,9 @@ export class PaymentService {
   constructor(public httpClient: HttpClient) {
   }
 
-  getAll(): Observable<any> {
-    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetAll`);
+  getListProducts(idCinema: number): Observable<any> {
+    let queryParams = new HttpParams().set('idCinema', idCinema.toString());
+    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListProducts`, { params: queryParams });
   }
 
   getListBill(data: PaymentBillModel): Observable<any> {
