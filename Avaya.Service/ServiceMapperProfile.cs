@@ -54,11 +54,6 @@ namespace Avaya.Service
                 .ForMember(x => x.Time, opt => opt.MapFrom(i => $"{TransformHelper.TimeIntToString(i.Duration.Value)}"))
                 .ReverseMap();
             #endregion
-
-            #region NewsServce Mapping
-            CreateMap<NewsArticles, NewsModel>();
-            CreateMap<NewsArticles, NewsDetailModel>();
-            #endregion
         }
     }
 }
