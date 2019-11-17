@@ -4,4 +4,5 @@ export class SearchInformationModel{
     name: string;
     showtime: string;
     idShowTime: number;
+    idCinema: number;
 }

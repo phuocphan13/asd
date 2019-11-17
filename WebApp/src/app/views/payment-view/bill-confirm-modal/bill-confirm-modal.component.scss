@@ -1,0 +1,59 @@
+$margin-defaul: 10px;
+$border-defaul: 1px solid black;
+
+.bill-container {
+  display: flex;
+  flex-direction: column;
+  font-family: Khand, Arial Narrow, arial, sans-serif;
+  margin-right: $margin-defaul;
+  margin-left: $margin-defaul;
+
+  .title {
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    border-bottom: $border-defaul;
+  }
+}
+
+.description-container {
+  display: flex;
+  flex-direction: row;
+
+  .image {
+    height: 100px;
+    margin-top: $margin-defaul;
+    margin-bottom: $margin-defaul;
+  }
+}
+
+.description-detail-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: $border-defaul;
+  border-top: $border-defaul;
+}
+
+.bill-detail-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.total {
+  border-bottom: $border-defaul;
+  text-align: right;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: $margin-defaul;
+  margin-bottom: $margin-defaul;
+}

@@ -1,0 +1,12 @@
+<div class="drop-down">
+  <div class="drop-down-title" [ngStyle]="border()">
+    <span class="title">{{title}}</span>
+    <i class="fas fa-chevron-down drop-down-icon"></i>
+  </div>
+  <div class="drop-down-item-container">
+    <div class="drop-down-item" *ngFor="let item of dropdownItemsArray"
+      (click)="onClickItem(item)">
+      {{item.text}}
+    </div>
+  </div>
+</div>

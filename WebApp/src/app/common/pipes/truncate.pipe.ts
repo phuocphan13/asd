@@ -9,11 +9,13 @@ export class TruncatePipe implements PipeTransform {
     if (completeWords) {
       limit = value.substr(0, limit).lastIndexOf(' ');
     }
-    if (value.length > limit) {
-      return `${value.substr(0, limit)}${ellipsis}`;
-    }
-    else {
-      return value;
+    if (value && value.length > 0) {
+      if (value.length > limit) {
+        return `${value.substr(0, limit)}${ellipsis}`;
+      }
+      else {
+        return value;
+      }
     }
   }
 }
