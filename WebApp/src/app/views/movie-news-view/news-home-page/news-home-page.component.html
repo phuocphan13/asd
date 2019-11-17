@@ -1,26 +1,14 @@
-
 <div class='article-home-news'>
   <div>
     <div *ngIf="show" class='main-section'>
       <div class='article-title'>
         LATEST NEWS
       </div>
-      <div *ngFor="let item of listclip">
-          <app-item-showing [data]="item" [type]="type" ></app-item-showing>
-        <!-- <div class="browse-clip">
-          <a class="image" href="#" (click)="onClickLogicChange(item.id)"> <img src={{item.photoUrl}} width={{item.photoWidth}}
-              height={{item.photoHeight}}> </a>
-          <div class="clip-info">
-            <h3> {{item.headline}} </h3>
-            <div class='clip-descript'>
-              {{item.description}}
-            </div>
-            <div class="article-tag">
-              <a href="#">{{item.author}}</a> - <a href="#">{{ item.publishDate | date }}</a>
-            </div>
-          </div>
-        </div> -->
+      <div *ngFor="let item of listClip">
+        <div class='news-item'>
+          <app-item-showing [data]="item" [type]="type" (click)="onClickLogicChange(item.id)"></app-item-showing>
+        </div>
       </div>
-      <!-- <app-item-showing [data] = "listclip" [type]="type" ></app-item-showing> -->
     </div>
   </div>
+</div>

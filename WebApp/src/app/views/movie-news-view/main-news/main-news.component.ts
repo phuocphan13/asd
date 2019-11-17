@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, ɵConsole, OnChanges } from '@angular/core';
 import { MovieNewsService } from 'src/app/core/services/movie-news.service';
 import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'main-news-section',
@@ -9,7 +10,7 @@ import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.
 })
 export class MainNewsComponent implements OnInit, OnChanges {
 
- 
+
   detailNews: any = {
     headline: "",
   };
@@ -17,6 +18,7 @@ export class MainNewsComponent implements OnInit, OnChanges {
   newsId: number;
 
   constructor(private movieNewsService: MovieNewsService,
+    private activatedRoute: ActivatedRoute,
     private movieNewsSharedService: MovieNewsSharedService) {
   }
 
@@ -25,7 +27,6 @@ export class MainNewsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.loadingNews();
   }
 
   private loadingNews() {

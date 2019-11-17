@@ -1,4 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { PaymentService } from 'src/app/core/services/payment.service';
+import { PaymentSharedService } from 'src/app/core/services/payment-shared.service';
+import { MovieSharedService } from 'src/app/core/services/movie-shared.service';
 
 @Component({
   selector: 'app-booking-ticket',
@@ -7,126 +10,35 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class BookingTicketComponent implements OnInit {
 
-  @Output() itemsValue = new EventEmitter<any>();
-  totalTicketPrice: any = 0;
-  totalComboPrice: any = 0;
-  totalPrice: any = 0
+  totalPrice: number = 0;
+  listCombo: any = [];
+  listTicket: any = [];
+  bookingStatus: number;
 
-  listCombo: any = [
-    {
-      id: 0,
-      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
-      comboname: "Bắp Nước",
-      price: 40000,
-      value: 0
-    },
-    {
-      id: 1,
-      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
-      comboname: "Bắp Nước Vừa",
-      price: 50000,
-      value: 0
-    },
-    {
-      id: 2,
-      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
-      comboname: "Bắp Nước To",
-      price: 60000,
-      value: 0
-    },
-    {
-      id: 3,
-      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
-      comboname: "Bắp Nước KHỔNG LỒ",
-      price: 100000,
-      value: 0
-    },
-    {
-      id: 4,
-      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
-      comboname: "Bắp Bò",
-      price: 75000,
-      value: 0
-    },
-    {
-      id: 5,
-      imgUrl: "https://media.ifind.vn/data/images/media/3d4-1535013677796.jpg",
-      comboname: "Bắp Chuối",
-      price: 65000,
-      value: 0
-    },
-  ]
-
-  listTicket: any = [
-    {
-      id: 0,
-      tickettype: "Vé 2D",
-      price: 80000 ,
-      value: 0
-    },
-    {
-      id: 1,
-      tickettype: "Vé 3D",
-      price: 100000 ,
-      value: 0
-    },
-    {
-      id: 2,
-      tickettype: "Vé IMAX",
-      price: 180000 ,
-      value: 0
-    },
-    {
-      id: 3,
-      tickettype: "Vé IMAX2",
-      price: 185000 ,
-      value: 0
-    },
-    {
-      id: 4,
-      tickettype: "Vé VERY IMAX",
-      price: 190000 ,
-      value: 0
-    },
-    {
-      id: 5,
-      tickettype: "Vé EVEN-BETTER IMAX",
-      price: 280000 ,
-      value: 0
-    },
-    {
-      id: 6,
-      tickettype: "Vé I'M-MAX",
-      price: 380000 ,
-      value: 0
-    },
-  ]
-
-  constructor() { }
+  constructor(private paymentService: PaymentService,
+    private movieSharedService: MovieSharedService,
+    private paymentSharedService: PaymentSharedService) { }
 
   ngOnInit() {
+    // this.paymentService.getListProducts(this.movieSharedService.item.idCinema).subscribe(result => {
+    this.paymentService.getListProducts(1).subscribe(result => {
+      result.forEach(element => {
+        element.quantity = 0;
+      });
+      this.listTicket = result.filter(x => x.type === 1) || [];
+      this.listCombo = result.filter(x => x.type === 2) || [];
+    });
+    this.bookingStatus = parseInt(localStorage.getItem("bookingStatus"));
   }
 
-  ticketValueOutPut(item) {
-    if(item.value==null)
-    {
-      item.value=0;
-    }
-    else if(item.value>10)
-    {
-      item.value=10;
-    }
-    
+  onChangeTicketValue() {
+    let listItems = [];
     this.listTicket.forEach(element => {
-      this.totalTicketPrice = this.totalTicketPrice + ((element.value) * (element.price));
+      listItems.push(element);
     });
     this.listCombo.forEach(element => {
-      this.totalComboPrice = this.totalComboPrice + ((element.value) * (element.price));
+      listItems.push(element);
     });
-    this.totalPrice = this.totalComboPrice + this.totalTicketPrice;
-    this.itemsValue.emit(this.totalPrice);
-    this.totalTicketPrice = 0;
-    this.totalComboPrice = 0;
+    this.paymentSharedService.set(listItems);
   }
-
 }

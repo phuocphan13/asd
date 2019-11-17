@@ -56,17 +56,30 @@ namespace Avaya.Service.MovieService
                 if (cinema == null)
                     return null;
 
-                var bookingdetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
+                var bookingDetail = _bookingDetailRepository.FirstOrDefault(x => x.IdMovie == searchMovie.MovieId
                                     && x.IdCinema == searchMovie.CinemaId
-                                    && x.Date == DateTime.Parse(searchMovie.Date));
-                if (bookingdetail == null)
+                                    && x.Date == DateTime.Parse(searchMovie.Date).Date);
+                if (bookingDetail == null)
                     return null;
 
-                movie.ShowTime = _showTimeRepository.GetAll()
-                    .Where(x => x.IdBookingDetail == bookingdetail.Id)
-                    .MapTo<List<ShowTimeModel>>();
+                var listShowTimes = _showTimeRepository.GetAll()
+                    .Where(x => x.IdBookingDetail == bookingDetail.Id);
+
+                foreach (var item in listShowTimes)
+                {
+                    var hourTemp = item.TimeStart.Hours;
+                    var hour = hourTemp > 10 ? hourTemp.ToString() : string.Format("0{0}", hourTemp.ToString());
+                    var minuteTemp = item.TimeStart.Minutes;
+                    var minute = minuteTemp > 10 ? minuteTemp.ToString() : string.Format("0{0}", minuteTemp.ToString());
+                    movie.ShowTime.Add(new ShowTimeModel()
+                    {
+                        Id = item.Id,
+                        TimeStart = string.Format("{0}:{1}", hour, minute)
+                    });
+                }
 
                 movie.Address = cinema.Address;
+                movie.IdCinema = searchMovie.CinemaId;
 
                 return movie;
             }

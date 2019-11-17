@@ -20,8 +20,6 @@ namespace Avaya.Domain
                 options.UseSqlServer(configuration.GetConnectionString("MovieTheater")));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IRepository<NewsArticles>, Repository<NewsArticles>>();
-            services.AddScoped<IRepository<NewsImage>, Repository<NewsImage>>();
             services.AddScoped<IRepository<BookingDetail>, Repository<BookingDetail>>();
             services.AddScoped<IRepository<Cinema>, Repository<Cinema>>();
             services.AddScoped<IRepository<Movie>, Repository<Movie>>();
@@ -33,9 +31,14 @@ namespace Avaya.Domain
             services.AddScoped<IRepository<ShowTime>, Repository<ShowTime>>();
             services.AddScoped<IRepository<Service>, Repository<Service>>();
             services.AddScoped<IRepository<Menu>, Repository<Menu>>();
+            services.AddScoped<IRepository<Booking>, Repository<Booking>>();
             services.AddScoped<IRepository<FilmCategory>, Repository<FilmCategory>>();
             services.AddScoped<IRepository<FilmOnline>, Repository<FilmOnline>>();
             services.AddScoped<IRepository<CategoriesOfFilm>, Repository<CategoriesOfFilm>>();
+            services.AddScoped<IRepository<Bill>, Repository<Bill>>();
+            services.AddScoped<IRepository<BillDetail>, Repository<BillDetail>>();
+            services.AddScoped<IRepository<Product>, Repository<Product>>();
+            services.AddScoped<IRepository<ProductCinema>, Repository<ProductCinema>>();
         }
     }
 }

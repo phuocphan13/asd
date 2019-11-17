@@ -1,15 +1,16 @@
 <div class="container">
-  <img class="image" [src]="_domSanitizer.bypassSecurityTrustUrl(item.photoUrl)">
+  <img class="image" [src]="_domSanitizer.bypassSecurityTrustUrl(item.picture)">
   <div class="body-info">
-    <div class="tilte"><span class="name">{{item.headline | truncate : 20}}</span></div>
-    <div class="description">{{item.description | truncate : 200}}</div>
-    <div *ngIf="type === 1" class="time-format">{{item.time}} phút - 2D - 16+</div>
+    <div class="tilte"><span class="name">{{item.name}}</span></div>
+    <div class="description">{{item.description | truncate : 150}}</div>
+    <div *ngIf="type === 1" class="time-format">{{item.duration}} phút - 2D - 16+</div>
     <div *ngIf="type === 1" class="show-time-container">
-      <div class="show-time-box" *ngFor="let showtime of item.showtime">
-        <div class="show-time" (click)="onClickShowTime(item)">{{showtime}}</div>
+      <div class="show-time-box" *ngFor="let time of item.showTime">
+        <div class="show-time" (click)="onClickShowTime(item, time)">{{time.timeStart}}</div>
       </div>
     </div>
-    <div *ngIf="type === 2" class="date">{{item.createdDate}}</div>
+    <div *ngIf="type === 1" class="address">{{item.address}}</div>
+    <div *ngIf="type === 2" class="date">{{item.date}}</div>
     <div *ngIf="type === 2" class="author">{{item.author}}</div>
   </div>
 </div>

@@ -1,27 +1,36 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MovieNewsService } from './movie-news.service'
 import { MenuService } from './menu.service';
 import { SharedService } from './shared.service';
 import { MovieService } from './movie.service';
-
-import { SideNewsHalfsizeService } from './side-news-halfsize.service'
-import { SideNewsService } from './side-news.service'
+import { ShowSeatService } from './show-seat.service';
+import { PaymentService } from './payment.service';
+import { MovieSharedService } from './movie-shared.service';
 import { FilmOnlineService } from './film-online.service';
+import { SeatSharedService } from './seat-shared.service';
 import { MovieNewsSharedService } from './movie-news-shared.service';
+import { SearchMovieSharedService } from './search-movie-shared.service';
+import { ShowMovieSharedService } from './show-movie-shared.service';
+import { PaymentSharedService } from './payment-shared.service';
+
 import { FilmOnlineShareService } from './film-online-shared.service';
 @NgModule({
   declarations: [
   ],
   providers: [
     MenuService,
-    SideNewsHalfsizeService,
     MovieNewsService,
-    SideNewsService,
     SharedService,
     MovieService,
-    FilmOnlineService,
     MovieNewsSharedService,
+    FilmOnlineService,
+    SeatSharedService,
+    ShowSeatService,
+    PaymentService,
+    MovieSharedService,
+    SearchMovieSharedService,
+    ShowMovieSharedService,
+    PaymentSharedService
     FilmOnlineShareService
   ]
 })

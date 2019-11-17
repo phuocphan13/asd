@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchModel } from 'src/app/core/model/search.model';
 import { Router } from '@angular/router';
+import { invalid } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-time-movie-cinema',
@@ -15,6 +16,8 @@ export class TimeMovieCinemaComponent implements OnInit {
   searchItemTemp: SearchModel;
   minDate: Date;
   date: any;
+  movieId: any;
+  cinemaId: any;
 
   pickedMovie: any;
   pickedCinema: any;
@@ -37,36 +40,35 @@ export class TimeMovieCinemaComponent implements OnInit {
     this.minDate = new Date();
     this.searchItem = new SearchModel();
     this.searchItemTemp = new SearchModel();
-
   }
 
   ngOnInit() {
 
   }
 
-
-  onChangeMovieName(event) {
-    this.searchItem.movieId = event.id;
-  }
-
-  onChangeCinemaName(event) {
-    this.searchItem.cinemaId = event.id;
-  }
-
   onClickSearch() {
-    // if (this.pickedCinema && this.date && this.pickedMovie) {
+    if (this.pickedCinema && this.date && this.pickedMovie) {
+      this.searchItem.movieId = this.movieId;
+      this.searchItem.cinemaId = this.cinemaId;
       this.searchItem.date = this.date;
-      this.searchItem.date = "04-09-2019";
-      this.searchItem.movieId = 4;
-      this.searchItem.cinemaId = 4;
-      if(this.searchItem.date != this.searchItemTemp.date || this.searchItem.movieId != this.searchItemTemp.movieId || this.searchItem.cinemaId != this.searchItemTemp.cinemaId)
-      {
+      // console.log(this.date);
+      //1
+
+      if (this.searchItem.date != this.searchItemTemp.date
+        || this.searchItem.movieId != this.searchItemTemp.movieId
+        || this.searchItem.cinemaId != this.searchItemTemp.cinemaId) {
         this.searchData.emit(this.searchItem);
       }
+
+      //2
       this.searchItemTemp = this.searchItem;
-    // }
-    // else {
-    //   alert("field missing");
-    // }
+
+      //3
+      this.searchItem = new SearchModel();
+      // console.log(this.searchItemTemp);
+    }
+    else {
+      alert("field missing");
+    }
   }
 }

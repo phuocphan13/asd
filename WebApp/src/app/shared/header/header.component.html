@@ -1,6 +1,6 @@
 <div class="header-container">
   <app-drop-down *ngFor="let item of listMenus" [items]="item.menuChildren" [title]="item.name"></app-drop-down>
-  <img class="logo" src="http://localhost:59239/resources/images/logo.png">
+  <img class="logo" src="http://localhost:59239/resources/images/logo.png" (click)="onSearch()">
 
   <div class="search-container">
     <input type="text" placeholder="Search.." [(ngModel)]="searchText" name="search-value">
