@@ -1,90 +1,74 @@
 .body-info {
-  width: 800px;
-  height: 250px;
-  margin-left: 35px;
-  min-width: 500px;
-  min-height: 230px;
-
-  font-family: Arial, sans-serif;
+  width: 60%;
+  margin-left: 30px;
+  font-family: helvetica,clean,sans-serif;
 }
 
-.image {
-  height: 226px;
-  width: 100%;
-  max-width: 130px;
-  border: 2px solid black;
-}
 
 .container {
-  display: flex;
+  position: relative;
   flex-direction: row;
-  border: 1px solid #d31702;
-  background-color: #e6e6e6;
-  border-radius: 1.5rem;
-  max-width: 700px;
-  padding: 1rem;
-  height: 260px;
-  //margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  margin-bottom: 30px;
+  image{
+      position:relative
+  }
 }
 
-.time-format {
-  font-size: 16px;
-  margin-top: 9px;
-  color: #505f75;
+.time-format{
+
 }
 
-.description {
-  color: #231f20;
+.description{
   font-weight: 400;
-  font-style: italic;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 25px;
+  color:white;
 }
 
-.name {
-  font-weight: bold;
-  font-size: 24px;
-  
+.tilte {
+     h3{
+         font-size: 100%;
+         font-weight: bold;
+         line-height: 32px;
+         font-size: 28px;
+         font-family: Arial,arial,sans-serif;
+         color:white;
+     }
 }
 
 .show-time-container {
-  display: flex;
-  flex-direction: row;
-  margin-top: 13px;
+ 
 }
 
 .show-time {
-  text-align: center;
-  font-weight: bold;
+
 }
 
 .show-time-box:hover {
-  cursor: pointer;
-  color: #fff;
-  background-color: #12263f;
+
 }
 
 .show-time-box {
-  border: solid #5d6c7e 2px;
-  border-radius: 0.25rem;
-  width: 70px;
-  height: 30px;
+
 }
 
 .show-time-box:not(:first-child) {
   margin-left: 10px;
 }
 
-.date {
-  margin-top: 6px;
-  color: #505f75;
-}
+.tag{
+  width: 85%;
+  font-family: Arial,arial,sans-serif;
+  text-transform: capitalize;
 
-.author {
-  margin-top: 13px;
-  font-size: 18px;
-  color: #c70039;
-}
+  a{
+      color: #ff8902;
+      font-weight: 600;
+      text-decoration: underline;
+      -webkit-text-decoration-color: #dba433;
+      text-decoration-color: #dba433;
+  }
 
-.address {
-  margin-top: 13px;
 }
