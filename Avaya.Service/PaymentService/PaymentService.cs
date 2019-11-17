@@ -23,6 +23,7 @@ namespace Avaya.Service.PaymentService
         private readonly IRepository<BillDetail> _billDetailRepository;
         private readonly IRepository<Bill> _billRepository;
         private readonly IRepository<ProductCinema> _productCinemaRepository;
+        private readonly IRepository<RoomShowTime> _roomShowTimeRepository;
 
         private readonly IUnitOfWork _unitOfWork;
 
@@ -33,6 +34,7 @@ namespace Avaya.Service.PaymentService
             IRepository<ProductCinema> productCinemaRepository,
             IRepository<BillDetail> billDetailRepository,
             IRepository<Bill> billRepository,
+            IRepository<RoomShowTime> roomShowTimeRepository,
             IUnitOfWork unitOfWork)
         {
             _bookingRepository = bookingRepository;
@@ -42,6 +44,7 @@ namespace Avaya.Service.PaymentService
             _billDetailRepository = billDetailRepository;
             _productCinemaRepository = productCinemaRepository;
             _billRepository = billRepository;
+            _roomShowTimeRepository = roomShowTimeRepository;
 
             _unitOfWork = unitOfWork;
         }
@@ -76,7 +79,19 @@ namespace Avaya.Service.PaymentService
 
             var listSeats = _roomDetailRepository.GetAll()
                 .Where(x => listSeatGuids.Any(i => i == x.Guid.ToString())).ToList();
-            var room = _roomRepository.FirstOrDefault(x => x.IdShowTime == bill.IdShowTime);
+
+
+
+
+
+
+            var room = _roomRepository.FirstOrDefault(x => x.Id == bill.IdRoom);
+
+
+
+
+
+
 
             var billEntity = bill.MapTo<Bill>();
             var billDetailEntities = bill.ListBillDetails.MapTo<List<BillDetail>>();
@@ -88,9 +103,11 @@ namespace Avaya.Service.PaymentService
             foreach (var item in bill.ListSeats)
             {
                 var booking = new Booking();
-                booking.IdRoom = room.Id;
                 booking.IdShowTime = bill.IdShowTime;
-                booking.IdSeatType = item.IdSeatType;
+
+                //booking.IdRoom = room.Id;
+                //booking.IdShowTime = bill.IdShowTime;
+                //booking.IdSeatType = item.IdSeatType;
 
                 var seatId = listSeats.FirstOrDefault(x => x.Guid == Guid.Parse(item.Guid)).Id;
 

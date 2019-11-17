@@ -12,5 +12,6 @@ namespace Avaya.Model.ShowSeat
         public int IdProduct { get; set; }
         public Boolean IsBooking { get; set; }
         public Guid Guid { get; set; }
+        public int IdSeatType { get; set; }
     }
 }
