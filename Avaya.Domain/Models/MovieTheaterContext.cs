@@ -33,7 +33,7 @@ namespace Avaya.Domain.Models
         public virtual DbSet<ProductCinema> ProductCinema { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<RoomDetail> RoomDetail { get; set; }
-        public virtual DbSet<SeatType> SeatType { get; set; }
+        public virtual DbSet<RoomShowTime> RoomShowTime { get; set; }
         public virtual DbSet<ShowTime> ShowTime { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -66,22 +66,10 @@ namespace Avaya.Domain.Models
 
             modelBuilder.Entity<Booking>(entity =>
             {
-                entity.HasOne(d => d.IdRoomNavigation)
-                    .WithMany(p => p.Booking)
-                    .HasForeignKey(d => d.IdRoom)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Booking_Room");
-
                 entity.HasOne(d => d.IdRoomDetailNavigation)
                     .WithMany(p => p.Booking)
                     .HasForeignKey(d => d.IdRoomDetail)
                     .HasConstraintName("FK__Booking__IdRoomD__656C112C");
-
-                entity.HasOne(d => d.IdSeatTypeNavigation)
-                    .WithMany(p => p.Booking)
-                    .HasForeignKey(d => d.IdSeatType)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Booking_SeatType");
             });
 
             modelBuilder.Entity<BookingDetail>(entity =>
@@ -206,23 +194,17 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdCinemaNavigation)
                     .WithMany(p => p.ProductCinema)
                     .HasForeignKey(d => d.IdCinema)
-                    .HasConstraintName("FK__ProductCi__IdCin__6D0D32F4");
+                    .HasConstraintName("FK__ProductCi__IdCin__6B24EA82");
 
                 entity.HasOne(d => d.IdProductNavigation)
                     .WithMany(p => p.ProductCinema)
                     .HasForeignKey(d => d.IdProduct)
-                    .HasConstraintName("FK__ProductCi__IdPro__6E01572D");
+                    .HasConstraintName("FK__ProductCi__IdPro__6C190EBB");
             });
 
             modelBuilder.Entity<Room>(entity =>
             {
                 entity.Property(e => e.Name).IsRequired();
-
-                entity.HasOne(d => d.IdShowTimeNavigation)
-                    .WithMany(p => p.Room)
-                    .HasForeignKey(d => d.IdShowTime)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Room_Show_Time");
             });
 
             modelBuilder.Entity<RoomDetail>(entity =>
@@ -236,12 +218,20 @@ namespace Avaya.Domain.Models
                 entity.HasOne(d => d.IdProductNavigation)
                     .WithMany(p => p.RoomDetail)
                     .HasForeignKey(d => d.IdProduct)
-                    .HasConstraintName("FK__RoomDetai__IdPro__6FE99F9F");
+                    .HasConstraintName("FK__RoomDetai__IdPro__6D0D32F4");
             });
 
-            modelBuilder.Entity<SeatType>(entity =>
+            modelBuilder.Entity<RoomShowTime>(entity =>
             {
-                entity.Property(e => e.Type).IsRequired();
+                entity.HasOne(d => d.IdRoomNavigation)
+                    .WithMany(p => p.RoomShowTime)
+                    .HasForeignKey(d => d.IdRoom)
+                    .HasConstraintName("FK__RoomShowT__IdRoo__6E01572D");
+
+                entity.HasOne(d => d.IdShowTimeNavigation)
+                    .WithMany(p => p.RoomShowTime)
+                    .HasForeignKey(d => d.IdShowTime)
+                    .HasConstraintName("FK__RoomShowT__IdSho__6EF57B66");
             });
 
             modelBuilder.Entity<ShowTime>(entity =>

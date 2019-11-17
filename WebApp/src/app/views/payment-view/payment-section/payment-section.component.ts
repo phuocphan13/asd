@@ -71,7 +71,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
       let reservedSeat = new ReverseSeatModel();
       reservedSeat.guid = x.guid;
       reservedSeat.idProduct = x.idProduct;
-      reservedSeat.idSeatType=x.idSeatType;
+      reservedSeat.idSeatType = x.idSeatType;  
       this.bill.listSeats.push(reservedSeat);
     })
     // this.bill.idRoom = 1;
