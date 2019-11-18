@@ -53,13 +53,15 @@ export class BillConfirmModalComponent implements OnInit {
   }
 
   onClickSubmit() {
-    // this.paymentService.getListBill(this.bill).subscribe(result => {
-    //   alert(result);
-    // })
+    this.paymentService.getListBill(this.bill).subscribe(result => {
+      alert(result);
+    })
   }
 
   onClickCancel() {
-
+    this.closeModal();
   }
-
+  private closeModal() {
+    this.bsModalRef.hide();
+  }
 }

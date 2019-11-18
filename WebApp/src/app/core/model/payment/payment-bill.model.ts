@@ -5,6 +5,7 @@ export class PaymentBillModel {
     userId: number;
     total: number;
     idShowTime: number;
+    // idRoom: number;
     listBillDetails: BillDetailModel[];
     listSeats: ReverseSeatModel[];
 

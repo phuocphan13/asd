@@ -86,6 +86,7 @@ export class ShowSeatViewComponent implements OnInit {
     });
 
     this.paymentSharedService.setListSeats(this.listSeats);
+    console.log(this.listSeats);
   }
 
   private caculateSeatTicketBooking(item) {
