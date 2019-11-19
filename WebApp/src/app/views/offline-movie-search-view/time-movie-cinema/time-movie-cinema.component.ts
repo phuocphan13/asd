@@ -24,16 +24,16 @@ export class TimeMovieCinemaComponent implements OnInit {
 
 
   listMovies: any = [
-    { id: 1, name: 'NGÔI NHÀ BƯƠM BƯỚM' },
-    { id: 2, name: 'BẠN HỌC CÕI ÂM' },
-    { id: 3, name: 'ANH THẦY NGÔI SAO' },
-    { id: 4, name: 'ANGRY BIRDS 2' },
+    // { id: 1, name: 'NGÔI NHÀ BƯƠM BƯỚM' },
+    // { id: 2, name: 'BẠN HỌC CÕI ÂM' },
+    // { id: 3, name: 'ANH THẦY NGÔI SAO' },
+    // { id: 4, name: 'ANGRY BIRDS 2' },
   ];
   listCinemas: any = [
-    { id: 1, name: 'BHD Star Bitexco' },
-    { id: 2, name: 'BHD Star Vincom Thảo Điền' },
-    { id: 3, name: 'GLX - Nguyễn Du' },
-    { id: 4, name: 'GLX - Tân Bình' },
+    // { id: 1, name: 'BHD Star Bitexco' },
+    // { id: 2, name: 'BHD Star Vincom Thảo Điền' },
+    // { id: 3, name: 'GLX - Nguyễn Du' },
+    // { id: 4, name: 'GLX - Tân Bình' },
   ];
 
   constructor(private router: Router) {
