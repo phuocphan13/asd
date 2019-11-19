@@ -13,6 +13,7 @@ import { PaymentService } from 'src/app/core/services/payment.service';
 export class BillConfirmModalComponent implements OnInit {
 
   bill: PaymentBillModel = new PaymentBillModel();
+  adjustedBill :any;
   item: any;
   total: number;
   listProducts: BillModel[];
@@ -29,8 +30,20 @@ export class BillConfirmModalComponent implements OnInit {
 
   private showData() {
     this.item = this.movieSharedService.item;
-    
+    this.adjustedBill=this.bill.listBillDetails;
+    this.adjustedBill.forEach(temp => {
+      console.log(temp);
+      for(var i=0 ; i< this.listProducts.length ; i++)
+      {
+        if(this.listProducts[i].idProduct == temp.serviceId)
+        {
+          temp.name = this.listProducts[i].name;
+        }
+      }
+    });
+    console.log(this.adjustedBill);
     console.log(this.bill);
+    console.log(this.listProducts);
   }
 
   onClickSubmit() {
