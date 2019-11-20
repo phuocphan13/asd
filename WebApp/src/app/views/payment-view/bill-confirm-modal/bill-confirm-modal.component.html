@@ -6,13 +6,13 @@
       <div class="description-detail-container">
         <div class="name"><b>Name:</b> {{item.name}}</div>
         <div class="cinema-address"><b>Address:</b> {{item.address}}</div>
-        <div class="date" ><b>Date:</b>15/11/2019</div>
+        <div class="date"><b>Date:</b>{{item.date | date :"dd.MM.y"}}</div>
         <div class="time"><b>Time Start:</b> {{item.showtime}}</div>
         <div class="duration"><b>Duration:</b> {{item.duration}}</div>
         <div class="room"><b>Room:</b> 6</div>
         <div class="seat-container">
           <div class="seat-title"><b>Seat:</b></div>
-          <div *ngFor="let seat of itemSeats">
+          <div *ngFor="let seat of itemSeat">
             <div class="seats">{{seat.name}}</div>
           </div>
         </div>

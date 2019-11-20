@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchModel } from 'src/app/core/model/search.model';
 import { Router } from '@angular/router';
 import { invalid } from '@angular/compiler/src/render3/view/util';
+import { SearchMovieSharedService } from 'src/app/core/services/search-movie-shared.service';
 
 @Component({
   selector: 'app-time-movie-cinema',
@@ -36,7 +37,8 @@ export class TimeMovieCinemaComponent implements OnInit {
     { id: 4, name: 'GLX - Tân Bình' },
   ];
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private searchMovieSharedService:SearchMovieSharedService) {
     this.minDate = new Date();
     this.searchItem = new SearchModel();
     this.searchItemTemp = new SearchModel();
@@ -58,6 +60,7 @@ export class TimeMovieCinemaComponent implements OnInit {
         || this.searchItem.movieId != this.searchItemTemp.movieId
         || this.searchItem.cinemaId != this.searchItemTemp.cinemaId) {
         this.searchData.emit(this.searchItem);
+        this.searchMovieSharedService.set(this.searchItem);
         // console.log(this.searchItem);
       }
 

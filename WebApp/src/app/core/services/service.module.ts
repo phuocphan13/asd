@@ -13,6 +13,7 @@ import { SearchMovieSharedService } from './search-movie-shared.service';
 import { ShowMovieSharedService } from './show-movie-shared.service';
 import { PaymentSharedService } from './payment-shared.service';
 
+
 @NgModule({
   declarations: [
   ],

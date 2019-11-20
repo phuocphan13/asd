@@ -72,6 +72,11 @@ export class ShowSeatViewComponent implements OnInit {
       return;
     }
 
+    // this.listTicket.filter(x => {
+    //   if (item.idProduct == x.idProduct) {
+    //     x.quantity = item.isChecked ? (x.quantity + 1) : (x.quantity - 1);
+    //   }
+    // });
     this.listTicket.forEach(x => {
       if (item.idProduct == x.idProduct) {
         x.quantity = item.isChecked ? (x.quantity + 1) : (x.quantity - 1);
@@ -91,8 +96,10 @@ export class ShowSeatViewComponent implements OnInit {
 
   private caculateSeatTicketBooking(item) {
     for (let index = 0; index < this.listTicket.length; index++) {
-      // if (x.idSeatType == item.idSeatType && !item.isCheck && x.quantity == 0) {
+        // if (this.listTicket[index].idProduct == item.idProduct && !item.isCheck && this.listTicket[index].quantity == 0) {
       if (item.idProduct == this.listTicket[index].idProduct && !item.isChecked && this.listTicket[index].quantity == 0) {
+        console.log(this.listTicket.length);
+        console.log(index);
         return false;
       }
     }

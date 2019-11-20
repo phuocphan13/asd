@@ -47,6 +47,7 @@ $border-defaul: 1px dashed black;
   flex-direction: column;
   border-bottom: $border-defaul;
   border-top: $border-defaul;
+  text-align: center;
 }
 
 .bill-detail-container {
@@ -73,11 +74,11 @@ $border-defaul: 1px dashed black;
 }
 
 .number {
-  width: 100px;
+  width: 30px;
 }
 
 .product-name {
-  width: 100px;
+  width: 60px;
 }
 
 .quantity {
@@ -85,11 +86,11 @@ $border-defaul: 1px dashed black;
 }
 
 .price {
-  width: 100px;
+  width: 0px;
 }
 
 .product-total {
-  width: 100px;
+  width: 150px;
 }
 
 .bill-total{
@@ -97,18 +98,19 @@ $border-defaul: 1px dashed black;
 }
 
 .price-total{
-  width: 95px;
+  width: 100px;
 }
 
 .button-submit{
   background-color: chartreuse;
   width: 1000px;
-  height: 60px;
+  height: 80px;
+  margin-right: 15px;
 } 
 
 .button-cancel{
   width: 1000px;
-  height: 60px;
+  height: 80px;
 }
 
 .seat-container{
