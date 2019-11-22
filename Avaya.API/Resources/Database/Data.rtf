@@ -665,3 +665,18 @@ INSERT [dbo].[ShowTime] ([IdBookingDetail], [TimeStart], [TimeEnd], [Seat]) VALU
 INSERT [dbo].[ShowTime] ([IdBookingDetail], [TimeStart], [TimeEnd], [Seat]) VALUES (64, CAST(N'11:30:00' AS Time), CAST(N'12:05:00' AS Time), 120)
 INSERT [dbo].[ShowTime] ([IdBookingDetail], [TimeStart], [TimeEnd], [Seat]) VALUES (64, CAST(N'12:05:00' AS Time), CAST(N'13:30:00' AS Time), 120)
 INSERT [dbo].[ShowTime] ([IdBookingDetail], [TimeStart], [TimeEnd], [Seat]) VALUES (64, CAST(N'13:30:00' AS Time), CAST(N'14:10:00' AS Time), 120)
+
+
+data RoomShowTime (22/11/2019)
+SET IDENTITY_INSERT [dbo].[RoomShowTime] ON 
+
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (1, 1, 1)
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (2, 1, 80)
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (3, 4, 76)
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (4, 1, 81)
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (5, 1, 82)
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (6, 1, 83)
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (7, 4, 77)
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (8, 4, 78)
+INSERT [dbo].[RoomShowTime] ([Id], [IdRoom], [IdShowTime]) VALUES (9, 4, 79)
+SET IDENTITY_INSERT [dbo].[RoomShowTime] OFF
