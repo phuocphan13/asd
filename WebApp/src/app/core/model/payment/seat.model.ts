@@ -10,7 +10,6 @@ export class SeatModel {
     type: string;
     color: string;
     isChecked: boolean;
-    idSeatType: number;
 
     constructor() {
         this.isChecked = false;

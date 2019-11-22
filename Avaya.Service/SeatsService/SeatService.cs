@@ -65,7 +65,7 @@ namespace Avaya.Service.SeatService
                     return null;
 
                 var listReservedSeats = _bookingRepository.GetAll()
-                    .Where(x => x.IdShowTime == searchSeat.ShowTime);
+                    .Where(x => x.IdShowTime == searchSeat.ShowTime).ToList();
 
                 var listProductId = roomDetail.Select(x => x.IdProduct).ToList();
 
