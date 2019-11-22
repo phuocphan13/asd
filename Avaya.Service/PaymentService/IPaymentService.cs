@@ -11,5 +11,7 @@ namespace Avaya.Service.PaymentService
         List<PaymentModel> GetListProducts(int idCinema);
 
         bool Create(BillModel bill);
+
+
     }
 }

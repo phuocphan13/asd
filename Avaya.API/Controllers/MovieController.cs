@@ -31,18 +31,21 @@ namespace Avaya.API.Controllers
             return Ok(listMovie);
         }
 
-        [HttpGet("{query}")]
-        public IActionResult GetData(string query)
-        {
-            var listMovie = _movieService.GetData(query);
-            return Ok(listMovie);
-        }
+
 
         [HttpPost]
         public IActionResult GetListMovies([FromBody]SearchMovieModel searchMovie)
         {
             var result = _movieService.GetListMovies(searchMovie);
             return Ok(result);
+        }
+
+
+        [HttpGet]
+        public IActionResult GetListData()
+        {
+            var listData = _movieService.GetListData();
+            return Ok(listData);
         }
     }
 }

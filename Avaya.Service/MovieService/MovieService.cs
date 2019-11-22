@@ -30,10 +30,21 @@ namespace Avaya.Service.MovieService
             return _movieRepository.GetAll().ToList();
         }
 
-        public List<Movie> GetData(string query)
+        public SearchDataModel GetListData()
         {
-            var list = _movieRepository.GetAll().Where(x => x.Name.Contains(query)).MapTo<List<Movie>>().ToList();
-            return list;
+            var listData = new SearchDataModel();
+            var listtest = new List<string>();
+            var listCinema = _cinemaRepository.GetAll().MapTo<List<SearchBoxCinemaModel>>();
+            var ListMovie = _movieRepository.GetAll().MapTo<List<SearchBoxMovieModel>>();
+            foreach (var item in listCinema)
+            {
+                listData.ListCinema.Add(item);
+            }
+            foreach (var item in ListMovie)
+            {
+                listData.ListMovie.Add(item);
+            }
+            return listData;
         }
 
 

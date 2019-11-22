@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchModel } from 'src/app/core/model/search.model';
 import { Router } from '@angular/router';
 import { invalid } from '@angular/compiler/src/render3/view/util';
+import { SearchDataModel } from 'src/app/core/model/payment/search-data.model';
+import { MovieService } from 'src/app/core/services/movie.service';
 
 @Component({
   selector: 'app-time-movie-cinema',
@@ -18,32 +20,31 @@ export class TimeMovieCinemaComponent implements OnInit {
   date: any;
   movieId: any;
   cinemaId: any;
-
+  listData: SearchDataModel;
   pickedMovie: any;
   pickedCinema: any;
 
 
   listMovies: any = [
-    { id: 1, name: 'NGÔI NHÀ BƯƠM BƯỚM' },
-    { id: 2, name: 'BẠN HỌC CÕI ÂM' },
-    { id: 3, name: 'ANH THẦY NGÔI SAO' },
-    { id: 4, name: 'ANGRY BIRDS 2' },
+
   ];
   listCinemas: any = [
-    { id: 1, name: 'BHD Star Bitexco' },
-    { id: 2, name: 'BHD Star Vincom Thảo Điền' },
-    { id: 3, name: 'GLX - Nguyễn Du' },
-    { id: 4, name: 'GLX - Tân Bình' },
+
   ];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private movieService: MovieService) {
     this.minDate = new Date();
     this.searchItem = new SearchModel();
     this.searchItemTemp = new SearchModel();
+    this.listData = new SearchDataModel();
   }
 
   ngOnInit() {
-
+    this.movieService.getListData().subscribe(result =>{
+      this.listData.listTheater=result.listCinema
+      this.listData.listMovie=result.listMovie
+      // console.log(this.listData);
+    });
   }
 
   onClickSearch() {
@@ -57,6 +58,7 @@ export class TimeMovieCinemaComponent implements OnInit {
       if (this.searchItem.date != this.searchItemTemp.date
         || this.searchItem.movieId != this.searchItemTemp.movieId
         || this.searchItem.cinemaId != this.searchItemTemp.cinemaId) {
+          console.log(this.searchItem);
         this.searchData.emit(this.searchItem);
       }
 
