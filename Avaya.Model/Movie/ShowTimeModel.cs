@@ -7,5 +7,6 @@ namespace Avaya.Model.Movie
     public class ShowTimeModel : BaseModel
     {
         public string TimeStart { get; set; }
+        public string Room { get; set; }
     }
 }

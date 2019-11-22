@@ -15,7 +15,8 @@ $border-defaul: 1px dashed black;
     font-family: monospace;
     width: 100%;
     border-bottom: $border-defaul;
-    mix-blend-mode: color-burn;
+    background-color: firebrick;
+    color: darkorange;
   }
 }
 
@@ -102,15 +103,17 @@ $border-defaul: 1px dashed black;
 }
 
 .button-submit{
-  background-color: chartreuse;
+  background-color: seagreen;
   width: 1000px;
   height: 80px;
   margin-right: 15px;
+  font-size: 20px;
 } 
 
 .button-cancel{
   width: 1000px;
   height: 80px;
+  font-size: 20px;
 }
 
 .seat-container{

@@ -7,4 +7,5 @@ export class SearchInformationModel{
     idCinema: number;
     duration:number;
     date: string;
+    room: string;
 }

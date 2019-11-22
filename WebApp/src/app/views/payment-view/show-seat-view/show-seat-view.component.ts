@@ -66,40 +66,36 @@ export class ShowSeatViewComponent implements OnInit {
     if (item.isBooking) {
       return;
     }
-    
+
     let isEnough = this.caculateSeatTicketBooking(item);
     if (!isEnough) {
       return;
     }
+    for (let index = 0; index < this.listTicket.length; index++) {
+      // this.listTicket.forEach(x => {
+      //   if (item.idProduct == x.idProduct) {
+      //     x.quantity = item.isChecked ? (x.quantity + 1) : (x.quantity - 1);
+      //   }
+      // });
 
-    // this.listTicket.filter(x => {
-    //   if (item.idProduct == x.idProduct) {
-    //     x.quantity = item.isChecked ? (x.quantity + 1) : (x.quantity - 1);
-    //   }
-    // });
-    this.listTicket.forEach(x => {
-      if (item.idProduct == x.idProduct) {
-        x.quantity = item.isChecked ? (x.quantity + 1) : (x.quantity - 1);
-      }
-    });
+      if (item.idProduct == this.listTicket[index].idProduct) {
+        this.listTicket[index].quantity = item.isChecked ? (this.listTicket[index].quantity + 1) : (this.listTicket[index].quantity - 1);
+      };
 
+      this.paymentSharedService.setListSeats(this.listSeats);
+    }
     this.listSeats.forEach(x => {
       if (x.id == item.id) {
         x.isChecked = !x.isChecked;
         x.color = x.isChecked ? "#7dc71d" : "#DFDFDF";
       }
     });
-
-    this.paymentSharedService.setListSeats(this.listSeats);
-    console.log(this.listSeats);
   }
 
   private caculateSeatTicketBooking(item) {
     for (let index = 0; index < this.listTicket.length; index++) {
-        // if (this.listTicket[index].idProduct == item.idProduct && !item.isCheck && this.listTicket[index].quantity == 0) {
       if (item.idProduct == this.listTicket[index].idProduct && !item.isChecked && this.listTicket[index].quantity == 0) {
-        console.log(this.listTicket.length);
-        console.log(index);
+        console.log(this.listTicket[index].quantity);
         return false;
       }
     }

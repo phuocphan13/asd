@@ -61,7 +61,7 @@ export class TimeMovieCinemaComponent implements OnInit {
         || this.searchItem.cinemaId != this.searchItemTemp.cinemaId) {
         this.searchData.emit(this.searchItem);
         this.searchMovieSharedService.set(this.searchItem);
-        // console.log(this.searchItem);
+        console.log(this.searchItem);
       }
 
       //2
