@@ -43,7 +43,7 @@ export class TimeMovieCinemaComponent implements OnInit {
     this.movieService.getListData().subscribe(result =>{
       this.listData.listTheater=result.listCinema
       this.listData.listMovie=result.listMovie
-      console.log(this.listData);
+      // console.log(this.listData);
     });
   }
 
