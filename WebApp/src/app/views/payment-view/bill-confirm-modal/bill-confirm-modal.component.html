@@ -4,17 +4,20 @@
     <div class="description-container">
       <img class="image" src="{{item.picture}}">
       <div class="description-detail-container">
-        <div class="name"><b>Name:</b> {{item.name}}</div>
-        <div class="cinema-address"><b>Address:</b> {{item.address}}</div>
-        <div class="date"><b>Date:</b>{{item.date | date :"dd.MM.y"}}  </div>
-        <div class="time"><b>Time Start:</b> {{item.showtime}}</div>
-        <div class="duration"><b>Duration:</b> {{item.duration}}</div>
-        <div class="room"><b>Room:</b> {{item.room}}</div>
-        <div class="seat-container">
-          <div class="seat-title"><b>Seat:</b></div>
-          <div *ngFor="let seat of itemSeat">
-            <div class="seats">{{seat.name}}</div>
-          </div>
+        <div class="name"><i class="fas fa-video"></i>: {{item.name}}</div>
+        <div class="cinema-address"><i class="fas fa-map-marked-alt"></i>:{{item.address}}</div>
+        <div class="date time"><i class="far fa-calendar-check"></i>: {{item.date | date :"dd.MM.y"}} | {{item.showtime}}
+        </div>
+        <!-- <div class="time"><b>Time Start:</b> {{item.showtime}}</div> -->
+        <div class="duration"><i class="fas fa-hourglass-half"></i>: {{item.duration}} min</div>
+        
+          <div class="room"><i class="fas fa-person-booth"></i>: {{item.room}}</div>
+          <div class="seat-container">
+            <div class="seat-title"><i class="fas fa-couch"></i>:</div>
+            <div *ngFor="let seat of itemSeat">
+              <div class="seats"> {{seat.name}},</div>
+            </div>
+          
         </div>
       </div>
     </div>

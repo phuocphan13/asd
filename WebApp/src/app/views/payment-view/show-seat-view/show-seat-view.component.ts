@@ -35,7 +35,6 @@ export class ShowSeatViewComponent implements OnInit {
   ngOnInit() {
     this.seatBooking = new SeatBookingModel();
     this.showtime.ShowTime = this.movieSharedService.item.idShowTime;
-    console.log(this.showtime.ShowTime);
     this.listSeatBooked = this.paymentSharedService.getNumberOfSeats();
     this.listTicket = this.paymentSharedService.getNumberTicket();
     this.showSeatService.getShowSeats(this.showtime).subscribe(result => {
@@ -95,7 +94,7 @@ export class ShowSeatViewComponent implements OnInit {
   private caculateSeatTicketBooking(item) {
     for (let index = 0; index < this.listTicket.length; index++) {
       if (item.idProduct == this.listTicket[index].idProduct && !item.isChecked && this.listTicket[index].quantity == 0) {
-        console.log(this.listTicket[index].quantity);
+        
         return false;
       }
     }

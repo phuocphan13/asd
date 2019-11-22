@@ -13,6 +13,7 @@ import { empty } from 'rxjs';
 import { SeatTicketBookingModel } from 'src/app/core/model/payment/seat-ticket-booking.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { BillConfirmModalComponent } from '../bill-confirm-modal/bill-confirm-modal.component';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-payment-section',
@@ -27,12 +28,14 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   completedPrice: number = 0;
 
   listGUID: ReverseSeatModel[] = new Array(0);
+  listTicket: SeatTicketBookingModel[] = new Array(0);
+
   list: any[];
 
 
   bill: PaymentBillModel = new PaymentBillModel();
   item: SearchInformationModel = new SearchInformationModel();
-  
+
   modalRef: BsModalRef;
 
   constructor(private paymentService: PaymentService,
@@ -45,6 +48,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.item = this.movieSharedService.item;
     this.paymentStatus = parseInt(localStorage.getItem("paymentStatus"));
+
     this.registerEvents();
   }
 
@@ -63,6 +67,13 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   }
 
   onClickCheckOut() {
+
+    let checkEnough = this.checkTicket();
+    if (!checkEnough){
+      alert("Chưa đủ vé");
+      return false;
+    }
+
     this.bill.userId = 1;
     this.bill.total = this.completedPrice;
 
@@ -71,7 +82,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
       let reservedSeat = new ReverseSeatModel();
       reservedSeat.guid = x.guid;
       reservedSeat.idProduct = x.idProduct;
-      reservedSeat.idSeatType = x.idSeatType;  
+      reservedSeat.idSeatType = x.idSeatType;
       this.bill.listSeats.push(reservedSeat);
     })
     // this.bill.idRoom = 1;
@@ -88,9 +99,14 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
     });
 
     this.showBillDetail();
+
+
   }
 
   onClickContinue() {
+
+
+    console.log(this.listTicket);
     let listSeatTicketBookings: SeatTicketBookingModel[] = new Array(0);
     this.listItems.filter(x => {
       if (x.type === 1 && x.quantity > 0) {
@@ -102,6 +118,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
       }
     });
     this.paymentSharedService.setNumberTicket(listSeatTicketBookings);
+    this.listTicket = this.paymentSharedService.getNumberTicket();
     this.paymentStatus = 2;
     this.router.navigateByUrl("payment/booking-seat");
   }
@@ -119,5 +136,15 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
     this.modalRef.content.bill = this.bill;
     this.modalRef.content.total = this.completedPrice;
     this.modalRef.content.listProducts = this.listItems;
+  }
+
+  private checkTicket() {
+    for (let index = 0; index < this.listTicket.length; index++) {
+      if (this.listTicket[index].quantity > 0) {
+
+        return false;
+      }
+    }
+    return true;
   }
 }
