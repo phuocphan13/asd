@@ -16,7 +16,6 @@ namespace Avaya.Service.MovieService
         private readonly IRepository<ShowTime> _showTimeRepository;
         private readonly IRepository<Movie> _movieRepository;
         private readonly IRepository<Cinema> _cinemaRepository;
-        private readonly IRepository<ShowTime> _showTimeRepository;
         private readonly IRepository<RoomShowTime> _roomShowTimeRepository;
         private readonly IRepository<Room> _roomRepository;
         public MovieService(IRepository<BookingDetail> bookingDetailRepository,

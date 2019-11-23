@@ -27,8 +27,9 @@ export class BillConfirmModalComponent implements OnInit {
   listProducts: BillModel[];
   date:any;
   constructor(private movieSharedService: MovieSharedService,
-    private bsModalRef: BsModalRef,private router: Router,
-    private paymentService: PaymentService) { }
+    private bsModalRef: BsModalRef,
+    private router: Router,
+    private paymentService: PaymentService,
     private paymentSharedService: PaymentSharedService) { }
 
   ngOnInit() {
@@ -71,6 +72,6 @@ export class BillConfirmModalComponent implements OnInit {
     this.closeModal();
   }
   private closeModal() {
-    // this.bsModalRef.hide();
+     this.bsModalRef.hide();
   }
 }
