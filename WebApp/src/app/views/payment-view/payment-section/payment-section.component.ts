@@ -77,6 +77,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
     this.bill.userId = 1;
     this.bill.total = this.completedPrice;
 
+    this.bill = new PaymentBillModel();
     let listSeats = this.paymentSharedService.getListSeats().filter(x => x.isChecked && !x.isBooking);
     listSeats.forEach(x => {
       let reservedSeat = new ReverseSeatModel();

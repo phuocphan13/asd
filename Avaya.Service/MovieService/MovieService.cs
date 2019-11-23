@@ -12,7 +12,8 @@ namespace Avaya.Service.MovieService
 {
     public class MovieService : IMovieService
     {
-        private readonly IRepository<BookingDetail> _bookingDetailRepository;
+        private readonly IRepository<BookingDetail> _bookingDetailRepository;        
+        private readonly IRepository<ShowTime> _showTimeRepository;
         private readonly IRepository<Movie> _movieRepository;
         private readonly IRepository<Cinema> _cinemaRepository;
         private readonly IRepository<ShowTime> _showTimeRepository;
@@ -25,7 +26,8 @@ namespace Avaya.Service.MovieService
             IRepository<RoomShowTime> roomShowTimeRepository,
             IRepository<Room> roomRepository)
         {
-            _bookingDetailRepository = bookingDetailRepository;
+            _bookingDetailRepository = bookingDetailRepository;           
+            _showTimeRepository = showTimeRepository;
             _movieRepository = movieRepository;
             _cinemaRepository = cinemaRepository;
             _showTimeRepository = showTimeRepository;
@@ -37,10 +39,20 @@ namespace Avaya.Service.MovieService
             return _movieRepository.GetAll().ToList();
         }
 
-        public List<Movie> GetData(string query)
+        public SearchDataModel GetListData()
         {
-            var list = _movieRepository.GetAll().Where(x => x.Name.Contains(query)).MapTo<List<Movie>>().ToList();
-            return list;
+            var listData = new SearchDataModel();
+            var listCinema = _cinemaRepository.GetAll().MapTo<List<SearchBoxCinemaModel>>();
+            var ListMovie = _movieRepository.GetAll().MapTo<List<SearchBoxMovieModel>>();
+            foreach (var item in listCinema)
+            {
+                listData.ListCinema.Add(item);
+            }
+            foreach (var item in ListMovie)
+            {
+                listData.ListMovie.Add(item);
+            }
+            return listData;
         }
 
 

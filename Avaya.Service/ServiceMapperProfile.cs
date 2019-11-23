@@ -51,6 +51,11 @@ namespace Avaya.Service
             CreateMap<FilmOnline, FilmNominationModel>()
                 .ForMember(x => x.Time, opt => opt.MapFrom(i => i.Duration)).ReverseMap();
             #endregion
+
+            #region Film Offline Mapping
+            CreateMap<Movie, SearchBoxMovieModel>().ReverseMap();
+            CreateMap<Cinema, SearchBoxCinemaModel>().ReverseMap();
+            #endregion
         }
     }
 }

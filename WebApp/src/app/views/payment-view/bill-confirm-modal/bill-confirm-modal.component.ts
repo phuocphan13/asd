@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentBillModel } from 'src/app/core/model/payment/payment-bill.model';
 import { MovieSharedService } from 'src/app/core/services/movie-shared.service';
 import { BillModel } from 'src/app/core/model/bill.model';
+import { BsModalRef } from 'ngx-bootstrap';
+import { PaymentService } from 'src/app/core/services/payment.service';
+import { Router } from '@angular/router';
 import { PaymentSharedService } from 'src/app/core/services/payment-shared.service';
 import { SeatModel } from 'src/app/core/model/payment/seat.model';
 
@@ -17,12 +20,15 @@ export class BillConfirmModalComponent implements OnInit {
 
   seats: string;
   bill: PaymentBillModel = new PaymentBillModel();
+  adjustedBill: any;
   item: any;
   itemSeat: any;
   total: number;
   listProducts: BillModel[];
   date:any;
   constructor(private movieSharedService: MovieSharedService,
+    private bsModalRef: BsModalRef,private router: Router,
+    private paymentService: PaymentService) { }
     private paymentSharedService: PaymentSharedService) { }
 
   ngOnInit() {
@@ -53,9 +59,12 @@ export class BillConfirmModalComponent implements OnInit {
   }
 
   onClickSubmit() {
-    // this.paymentService.getListBill(this.bill).subscribe(result => {
-    //   alert(result);
-    // })
+    this.paymentService.getListBill(this.bill).subscribe(result => {
+      alert(result);
+      this.router.navigateByUrl("offline");
+      this.closeModal();
+    })
+    
   }
 
   onClickCancel() {

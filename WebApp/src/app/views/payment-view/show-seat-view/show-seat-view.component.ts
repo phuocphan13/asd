@@ -41,7 +41,9 @@ export class ShowSeatViewComponent implements OnInit {
       result.forEach(x => {
         x.isChecked = false;
         this.listSeats.push(x);
+        
       })
+      // console.log(this.listSeats);
       this.showSeats();
     })
   }
@@ -89,6 +91,9 @@ export class ShowSeatViewComponent implements OnInit {
         x.color = x.isChecked ? "#7dc71d" : "#DFDFDF";
       }
     });
+
+    this.paymentSharedService.setListSeats(this.listSeats);
+    console.log(this.listSeats);
   }
 
   private caculateSeatTicketBooking(item) {
