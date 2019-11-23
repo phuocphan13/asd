@@ -43,7 +43,7 @@ export class ShowSeatViewComponent implements OnInit {
         this.listSeats.push(x);
         
       })
-      console.log(this.listSeats);
+      // console.log(this.listSeats);
       this.showSeats();
     })
   }
@@ -87,7 +87,7 @@ export class ShowSeatViewComponent implements OnInit {
     });
 
     this.paymentSharedService.setListSeats(this.listSeats);
-    console.log(this.listSeats);
+    // console.log(this.listSeats);
   }
 
   private caculateSeatTicketBooking(item) {

@@ -4,6 +4,7 @@ import { MovieSharedService } from 'src/app/core/services/movie-shared.service';
 import { BillModel } from 'src/app/core/model/bill.model';
 import { BsModalRef } from 'ngx-bootstrap';
 import { PaymentService } from 'src/app/core/services/payment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bill-confirm-modal',
@@ -19,7 +20,7 @@ export class BillConfirmModalComponent implements OnInit {
   listProducts: BillModel[];
 
   constructor(private movieSharedService: MovieSharedService,
-    private bsModalRef: BsModalRef,
+    private bsModalRef: BsModalRef,private router: Router,
     private paymentService: PaymentService) { }
 
   ngOnInit() {
@@ -47,7 +48,10 @@ export class BillConfirmModalComponent implements OnInit {
   onClickSubmit() {
     this.paymentService.getListBill(this.bill).subscribe(result => {
       alert(result);
+      this.router.navigateByUrl("offline");
+      this.closeModal();
     })
+    
   }
 
   onClickCancel() {

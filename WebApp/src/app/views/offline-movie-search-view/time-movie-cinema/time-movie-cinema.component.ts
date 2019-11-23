@@ -24,14 +24,6 @@ export class TimeMovieCinemaComponent implements OnInit {
   pickedMovie: any;
   pickedCinema: any;
 
-
-  listMovies: any = [
-
-  ];
-  listCinemas: any = [
-
-  ];
-
   constructor(private router: Router, private movieService: MovieService) {
     this.minDate = new Date();
     this.searchItem = new SearchModel();
@@ -40,9 +32,9 @@ export class TimeMovieCinemaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieService.getListData().subscribe(result =>{
-      this.listData.listTheater=result.listCinema
-      this.listData.listMovie=result.listMovie
+    this.movieService.getListData().subscribe(result => {
+      this.listData.listTheater = result.listCinema
+      this.listData.listMovie = result.listMovie
       // console.log(this.listData);
     });
   }
@@ -58,7 +50,7 @@ export class TimeMovieCinemaComponent implements OnInit {
       if (this.searchItem.date != this.searchItemTemp.date
         || this.searchItem.movieId != this.searchItemTemp.movieId
         || this.searchItem.cinemaId != this.searchItemTemp.cinemaId) {
-          console.log(this.searchItem);
+        console.log(this.searchItem);
         this.searchData.emit(this.searchItem);
       }
 
