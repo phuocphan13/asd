@@ -31,7 +31,7 @@
       </div>
       <div class="bill-detail-container" *ngFor="let billDetail of bill.listBillDetails; let index = index">
         <div class="number">{{index + 1}}</div>
-        <div class="product-name">Vé 2D</div>
+        <div class="product-name">{{adjustedBill[index].name}}</div>
         <div class="quantity">{{billDetail.quantity}}</div>
         <div class="price">{{billDetail.price}}</div>
         <div class="product-total">{{billDetail.quantity * billDetail.price}}</div>

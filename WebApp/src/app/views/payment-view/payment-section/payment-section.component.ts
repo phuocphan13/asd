@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { PaymentSharedService } from 'src/app/core/services/payment-shared.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { ReverseSeatModel } from 'src/app/core/model/reverse-seat.model';
-import { empty } from 'rxjs';
+import { empty, Subscription } from 'rxjs';
 import { SeatTicketBookingModel } from 'src/app/core/model/payment/seat-ticket-booking.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { BillConfirmModalComponent } from '../bill-confirm-modal/bill-confirm-modal.component';
@@ -38,6 +38,8 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
 
   modalRef: BsModalRef;
 
+  subcribeEvent: Subscription;
+
   constructor(private paymentService: PaymentService,
     private paymentSharedService: PaymentSharedService,
     private router: Router,
@@ -53,11 +55,11 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.paymentSharedService.caculationChange.unsubscribe();
+    this.subcribeEvent.unsubscribe();
   }
 
   private registerEvents() {
-    this.paymentSharedService.caculationChange.subscribe(result => {
+    this.subcribeEvent =  this.paymentSharedService.caculationChange.subscribe(result => {
       if (result) {
         this.listItems = result;
         this.completedPrice = 0;

@@ -53,7 +53,15 @@ export class BillConfirmModalComponent implements OnInit {
       }
     });;
     this.seats = this.itemSeat.map(x => {return x.name}).join(', ');
-
+    this.adjustedBill = this.bill.listBillDetails;
+    this.adjustedBill.forEach(temp => {
+      console.log(temp);
+      for (var i = 0; i < this.listProducts.length; i++) {
+        if (this.listProducts[i].idProduct == temp.serviceId) {
+          temp.name = this.listProducts[i].name;
+        }
+      }
+    });
     // console.log(this.listProducts);
     // console.log(this.bill);
     console.log(this.itemSeat);
