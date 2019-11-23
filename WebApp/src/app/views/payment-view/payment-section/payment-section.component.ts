@@ -67,7 +67,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   }
 
   onClickCheckOut() {
-
+    this.bill = new PaymentBillModel();
     let checkEnough = this.checkTicket();
     if (!checkEnough){
       alert("Chưa đủ vé");
@@ -77,7 +77,6 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
     this.bill.userId = 1;
     this.bill.total = this.completedPrice;
 
-    this.bill = new PaymentBillModel();
     let listSeats = this.paymentSharedService.getListSeats().filter(x => x.isChecked && !x.isBooking);
     listSeats.forEach(x => {
       let reservedSeat = new ReverseSeatModel();
@@ -105,9 +104,6 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   }
 
   onClickContinue() {
-
-
-    console.log(this.listTicket);
     let listSeatTicketBookings: SeatTicketBookingModel[] = new Array(0);
     this.listItems.filter(x => {
       if (x.type === 1 && x.quantity > 0) {
