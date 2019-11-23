@@ -15,7 +15,7 @@ import { SearchMovieSharedService } from 'src/app/core/services/search-movie-sha
 })
 export class BillConfirmModalComponent implements OnInit {
 
-
+  seats: string;
   bill: PaymentBillModel = new PaymentBillModel();
   item: any;
   itemSeat: any;
@@ -45,6 +45,8 @@ export class BillConfirmModalComponent implements OnInit {
         case 7: y.name = `${y.row}G`; break;
       }
     });;
+    this.seats = this.itemSeat.map(x => {return x.name}).join(', ');
+
     // console.log(this.listProducts);
     // console.log(this.bill);
     console.log(this.itemSeat);
