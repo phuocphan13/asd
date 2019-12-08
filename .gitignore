@@ -21,3 +21,9 @@
 /Identity/Identity.Domain/obj
 /Identity/Identity.Model/obj
 /Identity/Identity.Service/obj
+/Identity/Identity.API/bin/Debug/netcoreapp2.1
+/Identity/.vs
+/Identity/Identity.Core/bin/Debug
+/Identity/Identity.Domain/bin/Debug
+/Identity/Identity.Model/bin/Debug/netcoreapp2.1
+/Identity/Identity.Service/bin/Debug/netcoreapp2.1
