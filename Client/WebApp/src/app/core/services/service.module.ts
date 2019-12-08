@@ -14,6 +14,8 @@ import { ShowMovieSharedService } from './show-movie-shared.service';
 import { PaymentSharedService } from './payment-shared.service';
 
 import { FilmOnlineShareService } from './film-online-shared.service';
+import { AuthService } from './auth.service';
+import { ConfigService } from 'src/app/shared/config.service';
 @NgModule({
   declarations: [
   ],
@@ -31,7 +33,9 @@ import { FilmOnlineShareService } from './film-online-shared.service';
     SearchMovieSharedService,
     ShowMovieSharedService,
     PaymentSharedService,
-    FilmOnlineShareService
+    FilmOnlineShareService,
+    AuthService,
+    ConfigService
   ]
 })
 export class ServiceModule { }

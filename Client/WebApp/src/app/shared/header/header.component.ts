@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { LoginModalComponent } from 'src/app/modals/login/login.modal.component';
 import { ForgottenModalComponent } from 'src/app/modals/forgotten/forgotten.modal.component';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -18,10 +19,11 @@ export class HeaderComponent implements OnInit {
   modalRef: BsModalRef;
   username: string;
   password: string;
-id = 1;
+  id = 1;
   constructor(private menuService: MenuService,
     private router: Router,
-    private modalService: BsModalService) { }
+    private modalService: BsModalService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     
@@ -33,18 +35,19 @@ id = 1;
   }
 
   onClickLogin() {
-    this.modalRef = this.modalService.show(LoginModalComponent, {
-      ignoreBackdropClick: true
-    });
-    this.modalRef.content.username = this.username;
-    this.modalRef.content.password = this.password;
-    this.modalRef.content.event.subscribe(result => {
-      if(result === 1)
-      {
-        this.modalRef = this.modalService.show(ForgottenModalComponent, {
-          ignoreBackdropClick: true
-        });
-      }
-    })
+    this.authService.login();
+    // this.modalRef = this.modalService.show(LoginModalComponent, {
+    //   ignoreBackdropClick: true
+    // });
+    // this.modalRef.content.username = this.username;
+    // this.modalRef.content.password = this.password;
+    // this.modalRef.content.event.subscribe(result => {
+    //   if(result === 1)
+    //   {
+    //     this.modalRef = this.modalService.show(ForgottenModalComponent, {
+    //       ignoreBackdropClick: true
+    //     });
+    //   }
+    // })
   }
 }

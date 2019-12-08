@@ -27,3 +27,4 @@
 /Identity/Identity.Domain/bin/Debug
 /Identity/Identity.Model/bin/Debug/netcoreapp2.1
 /Identity/Identity.Service/bin/Debug/netcoreapp2.1
+/Identity/Identity.API/authserver_log.txt

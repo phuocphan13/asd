@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Identity.Core.Infrastructure;
+using Identity.Domain.Constants;
 using Identity.Domain.Identity;
 using IdentityModel;
 using IdentityServer4;
