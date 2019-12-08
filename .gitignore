@@ -28,3 +28,17 @@
 /Identity/Identity.Model/bin/Debug/netcoreapp2.1
 /Identity/Identity.Service/bin/Debug/netcoreapp2.1
 /Identity/Identity.API/authserver_log.txt
+/.vs
+/Avaya.API/bin/Debug/netcoreapp2.0/Avaya.API.deps.json
+/Avaya.API/bin/Debug/netcoreapp2.0
+/Avaya.API/Logs
+/Avaya.API/obj
+/Avaya.Core/bin/Debug/netcoreapp2.0
+/Avaya.Core/obj
+/Avaya.Domain/bin/Debug/netcoreapp2.0
+/Avaya.Domain/obj
+/Avaya.Model/bin/Debug/netcoreapp2.0
+/Avaya.Model/obj
+/Avaya.Service/bin/Debug/netcoreapp2.0
+/Avaya.Service/obj
+/WebApp/node_modules
