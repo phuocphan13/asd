@@ -17,6 +17,7 @@ namespace Avaya.Service
             services.AddScoped<IPaymentService, PaymentService.PaymentService>();
             services.AddScoped<ISeatService, SeatService.SeatService>();
             services.AddScoped<IFilmService, FilmService>();
+            services.AddScoped<IMenuService, MenuService>();
         }
     }
 }

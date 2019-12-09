@@ -1,13 +1,11 @@
 <div class="header-container">
   <app-drop-down *ngFor="let item of listMenus" [items]="item.menuChildren" [title]="item.name"></app-drop-down>
   <img class="logo" src="http://localhost:59239/resources/images/logo.png" (click)="onSearch()">
-
   <div class="search-container">
-    <input type="text" placeholder="Search.." [(ngModel)]="searchText" name="search-value">
+    <input type="text" placeholder=" Tìm tên phim..." [(ngModel)]="searchText" name="search-value">
     <button type="submit" (click)="onSearch()">
       <i class="fa fa-search"></i>
     </button>
     <i class="fas fa-user log-in-circle log-in-button" title="Log In Pls" (click)="onClickLogin()"></i>
   </div>
-
 </div>

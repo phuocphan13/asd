@@ -18,18 +18,19 @@ export class HeaderComponent implements OnInit {
   modalRef: BsModalRef;
   username: string;
   password: string;
-id = 1;
+  id = 1;
   constructor(private menuService: MenuService,
     private router: Router,
     private modalService: BsModalService) { }
 
   ngOnInit() {
-    
+
   }
 
   onSearch() {
-    this.router.navigateByUrl(`news/news-detail/${this.id}`)
-    this.id++;
+    // this.router.navigateByUrl(`news/news-detail/${this.id}`)
+    // this.id++;
+    console.log(this.searchText);
   }
 
   onClickLogin() {
@@ -39,8 +40,7 @@ id = 1;
     this.modalRef.content.username = this.username;
     this.modalRef.content.password = this.password;
     this.modalRef.content.event.subscribe(result => {
-      if(result === 1)
-      {
+      if (result === 1) {
         this.modalRef = this.modalService.show(ForgottenModalComponent, {
           ignoreBackdropClick: true
         });
