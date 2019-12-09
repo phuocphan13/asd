@@ -1,22 +1,53 @@
-.partner{
-    text-align: right;
+.partner {
+  text-align: right;
 }
 
-#partner{
-    
-    text-align: center;
+#contact {
+  text-align: center;
 }
 
-.image{
-    margin-top: 30px;
-    height: 50px;
+#information {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
-.row{
-    border: 1px solid black;
+.image {
+  height: 100px;
 }
 
-.image-size{
-    height: 100px;
-    width: 100px;
+.image-company-partner{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.row {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.image-size {
+  height: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.footer-company-partner{
+  width:300px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.footer-company-contact{
+  text-align: center;
+  margin-top: 15px;
+  font-size: 18px;
 }

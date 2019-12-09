@@ -1,9 +1,5 @@
-﻿using Avaya.Model.BookingSeat;
-using Avaya.Model.SaveSeat;
-using Avaya.Model.ShowSeat;
-using System;
+﻿using Avaya.Model.Seat;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Avaya.Service.SeatService
 {
