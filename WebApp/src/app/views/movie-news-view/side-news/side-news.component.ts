@@ -11,8 +11,6 @@ import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.
 export class SidenewsComponent implements OnInit {
 
   listClip: any[] = [];
-  news: [] = [];
-  firstRun: boolean = true;
   @Input() newsId: number = 0;
 
   constructor(private movieNewsService: MovieNewsService,

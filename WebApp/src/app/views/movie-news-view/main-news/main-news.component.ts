@@ -9,8 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./main-news.component.scss']
 })
 export class MainNewsComponent implements OnInit, OnChanges {
-
-
+  
   detailNews: any = {
     headline: "",
   };

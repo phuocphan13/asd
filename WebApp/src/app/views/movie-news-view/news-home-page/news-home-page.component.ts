@@ -11,9 +11,6 @@ import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.
 })
 export class NewsHomePageComponent implements OnInit {
 
-  newsId: any = 0;
-  show: boolean = true;
-  sideShow: boolean = false;
   listClip: any = [];
   type = ItemShowingEnum.News;
 
