@@ -19,6 +19,11 @@ namespace Avaya.Service
     {
         public ServiceMapperProfile()
         {
+            var config = new MapperConfiguration(cfg => {
+
+                CreateMap<NewsArticles, NewsModel>().ReverseMap();
+                CreateMap<NewsArticles, NewsDetailModel>().ReverseMap();
+            });
             CreateMap<Movie, MovieTemptModel>().ReverseMap();
             CreateMap<Movie, MovieModel>().ReverseMap();
             CreateMap<Cinema, MovieModel>()
