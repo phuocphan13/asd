@@ -25,45 +25,22 @@ namespace Avaya.Service.NewsService
 
         public List<NewsModel> GetAll()
         {
-            var news = _newsArticleRepository.GetAll().MapTo<List<NewsModel>>();
-            foreach (var temp in news)
+            var listArticle = _newsArticleRepository.GetAll().MapTo<List<NewsModel>>();
+            foreach (var item in listArticle)
             {
-                var imageId = _newsImageRepository.FirstOrDefault(x => x.ArticlePhotoId == temp.Id && x.Type == 1);
-                temp.PhotoHeight = imageId.PhotoHeight;
-                temp.PhotoUrl = imageId.PhotoUrl;
-                temp.PhotoWidth = imageId.PhotoWidth;
+                var imageId = _newsImageRepository.FirstOrDefault(x => x.ArticlePhotoId == item.Id && x.Type == 1);
+                item.PhotoHeight = imageId.PhotoHeight;
+                item.PhotoUrl = imageId.PhotoUrl;
+                item.PhotoWidth = imageId.PhotoWidth;
             }
-            return news;
+            return listArticle;
         }
 
         public NewsDetailModel GetById(int id)
         {
-            var news = _newsArticleRepository.Get( id ).MapTo<NewsDetailModel>();
-            return news;
+            var article = _newsArticleRepository.Get(id).MapTo<NewsDetailModel>();
+            return article;
         }
 
-        //public List<NewsModel> GetSideNews()
-        //{
-        //    var news = _newsArticleRepository.GetAll().MapTo<List<NewsModel>>();
-        //    List<int> newsIdList = new List<int>();
-        //    foreach (var temp in news)
-        //    {
-        //        newsIdList.Add(temp.Id);
-
-        //    }
-        //    Random rnd = new Random();
-        //    IEnumerable<int> randomNews = newsIdList.OrderBy(x => rnd.Next()).Take(3);
-        //    foreach (var temp in randomNews)
-        //    {
-        //        var ImageID = _newsImageRepository.FirstOrDefault(x => x.ArticlePhotoId == temp.Id && x.Type == 1);
-        //        if (ImageID == null)
-        //        {
-        //            continue;
-        //        }
-        //        temp.PhotoHeight = ImageID.PhotoHeight;
-        //        temp.PhotoUrl = ImageID.PhotoUrl;
-        //        temp.PhotoWidth = ImageID.PhotoWidth;
-        //    }
-        //}
-    }
+    }  
 }
