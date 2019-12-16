@@ -23,7 +23,13 @@ export class ShowSeatViewComponent implements OnInit {
   rowSeats: [];
   showtime: SearchSeatModel = new SearchSeatModel();
   listSeatBooked: any;
+  listSeat1: any;
+  listSeat2: any;
+  listSeat3: any;
+  listSeat4: any;
+  listSeat5: any;
   listTicket: SeatTicketBookingModel[] = new Array(0);
+ 
 
   seatBooking: SeatBookingModel;
 
@@ -43,9 +49,13 @@ export class ShowSeatViewComponent implements OnInit {
         this.listSeats.push(x);
         
       })
+      
       // console.log(this.listSeats);
+      
+      this.splitSeat();
       this.showSeats();
     })
+    
   }
 
   private showSeats() {
@@ -104,5 +114,23 @@ export class ShowSeatViewComponent implements OnInit {
       }
     }
     return true;
+  }
+
+  private splitSeat(){
+    this.listSeat1 = this.listSeats.filter(x=>x.id<13);
+    console.log(this.listSeat1);
+
+    this.listSeat2=this.listSeats.filter(x=>x.id>12 && x.id<23)
+    console.log(this.listSeat2);
+
+    this.listSeat3=this.listSeats.filter(x=>x.id>22 && x.id<33)
+    console.log(this.listSeat3);
+
+    this.listSeat4=this.listSeats.filter(x=>x.id>32 && x.id<43)
+    console.log(this.listSeat4);
+    
+    this.listSeat5=this.listSeats.filter(x=>x.id>42 && x.id<53)
+    console.log(this.listSeat5);
+    // this.listNews = this.listArticles.filter(x => x.id !== this.mainNews.id);
   }
 }
