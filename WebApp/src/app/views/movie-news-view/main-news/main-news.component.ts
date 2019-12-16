@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./main-news.component.scss']
 })
 export class MainNewsComponent implements OnInit, OnChanges {
-  
+
+
   detailNews: any = {
     headline: "",
   };
@@ -22,7 +23,11 @@ export class MainNewsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.newsId = this.movieNewsSharedService.get();
+    this.activatedRoute.params.subscribe(param => {
+      console.log(param);
+      this.newsId = param.id;
+      this.loadingNews();
+    })
   }
 
   ngOnChanges() {

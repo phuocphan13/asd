@@ -9,21 +9,9 @@ import { Router } from '@angular/router';
 })
 export class MovieNewsViewComponent implements OnInit {
 
-  isShow: boolean = true;
-  newsId: number;
   constructor(private movieNewsSharedService: MovieNewsSharedService,
     private router: Router) { }
 
   ngOnInit() {
-    this.movieNewsSharedService.routingAction.subscribe(result => {
-      if (result) {
-        this.router.navigateByUrl('');
-      }
-    });
-  }
-
-  getNewsId(event) {
-    this.newsId = event;
-    this.isShow = false;
   }
 }
