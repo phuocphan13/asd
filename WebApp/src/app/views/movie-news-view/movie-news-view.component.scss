@@ -1,9 +1,16 @@
 .news-container{
     margin-top: 30px;
     position: relative;
-    height: 1300px;
+    height: auto;
+    overflow:hidden;
     width: 100%;
-  background-color: rgb(27, 26, 26);
+
+  min-height: 100vh;
+  background-image: url('https://wallup.net/wp-content/uploads/2018/03/19/574044-portrait_display-sky-clouds-sunset.jpg');
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .main-news{

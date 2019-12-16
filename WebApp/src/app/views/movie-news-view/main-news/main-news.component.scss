@@ -2,10 +2,21 @@
 {
     width: 738px;
     margin-bottom: 100px;
+    height: 100%;
     overflow: hidden;
+    // background-color: rgb(184, 183, 183);
+    // opacity: 0.8;
     float:left;
 }
 
+.article-container
+{
+    opacity: 0.9;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
 .article-header
 {
     display: block;
@@ -39,10 +50,13 @@
 
 }
 
+
+
 .article-body
 {  
-    font-family: Khand,Arial Narrow,arial,sans-serif;
+    font-family: Georgia,Times,Times New Roman,serif;
     font-size: 20px;
+    line-height: 1.8;
     color: white;
     .p{
     width: 85%;
