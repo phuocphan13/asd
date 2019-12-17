@@ -24,7 +24,6 @@ export class MainNewsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(param => {
-      console.log(param);
       this.newsId = param.id;
       this.loadingNews();
     })

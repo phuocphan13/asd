@@ -18,6 +18,10 @@ const appRoutes: Routes = [
             {
                 path: 'film-online',
                 loadChildren: './views/film-online-view/film-online-view.module#FilmOnlineViewModule',
+            },
+            {
+                path: 'offline',
+                loadChildren: './views/offline-movie-search-view/offline-movie-search-view.module#OfflineMovieSearchViewModule',
             }
         ]
     },
@@ -25,8 +29,8 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(appRoutes, { useHash: true ,scrollPositionRestoration: 'enabled' })
-        
+        RouterModule.forRoot(appRoutes, { useHash: true, scrollPositionRestoration: 'enabled' })
+
     ],
     providers: [
     ],

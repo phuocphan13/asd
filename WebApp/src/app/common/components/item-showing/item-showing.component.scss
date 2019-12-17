@@ -4,7 +4,6 @@
   font-family: helvetica,clean,sans-serif;
 }
 
-
 .container {
   position: relative;
   flex-direction: row;
@@ -14,10 +13,6 @@
   image{
       position:relative
   }
-}
-
-.time-format{
-
 }
 
 .description{
@@ -36,22 +31,6 @@
          font-family: Arial,arial,sans-serif;
          color:white;
      }
-}
-
-.show-time-container {
- 
-}
-
-.show-time {
-
-}
-
-.show-time-box:hover {
-
-}
-
-.show-time-box {
-
 }
 
 .show-time-box:not(:first-child) {
