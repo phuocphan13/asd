@@ -49,3 +49,5 @@
 /Identity/AuthServer/AuthServer/obj
 /Identity/AuthServer/AuthServer.Infrastructure/bin/Debug
 /Identity/AuthServer/AuthServer.Infrastructure/obj
+/Identity/AuthServer/AuthServer/authserver_log.txt
+/Identity/AuthServer/.vs/config
