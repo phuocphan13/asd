@@ -41,7 +41,7 @@ namespace Avaya.Domain.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=MovieTheater;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-81STRLN\\LUCIFER;Database=MovieTheater;Trusted_Connection=True;");
             }
         }
 

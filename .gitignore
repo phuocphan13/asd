@@ -42,3 +42,10 @@
 /Avaya.Service/bin/Debug/netcoreapp2.0
 /Avaya.Service/obj
 /WebApp/node_modules
+/Identity/Identity/.vs/Identity/v15
+/Identity/Identity/Identity/obj
+/Identity/AuthServer/.vs/AuthServer
+/Identity/AuthServer/AuthServer/bin/Debug/netcoreapp2.1
+/Identity/AuthServer/AuthServer/obj
+/Identity/AuthServer/AuthServer.Infrastructure/bin/Debug
+/Identity/AuthServer/AuthServer.Infrastructure/obj
