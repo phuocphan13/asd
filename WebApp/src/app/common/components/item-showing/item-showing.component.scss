@@ -6,7 +6,7 @@
 
 
 .container {
-  transition:  0.8s ease-out, opacity;
+  transition:  0.5s ease-out;
   margin-top: 15px;
   position: relative;
   flex-direction: row;
@@ -14,13 +14,17 @@
   display: flex;
   margin-bottom: 15px;
   padding-top: 15px;
+  padding-right: 50px;
   padding-bottom: 15px;
-  image{
-      position:relative
-  }
+}
+
+.image{
+  position:relative;
+  transition: 0.1s ease;
 }
 
 .container:hover{
+  opacity:0.9;
   background-color:rgb(173, 233, 196);
   a{
     font-size: 18px;
@@ -32,7 +36,7 @@
   }
   .description{
     color:rgb(68, 65, 65);
-    font-size: 16px;
+    font-size: 15px;
   }
 
   h3 {
@@ -77,6 +81,7 @@
       color: #ff8902;
       font-weight: 600;
       text-decoration: underline;
+      transition:  0.8s ease-out, opacity,0.01s;
       -webkit-text-decoration-color: #dba433;
       text-decoration-color: #dba433;
   }
