@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'main-news-section',
   templateUrl: './main-news.component.html',
-  styleUrls: ['./main-news.component.scss']
+  styleUrls: ['./main-news.component.scss'],
 })
 export class MainNewsComponent implements OnInit, OnChanges {
 

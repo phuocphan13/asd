@@ -4,14 +4,45 @@
   font-family: helvetica,clean,sans-serif;
 }
 
+
 .container {
+  transition:  0.8s ease-out, opacity;
+  margin-top: 15px;
   position: relative;
   flex-direction: row;
   cursor: pointer;
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   image{
       position:relative
+  }
+}
+
+.container:hover{
+  background-color:rgb(173, 233, 196);
+  a{
+    font-size: 18px;
+    color: rgb(160, 117, 1);
+    font-weight: 600;
+    text-decoration: underline;
+    -webkit-text-decoration-color:  rgb(160, 117, 1);
+    text-decoration-color:  rgb(160, 117, 1);
+  }
+  .description{
+    color:rgb(68, 65, 65);
+    font-size: 16px;
+  }
+
+  h3 {
+    color:rgb(68, 65, 65);
+    font-size: 32px;
+  }
+
+  .image{
+    width: 330px;
+    height: 210px;
   }
 }
 

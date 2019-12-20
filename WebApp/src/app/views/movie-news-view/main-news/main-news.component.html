@@ -1,23 +1,23 @@
 <div class="article">
-  <div class ="article-container">
-  <div class ="article-header">
-    <div class="article-title">
-        {{detailNews.headline}}     
+  <div class="article-container">
+    <div class="article-header">
+      <div class="article-title">
+        {{detailNews.headline}}
+      </div>
+      <div class="article-info">
+        BY <a href="#">{{detailNews.author}}</a>
+        - ON {{detailNews.publishDate | date }}
+      </div>
     </div>
-    <div class="article-info">
-      BY <a href="#">{{detailNews.author}}</a>
-      - ON {{detailNews.publishDate | date }}
+    <div class="article-body">
+      <div [innerHTML]="detailNews.text">
+      </div>
+      <div class="article-tag">
+        <strong>
+          TAGS:
+        </strong>
+        <a>{{detailNews.tags}}</a>
+      </div>
     </div>
   </div>
-  <div class="article-body">
- <div [innerHTML]="detailNews.text">
-  </div>
-  <div class="article-tag">
-    <strong>
-      TAGS:
-    </strong>
-    <a>{{detailNews.tags}}</a>
-  </div>
-</div>
-</div>
 </div>
