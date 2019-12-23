@@ -37,7 +37,7 @@
   margin-bottom: 0.5rem;
   white-space: nowrap;
   overflow: hidden;
-  animation: header-title 0.4s 1;
+  animation: header-title 0.5s 1;
 }
 
 .browse-clip {
@@ -122,6 +122,6 @@ img {
 @keyframes header-title-after {
   0% {
     margin-left: 300px;
-    margin-bottom: 60px;
+
   }
 }

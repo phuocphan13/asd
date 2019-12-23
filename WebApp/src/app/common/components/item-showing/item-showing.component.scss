@@ -1,89 +1,88 @@
 .body-info {
   width: 60%;
   margin-left: 30px;
-  font-family: helvetica,clean,sans-serif;
+  font-family: helvetica, clean, sans-serif;
 }
 
-
 .container {
-  transition:  0.5s ease-out;
-  margin-top: 15px;
+  transition: 0.4s ease-out;
+  margin-top: 10px;
   position: relative;
   flex-direction: row;
   cursor: pointer;
   display: flex;
-  margin-bottom: 15px;
-  padding-top: 15px;
-  padding-right: 50px;
-  padding-bottom: 15px;
+  padding: 10px;
 }
 
-.image{
-  position:relative;
+.image {
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: 10px;
   transition: 0.1s ease;
+  transition: margin-bottom 0s ease;
+  transition: margin-top 0s ease;
 }
 
-.container:hover{
-  opacity:0.9;
-  background-color:rgb(173, 233, 196);
-  a{
-    font-size: 18px;
-    color: rgb(160, 117, 1);
+.container:hover {
+  background-color: #101820ff;
+  a {
+    font-size: 16px;
+    color: #f95700ff;
     font-weight: 600;
     text-decoration: underline;
-    -webkit-text-decoration-color:  rgb(160, 117, 1);
-    text-decoration-color:  rgb(160, 117, 1);
+    -webkit-text-decoration-color: #f95700ff;
+    text-decoration-color: #f95700ff;
   }
-  .description{
-    color:rgb(68, 65, 65);
-    font-size: 15px;
+  .description {
+    color: #fee715ff;
+    line-height: 1.7rem;
   }
 
   h3 {
-    color:rgb(68, 65, 65);
-    font-size: 32px;
+    color: #fee715ff;
   }
 
-  .image{
+  .image {
+    margin-bottom: 0px;
+    margin-top: 0px;
     width: 330px;
     height: 210px;
   }
 }
 
-.description{
+.description {
   font-weight: 400;
   font-size: 14px;
   line-height: 25px;
-  color:white;
+  color: white;
 }
 
 .tilte {
-     h3{
-         font-size: 100%;
-         font-weight: bold;
-         line-height: 32px;
-         font-size: 28px;
-         font-family: Arial,arial,sans-serif;
-         color:white;
-     }
+  h3 {
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 32px;
+    font-size: 28px;
+    font-family: Arial, arial, sans-serif;
+    color: white;
+  }
 }
 
 .show-time-box:not(:first-child) {
   margin-left: 10px;
 }
 
-.tag{
+.tag {
   width: 85%;
-  font-family: Arial,arial,sans-serif;
+  font-family: Arial, arial, sans-serif;
   text-transform: capitalize;
 
-  a{
-      color: #ff8902;
-      font-weight: 600;
-      text-decoration: underline;
-      transition:  0.8s ease-out, opacity,0.01s;
-      -webkit-text-decoration-color: #dba433;
-      text-decoration-color: #dba433;
+  a {
+    color: #ff8902;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: 0.8s ease-out, opacity, 0.01s;
+    -webkit-text-decoration-color: #dba433;
+    text-decoration-color: #dba433;
   }
-
 }
