@@ -18,6 +18,7 @@ import { AlertModule } from 'ngx-alerts';
 import { FilmOnlineRecentlyDetailComponent } from './film-online-detail-view/film-online-recently-detail/film-online-recently-detail.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CommonComponentModule } from 'src/app/common/components/common-component.module';
+import { ShellModule } from 'src/app/core/shell/shell.module';
 
 @NgModule({
     declarations: [
@@ -38,6 +39,7 @@ import { CommonComponentModule } from 'src/app/common/components/common-componen
         FormsModule,
         NgbModule,
         PipeModule,
+        ShellModule,
         FilmOnlineViewRoutingModule,
         CommonComponentModule,
         ProgressbarModule.forRoot(),

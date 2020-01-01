@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FilmPosterDetailModel } from '../model/film-model/film-poster-detail.model';
 
@@ -11,8 +11,14 @@ export class FilmOnlineService {
   constructor(public httpClient: HttpClient) {
   }
 
-  getListFilmsCarousel(): Observable<any> {
-    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmsCarousel`);
+  getListFilmsCarousel(token: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token
+      })
+    };
+    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmsCarousel`, httpOptions);
   }
 
   getListFilmsNomination(): Observable<any> {
@@ -21,7 +27,7 @@ export class FilmOnlineService {
 
   getLoadMoreFilmNomination(numberFilmNominationCurrent: any, numberFilmNominationTake: any): Observable<any> {
     let queryParams = new HttpParams().set('numberFilmNominationCurrent', numberFilmNominationCurrent)
-                                      .set("numberFilmNominationTake", numberFilmNominationTake);
+      .set("numberFilmNominationTake", numberFilmNominationTake);
     return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetLoadMoreFilmNomination`, { params: queryParams });
   }
 
@@ -29,9 +35,9 @@ export class FilmOnlineService {
     return this.httpClient.get<FilmPosterDetailModel>(`${this.apiHost}/${this.homeAddress}/GetFilmDetail/${filmId}`);
   }
 
-  getListFilmDetails(filmId : any, numberOfFilms: any): Observable<any> {
+  getListFilmDetails(filmId: any, numberOfFilms: any): Observable<any> {
     let queryParams = new HttpParams().set('filmId', filmId)
-                                      .set("numberOfFilms", numberOfFilms);
+      .set("numberOfFilms", numberOfFilms);
     return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmDetails`, { params: queryParams });
   }
 }

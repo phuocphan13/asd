@@ -16,7 +16,7 @@ export class MainViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.router.navigateByUrl("/payment");
+     this.router.navigateByUrl("/film-online");
   }
 
 }

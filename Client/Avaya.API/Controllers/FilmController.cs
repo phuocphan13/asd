@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using System.Web.Http.Cors;
 using Avaya.Service.Film;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Avaya.API.Controllers
 {
+    [Authorize(Policy = "ApiReader")]
     [Route("api/[controller]/[action]")]
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
-    public class FilmController : Controller
+    [ApiController]
+    public class FilmController : ControllerBase
     {
         private readonly IFilmService _filmService;
 
@@ -19,6 +21,7 @@ namespace Avaya.API.Controllers
             _filmService = filmService;
         }
 
+        [Authorize(Policy = "consumer")]
         [HttpGet]
         public IActionResult GetListFilmsCarousel()
         {

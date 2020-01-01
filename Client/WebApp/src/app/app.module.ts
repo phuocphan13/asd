@@ -20,13 +20,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule, ModalModule, CarouselModule } from 'ngx-bootstrap';
 import { AlertModule } from 'ngx-alerts';
 import { MainViewComponent } from './views/main-view/main-view.component';
-import { ArticleComponent } from './article/article.component';
 import { SharedModule } from './shared/shared.module';
 
 import { ControlModule } from './controls/control.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ServiceModule } from './core/services/service.module';
 import { AppCommonModule } from './common/app-common.module';
+import { AuthCallbackComponent } from './core/auth-callback/auth-callback.component';
+import { ShellModule } from './core/shell/shell.module';
+import { FilmOnlineViewModule } from './views/film-online-view/film-online-view.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -41,10 +44,12 @@ export const environment = {
   declarations: [
     AppComponent,
     MainViewComponent,
+    AuthCallbackComponent
   ],
   imports: [
     ModalsModule,
     AppCommonModule,
+    FilmOnlineViewModule,
     ServiceModule,
     ControlModule,
     SharedModule,
@@ -52,6 +57,7 @@ export const environment = {
     HttpClientModule,
     NgSelectModule,
     FormsModule,
+    ShellModule,
     ModalModule.forRoot(),
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
@@ -59,7 +65,8 @@ export const environment = {
     ProgressbarModule.forRoot(),
     AppRoutingModule,
     PerfectScrollbarModule,
-    BrowserAnimationsModule,
+    BrowserModule,
+    // BrowserAnimationsModule,
     ReactiveFormsModule,
     AlertModule.forRoot({ maxMessages: 5, timeout: 5000, position: 'right' }),
     BsDatepickerModule.forRoot(),

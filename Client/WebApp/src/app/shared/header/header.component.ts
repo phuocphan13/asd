@@ -20,13 +20,15 @@ export class HeaderComponent implements OnInit {
   username: string;
   password: string;
   id = 1;
+
+  userRegistration: UserRegistration = { name: 'manhphuoc95', email: 'manhphuoc95@gmail.com', password: '13Lucifer_' };
   constructor(private menuService: MenuService,
     private router: Router,
     private modalService: BsModalService,
     private authService: AuthService) { }
 
   ngOnInit() {
-    
+
   }
 
   onSearch() {
@@ -35,6 +37,18 @@ export class HeaderComponent implements OnInit {
   }
 
   onClickLogin() {
+    // this.authService.register(this.userRegistration)
+    //   .subscribe(
+    //     result => {
+    //       if (result) {
+    //         // this.success = true;
+    //       }
+    //     },
+    //     error => {
+    //       // this.error = error;
+    //     });
+
+
     this.authService.login();
     // this.modalRef = this.modalService.show(LoginModalComponent, {
     //   ignoreBackdropClick: true
@@ -50,4 +64,14 @@ export class HeaderComponent implements OnInit {
     //   }
     // })
   }
+}
+
+
+export class UserRegistration {
+
+  constructor(
+    public name: string,
+    public email: string,
+    public password: string
+  ) { }
 }

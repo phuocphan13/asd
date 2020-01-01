@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
 import { FilmOnlineService } from 'src/app/core/services/film-online.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-carousel-film',
@@ -20,10 +21,11 @@ export class CarouselFilmComponent implements OnInit {
 
   title = "HOTEST FILM";
 
-  constructor(private filmOnlineService: FilmOnlineService) { }
+  constructor(private filmOnlineService: FilmOnlineService,
+    private authService: AuthService) { }
 
   ngOnInit() {
-    this.filmOnlineService.getListFilmsCarousel().subscribe(result => {
+    this.filmOnlineService.getListFilmsCarousel(this.authService.authorizationHeaderValue).subscribe(result => {
       this.listFilmOnlines = result;
     });
   }

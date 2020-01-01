@@ -51,3 +51,4 @@
 /Identity/AuthServer/AuthServer.Infrastructure/obj
 /Identity/AuthServer/AuthServer/authserver_log.txt
 /Identity/AuthServer/.vs/config
+/Identity/identity-client/node_modules
