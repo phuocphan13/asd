@@ -19,7 +19,6 @@ import { ModalsModule } from './modals/modals.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule, ModalModule, CarouselModule } from 'ngx-bootstrap';
 import { AlertModule } from 'ngx-alerts';
-import { MainViewComponent } from './views/main-view/main-view.component';
 import { SharedModule } from './shared/shared.module';
 
 import { ControlModule } from './controls/control.module';
@@ -30,6 +29,9 @@ import { AuthCallbackComponent } from './core/auth-callback/auth-callback.compon
 import { ShellModule } from './core/shell/shell.module';
 import { FilmOnlineViewModule } from './views/film-online-view/film-online-view.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { MovieNewsViewModule } from './views/movie-news-view/movie-news-view.module';
+import { OfflineMovieSearchViewModule } from './views/offline-movie-search-view/offline-movie-search-view.module';
+import { PaymentViewModule } from './views/payment-view/payment-view.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -43,13 +45,17 @@ export const environment = {
 @NgModule({
   declarations: [
     AppComponent,
-    MainViewComponent,
     AuthCallbackComponent
   ],
   imports: [
     ModalsModule,
     AppCommonModule,
+
     FilmOnlineViewModule,
+    MovieNewsViewModule,
+    OfflineMovieSearchViewModule,
+    PaymentViewModule,
+    
     ServiceModule,
     ControlModule,
     SharedModule,

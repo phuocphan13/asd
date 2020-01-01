@@ -4,10 +4,11 @@ import { PaymentViewComponent } from "./payment-view.component";
 import { BookingTicketComponent } from "./booking-ticket/booking-ticket.component";
 import { ShowSeatService } from "src/app/core/services/show-seat.service";
 import { ShowSeatViewComponent } from './show-seat-view/show-seat-view.component';
+import { Shell } from "src/app/core/shell/shell.service";
 
 const routes: Routes = [
-    {
-        path: '',
+    Shell.childRoutes([{
+        path: 'payment',
         component: PaymentViewComponent,
         children: [
             {
@@ -19,7 +20,7 @@ const routes: Routes = [
                 component: ShowSeatViewComponent
             }
         ]
-    }
+    }])
 ];
 
 @NgModule({

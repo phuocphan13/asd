@@ -3,23 +3,25 @@ import { NgModule } from "@angular/core";
 import { OfflineMovieSearchViewComponent } from "./offline-movie-search-view.component";
 import { TimeMovieCinemaComponent } from "./time-movie-cinema/time-movie-cinema.component";
 import { OnlineMoviesCenterViewComponent } from "./online-movies-center-view/online-movies-center-view.component";
+import { Shell } from "src/app/core/shell/shell.service";
 
 
 const routes: Routes = [
-    {
-        path: '',
-        component: OfflineMovieSearchViewComponent,
-        children: [
-            {
-                path: '',
-                component: TimeMovieCinemaComponent,
-                // children:[{
-                //     path: 'online',
-                //     component: OnlineMoviesCenterViewComponent,
-                // }]
-            },
-        ]
-    }
+    Shell.childRoutes([
+        {
+            path: 'film-online',
+            component: OfflineMovieSearchViewComponent,
+            // children: [
+            //     {
+            //         path: '',
+            //         component: TimeMovieCinemaComponent,
+            //         // children:[{
+            //         //     path: 'online',
+            //         //     component: OnlineMoviesCenterViewComponent,
+            //         // }]
+            //     },
+            // ]
+        }])
 ];
 
 @NgModule({
