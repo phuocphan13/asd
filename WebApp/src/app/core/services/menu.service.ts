@@ -11,7 +11,7 @@ export class MenuService{
   constructor(public httpClient: HttpClient) {
   }
 
-  getAll() :Observable<any> {
+  GetAll() :Observable<any> {
     return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetAll`);
   }
 }

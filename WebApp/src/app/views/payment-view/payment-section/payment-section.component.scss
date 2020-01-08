@@ -2,13 +2,13 @@
   width: 400px;
   background-color: #edf2f9;
   padding: 10px;
-  border:2px solid #edf2f9;
+  border: 2px solid #edf2f9;
   margin-bottom: 15px;
   border-radius: 1rem;
 }
-.total{
+.total {
   margin-left: 35px;
-  i{
+  i {
     font-size: 25px;
   }
 }
@@ -17,8 +17,6 @@
   margin-top: 15px;
   margin-bottom: 15px;
   text-align: center;
-  // width: 100%;
-
   img {
     width: 350px;
     height: 250px;
@@ -27,16 +25,6 @@
 
 .movie-info-container {
   margin-left: 35px;
-  // h2 {
-  //   margin-top: 10px;
-  //   font-size: 16px;
-  //   line-height: 20px;
-  //   color: #43464b;
-  //   font-weight: bold;
-  //   text-transform: uppercase;
-  //   overflow: hidden;
-  //   white-space: nowrap;
-  // }
 }
 
 .ticket-info {
@@ -52,10 +40,10 @@
 }
 
 .booking-proceed {
-  text-align: center;
   cursor: pointer;
   .proceed-button {
-    border-radius: .5rem;
+    text-align: center;
+    border-radius: 0.5rem;
     width: 95%;
     display: inline-block;
     font-size: 18px;
@@ -68,7 +56,7 @@
     margin-top: 15px;
     line-height: 1.2;
   }
-  div:hover{
+  div:hover {
     font-size: 20px;
   }
 }

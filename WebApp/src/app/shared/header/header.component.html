@@ -1,11 +1,22 @@
 <div class="header-container">
-  <app-drop-down *ngFor="let item of listMenus" [items]="item.menuChildren" [title]="item.name"></app-drop-down>
-  <img class="logo" src="http://localhost:59239/resources/images/logo.png" (click)="onSearch()">
-  <div class="search-container">
-    <input type="text" placeholder=" Tìm tên phim..." [(ngModel)]="searchText" name="search-value">
-    <button type="submit" (click)="onSearch()">
+  <app-drop-down class="menu" *ngFor="let item of listMenus" [items]="item.menuChildren" [title]="item.name"></app-drop-down>
+  <!-- <img class="logo" src="http://localhost:59239/resources/images/logo.png">
+  <div class="search-container">    
+    <input type="text" placeholder="  Tìm kiếm..." [(ngModel)]="searchText"
+     name="search-value" class="button-search">
+    <button type="submit" (click)="onSearch()" class="button-circle">
       <i class="fa fa-search"></i>
     </button>
     <i class="fas fa-user log-in-circle log-in-button" title="Log In Pls" (click)="onClickLogin()"></i>
+  </div> -->
+  <img class="logo" src="http://localhost:59239/resources/images/logo.png">
+  <div class="search-container">
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+      <input type="text" class="form-control bg-light border-0 small input-search" placeholder="Tìm kiếm..." >
+      <button class="btn btn-primary button-search" type="button">
+        <i class="fas fa-search fa-sm"></i>
+      </button>
+      <i class="fas fa-user log-in-circle log-in-button" title="Log In Pls" (click)="onClickLogin()"></i>
+    </form>
   </div>
 </div>

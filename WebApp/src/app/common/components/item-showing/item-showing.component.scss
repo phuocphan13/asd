@@ -1,9 +1,9 @@
 .body-info {
-  width: 800px;
-  height: 250px;
-  margin-left: 35px;
-  min-width: 500px;
-  min-height: 230px;
+  width: 75%;
+  height: 25%;
+  left: 25%;
+  // min-height: 23%;
+  position: absolute;
 
   font-family: Arial, sans-serif;
 }
@@ -16,14 +16,18 @@
 }
 
 .container {
+  margin-left: 0px;
+  margin-right: 0px;
   display: flex;
   flex-direction: row;
   border: 1px solid #d31702;
   background-color: #e6e6e6;
   border-radius: 1.5rem;
-  max-width: 700px;
-  padding: 1rem;
-  height: 260px;
+  //min-width: 50%;
+   max-width: 700px;
+  //padding: 1rem;
+  //height: 260px;
+  position: relative;
   //margin-bottom: 10px;
 }
 
@@ -35,7 +39,6 @@
 
 .description {
   color: #231f20;
-  font-weight: 400;
   font-style: italic;
   font-size: 16px;
 }
