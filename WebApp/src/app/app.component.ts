@@ -13,6 +13,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.navigateByUrl("film-online")
+    this.router.navigateByUrl("offline")
   }
 }
