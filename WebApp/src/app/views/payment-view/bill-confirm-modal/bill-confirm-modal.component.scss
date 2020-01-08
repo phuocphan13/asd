@@ -1,20 +1,20 @@
-$margin-defaul: 10px;
-$border-defaul: 1px dashed black;
+$margin-default: 10px;
+$border-default: 1px dashed black;
 
 .bill-container {
   display: flex;
   flex-direction: column;
   font-family: Khand, Arial Narrow, arial, sans-serif;
   font-style: oblique;
-  margin-right: $margin-defaul;
-  margin-left: $margin-defaul;
+  margin-right: $margin-default;
+  margin-left: $margin-default;
   font-size: 20px;
   .title {
-    font-size: 40px;
+    
     text-align: center;
     font-family: monospace;
     width: 100%;
-    border-bottom: $border-defaul;
+    border-bottom: $border-default;
     background-color: firebrick;
     color: darkorange;
   }
@@ -32,8 +32,8 @@ $border-defaul: 1px dashed black;
 
   .image {
     height: 250px;
-    margin-top: $margin-defaul;
-    margin-bottom: $margin-defaul;
+    margin-top: $margin-default;
+    margin-bottom: $margin-default;
   }
 }
 
@@ -46,8 +46,8 @@ $border-defaul: 1px dashed black;
 .detail-container {
   display: flex;
   flex-direction: column;
-  border-bottom: $border-defaul;
-  border-top: $border-defaul;
+  border-bottom: $border-default;
+  border-top: $border-default;
   text-align: center;
 }
 
@@ -55,52 +55,56 @@ $border-defaul: 1px dashed black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  .number {
+    width: 30px;
+  }
+  
+  .product-name {
+    width: 60px;
+  }
+  
+  .quantity {
+    width: 100px;
+  }
+  
+  .price {
+    width: 0px;
+  }
+  
+  .product-total {
+    width: 150px;
+  }
 }
 
 .total {
   display: flex;
   flex-direction: row;
-  border-bottom: $border-defaul;
+  border-bottom: $border-default;
   text-align: left;
   justify-content: space-between;
   background-color: darkorange;
+  
+  .bill-total{
+    width: 300px;
+  }
+  
+  .price-total{
+    width: 100px;
+  }
 }
 
 .button-container {
   display: flex;
   flex-direction: row;
-  margin-top: $margin-defaul;
-  margin-bottom: $margin-defaul;
+  margin-top: $margin-default;
+  margin-bottom: $margin-default;
   justify-content: space-evenly;
 }
 
-.number {
-  width: 30px;
-}
 
-.product-name {
-  width: 60px;
-}
 
-.quantity {
-  width: 100px;
-}
 
-.price {
-  width: 0px;
-}
-
-.product-total {
-  width: 150px;
-}
-
-.bill-total{
-  width: 300px;
-}
-
-.price-total{
-  width: 100px;
-}
 
 .button-submit{
   background-color: seagreen;
@@ -123,5 +127,5 @@ $border-defaul: 1px dashed black;
 }
 
 .seats{
-  margin-left: $margin-defaul;
+  margin-left: $margin-default;
 }

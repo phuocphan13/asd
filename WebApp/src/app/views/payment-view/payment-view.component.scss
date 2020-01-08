@@ -1,7 +1,8 @@
 .payment-view-wrapper {
   display:flex;
-  flex-direction: row;
+  //flex-direction: row;
   justify-content: space-evenly;
+  //justify-content: space-evenly;
   flex-wrap: wrap;
   //margin-top: 30px;
   // width: 1300px;
@@ -10,14 +11,33 @@
 }
 
 .picking-side {
-  // float: left;
-  width: 890px;
+  //float: left;
+  // width: 50%;
   // height: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
+   padding-top: 20px;
+  //  padding-bottom: 20px;
 }
 
 .payment-side {
   // float: right;
   padding-top: 20px;
+}
+
+@media screen and (max-width: 1095px){
+  .payment-view-wrapper {
+    justify-content: center;
+  }
+  .payment-side{
+    width: 100%;
+  }
+  .picking-side {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 740px){
+  .payment-view-wrapper {
+    justify-content: space-between;
+  }
+  
 }
