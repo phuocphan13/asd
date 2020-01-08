@@ -6,16 +6,16 @@ import { OfflineMovieSearchViewComponent } from "./offline-movie-search-view/off
 
 
 const routes: Routes = [
-    {
-        path: 'news',
-        component: MovieNewsViewComponent,
-        children: [
-            {
-                path: '',
-                loadChildren: './app/views/movie-news-view/movie-news-view.module#MovieNewsViewModule',
-            }
-        ]
-    },
+    // {
+    //     path: 'news',
+    //     component: MovieNewsViewComponent,
+    //     children: [
+    //         {
+    //             path: '',
+    //             loadChildren: './app/views/movie-news-view/movie-news-view.module#MovieNewsViewModule',
+    //         }
+    //     ]
+    // },
     // {
     //     path: 'payment',
     //     component: PaymentViewComponent,

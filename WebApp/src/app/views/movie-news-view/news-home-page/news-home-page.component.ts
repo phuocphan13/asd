@@ -10,8 +10,7 @@ import { MovieNewsSharedService } from 'src/app/core/services/movie-news-shared.
   styleUrls: ['./news-home-page.component.scss']
 })
 export class NewsHomePageComponent implements OnInit {
-
-  newsId: any = 0;
+  newsId: number = 0;
   show: boolean = true;
   sideShow: boolean = false;
   listClip: any = [];

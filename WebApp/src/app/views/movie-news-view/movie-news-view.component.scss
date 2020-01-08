@@ -1,13 +1,22 @@
 .news-container{
     margin-top: 30px;
-    width: 1300px;
     position: relative;
+    height: auto;
+    overflow:hidden;
+    width: 100%;
+
   min-height: 100vh;
+  background-color: black;
+  background-image: url('https://media.idownloadblog.com/wp-content/uploads/2019/06/V4ByArthur1992aS-iphone-mountain-wallpaper-sunset-orange-768x1579.png');
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .main-news{
     float: left;
-    width: 800px;
+    width: 820px;
     height: 100%;
     padding-top: 20px;
     padding-bottom: 120px;

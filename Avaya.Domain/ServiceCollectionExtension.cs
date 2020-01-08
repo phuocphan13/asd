@@ -33,6 +33,10 @@ namespace Avaya.Domain
             services.AddScoped<IRepository<Menu>, Repository<Menu>>();
             services.AddScoped<IRepository<Booking>, Repository<Booking>>();
             services.AddScoped<IRepository<FilmCategory>, Repository<FilmCategory>>();
+            services.AddScoped<IRepository<NewsArticleCategories>, Repository<NewsArticleCategories>>();
+            services.AddScoped<IRepository<NewsArticles>, Repository<NewsArticles>>();
+            services.AddScoped<IRepository<NewsImage>, Repository<NewsImage>>();
+            services.AddScoped<IRepository<NewsCategories>, Repository<NewsCategories>>();
             services.AddScoped<IRepository<FilmOnline>, Repository<FilmOnline>>();
             services.AddScoped<IRepository<CategoriesOfFilm>, Repository<CategoriesOfFilm>>();
             services.AddScoped<IRepository<Bill>, Repository<Bill>>();

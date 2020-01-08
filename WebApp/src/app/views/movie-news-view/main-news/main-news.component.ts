@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'main-news-section',
   templateUrl: './main-news.component.html',
-  styleUrls: ['./main-news.component.scss']
+  styleUrls: ['./main-news.component.scss'],
 })
 export class MainNewsComponent implements OnInit, OnChanges {
 
@@ -23,7 +23,10 @@ export class MainNewsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.newsId = this.movieNewsSharedService.get();
+    this.activatedRoute.params.subscribe(param => {
+      this.newsId = param.id;
+      this.loadingNews();
+    })
   }
 
   ngOnChanges() {

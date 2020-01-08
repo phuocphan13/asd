@@ -18,6 +18,8 @@ namespace Avaya.Service
     {
         public ServiceMapperProfile()
         {
+            CreateMap<NewsArticles, NewsModel>().ReverseMap();
+            CreateMap<NewsArticles, NewsDetailModel>().ReverseMap();
             CreateMap<Movie, MovieTemptModel>().ReverseMap();
             CreateMap<Movie, MovieModel>().ReverseMap();
             CreateMap<Cinema, MovieModel>()
@@ -46,7 +48,6 @@ namespace Avaya.Service
 
             #region Film Online Mapping
             CreateMap<FilmOnline, FilmCarouselModel>();
-            
             CreateMap<FilmOnline, FilmNominationModel>()
                 .ForMember(x => x.Time, opt => opt.MapFrom(i => i.Duration)).ReverseMap();
             CreateMap<FilmOnline, FilmDetailModel>()

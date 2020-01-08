@@ -1,6 +1,7 @@
 ﻿using Avaya.Domain;
 using Avaya.Service.PaymentService;
 using Avaya.Service.MovieService;
+using Avaya.Service.NewsService;
 using Avaya.Service.SeatService;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,7 @@ namespace Avaya.Service
             services.ConfigureDomain(configuration);
             services.AddScoped<IMovieService, MovieService.MovieService>();
             services.AddScoped<IPaymentService, PaymentService.PaymentService>();
+            services.AddScoped<INewsService, NewsService.NewsService>();
             services.AddScoped<ISeatService, SeatService.SeatService>();
             services.AddScoped<IFilmService, FilmService>();
             services.AddScoped<IMenuService, MenuService.MenuService>();
