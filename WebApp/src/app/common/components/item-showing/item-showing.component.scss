@@ -30,7 +30,6 @@
     color: #f95700ff;
     font-weight: 600;
     text-decoration: underline;
-    -webkit-text-decoration-color: #f95700ff;
     text-decoration-color: #f95700ff;
   }
   .description {
@@ -81,8 +80,7 @@
     color: #ff8902;
     font-weight: 600;
     text-decoration: underline;
-    transition: 0.8s ease-out, opacity, 0.01s;
-    -webkit-text-decoration-color: #dba433;
+    transition: 0.8s ease-in, opacity, 1s;
     text-decoration-color: #dba433;
   }
 }
