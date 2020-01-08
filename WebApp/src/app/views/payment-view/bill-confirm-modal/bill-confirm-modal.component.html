@@ -1,54 +1,50 @@
-<div class="bill-container" *ngIf="item">
-  <div class="title">Bill</div>
-  <div class="description-container">
-    <img class="image" src="{{item.picture}}">
-    <div class="description-detail-container">
-      <div class="name">{{item.name}}</div>
-      <div class="cinema-address">{{item.address}}</div>
-      <div class="time">{{item.showtime}}</div>
+<div class="bg-color">
+  <div class="bill-container" *ngIf="item">
+    <h1 class="title"><b>Bill</b></h1>
+    <div class="description-container">
+      <img class="image" src="{{item.picture}}">
+      <div class="description-detail-container">
+        <div class="name"><i class="fas fa-video"></i>: {{item.name}}</div>
+        <div class="cinema-address"><i class="fas fa-map-marked-alt"></i>:{{item.address}}</div>
+        <div class="date time"><i class="far fa-calendar-check"></i>: {{item.date | date :"dd.MM.y"}} |
+          {{item.showtime}}
+        </div>
+        <!-- <div class="time"><b>Time Start:</b> {{item.showtime}}</div> -->
+        <div class="duration"><i class="fas fa-hourglass-half"></i>: {{item.duration}} min</div>
+
+        <div class="room"><i class="fas fa-person-booth"></i>: {{item.room}}</div>
+        <div class="seat-container">
+          <div class="seat-title"><i class="fas fa-couch"></i>:</div>
+          <div *ngFor="let seat of itemSeat">
+            <div class="seats"> {{seat.name}},</div>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="detail-container">
-    
-    <!-- <div class="bill-detail-container"  *ngFor="let item of listProducts">
-        <div class="number">{{item.id}}</div>
-        <div class="product-name">{{item.name}}</div>
-        <div class="quantity">Quantity</div>
-        <div class="price">Price</div>
-        <div class="product-total">Total</div>
-    </div> -->
-    <div class="bill-detail-container" *ngFor="let billDetail of bill.listBillDetails; let index = index">
-      <div class="number">{{index + 1}}</div>
-      <div class="product-name">{{adjustedBill[index].name}}</div>
-      <div class="quantity">{{billDetail.quantity}}</div>
-      <div class="price">{{billDetail.price}}</div>
-      <div class="product-total">{{billDetail.quantity * billDetail.price}}</div>
+    <div class="detail-container">
+      <div class="bill-detail-container">
+        <div class="number"><b>No</b></div>
+        <div class="product-name"><b>Name</b></div>
+        <div class="quantity"><b>Quantity</b></div>
+        <div class="price"><b>Price</b></div>
+        <div class="product-total"><b>Total</b></div>
+      </div>
+      <div class="bill-detail-container" *ngFor="let billDetail of bill.listBillDetails; let index = index">
+        <div class="number">{{index + 1}}</div>
+        <div class="product-name">{{adjustedBill[index].name}}</div>
+        <div class="quantity">{{billDetail.quantity}}</div>
+        <div class="price">{{billDetail.price}}</div>
+        <div class="product-total">{{billDetail.quantity * billDetail.price}}</div>
+      </div>
     </div>
-    <!-- <div class="bill-detail-container">
-      <div class="number">1</div>
-      <div class="product-name">Vé 2D</div>
-      <div class="quantity">2</div>
-      <div class="price">10000</div>
-      <div class="product-total">20000</div>
+    <div class="total">
+      <div class="bill-total"><b>Bill Total:</b> </div>
+      <div class="price-total">{{total}} VNĐ</div>
     </div>
-    <div class="bill-detail-container">
-      <div class="number">1</div>
-      <div class="product-name">Vé 2D</div>
-      <div class="quantity">2</div>
-      <div class="price">10000</div>
-      <div class="product-total">20000</div>
+    <div class="button-container">
+      <button type="submit" class="btn button-submit" (click)="onClickSubmit()">Submit</button>
+      <button class="btn btn-danger button-cancel" (click)="onClickCancel()">Cancel</button>
     </div>
-    <div class="bill-detail-container">
-      <div class="number">1</div>
-      <div class="product-name">Vé 2D</div>
-      <div class="quantity">2</div>
-      <div class="price">10000</div>
-      <div class="product-total">20000</div>
-    </div>     -->
-  </div>
-  <div class="total">{{total}} vnd</div>
-  <div class="button-container">
-    <button type="submit" class="btn button-submit" (click)="onClickSubmit()">Submit</button>
-    <button class="btn btn-danger button-cancel" (click)="onClickCancel()">Cancel</button>
   </div>
 </div>

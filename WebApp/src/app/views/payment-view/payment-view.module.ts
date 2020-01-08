@@ -9,6 +9,7 @@ import { ShowSeatViewComponent } from './show-seat-view/show-seat-view.component
 import { BillConfirmModalComponent } from './bill-confirm-modal/bill-confirm-modal.component';
 import { ModalModule } from 'ngx-bootstrap';
 
+
 @NgModule({
   declarations: [
     BookingTicketComponent,

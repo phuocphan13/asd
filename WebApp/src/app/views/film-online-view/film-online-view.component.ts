@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-film-online-view',
@@ -7,11 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmOnlineViewComponent implements OnInit {
 
-  completePrice: any;
-
-  constructor() { }
+  constructor(private router: Router,
+    private alertService: AlertService) { }
 
   ngOnInit() {
+    // this.router.navigateByUrl('film-online/film-detail/2');
+    
+    this.router.navigateByUrl("film-online/film-detail/1");
   }
-
 }
