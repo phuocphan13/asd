@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { ItemShowingComponent } from './item-showing/item-showing.component';
 import { PipeModule } from '../pipes/pipe.module';
 import { InputComponent } from './input/input.component';
+import { FilmDropDownComponent } from './film-drop-down/film-drop-down.component';
 
 @NgModule({
     declarations: [
         DropDownComponent,
         ItemShowingComponent,
-        InputComponent
+        InputComponent,
+        FilmDropDownComponent
     ],
     imports: [
         CommonModule,
@@ -20,7 +22,8 @@ import { InputComponent } from './input/input.component';
     exports: [
         DropDownComponent,
         InputComponent,
-        ItemShowingComponent
+        ItemShowingComponent,
+        FilmDropDownComponent
     ]
 })
 export class CommonComponentModule { }

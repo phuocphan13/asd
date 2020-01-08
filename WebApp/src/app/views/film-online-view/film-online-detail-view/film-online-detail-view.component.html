@@ -1,0 +1,19 @@
+<div class="film-detail">
+    <app-film-online-poster-detail [filmId]="filmId"></app-film-online-poster-detail>
+
+    <div class="label-film-recently-container">
+        <span class="title-recently">Recently Movies</span>
+        <div class="line"></div>
+        <app-film-drop-down class="drop-down" [data]="dropdownItemsTrendingArray"></app-film-drop-down>
+        <app-film-drop-down class="drop-down" [data]="dropdownItemsSortingArray" isBorder="true"></app-film-drop-down>
+    </div>
+    <div class="film-detail-container">
+        <app-film-online-recently-detail class="film-online-recently-detail" *ngFor="let item of listFilmDetails" [data]="item"
+            [isExpand]="changeStatus(item.id)"
+            (closeViewDetail)="onChangeViewDetail($event)">
+        </app-film-online-recently-detail>
+    </div>
+    <div class="film-nomination-container">
+        <app-nomination-film-view></app-nomination-film-view>
+    </div>
+</div>

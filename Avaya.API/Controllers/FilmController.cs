@@ -32,5 +32,26 @@ namespace Avaya.API.Controllers
             var listNominationFilms = _filmService.GetListFilmsNomination();
             return Ok(listNominationFilms);
         }
+
+        [HttpGet]
+        public IActionResult GetLoadMoreFilmNomination(int numberFilmNominationCurrent, int numberFilmNominationTake)
+        {
+            var listNominationFilms = _filmService.GetLoadMoreFilmNomination(numberFilmNominationCurrent, numberFilmNominationTake);
+            return Ok(listNominationFilms);
+        }
+
+        [HttpGet("{filmId}")]
+        public IActionResult GetFilmDetail(int filmId)
+        {
+            var filmDetail = _filmService.GetFilmDetail(filmId);
+            return Ok(filmDetail);
+        }
+
+        [HttpGet]
+        public IActionResult GetListFilmDetails(int filmId, int numberOfFilms)
+        {
+            var listNominationFilms = _filmService.GetListFilmDetails(filmId, numberOfFilms);
+            return Ok(listNominationFilms);
+        }
     }
 }
