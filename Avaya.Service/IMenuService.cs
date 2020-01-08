@@ -8,8 +8,6 @@
 //{
 //    public interface IMenuService
 //    {
-//        List<MenuService> GetAll();
-
-//        List<ProductDetailModel> Change(int query);
+//        List<Menu> GetAll();
 //    }
 //}

@@ -1,10 +1,11 @@
 .main-view-container {
   display: flex;
-  //justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  //justify-content: space-evenly;
 }
 .comment {
-  margin-top: 50px;
-  margin-left: 30px;
+  margin-top: 4%;
   width: 250px;
   height: 311px;
   border: solid 1px black;

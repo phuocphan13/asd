@@ -16,11 +16,6 @@
 
 .image-2 {
   position: relative;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  transition: 0.1s ease;
-  transition: margin-bottom 0s ease;
-  transition: margin-top 0s ease;
 }
 
 .container-2:hover {
@@ -37,9 +32,11 @@
     line-height: 1.7rem;
   }
 
-  h3 {
-    color: #fee715ff;
-  }
+.name {
+  font-weight: bold;
+  font-size: 24px;
+  
+}
 
   .image-2 {
     margin-bottom: 0px;
@@ -71,10 +68,10 @@
   margin-left: 10px;
 }
 
-.tag {
-  width: 85%;
-  font-family: Arial, arial, sans-serif;
-  text-transform: capitalize;
+.date {
+  margin-top: 6px;
+  color: #505f75;
+}
 
   a {
     color: #ff8902;
