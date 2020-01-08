@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
 import { PaymentSharedService } from 'src/app/core/services/payment-shared.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { ReverseSeatModel } from 'src/app/core/model/reverse-seat.model';
-import { empty } from 'rxjs';
+import { empty, Subscription } from 'rxjs';
 import { SeatTicketBookingModel } from 'src/app/core/model/payment/seat-ticket-booking.model';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { BillConfirmModalComponent } from '../bill-confirm-modal/bill-confirm-modal.component';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-payment-section',
@@ -27,13 +28,17 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   completedPrice: number = 0;
 
   listGUID: ReverseSeatModel[] = new Array(0);
+  listTicket: SeatTicketBookingModel[] = new Array(0);
+
   list: any[];
 
 
   bill: PaymentBillModel = new PaymentBillModel();
   item: SearchInformationModel = new SearchInformationModel();
-  
+
   modalRef: BsModalRef;
+
+  subcribeEvent: Subscription;
 
   constructor(private paymentService: PaymentService,
     private paymentSharedService: PaymentSharedService,
@@ -45,15 +50,16 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.item = this.movieSharedService.item;
     this.paymentStatus = parseInt(localStorage.getItem("paymentStatus"));
+
     this.registerEvents();
   }
 
   ngOnDestroy() {
-    this.paymentSharedService.caculationChange.unsubscribe();
+    this.subcribeEvent.unsubscribe();
   }
 
   private registerEvents() {
-    this.paymentSharedService.caculationChange.subscribe(result => {
+    this.subcribeEvent =  this.paymentSharedService.caculationChange.subscribe(result => {
       if (result) {
         this.listItems = result;
         this.completedPrice = 0;
@@ -63,6 +69,13 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
   }
 
   onClickCheckOut() {
+    this.bill = new PaymentBillModel();
+    let checkEnough = this.checkTicket();
+    if (!checkEnough){
+      alert("Chưa đủ vé");
+      return false;
+    }
+
     this.bill.userId = 1;
     this.bill.total = this.completedPrice;
 
@@ -71,7 +84,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
       let reservedSeat = new ReverseSeatModel();
       reservedSeat.guid = x.guid;
       reservedSeat.idProduct = x.idProduct;
-      reservedSeat.idSeatType = x.idSeatType;  
+      reservedSeat.idSeatType = x.idSeatType;
       this.bill.listSeats.push(reservedSeat);
     })
     // this.bill.idRoom = 1;
@@ -88,6 +101,8 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
     });
 
     this.showBillDetail();
+
+
   }
 
   onClickContinue() {
@@ -102,6 +117,7 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
       }
     });
     this.paymentSharedService.setNumberTicket(listSeatTicketBookings);
+    this.listTicket = this.paymentSharedService.getNumberTicket();
     this.paymentStatus = 2;
     this.router.navigateByUrl("payment/booking-seat");
   }
@@ -119,5 +135,15 @@ export class PaymentSectionComponent implements OnInit, OnDestroy {
     this.modalRef.content.bill = this.bill;
     this.modalRef.content.total = this.completedPrice;
     this.modalRef.content.listProducts = this.listItems;
+  }
+
+  private checkTicket() {
+    for (let index = 0; index < this.listTicket.length; index++) {
+      if (this.listTicket[index].quantity > 0) {
+
+        return false;
+      }
+    }
+    return true;
   }
 }

@@ -1,10 +1,11 @@
 .payment-container {
-  width: 400px;
+  width: 100%;
   background-color: #edf2f9;
   padding: 10px;
   border:2px solid #edf2f9;
   margin-bottom: 15px;
   border-radius: 1rem;
+  
 }
 .total{
   margin-left: 35px;
@@ -20,13 +21,13 @@
   // width: 100%;
 
   img {
-    width: 350px;
+    width: 300px;
     height: 250px;
   }
 }
 
 .movie-info-container {
-  margin-left: 35px;
+  
   // h2 {
   //   margin-top: 10px;
   //   font-size: 16px;
@@ -70,5 +71,18 @@
   }
   div:hover{
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1095px) {
+  .payment-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .movie-info-container{
+   
+    font-size: 25px;
   }
 }

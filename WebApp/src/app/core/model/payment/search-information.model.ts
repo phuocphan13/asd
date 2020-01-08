@@ -5,4 +5,7 @@ export class SearchInformationModel{
     showtime: string;
     idShowTime: number;
     idCinema: number;
+    duration:number;
+    date: string;
+    room: string;
 }

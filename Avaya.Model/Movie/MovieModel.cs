@@ -23,6 +23,7 @@ namespace Avaya.Model.Movie
 
         public int IdCinema { get; set; }
 
+
         public List<ShowTimeModel> ShowTime { get; set; }
     }
 }

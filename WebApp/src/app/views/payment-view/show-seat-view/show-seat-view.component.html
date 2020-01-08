@@ -5,12 +5,35 @@
   </div>
 
   <div class="seat-body">
-    <div class="seat-container">
-      <div class="seat" [class.seat-booking]="!item.isBooking" *ngFor="let item of listSeats"
+    <div class="seat-container-row">
+      <div class="seat" [class.seat-booking]="!item.isBooking" *ngFor="let item of listSeat1"
+        [style.background-color]="item.color" (click)="onClick(item)">
+        {{item.name}}
+      </div>
+    </div>
+    <div class="seat-container-row">
+      <div class="seat" [class.seat-booking]="!item.isBooking" *ngFor="let item of listSeat2"
+        [style.background-color]="item.color" (click)="onClick(item)">
+        {{item.name}}
+      </div>
+    </div>
+    <div class="seat-container-row">
+      <div class="seat" [class.seat-booking]="!item.isBooking" *ngFor="let item of listSeat3"
+        [style.background-color]="item.color" (click)="onClick(item)">
+        {{item.name}}
+      </div>
+    </div>
+    <div class="seat-container-row">
+      <div class="seat" [class.seat-booking]="!item.isBooking" *ngFor="let item of listSeat4"
+        [style.background-color]="item.color" (click)="onClick(item)">
+        {{item.name}}
+      </div>
+    </div>
+    <div class="seat-container-row">
+      <div class="seat" [class.seat-booking]="!item.isBooking" *ngFor="let item of listSeat5"
         [style.background-color]="item.color" (click)="onClick(item)">
         {{item.name}}
       </div>
     </div>
   </div>
-</div>
-<br>
+  <br>

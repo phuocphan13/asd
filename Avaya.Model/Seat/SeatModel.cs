@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Avaya.Model.ShowSeat
+namespace Avaya.Model.Seat
 {
     public class SeatModel :BaseModel
     {
