@@ -1,3 +1,7 @@
+.booking-view {
+  width: 900px;
+}
+
 p {
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
@@ -7,7 +11,9 @@ p {
   background-color: #f6c343;
   padding: 10px;
   border-radius: 1rem;
-  // box-shadow: 5px 10px rgb(255, 156, 42);
+}
+.booking-body{
+
 }
 
 .corn-container {
@@ -16,50 +22,41 @@ p {
   max-width: 100%;
   font-size: 20px;
   font-weight: 700;
-  padding-left: 10px;
-  margin-bottom: 10px;
+  padding-left: 1px;
+  margin-bottom: 1px;
   background-color: #c7d6ec;
-  // box-shadow: 5px 5px rgb(124, 117, 117);
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 0.375rem;
+
+  .first-column-text {
+    flex-grow: 1.1;
+  }
+
+  .second-column-text {
+    flex-grow: 1;
+  }
 }
 
 .combocorn-container {
   display: flex;
-  padding-left: 10px;
-  flex-direction: row;
-  max-width: 100%;
+  padding-left: 1px;
   margin-bottom: 5px;
   background-color: #edf2f9;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 0.375rem;
-  // font-weight: 700;
-}
-
-.first-column-text {
-  flex-grow: 3;
-}
-
-.second-column-text {
-  flex-grow: 2.5;
-}
-.third-column-text {
-  flex-grow: 0.15;
+  font-weight: 700;
 }
 
 .input-field {
-  // font-weight: 700px;
   padding-right: 35px;
 }
 
 .first-column-item {
   width: 550px;
-  margin-top: 5px;
 }
 
 .second-column-item {
   width: 520px;
-  margin-top: 5px;
 }
 
 input {
@@ -70,16 +67,20 @@ input {
   color: #212529;
 }
 
-.img-combo {
-  width: 100px;
-}
 
-.decorative {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-  //height: 1px;
-  margin-top: 10px;
-  margin-bottom: 6px;
-  //border-bottom: 1px dotted rgb(80, 80, 80);
+
+@media only screen and (max-width: 1080px) {
+  .booking-view {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 920px) {
+  .booking-view {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .booking-view {
+    width: 100%;
+  }
 }

@@ -1,13 +1,16 @@
-<div>
+<div class="booking-view">
+
   <p>
     BẢNG GIÁ
   </p>
-  <div class="corn-container">
-    <div class="first-column-text">LOẠI VÉ</div>
-    <div class="second-column-text">GIÁ TIỀN</div>
-    <div class="third-column-text">SỐ LƯỢNG</div>
-  </div>
-  <div class="combo-container">
+
+  <div class="booking-body">
+    <div class="corn-container">
+      <div class="first-column-text">LOẠI VÉ</div>
+      <div class="second-column-text">GIÁ TIỀN</div>
+      <div>SỐ LƯỢNG</div>
+    </div>
+
     <div class="combocorn-container" *ngFor="let item of listTicket">
       <div class="first-column-item">{{item.name}}</div>
       <div class="second-column-item">{{item.price | number}}</div>
@@ -16,17 +19,12 @@
           oninput="validity.valid||(value='');" min="0" max="10" (change)="onChangeTicketValue(item)">
       </div>
     </div>
-  </div>
-</div>
-<div class="decorative">
-</div>
-<div>
-  <div class="corn-container">
-    <div class="first-column-text">COMBO</div>
-    <div class="second-column-text">GIÁ TIỀN</div>
-    <div class="third-column-text">SỐ LƯỢNG</div>
-  </div>
-  <div class="combo-container">
+
+    <div class="corn-container">
+      <div class="first-column-text">COMBO</div>
+      <div class="second-column-text">GIÁ TIỀN</div>
+      <div class="third-column-text">SỐ LƯỢNG</div>
+    </div>
     <div class="combocorn-container" *ngFor="let item of listCombo">
       <div class="first-column-item">{{item.name}}</div>
       <div class="second-column-item">{{item.price | number}}</div>
