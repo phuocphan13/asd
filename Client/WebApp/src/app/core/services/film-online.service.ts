@@ -2,42 +2,38 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FilmPosterDetailModel } from '../model/film-model/film-poster-detail.model';
+import { ApiService } from './api.service';
 
 @Injectable()
 export class FilmOnlineService {
 
-  homeAddress = 'api/Film';
+  homeAddress = 'Film';
   apiHost = "http://localhost:59239";
-  constructor(public httpClient: HttpClient) {
+  constructor(public httpClient: HttpClient,
+    protected apiService: ApiService) {
   }
 
-  getListFilmsCarousel(token: string): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': token
-      })
-    };
-    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmsCarousel`, httpOptions);
+  getListFilmsCarousel(): Observable<any> {
+    return this.apiService.get(`${this.homeAddress}/GetListFilmsCarousel`);
   }
 
   getListFilmsNomination(): Observable<any> {
-    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmsNomination`);
+    return this.apiService.get(`${this.homeAddress}/GetListFilmsNomination`);
   }
 
   getLoadMoreFilmNomination(numberFilmNominationCurrent: any, numberFilmNominationTake: any): Observable<any> {
     let queryParams = new HttpParams().set('numberFilmNominationCurrent', numberFilmNominationCurrent)
       .set("numberFilmNominationTake", numberFilmNominationTake);
-    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetLoadMoreFilmNomination`, { params: queryParams });
+    return this.apiService.get(`${this.homeAddress}/GetLoadMoreFilmNomination`, queryParams);
   }
 
   getFilmDetail(filmId: number) {
-    return this.httpClient.get<FilmPosterDetailModel>(`${this.apiHost}/${this.homeAddress}/GetFilmDetail/${filmId}`);
+    return this.apiService.get(`${this.homeAddress}/GetFilmDetail/${filmId}`);
   }
 
   getListFilmDetails(filmId: any, numberOfFilms: any): Observable<any> {
     let queryParams = new HttpParams().set('filmId', filmId)
       .set("numberOfFilms", numberOfFilms);
-    return this.httpClient.get(`${this.apiHost}/${this.homeAddress}/GetListFilmDetails`, { params: queryParams });
+    return this.apiService.get(`${this.homeAddress}/GetListFilmDetails`, queryParams);
   }
 }

@@ -25,7 +25,7 @@ export class CarouselFilmComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit() {
-    this.filmOnlineService.getListFilmsCarousel(this.authService.authorizationHeaderValue).subscribe(result => {
+    this.filmOnlineService.getListFilmsCarousel().subscribe(result => {
       this.listFilmOnlines = result;
     });
   }

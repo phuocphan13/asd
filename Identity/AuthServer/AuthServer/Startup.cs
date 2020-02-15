@@ -15,8 +15,6 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using System.Net;
  
-
-
 namespace AuthServer
 {
     public class Startup
