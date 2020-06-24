@@ -32,11 +32,10 @@
     line-height: 1.7rem;
   }
 
-.name {
-  font-weight: bold;
-  font-size: 24px;
-  
-}
+  .name {
+    font-weight: bold;
+    font-size: 24px;
+  }
 
   .image-2 {
     margin-bottom: 0px;
@@ -73,13 +72,12 @@
   color: #505f75;
 }
 
-  a {
-    color: #ff8902;
-    font-weight: 600;
-    text-decoration: underline;
-    transition: 0.8s ease-in, opacity, 1s;
-    text-decoration-color: #dba433;
-  }
+a {
+  color: #ff8902;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: 0.8s ease-in, opacity, 1s;
+  text-decoration-color: #dba433;
 }
 
 .body-info {
